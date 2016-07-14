@@ -8,11 +8,13 @@
 
 #import "GTAddDeviceViewController.h"
 #import "GTAddDeviceCell.h"
-
+#import "QRCodeReaderViewController.h"
 #define DeviceSection @"DeviceSection"
 #define UserSection   @"UserSection"
 #define AddDeviceIdentifier @"AddDeviceIdentifier"
-@interface GTAddDeviceViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+#define TEST
+@interface GTAddDeviceViewController ()<UITableViewDelegate, UITableViewDataSource, QRCodeReaderDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UIButton *addDeviceButton;
 @property (nonatomic, strong) NSArray *sections;
@@ -20,6 +22,8 @@
 @property (nonatomic, copy) NSString *deviceName;
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *userPwd;
+@property (nonatomic, strong) QRCodeReaderViewController *reader;
+@property (nonatomic, copy) NSString *QRResult;
 @end
 
 @implementation GTAddDeviceViewController
@@ -31,8 +35,6 @@
     
     _sections = [NSArray arrayWithObjects:DeviceSection, UserSection, nil];
     [self configTableView];
-    
-
 }
 
 - (void)configTableView
@@ -51,7 +53,7 @@
     NSString *sectionName = _sections[section];
     
     if([sectionName isEqualToString:DeviceSection])
-        return 2;
+        return 1;
     else if ([sectionName isEqualToString:UserSection])
         return 2;
     else
@@ -69,9 +71,18 @@
     
     __weak __typeof(self)weakSelf = self;
     
+    [cell setClickQRImage:^{
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf goQRScan];
+    }];
+    
+    
+#ifdef TEST
+    _QRResult = @"2006c574edfa9240";
+#endif
     if([sectionName isEqualToString:DeviceSection]) {
         if(row == 0) {
-            [cell setUpCellWithTitle:@"设备编号:" placeholder:nil icon:nil cellStyle:GTAddDeviceCellStyleTitle_textField_QRImage];
+            [cell setUpCellWithTitle:@"设备编号:" content:_QRResult placeholder:nil icon:nil cellStyle:GTAddDeviceCellStyleTitle_textField_QRImage];
             
             [cell becomeActive];
             
@@ -81,7 +92,7 @@
             }];
         }
         else {
-            [cell setUpCellWithTitle:@"设备名称:" placeholder:nil icon:nil cellStyle:GTAddDeviceCellStyleTitle_textField];
+            [cell setUpCellWithTitle:@"设备名称:" content:nil placeholder:nil icon:nil cellStyle:GTAddDeviceCellStyleTitle_textField];
             
             [cell setTextChangedBlock:^(NSString *content) {
                 __strong __typeof(weakSelf)strongSelf = weakSelf;
@@ -91,16 +102,22 @@
     }
     else if ([sectionName isEqualToString:UserSection]) {
         if(row == 0) {
-            [cell setUpCellWithTitle:nil placeholder:@"请输入设备用户名" icon:[UIImage imageNamed:@"GTUserIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
-            
+#ifdef TEST
+            [cell setUpCellWithTitle:nil content:@"admin" placeholder:@"请输入设备用户名" icon:[UIImage imageNamed:@"GTUserIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
+#else
+            [cell setUpCellWithTitle:nil content:nil placeholder:@"请输入设备用户名" icon:[UIImage imageNamed:@"GTUserIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
+#endif
             [cell setTextChangedBlock:^(NSString *content) {
                 __strong __typeof(weakSelf)strongSelf = weakSelf;
                 strongSelf.userName = content;
             }];
         }
         else {
-            [cell setUpCellWithTitle:nil placeholder:@"请输入设备密码" icon:[UIImage imageNamed:@"GTPasswordIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
-            
+#ifdef TEST
+            [cell setUpCellWithTitle:nil content:@"111111" placeholder:@"请输入设备密码" icon:[UIImage imageNamed:@"GTPasswordIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
+#else
+            [cell setUpCellWithTitle:nil content:nil placeholder:@"请输入设备密码" icon:[UIImage imageNamed:@"GTPasswordIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
+#endif
             [cell setTextChangedBlock:^(NSString *content) {
                 __strong __typeof(weakSelf)strongSelf = weakSelf;
                 strongSelf.userPwd = content;
@@ -112,40 +129,48 @@
 }
 
 - (IBAction)clickAddDeviceButton:(id)sender {
-    
-//    if([_deviceId isEmptyString]) {
-//        [MBProgressHUD showText:@"请输出设备编号" inView:self.view];
-//        return;
-//    }
-//    if([_deviceName isEmptyString]) {
-//        [MBProgressHUD showText:@"请输出设备名称" inView:self.view];
-//        return;
-//    }
-//    if([_deviceName isEmptyString]) {
-//        [MBProgressHUD showText:@"请输出设备用户名" inView:self.view];
-//        return;
-//    }
-//    if([_deviceName isEmptyString]) {
-//        [MBProgressHUD showText:@"请输出设备密码" inView:self.view];
-//        return;
-//    }
-    
-    
-    [[GTHttpManager shareManager] GTDeviceAddWithDeviceNo:@"2006c574edfa9240" deviceUserName:@"admin" devicePwd:@"111111" finishBlock:^(NSDictionary *response, NSError *error) {
+
+    [[GTHttpManager shareManager] GTDeviceAddWithDeviceNo:_deviceId deviceUserName:_userName devicePwd:_userPwd finishBlock:^(NSDictionary *response, NSError *error) {
+        
+        if(error == nil) {
+            [MBProgressHUD showText:@"恭喜您添加设备成功" inView:[UIView gt_keyWindow]];
+            [self performSegueWithIdentifier:@"BackToListSegue" sender:self];
+        }
         
     }];
-    
 
-    NSDictionary *dictionary = @{@"deviceNo": @"2006c574edfa9240",
-                                 @"deviceUserName": @"admin",
-                                 @"devicePwd": @"111111",
-                                 @"userId": @"15e6e64fa5cf4473be2fb5cab8b8e6ce"};
-    
 }
 
 
+#pragma mark - QRCodeReader Delegate Methods
 
+- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+{
+    __weak __typeof(self)weakSelf = self;
+    [_reader dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"qr:%@", result);
+        
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        strongSelf.QRResult = result;
+        [strongSelf.table reloadData];
+    }];
+}
 
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader
+{
+    [_reader dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)goQRScan
+{
+    NSArray *types = @[AVMetadataObjectTypeQRCode];
+    _reader        = [[QRCodeReaderViewController alloc] initWithCancelButtonTitle:@"取消" metadataObjectTypes:types];
+    
+    _reader.delegate = self;
+    
+    
+    [self presentViewController:_reader animated:YES completion:NULL];
+}
 
 
 @end

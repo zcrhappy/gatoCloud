@@ -8,3 +8,4 @@ target “gatoCloud”
     pod 'Mantle'
     pod 'TMCache'
     pod 'MJRefresh'
+    pod 'QRCodeReaderViewController'

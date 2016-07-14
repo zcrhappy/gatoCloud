@@ -138,7 +138,8 @@ NSInteger const APIErrorCode = 138102;
             finishBlk(responseObject, nil);
         }
         else {
-            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:dic];
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
             finishBlk(nil, error);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -193,7 +194,14 @@ NSInteger const APIErrorCode = 138102;
     
 }
 
-
+- (void)showErrorMsgWithResponse:(NSDictionary *)dic
+{
+    NSString *msg = [dic objectForKey:@"desc"];
+    
+    if(msg) {
+        [MBProgressHUD showText:msg inView:[UIView gt_keyWindow]];
+    }
+}
 
 #pragma mark - Base Mothod
 - (AFHTTPSessionManager *)POST:(NSString *)URLString

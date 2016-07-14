@@ -6,7 +6,6 @@
 //  Copyright © 2016年 Gato. All rights reserved.
 //
 
-#import <JASwipeCell/JASwipeCell.h>
 #import "TLSwipeForOptionsCell.h"
 
 

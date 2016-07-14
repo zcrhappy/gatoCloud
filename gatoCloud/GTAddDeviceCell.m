@@ -36,12 +36,12 @@
     [_icon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@15);
         make.width.equalTo(@15);
-        make.width.equalTo(@23);
+        make.height.equalTo(@23);
         make.centerY.equalTo(self.contentView);
     }];
     
     [_QRImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(@(-15));
+        make.right.equalTo(@(-18));
         make.width.height.equalTo(@36);
         make.centerY.equalTo(self.contentView);
     }];
@@ -51,6 +51,7 @@
 }
 
 - (void)setUpCellWithTitle:(NSString *)title
+                   content:(NSString *)content
                placeholder:(NSString *)placeholder
                       icon:(UIImage *)icon
                  cellStyle:(GTAddDeviceCellStyle)style;
@@ -60,6 +61,9 @@
     _textField.placeholder = placeholder;
     _title.text = title;
     _icon.image = icon;
+    
+    if(![content isEmptyString])
+        _textField.text = content;
     
     switch (style) {
         case GTAddDeviceCellStyleIcon_textTield:
@@ -96,7 +100,7 @@
             
             [_textField mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(_title.mas_right).offset(10);
-                make.right.equalTo(_QRImage).offset(-10);
+                make.right.equalTo(_QRImage.mas_left).offset(-5);
                 make.height.equalTo(self.contentView);
             }];
         }
@@ -117,7 +121,8 @@
 
 - (void)goQRScan
 {
-    
+    if(self.clickQRImage)
+        self.clickQRImage();
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

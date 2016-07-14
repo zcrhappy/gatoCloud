@@ -98,7 +98,7 @@
         <scene sceneID="lN4-Sm-mwg">
             <objects>
                 <viewController id="dLW-In-7V7" customClass="GTAddDeviceViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="18" id="3Ln-AA-CES">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="10" sectionFooterHeight="18" id="3Ln-AA-CES">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -138,13 +138,14 @@
                                                 <outlet property="delegate" destination="r4o-XZ-cl7" id="o8z-di-OxM"/>
                                             </connections>
                                         </textField>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GTQRIcon" id="Aq3-NN-4G7">
-                                            <rect key="frame" x="273" y="22" width="55" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fFu-JK-sUx" userLabel="icon">
                                             <rect key="frame" x="34" y="76" width="39" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GTQRIcon" id="Aq3-NN-4G7">
+                                            <rect key="frame" x="273" y="22" width="55" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <gestureRecognizers/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -165,13 +166,31 @@
                     <connections>
                         <outlet property="addDeviceButton" destination="JiU-nU-xah" id="hMw-AB-0hu"/>
                         <outlet property="table" destination="3Ln-AA-CES" id="TiP-RM-jRo"/>
+                        <segue destination="PHS-dT-Jeb" kind="modal" identifier="PresentQRScanSegue" id="DoM-SB-gJu"/>
+                        <segue destination="lle-TG-Atr" kind="unwind" identifier="BackToListSegue" unwindAction="unwindToListViewController:" id="jFF-HE-NQu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21c-Eb-6PP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lle-TG-Atr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="789.33333333333337" y="179.86666666666667"/>
         </scene>
-        <!--Edit Device View Controller-->
+        <!--Code Reader View Controller-->
+        <scene sceneID="JAk-C6-UP9">
+            <objects>
+                <viewController id="PHS-dT-Jeb" customClass="QRCodeReaderViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DQ7-rf-wvb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gcs-qr-ubX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="48u-Tg-oQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1248" y="179"/>
+        </scene>
+        <!--设备名称编辑-->
         <scene sceneID="WJq-iJ-Iz2">
             <objects>
                 <viewController id="HWv-rA-xO9" customClass="GTEditDeviceViewController" sceneMemberID="viewController">
@@ -209,7 +228,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="s9P-Ko-J4N"/>
+                    <navigationItem key="navigationItem" title="设备名称编辑" id="iYN-Uh-ub1"/>
                     <connections>
                         <outlet property="nameTextField" destination="GZh-91-XGa" id="fYp-wh-WV7"/>
                         <segue destination="XtA-qU-CFU" kind="unwind" identifier="BackToListSegue" unwindAction="unwindToListViewController:" id="BSt-d3-Rb7"/>

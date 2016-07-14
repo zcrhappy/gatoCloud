@@ -18,8 +18,10 @@ typedef NS_ENUM(NSInteger, GTAddDeviceCellStyle)
 @interface GTAddDeviceCell : UITableViewCell
 
 @property (nonatomic, copy) void (^textChangedBlock)(NSString *textContent);
+@property (nonatomic, copy) void (^clickQRImage)(void);
 
 - (void)setUpCellWithTitle:(NSString *)title
+                   content:(NSString *)content
                placeholder:(NSString *)placeholder
                       icon:(UIImage *)icon
                  cellStyle:(GTAddDeviceCellStyle)style;

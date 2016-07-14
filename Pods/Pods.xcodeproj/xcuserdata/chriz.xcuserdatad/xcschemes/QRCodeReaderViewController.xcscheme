@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '588A56815C2ED9C69CA17992E1EBE5E2'
-               BlueprintName = 'JASwipeCell'
+               BlueprintIdentifier = '54CF25E763B3B33FFC77BCD7AD4CD75E'
+               BlueprintName = 'QRCodeReaderViewController'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libJASwipeCell.a'>
+               BuildableName = 'libQRCodeReaderViewController.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -9,7 +9,6 @@
 #import "GTDeviceListViewController.h"
 #import "GTDeviceListCell.h"
 #import "GTDeviceModel.h"
-#import "JAActionButton.h"
 #import "GTEditDeviceViewController.h"
 #define kDeviceListCellIdentifier @"kDeviceListCellIdentifier"
 @interface GTDeviceListViewController()<UITableViewDelegate, UITableViewDataSource,TLSwipeForOptionsCellDelegate>
@@ -25,6 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     _list = [NSArray array];
     

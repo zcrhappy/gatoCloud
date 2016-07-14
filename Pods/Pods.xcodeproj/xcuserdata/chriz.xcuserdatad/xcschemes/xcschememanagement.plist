@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>JASwipeCell.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>QRCodeReaderViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TMCache.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>588A56815C2ED9C69CA17992E1EBE5E2</key>
+		<key>54CF25E763B3B33FFC77BCD7AD4CD75E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +72,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8164306E083844A3662A4D7F7B2EDB0D</key>
+		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
+		<key>92DE178E605DA61FEE28FEB7E86894F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,7 +87,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C534C5A7EBA8E8F46A4C3C17B82C78EC</key>
+		<key>F689C89167298872BBE914D1FC37354B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
