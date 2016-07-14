@@ -14,7 +14,7 @@
 #define kDeviceListCellIdentifier @"kDeviceListCellIdentifier"
 @interface GTDeviceListViewController()<UITableViewDelegate, UITableViewDataSource,TLSwipeForOptionsCellDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *deviceList;
+@property (weak, nonatomic) IBOutlet UITableView *listTable;
 
 @property (nonatomic, strong) NSArray *list;
 
@@ -37,7 +37,7 @@
 {
     MJRefreshStateHeader *header = [MJRefreshStateHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDowmToRefresh)];
     header.lastUpdatedTimeLabel.hidden = YES;
-    _deviceList.mj_header = header;
+    _listTable.mj_header = header;
 }
 
 
@@ -46,10 +46,11 @@
     __weak __typeof(self)weakSelf = self;
     [[GTHttpManager shareManager] GTDeviceFetchListWithFinishBlock:^(id response, NSError *error) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf.deviceList.mj_header endRefreshing];
+        [strongSelf.listTable.mj_header endRefreshing];
         
         strongSelf.list = [MTLJSONAdapter modelsOfClass:[GTDeviceModel class] fromJSONArray:(NSArray *)response error:nil];
-        [strongSelf.deviceList reloadData];
+        
+        [strongSelf.listTable reloadData];
     }];
 }
 
@@ -79,28 +80,50 @@
 }
 
 - (void)cellDidSelectDelete:(GTDeviceListCell *)cell {
-//    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-//    
-//    [_objects removeObjectAtIndex:indexPath.row];
-//    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    NSIndexPath *indexPath = [_listTable indexPathForCell:cell];
+    NSInteger row = [indexPath row];
+    GTDeviceModel *model = _list[row];
+    
+    __weak __typeof(self)weakSelf = self;
+    [[GTHttpManager shareManager] GTDeviceDeleteWithDeviceNo:model.deviceNo finishBlock:^(id response, NSError *error) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        if(error == nil) {
+            [MBProgressHUD showText:@"删除设备成功" inView:[UIView gt_keyWindow]];
+            [strongSelf pullDowmToRefresh];
+        }
+    }];
 }
 
 - (void)cellDidSelectMore:(GTDeviceListCell *)cell {
     
     [self performSegueWithIdentifier:@"PushToEidtDeviceSegue" sender:cell];
-    
-//    self.mostRecentlySelectedMoreCell = cell;
-//    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Flag", @"Mark as Unread", @"Move to Junk", @"Move Messages...", nil];
-//    [self.delegate presentActionSheet:actionSheet fromViewController:self];
+
 }
+#pragma mark - Segue Method
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"PushToEidtDeviceSegue"]) {
+        
+        NSIndexPath *indexPath = [_listTable indexPathForCell:((GTDeviceListCell *)sender)];
+        NSInteger row = [indexPath row];
+        GTDeviceModel *model = _list[row];
+        
         GTEditDeviceViewController *destVC = segue.destinationViewController;
-        destVC.currentDeviceName = ((GTDeviceListCell *)sender).deviceName;
+        
+        destVC.currentDeviceName = model.deviceName;
+        destVC.deviceNo = model.deviceNo;
     }
 }
+
+- (IBAction)unwindToListViewController:(UIStoryboardSegue *)unwindSegue
+{
+    if([unwindSegue.identifier isEqualToString:@"BackToListSegue"]) {
+        [self pullDowmToRefresh];
+    }
+}
+
 
 
 @end

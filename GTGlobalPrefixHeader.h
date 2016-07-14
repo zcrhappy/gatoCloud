@@ -18,7 +18,7 @@
 //extension
 #import "NSString+CheckingExtension.h"
 #import "MBProgressHUD+DisplayExtension.h"
-
+#import "UIView+DisplayExtention.h"
 //custom
 #import "GTMacroFunctionHeader.h"
 #import "GTMacroConstantHeader.h"

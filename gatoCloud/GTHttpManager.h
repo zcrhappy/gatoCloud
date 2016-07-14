@@ -35,10 +35,38 @@ typedef void(^GTResultBlock)(id response, NSError *error);
 
 #pragma mark - Device
 - (void)GTDeviceFetchListWithFinishBlock:(GTResultBlock)finishBlk;
+/*!
+ *  @brief 添加设备
+ *
+ *  @param deviceNo       设备标号
+ *  @param deviceUserName 用户名
+ *  @param devicePwd      用户密码
+ *  @param finishBlk      返回结果
+ */
 - (void)GTDeviceAddWithDeviceNo:(NSString *)deviceNo
                  deviceUserName:(NSString *)deviceUserName
                       devicePwd:(NSString *)devicePwd
                     finishBlock:(GTResultBlock)finishBlk;
+/*!
+ *  @brief 设备名称编辑
+ *
+ *  @param deviceName 设备名称
+ *  @param deviceNo   设备编号
+ *  @param finishBlk  返回结果
+ */
+- (void)GTDeviceEditDiviceName:(NSString *)deviceName
+                  withDeviceNo:(NSString *)deviceNo
+                   finishBlock:(GTResultBlock)finishBlk;
+
+/*!
+ *  @brief 删除设备
+ *
+ *  @param deviceNo  设备编号
+ *  @param finishblk 返回结果
+ */
+- (void)GTDeviceDeleteWithDeviceNo:(NSString *)deviceNo
+                       finishBlock:(GTResultBlock)finishBlk;
+
 @end
 
 #pragma clang diagnostic pop

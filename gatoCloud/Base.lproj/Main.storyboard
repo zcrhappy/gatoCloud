@@ -10,7 +10,7 @@
             <objects>
                 <navigationController id="k9Y-K6-xor" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WGe-vs-3hf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="WGe-vs-3hf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.22352941179999999" green="0.63137254899999995" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,14 +78,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="设备" id="Yf0-OG-ey9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="INd-Ky-jJp">
+                        <barButtonItem key="rightBarButtonItem" image="GTDeviceAddIcon" id="INd-Ky-jJp">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="dLW-In-7V7" kind="push" id="27I-mZ-Jyn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="deviceList" destination="khD-Ms-kae" id="otu-p5-gDs"/>
+                        <outlet property="listTable" destination="khD-Ms-kae" id="Uyq-vS-fb4"/>
                         <segue destination="HWv-rA-xO9" kind="push" identifier="PushToEidtDeviceSegue" id="lEh-ly-g0w"/>
                     </connections>
                 </viewController>
@@ -137,7 +138,7 @@
                                                 <outlet property="delegate" destination="r4o-XZ-cl7" id="o8z-di-OxM"/>
                                             </connections>
                                         </textField>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Aq3-NN-4G7">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GTQRIcon" id="Aq3-NN-4G7">
                                             <rect key="frame" x="273" y="22" width="55" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -211,9 +212,11 @@
                     <navigationItem key="navigationItem" id="s9P-Ko-J4N"/>
                     <connections>
                         <outlet property="nameTextField" destination="GZh-91-XGa" id="fYp-wh-WV7"/>
+                        <segue destination="XtA-qU-CFU" kind="unwind" identifier="BackToListSegue" unwindAction="unwindToListViewController:" id="BSt-d3-Rb7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62k-ch-AQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="XtA-qU-CFU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="789" y="819"/>
         </scene>
@@ -289,9 +292,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AFu-6j-6jz">
-                                <rect key="frame" x="76" y="255" width="168" height="93"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="d4x-Ak-rgZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="394"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AFu-6j-6jz">
+                                <rect key="frame" x="105" y="396" width="110" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.22352941179999999" green="0.63137254899999995" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="k9Y-K6-xor" kind="modal" id="le8-F8-MOF"/>
@@ -308,9 +316,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GTDeviceAddIcon" width="29" height="29"/>
         <image name="GTLoginBackground" width="360" height="640"/>
         <image name="GTLoginWeChatIcon" width="25" height="25"/>
         <image name="GTLogo" width="117" height="74"/>
+        <image name="GTQRIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AwR-qC-aX1"/>

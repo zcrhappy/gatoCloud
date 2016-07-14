@@ -103,12 +103,15 @@ NSInteger const APIErrorCode = 138102;
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *dic = (NSDictionary *)responseObject;
-        if ([responseObject isVaildResponse]) {
-            
-        }
         
-        NSArray *list = [dic objectForKey:@"list"];
-        finishBlk(list, nil);
+        if ([responseObject isVaildResponse]) {
+            NSArray *list = [dic objectForKey:@"list"];
+            finishBlk(list, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:dic];
+            finishBlk(nil, error);
+        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -132,14 +135,67 @@ NSInteger const APIErrorCode = 138102;
         
     } success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isVaildResponse]) {
-            
+            finishBlk(responseObject, nil);
         }
-        finishBlk(dic, nil);
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:dic];
+            finishBlk(nil, error);
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         finishBlk(nil, error);
     }];
 }
 
+- (void)GTDeviceEditDiviceName:(NSString *)deviceName
+                  withDeviceNo:(NSString *)deviceNo
+                   finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:deviceNo forKey:@"deviceNo"];
+    [dic safeSetObject:deviceName forKey:@"deviceName"];
+    
+    [self POST:@"/service/editDeviceName.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
+
+- (void)GTDeviceDeleteWithDeviceNo:(NSString *)deviceNo
+                       finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:deviceNo forKey:@"deviceNo"];
+    
+    [self POST:@"/service/unbindDevice.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+    
+}
+
+
+
+#pragma mark - Base Mothod
 - (AFHTTPSessionManager *)POST:(NSString *)URLString
                     parameters:(id)parameters
                       progress:(void (^)(NSProgress * _Nonnull downloadProgress))progress

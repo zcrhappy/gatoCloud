@@ -31,6 +31,7 @@
 		3321FAAF1D368DEE00D3850E /* TLSwipeForOptionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAAE1D368DEE00D3850E /* TLSwipeForOptionsCell.m */; };
 		3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB11D36924100D3850E /* UIView+GTCornerRadius.m */; };
 		3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */; };
+		3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */; };
 		33C620981D2FE7E60022A9F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620971D2FE7E60022A9F0 /* main.m */; };
 		33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */; };
 		33C620A11D2FE7E60022A9F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C6209F1D2FE7E60022A9F0 /* Main.storyboard */; };
@@ -87,6 +88,8 @@
 		3321FAB11D36924100D3850E /* UIView+GTCornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GTCornerRadius.m"; sourceTree = "<group>"; };
 		3321FAB31D3692FF00D3850E /* GTEditDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTEditDeviceViewController.h; sourceTree = "<group>"; };
 		3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTEditDeviceViewController.m; sourceTree = "<group>"; };
+		3321FABB1D37CAB500D3850E /* UIView+DisplayExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DisplayExtention.h"; sourceTree = "<group>"; };
+		3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DisplayExtention.m"; sourceTree = "<group>"; };
 		33C620931D2FE7E60022A9F0 /* gatoCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gatoCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C620971D2FE7E60022A9F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		33C620991D2FE7E60022A9F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				3321FA8F1D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.m */,
 				3321FA911D33F96900D3850E /* NSDictionary+HTTPExtionsion.h */,
 				3321FA921D33F96900D3850E /* NSDictionary+HTTPExtionsion.m */,
+				3321FABB1D37CAB500D3850E /* UIView+DisplayExtention.h */,
+				3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */,
 			);
 			name = Catagory;
 			sourceTree = "<group>";
@@ -430,6 +435,7 @@
 				33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */,
 				3321FA6B1D33BA3C00D3850E /* GTLoginManager.m in Sources */,
 				3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */,
+				3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */,
 				33C620981D2FE7E60022A9F0 /* main.m in Sources */,
 				3321FAAF1D368DEE00D3850E /* TLSwipeForOptionsCell.m in Sources */,
 			);

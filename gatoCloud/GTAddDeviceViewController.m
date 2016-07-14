@@ -91,7 +91,7 @@
     }
     else if ([sectionName isEqualToString:UserSection]) {
         if(row == 0) {
-            [cell setUpCellWithTitle:nil placeholder:@"请输入设备用户名" icon:nil cellStyle:GTAddDeviceCellStyleIcon_textTield];
+            [cell setUpCellWithTitle:nil placeholder:@"请输入设备用户名" icon:[UIImage imageNamed:@"GTUserIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
             
             [cell setTextChangedBlock:^(NSString *content) {
                 __strong __typeof(weakSelf)strongSelf = weakSelf;
@@ -99,7 +99,7 @@
             }];
         }
         else {
-            [cell setUpCellWithTitle:nil placeholder:@"请输入设备密码" icon:nil cellStyle:GTAddDeviceCellStyleIcon_textTield];
+            [cell setUpCellWithTitle:nil placeholder:@"请输入设备密码" icon:[UIImage imageNamed:@"GTPasswordIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
             
             [cell setTextChangedBlock:^(NSString *content) {
                 __strong __typeof(weakSelf)strongSelf = weakSelf;

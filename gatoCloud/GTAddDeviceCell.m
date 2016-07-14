@@ -35,13 +35,14 @@
 
     [_icon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@15);
-        make.width.height.equalTo(@15);
+        make.width.equalTo(@15);
+        make.width.equalTo(@23);
         make.centerY.equalTo(self.contentView);
     }];
     
     [_QRImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(@(-15));
-        make.width.height.equalTo(@15);
+        make.width.height.equalTo(@36);
         make.centerY.equalTo(self.contentView);
     }];
     
