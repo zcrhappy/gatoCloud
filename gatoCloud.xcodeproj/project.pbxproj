@@ -1,0 +1,309 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		33C620981D2FE7E60022A9F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620971D2FE7E60022A9F0 /* main.m */; };
+		33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */; };
+		33C6209E1D2FE7E60022A9F0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C6209D1D2FE7E60022A9F0 /* ViewController.m */; };
+		33C620A11D2FE7E60022A9F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C6209F1D2FE7E60022A9F0 /* Main.storyboard */; };
+		33C620A31D2FE7E60022A9F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33C620A21D2FE7E60022A9F0 /* Assets.xcassets */; };
+		33C620A61D2FE7E60022A9F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C620A41D2FE7E60022A9F0 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		33C620931D2FE7E60022A9F0 /* gatoCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gatoCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33C620971D2FE7E60022A9F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		33C620991D2FE7E60022A9F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		33C6209C1D2FE7E60022A9F0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		33C6209D1D2FE7E60022A9F0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		33C620A01D2FE7E60022A9F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		33C620A21D2FE7E60022A9F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33C620A51D2FE7E60022A9F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		33C620A71D2FE7E60022A9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33C620901D2FE7E60022A9F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33C6208A1D2FE7E60022A9F0 = {
+			isa = PBXGroup;
+			children = (
+				33C620951D2FE7E60022A9F0 /* gatoCloud */,
+				33C620941D2FE7E60022A9F0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33C620941D2FE7E60022A9F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33C620931D2FE7E60022A9F0 /* gatoCloud.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33C620951D2FE7E60022A9F0 /* gatoCloud */ = {
+			isa = PBXGroup;
+			children = (
+				33C620991D2FE7E60022A9F0 /* AppDelegate.h */,
+				33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */,
+				33C6209C1D2FE7E60022A9F0 /* ViewController.h */,
+				33C6209D1D2FE7E60022A9F0 /* ViewController.m */,
+				33C6209F1D2FE7E60022A9F0 /* Main.storyboard */,
+				33C620A21D2FE7E60022A9F0 /* Assets.xcassets */,
+				33C620A41D2FE7E60022A9F0 /* LaunchScreen.storyboard */,
+				33C620A71D2FE7E60022A9F0 /* Info.plist */,
+				33C620961D2FE7E60022A9F0 /* Supporting Files */,
+			);
+			path = gatoCloud;
+			sourceTree = "<group>";
+		};
+		33C620961D2FE7E60022A9F0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				33C620971D2FE7E60022A9F0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33C620921D2FE7E60022A9F0 /* gatoCloud */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33C620AA1D2FE7E60022A9F0 /* Build configuration list for PBXNativeTarget "gatoCloud" */;
+			buildPhases = (
+				33C6208F1D2FE7E60022A9F0 /* Sources */,
+				33C620901D2FE7E60022A9F0 /* Frameworks */,
+				33C620911D2FE7E60022A9F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gatoCloud;
+			productName = gatoCloud;
+			productReference = 33C620931D2FE7E60022A9F0 /* gatoCloud.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33C6208B1D2FE7E60022A9F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Gato;
+				TargetAttributes = {
+					33C620921D2FE7E60022A9F0 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 33C6208E1D2FE7E60022A9F0 /* Build configuration list for PBXProject "gatoCloud" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33C6208A1D2FE7E60022A9F0;
+			productRefGroup = 33C620941D2FE7E60022A9F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33C620921D2FE7E60022A9F0 /* gatoCloud */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33C620911D2FE7E60022A9F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33C620A61D2FE7E60022A9F0 /* LaunchScreen.storyboard in Resources */,
+				33C620A31D2FE7E60022A9F0 /* Assets.xcassets in Resources */,
+				33C620A11D2FE7E60022A9F0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33C6208F1D2FE7E60022A9F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33C6209E1D2FE7E60022A9F0 /* ViewController.m in Sources */,
+				33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */,
+				33C620981D2FE7E60022A9F0 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		33C6209F1D2FE7E60022A9F0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33C620A01D2FE7E60022A9F0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		33C620A41D2FE7E60022A9F0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33C620A51D2FE7E60022A9F0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33C620A81D2FE7E60022A9F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		33C620A91D2FE7E60022A9F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33C620AB1D2FE7E60022A9F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = gatoCloud/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gato.cloud.gatoCloud;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		33C620AC1D2FE7E60022A9F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = gatoCloud/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gato.cloud.gatoCloud;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33C6208E1D2FE7E60022A9F0 /* Build configuration list for PBXProject "gatoCloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33C620A81D2FE7E60022A9F0 /* Debug */,
+				33C620A91D2FE7E60022A9F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33C620AA1D2FE7E60022A9F0 /* Build configuration list for PBXNativeTarget "gatoCloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33C620AB1D2FE7E60022A9F0 /* Debug */,
+				33C620AC1D2FE7E60022A9F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33C6208B1D2FE7E60022A9F0 /* Project object */;
+}
