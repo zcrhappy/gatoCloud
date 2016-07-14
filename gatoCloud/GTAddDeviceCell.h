@@ -8,6 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, GTAddDeviceCellStyle)
+{
+    GTAddDeviceCellStyleTitle_textField_QRImage,
+    GTAddDeviceCellStyleTitle_textField,
+    GTAddDeviceCellStyleIcon_textTield
+};
+
 @interface GTAddDeviceCell : UITableViewCell
 
+@property (nonatomic, copy) void (^textChangedBlock)(NSString *textContent);
+
+- (void)setUpCellWithTitle:(NSString *)title
+               placeholder:(NSString *)placeholder
+                      icon:(UIImage *)icon
+                 cellStyle:(GTAddDeviceCellStyle)style;
+
+
+- (void)becomeActive;
 @end

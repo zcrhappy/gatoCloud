@@ -7,7 +7,13 @@
 //
 
 #import <JASwipeCell/JASwipeCell.h>
+#import "TLSwipeForOptionsCell.h"
 
-@interface GTDeviceListCell : JASwipeCell
+
+@interface GTDeviceListCell : TLSwipeForOptionsCell
+
+- (void)configDeviceName:(NSString *)name status:(NSString *)status;
+
+- (NSString *)deviceName;
 
 @end

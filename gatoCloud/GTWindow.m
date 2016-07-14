@@ -7,7 +7,16 @@
 //
 
 #import "GTWindow.h"
+#import "FLEXManager.h"
 
 @implementation GTWindow
+
+#if DEBUG
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if(UIEventSubtypeMotionShake == motion) {
+        [[FLEXManager sharedManager] showExplorer];
+    }
+}
+# endif
 
 @end

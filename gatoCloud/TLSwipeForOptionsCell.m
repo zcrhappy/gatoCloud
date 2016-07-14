@@ -16,7 +16,6 @@ NSString *const TLSwipeForOptionsCellEnclosingTableViewDidBeginScrollingNotifica
 
 @property (nonatomic, weak) UIScrollView *scrollView;
 
-@property (nonatomic, weak) UIView *scrollViewContentView;      //The cell content (like the label) goes in this view.
 @property (nonatomic, weak) UIView *scrollViewButtonView;       //Contains our two buttons
 
 @property (nonatomic, weak) UILabel *scrollViewLabel;
@@ -59,7 +58,7 @@ NSString *const TLSwipeForOptionsCellEnclosingTableViewDidBeginScrollingNotifica
     UIButton *moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
     moreButton.backgroundColor = [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0f];
     moreButton.frame = CGRectMake(0, 0, kCatchWidth / 2.0f, CGRectGetHeight(self.bounds));
-    [moreButton setTitle:@"More" forState:UIControlStateNormal];
+    [moreButton setTitle:@"编辑" forState:UIControlStateNormal];
     [moreButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [moreButton addTarget:self action:@selector(userPressedMoreButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollViewButtonView addSubview:moreButton];
@@ -67,7 +66,7 @@ NSString *const TLSwipeForOptionsCellEnclosingTableViewDidBeginScrollingNotifica
     UIButton *deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
     deleteButton.backgroundColor = [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0f];
     deleteButton.frame = CGRectMake(kCatchWidth / 2.0f, 0, kCatchWidth / 2.0f, CGRectGetHeight(self.bounds));
-    [deleteButton setTitle:@"Delete" forState:UIControlStateNormal];
+    [deleteButton setTitle:@"删除" forState:UIControlStateNormal];
     [deleteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [deleteButton addTarget:self action:@selector(userPressedDeleteButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollViewButtonView addSubview:deleteButton];

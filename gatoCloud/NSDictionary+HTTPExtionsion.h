@@ -10,4 +10,6 @@
 
 @interface NSDictionary (HTTPExtionsion)
 
+- (BOOL)isVaildResponse;
+
 @end

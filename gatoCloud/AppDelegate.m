@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
-@interface AppDelegate ()
+#import "GTWindow.h"
+#import "GTLoginManager.h"
+@interface AppDelegate ()<WXApiDelegate>
 
 @end
 
@@ -17,7 +18,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //向微信注册
+    [WXApi registerApp:@"wx91186ee878bacc62" withDescription:@"Gato Security"];
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *rootViewController = [storyBoard instantiateInitialViewController];
+    self.window = [[GTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setRootViewController:rootViewController];
+    [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [WXApi handleOpenURL:url delegate:[GTLoginManager sharedManager]];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [WXApi handleOpenURL:url delegate:[GTLoginManager sharedManager]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

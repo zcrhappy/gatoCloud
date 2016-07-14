@@ -10,4 +10,12 @@
 
 @implementation NSDictionary (HTTPExtionsion)
 
+- (BOOL)isVaildResponse
+{
+    NSString *code = [self objectForKey:@"code"];
+    if([code isEqualToString:@"10000"])
+        return YES;
+    return NO;
+}
+
 @end

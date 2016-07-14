@@ -10,4 +10,9 @@
 
 @interface MBProgressHUD (DisplayExtension)
 
++ (void)showText:(NSString *)text inView:(UIView *)view;
++ (void)showText:(NSString *)text inView:(UIView *)view withTime:(NSTimeInterval)time;
+
 @end
+
+

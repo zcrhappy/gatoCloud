@@ -10,4 +10,9 @@
 
 @implementation GTUserModel
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{};
+}
+
 @end

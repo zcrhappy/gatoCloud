@@ -7,25 +7,103 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA4D1D3240FD00D3850E /* GTWindow.m */; };
+		3321FA531D329D1300D3850E /* NSString+CheckingExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA521D329D1300D3850E /* NSString+CheckingExtension.m */; };
+		3321FA571D329ED600D3850E /* MBProgressHUD+DisplayExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA561D329ED600D3850E /* MBProgressHUD+DisplayExtension.m */; };
+		3321FA5A1D32A82E00D3850E /* GTHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA591D32A82E00D3850E /* GTHttpManager.m */; };
+		3321FA611D3354FC00D3850E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA5C1D3354FC00D3850E /* libWeChatSDK.a */; };
+		3321FA621D3354FC00D3850E /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3321FA5D1D3354FC00D3850E /* README.txt */; };
+		3321FA681D33B96B00D3850E /* GTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA671D33B96B00D3850E /* GTLoginViewController.m */; };
+		3321FA6B1D33BA3C00D3850E /* GTLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA6A1D33BA3C00D3850E /* GTLoginManager.m */; };
+		3321FA6D1D33BC1C00D3850E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA6C1D33BC1C00D3850E /* Security.framework */; };
+		3321FA711D33BE1D00D3850E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA701D33BE1D00D3850E /* libc++.tbd */; };
+		3321FA731D33BE2700D3850E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA721D33BE2700D3850E /* libz.tbd */; };
+		3321FA751D33BE2F00D3850E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA741D33BE2F00D3850E /* SystemConfiguration.framework */; };
+		3321FA771D33BE7B00D3850E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA761D33BE7B00D3850E /* libsqlite3.tbd */; };
+		3321FA791D33BED300D3850E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA781D33BED300D3850E /* CoreTelephony.framework */; };
+		3321FA891D33E40000D3850E /* GTUserUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA881D33E40000D3850E /* GTUserUtils.m */; };
+		3321FA8D1D33E87B00D3850E /* GTUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA8C1D33E87B00D3850E /* GTUserModel.m */; };
+		3321FA901D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA8F1D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.m */; };
+		3321FA931D33F96900D3850E /* NSDictionary+HTTPExtionsion.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA921D33F96900D3850E /* NSDictionary+HTTPExtionsion.m */; };
+		3321FA9A1D34C55300D3850E /* GTDeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA991D34C55300D3850E /* GTDeviceListViewController.m */; };
+		3321FAA11D36743200D3850E /* GTDeviceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAA01D36743200D3850E /* GTDeviceListCell.m */; };
+		3321FAA41D36782500D3850E /* GTDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAA31D36782500D3850E /* GTDeviceModel.m */; };
+		3321FAAF1D368DEE00D3850E /* TLSwipeForOptionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAAE1D368DEE00D3850E /* TLSwipeForOptionsCell.m */; };
+		3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB11D36924100D3850E /* UIView+GTCornerRadius.m */; };
+		3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */; };
 		33C620981D2FE7E60022A9F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620971D2FE7E60022A9F0 /* main.m */; };
 		33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */; };
-		33C6209E1D2FE7E60022A9F0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C6209D1D2FE7E60022A9F0 /* ViewController.m */; };
 		33C620A11D2FE7E60022A9F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C6209F1D2FE7E60022A9F0 /* Main.storyboard */; };
 		33C620A31D2FE7E60022A9F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33C620A21D2FE7E60022A9F0 /* Assets.xcassets */; };
 		33C620A61D2FE7E60022A9F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C620A41D2FE7E60022A9F0 /* LaunchScreen.storyboard */; };
+		33C620B01D30096E0022A9F0 /* GTAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620AF1D30096E0022A9F0 /* GTAddDeviceViewController.m */; };
+		33C620B31D300D750022A9F0 /* GTAddDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620B21D300D750022A9F0 /* GTAddDeviceCell.m */; };
+		8BE677447F85240C7D463C57 /* libPods-gatoCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB7C0AA89F4ABA958A8D5DC /* libPods-gatoCloud.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E0F76716D129E10DF7A68C4 /* Pods-gatoCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gatoCloud.release.xcconfig"; path = "Pods/Target Support Files/Pods-gatoCloud/Pods-gatoCloud.release.xcconfig"; sourceTree = "<group>"; };
+		3321FA4C1D3240FD00D3850E /* GTWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWindow.h; sourceTree = "<group>"; };
+		3321FA4D1D3240FD00D3850E /* GTWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWindow.m; sourceTree = "<group>"; };
+		3321FA511D329D1300D3850E /* NSString+CheckingExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CheckingExtension.h"; sourceTree = "<group>"; };
+		3321FA521D329D1300D3850E /* NSString+CheckingExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CheckingExtension.m"; sourceTree = "<group>"; };
+		3321FA551D329ED600D3850E /* MBProgressHUD+DisplayExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+DisplayExtension.h"; sourceTree = "<group>"; };
+		3321FA561D329ED600D3850E /* MBProgressHUD+DisplayExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+DisplayExtension.m"; sourceTree = "<group>"; };
+		3321FA581D32A82E00D3850E /* GTHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTHttpManager.h; sourceTree = "<group>"; };
+		3321FA591D32A82E00D3850E /* GTHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTHttpManager.m; sourceTree = "<group>"; };
+		3321FA5C1D3354FC00D3850E /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		3321FA5D1D3354FC00D3850E /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		3321FA5E1D3354FC00D3850E /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		3321FA5F1D3354FC00D3850E /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		3321FA601D3354FC00D3850E /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		3321FA661D33B96B00D3850E /* GTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLoginViewController.h; sourceTree = "<group>"; };
+		3321FA671D33B96B00D3850E /* GTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLoginViewController.m; sourceTree = "<group>"; };
+		3321FA691D33BA3C00D3850E /* GTLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLoginManager.h; path = Login/GTLoginManager.h; sourceTree = "<group>"; };
+		3321FA6A1D33BA3C00D3850E /* GTLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLoginManager.m; path = Login/GTLoginManager.m; sourceTree = "<group>"; };
+		3321FA6C1D33BC1C00D3850E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3321FA6E1D33BE0E00D3850E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		3321FA701D33BE1D00D3850E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		3321FA721D33BE2700D3850E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		3321FA741D33BE2F00D3850E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3321FA761D33BE7B00D3850E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		3321FA781D33BED300D3850E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		3321FA871D33E40000D3850E /* GTUserUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserUtils.h; sourceTree = "<group>"; };
+		3321FA881D33E40000D3850E /* GTUserUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTUserUtils.m; sourceTree = "<group>"; };
+		3321FA8B1D33E87B00D3850E /* GTUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserModel.h; sourceTree = "<group>"; };
+		3321FA8C1D33E87B00D3850E /* GTUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTUserModel.m; sourceTree = "<group>"; };
+		3321FA8E1D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+HTTPExtension.h"; sourceTree = "<group>"; };
+		3321FA8F1D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+HTTPExtension.m"; sourceTree = "<group>"; };
+		3321FA911D33F96900D3850E /* NSDictionary+HTTPExtionsion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HTTPExtionsion.h"; sourceTree = "<group>"; };
+		3321FA921D33F96900D3850E /* NSDictionary+HTTPExtionsion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HTTPExtionsion.m"; sourceTree = "<group>"; };
+		3321FA981D34C55300D3850E /* GTDeviceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDeviceListViewController.h; sourceTree = "<group>"; };
+		3321FA991D34C55300D3850E /* GTDeviceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDeviceListViewController.m; sourceTree = "<group>"; };
+		3321FA9F1D36743200D3850E /* GTDeviceListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDeviceListCell.h; sourceTree = "<group>"; };
+		3321FAA01D36743200D3850E /* GTDeviceListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDeviceListCell.m; sourceTree = "<group>"; };
+		3321FAA21D36782500D3850E /* GTDeviceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDeviceModel.h; sourceTree = "<group>"; };
+		3321FAA31D36782500D3850E /* GTDeviceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDeviceModel.m; sourceTree = "<group>"; };
+		3321FAAD1D368DEE00D3850E /* TLSwipeForOptionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSwipeForOptionsCell.h; sourceTree = "<group>"; };
+		3321FAAE1D368DEE00D3850E /* TLSwipeForOptionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSwipeForOptionsCell.m; sourceTree = "<group>"; };
+		3321FAB01D36924100D3850E /* UIView+GTCornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GTCornerRadius.h"; sourceTree = "<group>"; };
+		3321FAB11D36924100D3850E /* UIView+GTCornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GTCornerRadius.m"; sourceTree = "<group>"; };
+		3321FAB31D3692FF00D3850E /* GTEditDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTEditDeviceViewController.h; sourceTree = "<group>"; };
+		3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTEditDeviceViewController.m; sourceTree = "<group>"; };
 		33C620931D2FE7E60022A9F0 /* gatoCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gatoCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C620971D2FE7E60022A9F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		33C620991D2FE7E60022A9F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		33C6209C1D2FE7E60022A9F0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		33C6209D1D2FE7E60022A9F0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		33C620A01D2FE7E60022A9F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33C620A21D2FE7E60022A9F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33C620A51D2FE7E60022A9F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33C620A71D2FE7E60022A9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33C620AE1D30096E0022A9F0 /* GTAddDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTAddDeviceViewController.h; sourceTree = "<group>"; };
+		33C620AF1D30096E0022A9F0 /* GTAddDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTAddDeviceViewController.m; sourceTree = "<group>"; };
+		33C620B11D300D750022A9F0 /* GTAddDeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTAddDeviceCell.h; sourceTree = "<group>"; };
+		33C620B21D300D750022A9F0 /* GTAddDeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTAddDeviceCell.m; sourceTree = "<group>"; };
+		33C620B41D300EBE0022A9F0 /* GTGlobalPrefixHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTGlobalPrefixHeader.h; sourceTree = "<group>"; };
+		33C620B51D30FD9D0022A9F0 /* GTMacroFunctionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMacroFunctionHeader.h; sourceTree = "<group>"; };
+		33C620B61D3107120022A9F0 /* GTMacroConstantHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMacroConstantHeader.h; sourceTree = "<group>"; };
+		4E9C7E50B9B21A8135494CBF /* Pods-gatoCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gatoCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gatoCloud/Pods-gatoCloud.debug.xcconfig"; sourceTree = "<group>"; };
+		5DB7C0AA89F4ABA958A8D5DC /* libPods-gatoCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gatoCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +111,103 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3321FA791D33BED300D3850E /* CoreTelephony.framework in Frameworks */,
+				3321FA771D33BE7B00D3850E /* libsqlite3.tbd in Frameworks */,
+				3321FA751D33BE2F00D3850E /* SystemConfiguration.framework in Frameworks */,
+				3321FA731D33BE2700D3850E /* libz.tbd in Frameworks */,
+				3321FA711D33BE1D00D3850E /* libc++.tbd in Frameworks */,
+				3321FA6D1D33BC1C00D3850E /* Security.framework in Frameworks */,
+				3321FA611D3354FC00D3850E /* libWeChatSDK.a in Frameworks */,
+				8BE677447F85240C7D463C57 /* libPods-gatoCloud.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3321FA501D32490500D3850E /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				33C620B61D3107120022A9F0 /* GTMacroConstantHeader.h */,
+				33C620B51D30FD9D0022A9F0 /* GTMacroFunctionHeader.h */,
+				33C620B41D300EBE0022A9F0 /* GTGlobalPrefixHeader.h */,
+			);
+			name = Headers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3321FA541D329D1600D3850E /* Catagory */ = {
+			isa = PBXGroup;
+			children = (
+				3321FA511D329D1300D3850E /* NSString+CheckingExtension.h */,
+				3321FA521D329D1300D3850E /* NSString+CheckingExtension.m */,
+				3321FA551D329ED600D3850E /* MBProgressHUD+DisplayExtension.h */,
+				3321FA561D329ED600D3850E /* MBProgressHUD+DisplayExtension.m */,
+				3321FA8E1D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.h */,
+				3321FA8F1D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.m */,
+				3321FA911D33F96900D3850E /* NSDictionary+HTTPExtionsion.h */,
+				3321FA921D33F96900D3850E /* NSDictionary+HTTPExtionsion.m */,
+			);
+			name = Catagory;
+			sourceTree = "<group>";
+		};
+		3321FA5B1D33548D00D3850E /* WeChatAPI */ = {
+			isa = PBXGroup;
+			children = (
+				3321FA5C1D3354FC00D3850E /* libWeChatSDK.a */,
+				3321FA5D1D3354FC00D3850E /* README.txt */,
+				3321FA5E1D3354FC00D3850E /* WechatAuthSDK.h */,
+				3321FA5F1D3354FC00D3850E /* WXApi.h */,
+				3321FA601D3354FC00D3850E /* WXApiObject.h */,
+			);
+			name = WeChatAPI;
+			sourceTree = "<group>";
+		};
+		3321FA651D33B95100D3850E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3321FA5B1D33548D00D3850E /* WeChatAPI */,
+				3321FA661D33B96B00D3850E /* GTLoginViewController.h */,
+				3321FA671D33B96B00D3850E /* GTLoginViewController.m */,
+				3321FA691D33BA3C00D3850E /* GTLoginManager.h */,
+				3321FA6A1D33BA3C00D3850E /* GTLoginManager.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		3321FA8A1D33E85E00D3850E /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				3321FA871D33E40000D3850E /* GTUserUtils.h */,
+				3321FA881D33E40000D3850E /* GTUserUtils.m */,
+				3321FA8B1D33E87B00D3850E /* GTUserModel.h */,
+				3321FA8C1D33E87B00D3850E /* GTUserModel.m */,
+			);
+			name = UserInfo;
+			sourceTree = "<group>";
+		};
+		3321FA9E1D36730000D3850E /* DeviceList */ = {
+			isa = PBXGroup;
+			children = (
+				3321FA981D34C55300D3850E /* GTDeviceListViewController.h */,
+				3321FA991D34C55300D3850E /* GTDeviceListViewController.m */,
+				3321FAAD1D368DEE00D3850E /* TLSwipeForOptionsCell.h */,
+				3321FAAE1D368DEE00D3850E /* TLSwipeForOptionsCell.m */,
+				3321FA9F1D36743200D3850E /* GTDeviceListCell.h */,
+				3321FAA01D36743200D3850E /* GTDeviceListCell.m */,
+				3321FAA21D36782500D3850E /* GTDeviceModel.h */,
+				3321FAA31D36782500D3850E /* GTDeviceModel.m */,
+			);
+			name = DeviceList;
+			sourceTree = "<group>";
+		};
 		33C6208A1D2FE7E60022A9F0 = {
 			isa = PBXGroup;
 			children = (
 				33C620951D2FE7E60022A9F0 /* gatoCloud */,
 				33C620941D2FE7E60022A9F0 /* Products */,
+				4BF9F301F816C63B14762E82 /* Pods */,
+				86DBB2AF2FF9D675B4C6AB26 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,15 +222,16 @@
 		33C620951D2FE7E60022A9F0 /* gatoCloud */ = {
 			isa = PBXGroup;
 			children = (
-				33C620991D2FE7E60022A9F0 /* AppDelegate.h */,
-				33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */,
-				33C6209C1D2FE7E60022A9F0 /* ViewController.h */,
-				33C6209D1D2FE7E60022A9F0 /* ViewController.m */,
+				3321FA8A1D33E85E00D3850E /* UserInfo */,
+				3321FA651D33B95100D3850E /* Login */,
+				3321FA501D32490500D3850E /* Headers */,
+				33C620AD1D30090F0022A9F0 /* Devices */,
 				33C6209F1D2FE7E60022A9F0 /* Main.storyboard */,
 				33C620A21D2FE7E60022A9F0 /* Assets.xcassets */,
-				33C620A41D2FE7E60022A9F0 /* LaunchScreen.storyboard */,
-				33C620A71D2FE7E60022A9F0 /* Info.plist */,
 				33C620961D2FE7E60022A9F0 /* Supporting Files */,
+				3321FA541D329D1600D3850E /* Catagory */,
+				3321FA581D32A82E00D3850E /* GTHttpManager.h */,
+				3321FA591D32A82E00D3850E /* GTHttpManager.m */,
 			);
 			path = gatoCloud;
 			sourceTree = "<group>";
@@ -74,9 +239,55 @@
 		33C620961D2FE7E60022A9F0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				33C620991D2FE7E60022A9F0 /* AppDelegate.h */,
+				33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */,
+				3321FA4C1D3240FD00D3850E /* GTWindow.h */,
+				3321FA4D1D3240FD00D3850E /* GTWindow.m */,
 				33C620971D2FE7E60022A9F0 /* main.m */,
+				33C620A71D2FE7E60022A9F0 /* Info.plist */,
+				33C620A41D2FE7E60022A9F0 /* LaunchScreen.storyboard */,
+				3321FAB01D36924100D3850E /* UIView+GTCornerRadius.h */,
+				3321FAB11D36924100D3850E /* UIView+GTCornerRadius.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33C620AD1D30090F0022A9F0 /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+				33C620AE1D30096E0022A9F0 /* GTAddDeviceViewController.h */,
+				33C620AF1D30096E0022A9F0 /* GTAddDeviceViewController.m */,
+				3321FAB31D3692FF00D3850E /* GTEditDeviceViewController.h */,
+				3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */,
+				33C620B11D300D750022A9F0 /* GTAddDeviceCell.h */,
+				33C620B21D300D750022A9F0 /* GTAddDeviceCell.m */,
+				3321FA9E1D36730000D3850E /* DeviceList */,
+			);
+			name = Devices;
+			sourceTree = "<group>";
+		};
+		4BF9F301F816C63B14762E82 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E9C7E50B9B21A8135494CBF /* Pods-gatoCloud.debug.xcconfig */,
+				1E0F76716D129E10DF7A68C4 /* Pods-gatoCloud.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		86DBB2AF2FF9D675B4C6AB26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3321FA781D33BED300D3850E /* CoreTelephony.framework */,
+				3321FA761D33BE7B00D3850E /* libsqlite3.tbd */,
+				3321FA741D33BE2F00D3850E /* SystemConfiguration.framework */,
+				3321FA721D33BE2700D3850E /* libz.tbd */,
+				3321FA701D33BE1D00D3850E /* libc++.tbd */,
+				3321FA6E1D33BE0E00D3850E /* libsqlite3.0.tbd */,
+				3321FA6C1D33BC1C00D3850E /* Security.framework */,
+				5DB7C0AA89F4ABA958A8D5DC /* libPods-gatoCloud.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +297,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33C620AA1D2FE7E60022A9F0 /* Build configuration list for PBXNativeTarget "gatoCloud" */;
 			buildPhases = (
+				35CA4D2217CF2D56B3DBEBD3 /* [CP] Check Pods Manifest.lock */,
 				33C6208F1D2FE7E60022A9F0 /* Sources */,
 				33C620901D2FE7E60022A9F0 /* Frameworks */,
 				33C620911D2FE7E60022A9F0 /* Resources */,
+				C67EF62CA734AF0D22BB7C74 /* [CP] Embed Pods Frameworks */,
+				3AE79D4AB35194F2D5F706B1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,20 +352,86 @@
 			files = (
 				33C620A61D2FE7E60022A9F0 /* LaunchScreen.storyboard in Resources */,
 				33C620A31D2FE7E60022A9F0 /* Assets.xcassets in Resources */,
+				3321FA621D3354FC00D3850E /* README.txt in Resources */,
 				33C620A11D2FE7E60022A9F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		35CA4D2217CF2D56B3DBEBD3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3AE79D4AB35194F2D5F706B1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gatoCloud/Pods-gatoCloud-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C67EF62CA734AF0D22BB7C74 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gatoCloud/Pods-gatoCloud-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		33C6208F1D2FE7E60022A9F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33C6209E1D2FE7E60022A9F0 /* ViewController.m in Sources */,
+				3321FA9A1D34C55300D3850E /* GTDeviceListViewController.m in Sources */,
+				3321FA901D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.m in Sources */,
+				3321FA5A1D32A82E00D3850E /* GTHttpManager.m in Sources */,
+				3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */,
+				3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */,
+				3321FAA11D36743200D3850E /* GTDeviceListCell.m in Sources */,
+				3321FA8D1D33E87B00D3850E /* GTUserModel.m in Sources */,
+				3321FA931D33F96900D3850E /* NSDictionary+HTTPExtionsion.m in Sources */,
+				3321FA531D329D1300D3850E /* NSString+CheckingExtension.m in Sources */,
+				3321FA571D329ED600D3850E /* MBProgressHUD+DisplayExtension.m in Sources */,
+				33C620B31D300D750022A9F0 /* GTAddDeviceCell.m in Sources */,
+				3321FA891D33E40000D3850E /* GTUserUtils.m in Sources */,
+				3321FA681D33B96B00D3850E /* GTLoginViewController.m in Sources */,
+				3321FAA41D36782500D3850E /* GTDeviceModel.m in Sources */,
+				33C620B01D30096E0022A9F0 /* GTAddDeviceViewController.m in Sources */,
 				33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */,
+				3321FA6B1D33BA3C00D3850E /* GTLoginManager.m in Sources */,
+				3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */,
 				33C620981D2FE7E60022A9F0 /* main.m in Sources */,
+				3321FAAF1D368DEE00D3850E /* TLSwipeForOptionsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,23 +543,43 @@
 		};
 		33C620AB1D2FE7E60022A9F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E9C7E50B9B21A8135494CBF /* Pods-gatoCloud.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = NO;
+				ENABLE_BITCODE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GTGlobalPrefixHeader.h;
 				INFOPLIST_FILE = gatoCloud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gato.cloud.gatoCloud;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/gatoCloud",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gato.security;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		33C620AC1D2FE7E60022A9F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E0F76716D129E10DF7A68C4 /* Pods-gatoCloud.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = NO;
+				ENABLE_BITCODE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GTGlobalPrefixHeader.h;
 				INFOPLIST_FILE = gatoCloud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gato.cloud.gatoCloud;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/gatoCloud",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gato.security;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -302,6 +602,7 @@
 				33C620AC1D2FE7E60022A9F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,4 +10,6 @@
 
 @interface NSMutableDictionary (HTTPExtension)
 
+- (void)safeSetObject:(id)anObject forKey:(id<NSCopying>)aKey;
+
 @end

@@ -10,4 +10,6 @@
 
 @interface UIView (GTCornerRadius)
 
+@property (nonatomic, assign) IBInspectable CGFloat cornerRadius;
+
 @end

@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GTUserModel.h"
 
 @interface GTUserUtils : NSObject
 
++ (void)saveUserInfo:(NSDictionary *)dic;
+
++ (GTUserModel *)userInfo;
+
++ (void)saveToken:(NSString *)token;
+
++ (void)saveUserId:(NSString *)userId;
 @end

@@ -10,4 +10,6 @@
 
 @interface GTEditDeviceViewController : UIViewController
 
+@property (nonatomic, copy) NSString *currentDeviceName;
+
 @end

@@ -22,5 +22,5 @@ extern NSString *const TLSwipeForOptionsCellEnclosingTableViewDidBeginScrollingN
 @interface TLSwipeForOptionsCell : UITableViewCell
 
 @property (nonatomic, weak) id<TLSwipeForOptionsCellDelegate> delegate;
-
+@property (nonatomic, weak) UIView *scrollViewContentView;      //The cell content (like the label) goes in this view.
 @end

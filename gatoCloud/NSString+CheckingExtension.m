@@ -10,4 +10,12 @@
 
 @implementation NSString (CheckingExtension)
 
+- (BOOL)isEmptyString
+{
+    if([self isEqualToString:@""])
+        return YES;
+    else
+        return NO;
+}
+
 @end

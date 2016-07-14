@@ -9,5 +9,13 @@
 #import "UIView+GTCornerRadius.h"
 
 @implementation UIView (GTCornerRadius)
+- (void)setCornerRadius:(CGFloat)cornerRadius
+{
+    self.layer.cornerRadius = cornerRadius;
+}
 
+- (CGFloat)cornerRadius
+{
+    return self.layer.cornerRadius;
+}
 @end
