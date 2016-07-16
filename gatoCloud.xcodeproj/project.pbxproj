@@ -32,6 +32,8 @@
 		3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB11D36924100D3850E /* UIView+GTCornerRadius.m */; };
 		3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */; };
 		3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */; };
+		3321FAC31D39291C00D3850E /* GTPhoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC21D39291C00D3850E /* GTPhoneLoginViewController.m */; };
+		3321FAC71D393B5F00D3850E /* GTUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */; };
 		33C620981D2FE7E60022A9F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620971D2FE7E60022A9F0 /* main.m */; };
 		33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */; };
 		33C620A11D2FE7E60022A9F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C6209F1D2FE7E60022A9F0 /* Main.storyboard */; };
@@ -90,6 +92,10 @@
 		3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTEditDeviceViewController.m; sourceTree = "<group>"; };
 		3321FABB1D37CAB500D3850E /* UIView+DisplayExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DisplayExtention.h"; sourceTree = "<group>"; };
 		3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DisplayExtention.m"; sourceTree = "<group>"; };
+		3321FAC11D39291C00D3850E /* GTPhoneLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPhoneLoginViewController.h; sourceTree = "<group>"; };
+		3321FAC21D39291C00D3850E /* GTPhoneLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPhoneLoginViewController.m; sourceTree = "<group>"; };
+		3321FAC51D393B5F00D3850E /* GTUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserInfoViewController.h; sourceTree = "<group>"; };
+		3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTUserInfoViewController.m; sourceTree = "<group>"; };
 		33C620931D2FE7E60022A9F0 /* gatoCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gatoCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C620971D2FE7E60022A9F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		33C620991D2FE7E60022A9F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -176,6 +182,8 @@
 				3321FA671D33B96B00D3850E /* GTLoginViewController.m */,
 				3321FA691D33BA3C00D3850E /* GTLoginManager.h */,
 				3321FA6A1D33BA3C00D3850E /* GTLoginManager.m */,
+				3321FAC11D39291C00D3850E /* GTPhoneLoginViewController.h */,
+				3321FAC21D39291C00D3850E /* GTPhoneLoginViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -206,6 +214,15 @@
 			name = DeviceList;
 			sourceTree = "<group>";
 		};
+		3321FAC41D393B3D00D3850E /* ME */ = {
+			isa = PBXGroup;
+			children = (
+				3321FAC51D393B5F00D3850E /* GTUserInfoViewController.h */,
+				3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */,
+			);
+			name = ME;
+			sourceTree = "<group>";
+		};
 		33C6208A1D2FE7E60022A9F0 = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +244,7 @@
 		33C620951D2FE7E60022A9F0 /* gatoCloud */ = {
 			isa = PBXGroup;
 			children = (
+				3321FAC41D393B3D00D3850E /* ME */,
 				3321FA8A1D33E85E00D3850E /* UserInfo */,
 				3321FA651D33B95100D3850E /* Login */,
 				3321FA501D32490500D3850E /* Headers */,
@@ -418,7 +436,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3321FA9A1D34C55300D3850E /* GTDeviceListViewController.m in Sources */,
+				3321FAC71D393B5F00D3850E /* GTUserInfoViewController.m in Sources */,
 				3321FA901D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.m in Sources */,
+				3321FAC31D39291C00D3850E /* GTPhoneLoginViewController.m in Sources */,
 				3321FA5A1D32A82E00D3850E /* GTHttpManager.m in Sources */,
 				3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */,
 				3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */,

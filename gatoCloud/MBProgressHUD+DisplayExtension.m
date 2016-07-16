@@ -12,7 +12,7 @@
 
 + (void)showText:(NSString *)text inView:(UIView *)view;
 {
-    [self showText:text inView:view withTime:1];
+    [self showText:text inView:view withTime:1.5];
 }
 
 + (void)showText:(NSString *)text inView:(UIView *)view withTime:(NSTimeInterval)time;

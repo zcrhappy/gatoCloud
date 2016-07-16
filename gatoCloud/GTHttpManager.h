@@ -12,7 +12,11 @@
 #pragma clang diagnostic ignored "-Wnullability-completeness"
 
 typedef void(^GTResultBlock)(id response, NSError *error);
-
+typedef NS_ENUM(NSInteger, GTPhoneLoginType)
+{
+    GTPhoneLoginTypeRegister,
+    GTPhoneLoginTypeForgetPwd
+};
 @interface GTHttpManager : AFHTTPSessionManager
 
 + (instancetype _Nullable)shareManager;
@@ -30,7 +34,46 @@ typedef void(^GTResultBlock)(id response, NSError *error);
                        failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 
+
+#pragma mark - Login
 - (void)GTWxLoginWithFinishBlock:(GTResultBlock)finishBlk;
+
+
+/*!
+ *  @brief 获取验证码接口
+ *
+ *  @param mobileNo  手机号
+ *  @param type      业务类型：0：注册，1：忘记密码
+ *  @param finishBlk 返回结果
+ */
+- (void)GTPhoneFetchVerifyCodeWithMobileNo:(NSString *)mobileNo
+                                      type:(GTPhoneLoginType)type
+                               finishBlock:(GTResultBlock)finishBlk;
+
+
+/*!
+ *  @brief 手机注册接口
+ *
+ *  @param mobileNo  手机号
+ *  @param password  密码
+ *  @param code      验证码
+ *  @param finishBlk 返回结果
+ */
+- (void)GTPhoneRegisterWithMobileNo:(NSString *)mobileNo
+                           password:(NSString *)password
+                         verifyCode:(NSString *)verifyCode
+                        finishBlock:(GTResultBlock)finishBlk;
+
+/*!
+ *  @brief 手机号登录接口
+ *
+ *  @param mobileNo  手机号
+ *  @param password  密码
+ *  @param finishBlk 返回结果
+ */
+- (void)GTPhoneLoginEithMobileNo:(NSString *)mobileNo
+                        password:(NSString *)password
+                     finishBlock:(GTResultBlock)finishBlk;
 
 
 #pragma mark - Device
