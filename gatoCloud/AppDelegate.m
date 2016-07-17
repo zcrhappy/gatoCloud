@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "GTWindow.h"
 #import "GTLoginManager.h"
+#import "GestureViewController.h"
 @interface AppDelegate ()<WXApiDelegate>
 
 @end
@@ -51,6 +52,12 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    GestureViewController *gestureUnlockViewController = [[GestureViewController alloc] init];
+    [self.window.rootViewController presentViewController:gestureUnlockViewController animated:YES completion:^{
+        
+    }];
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

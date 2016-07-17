@@ -34,6 +34,14 @@
 		3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */; };
 		3321FAC31D39291C00D3850E /* GTPhoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC21D39291C00D3850E /* GTPhoneLoginViewController.m */; };
 		3321FAC71D393B5F00D3850E /* GTUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */; };
+		3352A60E1D39CEEB00EED5C0 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A6091D39CEEB00EED5C0 /* PCCircle.m */; };
+		3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A60B1D39CEEB00EED5C0 /* PCCircleView.m */; };
+		3352A6101D39CEEB00EED5C0 /* PCCircleViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A60D1D39CEEB00EED5C0 /* PCCircleViewConst.m */; };
+		3352A6161D39D03B00EED5C0 /* GTGestureUnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A6151D39D03B00EED5C0 /* GTGestureUnlockViewController.m */; };
+		3352A61B1D39D8E100EED5C0 /* PCCircleInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A6181D39D8E100EED5C0 /* PCCircleInfoView.m */; };
+		3352A61C1D39D8E100EED5C0 /* PCLockLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A61A1D39D8E100EED5C0 /* PCLockLabel.m */; };
+		3352A61F1D39D90600EED5C0 /* GestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A61E1D39D90600EED5C0 /* GestureViewController.m */; };
+		3352A6221D39D96700EED5C0 /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A6211D39D96700EED5C0 /* CALayer+Anim.m */; };
 		33C620981D2FE7E60022A9F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620971D2FE7E60022A9F0 /* main.m */; };
 		33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */; };
 		33C620A11D2FE7E60022A9F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C6209F1D2FE7E60022A9F0 /* Main.storyboard */; };
@@ -96,6 +104,22 @@
 		3321FAC21D39291C00D3850E /* GTPhoneLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPhoneLoginViewController.m; sourceTree = "<group>"; };
 		3321FAC51D393B5F00D3850E /* GTUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserInfoViewController.h; sourceTree = "<group>"; };
 		3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTUserInfoViewController.m; sourceTree = "<group>"; };
+		3352A6081D39CEEB00EED5C0 /* PCCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircle.h; sourceTree = "<group>"; };
+		3352A6091D39CEEB00EED5C0 /* PCCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircle.m; sourceTree = "<group>"; };
+		3352A60A1D39CEEB00EED5C0 /* PCCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleView.h; sourceTree = "<group>"; };
+		3352A60B1D39CEEB00EED5C0 /* PCCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleView.m; sourceTree = "<group>"; };
+		3352A60C1D39CEEB00EED5C0 /* PCCircleViewConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleViewConst.h; sourceTree = "<group>"; };
+		3352A60D1D39CEEB00EED5C0 /* PCCircleViewConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleViewConst.m; sourceTree = "<group>"; };
+		3352A6141D39D03B00EED5C0 /* GTGestureUnlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTGestureUnlockViewController.h; sourceTree = "<group>"; };
+		3352A6151D39D03B00EED5C0 /* GTGestureUnlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTGestureUnlockViewController.m; sourceTree = "<group>"; };
+		3352A6171D39D8E100EED5C0 /* PCCircleInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCCircleInfoView.h; path = gatoCloud/PCCircleInfoView.h; sourceTree = "<group>"; };
+		3352A6181D39D8E100EED5C0 /* PCCircleInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCCircleInfoView.m; path = gatoCloud/PCCircleInfoView.m; sourceTree = "<group>"; };
+		3352A6191D39D8E100EED5C0 /* PCLockLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCLockLabel.h; path = gatoCloud/PCLockLabel.h; sourceTree = "<group>"; };
+		3352A61A1D39D8E100EED5C0 /* PCLockLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCLockLabel.m; path = gatoCloud/PCLockLabel.m; sourceTree = "<group>"; };
+		3352A61D1D39D90600EED5C0 /* GestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureViewController.h; sourceTree = "<group>"; };
+		3352A61E1D39D90600EED5C0 /* GestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureViewController.m; sourceTree = "<group>"; };
+		3352A6201D39D96700EED5C0 /* CALayer+Anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Anim.h"; sourceTree = "<group>"; };
+		3352A6211D39D96700EED5C0 /* CALayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Anim.m"; sourceTree = "<group>"; };
 		33C620931D2FE7E60022A9F0 /* gatoCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gatoCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C620971D2FE7E60022A9F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		33C620991D2FE7E60022A9F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -223,6 +247,25 @@
 			name = ME;
 			sourceTree = "<group>";
 		};
+		3352A6071D39CED500EED5C0 /* GestureUnlock */ = {
+			isa = PBXGroup;
+			children = (
+				3352A6201D39D96700EED5C0 /* CALayer+Anim.h */,
+				3352A6211D39D96700EED5C0 /* CALayer+Anim.m */,
+				3352A6171D39D8E100EED5C0 /* PCCircleInfoView.h */,
+				3352A6181D39D8E100EED5C0 /* PCCircleInfoView.m */,
+				3352A6191D39D8E100EED5C0 /* PCLockLabel.h */,
+				3352A61A1D39D8E100EED5C0 /* PCLockLabel.m */,
+				3352A6081D39CEEB00EED5C0 /* PCCircle.h */,
+				3352A6091D39CEEB00EED5C0 /* PCCircle.m */,
+				3352A60A1D39CEEB00EED5C0 /* PCCircleView.h */,
+				3352A60B1D39CEEB00EED5C0 /* PCCircleView.m */,
+				3352A60C1D39CEEB00EED5C0 /* PCCircleViewConst.h */,
+				3352A60D1D39CEEB00EED5C0 /* PCCircleViewConst.m */,
+			);
+			name = GestureUnlock;
+			sourceTree = "<group>";
+		};
 		33C6208A1D2FE7E60022A9F0 = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +298,10 @@
 				3321FA541D329D1600D3850E /* Catagory */,
 				3321FA581D32A82E00D3850E /* GTHttpManager.h */,
 				3321FA591D32A82E00D3850E /* GTHttpManager.m */,
+				3352A6141D39D03B00EED5C0 /* GTGestureUnlockViewController.h */,
+				3352A6151D39D03B00EED5C0 /* GTGestureUnlockViewController.m */,
+				3352A61D1D39D90600EED5C0 /* GestureViewController.h */,
+				3352A61E1D39D90600EED5C0 /* GestureViewController.m */,
 			);
 			path = gatoCloud;
 			sourceTree = "<group>";
@@ -301,6 +348,7 @@
 		86DBB2AF2FF9D675B4C6AB26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3352A6071D39CED500EED5C0 /* GestureUnlock */,
 				3321FA781D33BED300D3850E /* CoreTelephony.framework */,
 				3321FA761D33BE7B00D3850E /* libsqlite3.tbd */,
 				3321FA741D33BE2F00D3850E /* SystemConfiguration.framework */,
@@ -436,15 +484,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3321FA9A1D34C55300D3850E /* GTDeviceListViewController.m in Sources */,
+				3352A61B1D39D8E100EED5C0 /* PCCircleInfoView.m in Sources */,
 				3321FAC71D393B5F00D3850E /* GTUserInfoViewController.m in Sources */,
+				3352A6221D39D96700EED5C0 /* CALayer+Anim.m in Sources */,
 				3321FA901D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.m in Sources */,
 				3321FAC31D39291C00D3850E /* GTPhoneLoginViewController.m in Sources */,
 				3321FA5A1D32A82E00D3850E /* GTHttpManager.m in Sources */,
+				3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */,
 				3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */,
 				3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */,
+				3352A6161D39D03B00EED5C0 /* GTGestureUnlockViewController.m in Sources */,
 				3321FAA11D36743200D3850E /* GTDeviceListCell.m in Sources */,
 				3321FA8D1D33E87B00D3850E /* GTUserModel.m in Sources */,
 				3321FA931D33F96900D3850E /* NSDictionary+HTTPExtionsion.m in Sources */,
+				3352A60E1D39CEEB00EED5C0 /* PCCircle.m in Sources */,
 				3321FA531D329D1300D3850E /* NSString+CheckingExtension.m in Sources */,
 				3321FA571D329ED600D3850E /* MBProgressHUD+DisplayExtension.m in Sources */,
 				33C620B31D300D750022A9F0 /* GTAddDeviceCell.m in Sources */,
@@ -452,8 +505,11 @@
 				3321FA681D33B96B00D3850E /* GTLoginViewController.m in Sources */,
 				3321FAA41D36782500D3850E /* GTDeviceModel.m in Sources */,
 				33C620B01D30096E0022A9F0 /* GTAddDeviceViewController.m in Sources */,
+				3352A6101D39CEEB00EED5C0 /* PCCircleViewConst.m in Sources */,
 				33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */,
 				3321FA6B1D33BA3C00D3850E /* GTLoginManager.m in Sources */,
+				3352A61F1D39D90600EED5C0 /* GestureViewController.m in Sources */,
+				3352A61C1D39D8E100EED5C0 /* PCLockLabel.m in Sources */,
 				3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */,
 				3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */,
 				33C620981D2FE7E60022A9F0 /* main.m in Sources */,
