@@ -14,6 +14,7 @@
 #import "AFNetworking.h"
 #import "MBProgressHUD.h"
 #import "MJRefresh.h"
+#import "UIImageView+WebCache.h"
 
 //extension
 #import "NSString+CheckingExtension.h"

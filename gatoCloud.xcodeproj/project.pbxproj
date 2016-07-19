@@ -34,6 +34,7 @@
 		3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */; };
 		3321FAC31D39291C00D3850E /* GTPhoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC21D39291C00D3850E /* GTPhoneLoginViewController.m */; };
 		3321FAC71D393B5F00D3850E /* GTUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */; };
+		3326A0371D3E6470000697DC /* GTFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3326A0361D3E6470000697DC /* GTFeedbackViewController.m */; };
 		3352A60E1D39CEEB00EED5C0 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A6091D39CEEB00EED5C0 /* PCCircle.m */; };
 		3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A60B1D39CEEB00EED5C0 /* PCCircleView.m */; };
 		3352A6101D39CEEB00EED5C0 /* PCCircleViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A60D1D39CEEB00EED5C0 /* PCCircleViewConst.m */; };
@@ -42,6 +43,8 @@
 		3352A61C1D39D8E100EED5C0 /* PCLockLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A61A1D39D8E100EED5C0 /* PCLockLabel.m */; };
 		3352A61F1D39D90600EED5C0 /* GestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A61E1D39D90600EED5C0 /* GestureViewController.m */; };
 		3352A6221D39D96700EED5C0 /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A6211D39D96700EED5C0 /* CALayer+Anim.m */; };
+		33A0FC861D3D1C6A00C731DF /* GTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */; };
+		33A0FC891D3D1FBB00C731DF /* GTUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC881D3D1FBB00C731DF /* GTUserInfoCell.m */; };
 		33C620981D2FE7E60022A9F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620971D2FE7E60022A9F0 /* main.m */; };
 		33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */; };
 		33C620A11D2FE7E60022A9F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C6209F1D2FE7E60022A9F0 /* Main.storyboard */; };
@@ -104,6 +107,8 @@
 		3321FAC21D39291C00D3850E /* GTPhoneLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPhoneLoginViewController.m; sourceTree = "<group>"; };
 		3321FAC51D393B5F00D3850E /* GTUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserInfoViewController.h; sourceTree = "<group>"; };
 		3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTUserInfoViewController.m; sourceTree = "<group>"; };
+		3326A0351D3E6470000697DC /* GTFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFeedbackViewController.h; sourceTree = "<group>"; };
+		3326A0361D3E6470000697DC /* GTFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFeedbackViewController.m; sourceTree = "<group>"; };
 		3352A6081D39CEEB00EED5C0 /* PCCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircle.h; sourceTree = "<group>"; };
 		3352A6091D39CEEB00EED5C0 /* PCCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircle.m; sourceTree = "<group>"; };
 		3352A60A1D39CEEB00EED5C0 /* PCCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleView.h; sourceTree = "<group>"; };
@@ -120,6 +125,10 @@
 		3352A61E1D39D90600EED5C0 /* GestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureViewController.m; sourceTree = "<group>"; };
 		3352A6201D39D96700EED5C0 /* CALayer+Anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Anim.h"; sourceTree = "<group>"; };
 		3352A6211D39D96700EED5C0 /* CALayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Anim.m"; sourceTree = "<group>"; };
+		33A0FC841D3D1C6A00C731DF /* GTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMainViewController.h; sourceTree = "<group>"; };
+		33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMainViewController.m; sourceTree = "<group>"; };
+		33A0FC871D3D1FBB00C731DF /* GTUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserInfoCell.h; sourceTree = "<group>"; };
+		33A0FC881D3D1FBB00C731DF /* GTUserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTUserInfoCell.m; sourceTree = "<group>"; };
 		33C620931D2FE7E60022A9F0 /* gatoCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gatoCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C620971D2FE7E60022A9F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		33C620991D2FE7E60022A9F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -243,6 +252,10 @@
 			children = (
 				3321FAC51D393B5F00D3850E /* GTUserInfoViewController.h */,
 				3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */,
+				33A0FC871D3D1FBB00C731DF /* GTUserInfoCell.h */,
+				33A0FC881D3D1FBB00C731DF /* GTUserInfoCell.m */,
+				3326A0351D3E6470000697DC /* GTFeedbackViewController.h */,
+				3326A0361D3E6470000697DC /* GTFeedbackViewController.m */,
 			);
 			name = ME;
 			sourceTree = "<group>";
@@ -302,6 +315,8 @@
 				3352A6151D39D03B00EED5C0 /* GTGestureUnlockViewController.m */,
 				3352A61D1D39D90600EED5C0 /* GestureViewController.h */,
 				3352A61E1D39D90600EED5C0 /* GestureViewController.m */,
+				33A0FC841D3D1C6A00C731DF /* GTMainViewController.h */,
+				33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */,
 			);
 			path = gatoCloud;
 			sourceTree = "<group>";
@@ -493,12 +508,15 @@
 				3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */,
 				3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */,
 				3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */,
+				3326A0371D3E6470000697DC /* GTFeedbackViewController.m in Sources */,
 				3352A6161D39D03B00EED5C0 /* GTGestureUnlockViewController.m in Sources */,
 				3321FAA11D36743200D3850E /* GTDeviceListCell.m in Sources */,
+				33A0FC891D3D1FBB00C731DF /* GTUserInfoCell.m in Sources */,
 				3321FA8D1D33E87B00D3850E /* GTUserModel.m in Sources */,
 				3321FA931D33F96900D3850E /* NSDictionary+HTTPExtionsion.m in Sources */,
 				3352A60E1D39CEEB00EED5C0 /* PCCircle.m in Sources */,
 				3321FA531D329D1300D3850E /* NSString+CheckingExtension.m in Sources */,
+				33A0FC861D3D1C6A00C731DF /* GTMainViewController.m in Sources */,
 				3321FA571D329ED600D3850E /* MBProgressHUD+DisplayExtension.m in Sources */,
 				33C620B31D300D750022A9F0 /* GTAddDeviceCell.m in Sources */,
 				3321FA891D33E40000D3850E /* GTUserUtils.m in Sources */,

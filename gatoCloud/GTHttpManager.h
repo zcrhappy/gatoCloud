@@ -110,6 +110,17 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
 - (void)GTDeviceDeleteWithDeviceNo:(NSString *)deviceNo
                        finishBlock:(GTResultBlock)finishBlk;
 
+
+#pragma mark - UserInfo
+/*!
+ *  @brief 用户反馈
+ *
+ *  @param content 反馈内容
+ *  @param contact 联系方式
+ */
+- (void)GTUserFeedbackWithContents:(NSString *)content
+                           contact:(NSString *)contact
+                       finishBlock:(GTResultBlock)finishBlk;
 @end
 
 #pragma clang diagnostic pop

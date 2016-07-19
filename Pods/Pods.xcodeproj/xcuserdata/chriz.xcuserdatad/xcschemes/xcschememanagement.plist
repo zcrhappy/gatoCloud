@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TMCache.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,7 +57,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>09EF20390D1A675F97761C38196E4238</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>426BC4549A625B5E1E4200D5261A98BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>49F2785EC5C740C433FA023647306508</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +77,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>54CF25E763B3B33FFC77BCD7AD4CD75E</key>
+		<key>5E508CE489D75CAD6B75B6B42C62F969</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,22 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8D3CB759BA2ECE1780BC50D077C715AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>92DE178E605DA61FEE28FEB7E86894F5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>BEC7E98BAFBBCDA06DDA8DC48ED5231D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F689C89167298872BBE914D1FC37354B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

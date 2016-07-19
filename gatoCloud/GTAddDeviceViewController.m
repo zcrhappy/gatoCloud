@@ -79,6 +79,7 @@
     
 #ifdef TEST
     _QRResult = @"2006c574edfa9240";
+    _deviceId = _QRResult;
 #endif
     if([sectionName isEqualToString:DeviceSection]) {
         if(row == 0) {
@@ -104,6 +105,7 @@
         if(row == 0) {
 #ifdef TEST
             [cell setUpCellWithTitle:nil content:@"admin" placeholder:@"请输入设备用户名" icon:[UIImage imageNamed:@"GTUserIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
+            _userName = @"admin";
 #else
             [cell setUpCellWithTitle:nil content:nil placeholder:@"请输入设备用户名" icon:[UIImage imageNamed:@"GTUserIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
 #endif
@@ -115,6 +117,7 @@
         else {
 #ifdef TEST
             [cell setUpCellWithTitle:nil content:@"111111" placeholder:@"请输入设备密码" icon:[UIImage imageNamed:@"GTPasswordIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
+            _userPwd = @"111111";
 #else
             [cell setUpCellWithTitle:nil content:nil placeholder:@"请输入设备密码" icon:[UIImage imageNamed:@"GTPasswordIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
 #endif
@@ -164,7 +167,7 @@
 - (void)goQRScan
 {
     NSArray *types = @[AVMetadataObjectTypeQRCode];
-    _reader        = [[QRCodeReaderViewController alloc] initWithCancelButtonTitle:@"取消" metadataObjectTypes:types];
+    _reader  = [[QRCodeReaderViewController alloc] initWithCancelButtonTitle:@"取消" metadataObjectTypes:types];
     
     _reader.delegate = self;
     

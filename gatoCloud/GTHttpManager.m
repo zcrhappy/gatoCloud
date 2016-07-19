@@ -45,8 +45,8 @@ NSInteger const APIErrorCode = 138102;
 {
     self = [super init];
     if(self){
-//        _baseUrl = kBaseUrl;
-        _baseUrl = kTestBaseUrl;
+        _baseUrl = kBaseUrl;
+//        _baseUrl = kTestBaseUrl;
         token = @"";
         userId = @"";
     }
@@ -277,6 +277,34 @@ NSInteger const APIErrorCode = 138102;
         finishBlk(nil, error);
     }];
     
+}
+
+
+#pragma mark - UserInfo
+- (void)GTUserFeedbackWithContents:(NSString *)content
+                           contact:(NSString *)contact
+                       finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:content forKey:@"contents"];
+    [dic safeSetObject:contact forKey:@"contact"];
+    
+    [self POST:@"/service/addRetroaction.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+
 }
 
 - (void)showErrorMsgWithResponse:(NSDictionary *)dic

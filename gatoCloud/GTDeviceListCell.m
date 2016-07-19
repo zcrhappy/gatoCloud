@@ -27,15 +27,15 @@
     [self.scrollViewContentView addSubview:_nameLabel];
     [self.scrollViewContentView addSubview:_statusLabel];
     
-    [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@15);
-        make.centerY.equalTo(self.scrollViewContentView);
-    }];
-    
-    [_statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_nameLabel.mas_right).offset(15);
-        make.centerY.equalTo(self.scrollViewContentView);
-    }];
+//    [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(@15);
+//        make.centerY.equalTo(self.scrollViewContentView);
+//    }];
+//    
+//    [_statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(_nameLabel.mas_right).offset(15);
+//        make.centerY.equalTo(self.scrollViewContentView);
+//    }];
 }
 
 - (void)configDeviceName:(NSString *)name status:(NSString *)status

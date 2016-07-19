@@ -9,3 +9,4 @@ target “gatoCloud”
     pod 'TMCache'
     pod 'MJRefresh'
     pod 'QRCodeReaderViewController'
+    pod 'SDWebImage'

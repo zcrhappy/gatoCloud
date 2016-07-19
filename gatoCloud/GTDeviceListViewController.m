@@ -118,6 +118,13 @@
     }
 }
 
+- (IBAction)clickBack:(id)sender
+{
+    [self.navigationController dismissViewControllerAnimated:self completion:^{
+        
+    }];
+}
+
 - (IBAction)unwindToListViewController:(UIStoryboardSegue *)unwindSegue
 {
     if([unwindSegue.identifier isEqualToString:@"BackToListSegue"]) {

@@ -37,4 +37,9 @@
     }];
 }
 
+- (IBAction)clickBack:(id)sender
+{
+    [self performSegueWithIdentifier:@"backToLoginSegue" sender:self];
+}
+
 @end

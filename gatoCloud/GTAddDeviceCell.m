@@ -25,27 +25,7 @@
 }
 
 - (void)configUI {
-    
-    _title.numberOfLines = 0;
-    [_title mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@15);
-        make.centerY.equalTo(self.contentView);
-    }];
-    
-
-    [_icon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@15);
-        make.width.equalTo(@15);
-        make.height.equalTo(@23);
-        make.centerY.equalTo(self.contentView);
-    }];
-    
-    [_QRImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(@(-18));
-        make.width.height.equalTo(@36);
-        make.centerY.equalTo(self.contentView);
-    }];
-    
+ 
     UITapGestureRecognizer *tapImage = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(goQRScan)];
     [_QRImage addGestureRecognizer:tapImage];
 }
@@ -72,11 +52,11 @@
             _title.hidden = YES;
             _icon.hidden = NO;
             
-            [_textField mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_icon.mas_right).offset(10);
-                make.right.equalTo(self.contentView).offset(-10);
-                make.height.equalTo(self.contentView);
-            }];
+//            [_textField mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.left.equalTo(_icon.mas_right).offset(10);
+//                make.right.equalTo(self.contentView).offset(-10);
+//                make.height.equalTo(self.contentView);
+//            }];
             break;
         }
         case GTAddDeviceCellStyleTitle_textField:
@@ -85,11 +65,11 @@
             _title.hidden = NO;
             _icon.hidden = YES;
             
-            [_textField mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_title.mas_right).offset(10);
-                make.right.equalTo(self.contentView).offset(-10);
-                make.height.equalTo(self.contentView);
-            }];
+//            [_textField mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.left.equalTo(_title.mas_right).offset(10);
+//                make.right.equalTo(self.contentView).offset(-10);
+//                make.height.equalTo(self.contentView);
+//            }];
             break;
         }
         case GTAddDeviceCellStyleTitle_textField_QRImage:
@@ -98,11 +78,11 @@
             _title.hidden = NO;
             _icon.hidden = YES;
             
-            [_textField mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_title.mas_right).offset(10);
-                make.right.equalTo(_QRImage.mas_left).offset(-5);
-                make.height.equalTo(self.contentView);
-            }];
+//            [_textField mas_remakeConstraints:^(MASConstraintMaker *make) {
+//                make.left.equalTo(_title.mas_right).offset(10);
+//                make.right.equalTo(_QRImage.mas_left).offset(-5);
+//                make.height.equalTo(self.contentView);
+//            }];
         }
     }
 }
