@@ -243,7 +243,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YtO-qS-c1k" id="khd-KI-yYZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="94.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="防区/设备名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-n9-LKb">
@@ -1194,10 +1194,10 @@
             </objects>
             <point key="canvasLocation" x="-576" y="-414"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="hF8-RE-l2n">
             <objects>
-                <viewController id="AvF-08-fHn" sceneMemberID="viewController">
+                <viewController id="AvF-08-fHn" customClass="GTMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JRd-yz-tzs"/>
                         <viewControllerLayoutGuide type="bottom" id="Kmy-29-u5F"/>
@@ -1206,12 +1206,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GTLoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="d4x-Ak-rgZ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="394"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="394" id="8H3-Aw-lOR"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFu-6j-6jz">
                                 <rect key="frame" x="7" y="402" width="110" height="64"/>
                                 <color key="backgroundColor" red="0.22352941179999999" green="0.63137254899999995" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -1220,13 +1214,6 @@
                                 </state>
                                 <connections>
                                     <segue destination="k9Y-K6-xor" kind="modal" id="le8-F8-MOF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yN-tU-yXO">
-                                <rect key="frame" x="270" y="37" width="30" height="30"/>
-                                <state key="normal" title="我"/>
-                                <connections>
-                                    <segue destination="FUu-vm-FMt" kind="modal" id="BGv-gW-ghu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOO-Zr-CYc">
@@ -1239,15 +1226,39 @@
                                     <segue destination="A2y-Wk-O3e" kind="modal" id="Eje-fl-C3V"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2l1-9X-dXv">
+                                <rect key="frame" x="32" y="474" width="60" height="30"/>
+                                <state key="normal" title="重新请求"/>
+                                <connections>
+                                    <action selector="reCheckVersion:" destination="AvF-08-fHn" eventType="touchUpInside" id="QAW-VC-1Ne"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yN-tU-yXO">
+                                <rect key="frame" x="256" y="402" width="30" height="30"/>
+                                <state key="normal" title="我"/>
+                                <connections>
+                                    <segue destination="FUu-vm-FMt" kind="modal" id="BGv-gW-ghu"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7t-VN-J5j" customClass="SDCycleScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="q2u-Ab-GY5"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="d4x-Ak-rgZ" secondAttribute="trailing" id="GWZ-KU-5rI"/>
-                            <constraint firstItem="d4x-Ak-rgZ" firstAttribute="top" secondItem="b3a-do-qgz" secondAttribute="top" id="UcP-tU-co0"/>
-                            <constraint firstItem="d4x-Ak-rgZ" firstAttribute="leading" secondItem="b3a-do-qgz" secondAttribute="leading" id="v15-tN-498"/>
+                            <constraint firstItem="N7t-VN-J5j" firstAttribute="top" secondItem="b3a-do-qgz" secondAttribute="top" id="EqB-JI-cYu"/>
+                            <constraint firstItem="N7t-VN-J5j" firstAttribute="leading" secondItem="b3a-do-qgz" secondAttribute="leading" id="c1I-i0-5hO"/>
+                            <constraint firstAttribute="trailing" secondItem="N7t-VN-J5j" secondAttribute="trailing" id="xol-pb-hPQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MYI-3T-35V"/>
+                    <connections>
+                        <outlet property="carouselView" destination="N7t-VN-J5j" id="8FM-Pq-OdV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWg-Dy-cr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

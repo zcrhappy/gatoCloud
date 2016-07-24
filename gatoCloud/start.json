@@ -1,0 +1,19 @@
+{
+	"bverison": 1,
+	"url": "http://aaa:8085/1.1.1.apk",
+	"content": "1. 修复推送问题;2. 优化部分细节",
+	"type": "0",
+	"appversion": "1.1.1",
+	"code": "1",
+	"desc": "可以升级",
+	"banners": [{
+		"img": "http://115.159.44.248:8085/test.jpg",
+		"url": "http: //www.baidu.com"
+	}, {
+		"img": "http://115.159.44.248:8085/test.jpg",
+		"url": "http: //www.baidu.com"
+	}, {
+		"img": "http://115.159.44.248:8085/test.jpg",
+		"url": "http: //www.baidu.com"
+	}]
+}

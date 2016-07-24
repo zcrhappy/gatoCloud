@@ -125,7 +125,7 @@
             if (data) {
                 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                 
-                [GTUserUtils saveUserInfo:dic];
+                [GTUserUtils saveUserInfoViaWX:dic];
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:kDidLoginNotification object:nil];
             }

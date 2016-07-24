@@ -18,4 +18,12 @@
     return NO;
 }
 
+- (BOOL)isNeedLogin
+{
+    NSString *code = [self objectForKey:@"code"];
+    if([code isEqualToString:@"-6666"])
+        return YES;
+    return NO;
+}
+
 @end

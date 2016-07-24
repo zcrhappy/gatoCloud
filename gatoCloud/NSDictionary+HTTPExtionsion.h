@@ -11,5 +11,5 @@
 @interface NSDictionary (HTTPExtionsion)
 
 - (BOOL)isVaildResponse;
-
+- (BOOL)isNeedLogin;
 @end

@@ -37,6 +37,8 @@ PODS:
     - OHHTTPStubs/Core
   - OHHTTPStubs/OHPathHelpers (5.1.0)
   - QRCodeReaderViewController (4.0.1)
+  - SDCycleScrollView (1.65):
+    - SDWebImage (~> 3.7)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
@@ -53,6 +55,7 @@ DEPENDENCIES:
   - MJRefresh
   - OHHTTPStubs
   - QRCodeReaderViewController
+  - SDCycleScrollView
   - SDWebImage
   - TMCache
 
@@ -67,9 +70,10 @@ SPEC CHECKSUMS:
   MJRefresh: 70a47c5543b567cdaf70ead5a6e99ce820652eb9
   OHHTTPStubs: 592f74439d2d72615115cf99a954237a3fbe26e5
   QRCodeReaderViewController: 6538745c8f4ffa9407a26bd7f9489ea01739e7b0
+  SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
 
-PODFILE CHECKSUM: 4b232baf41d965a4de16009c18a6d10a01834bd7
+PODFILE CHECKSUM: 9388e287627172a465f92f0c10ffd92acdb70d8c
 
 COCOAPODS: 1.0.1

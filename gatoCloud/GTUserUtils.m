@@ -9,12 +9,13 @@
 #import "GTUserUtils.h"
 #import "TMCache.h"
 
-static NSString *kUserInfoKey = @"kUserInfoKey";
+NSString *kUserInfoKey = @"kUserInfoKey";
+NSString *kBannerKey = @"kBannerKey";
 
 @interface GTUserUtils()
 
 @property (nonatomic, strong) GTUserModel *userModel;
-
+@property (nonatomic, assign) BOOL isLogin;
 @end
 
 @implementation GTUserUtils
@@ -29,11 +30,62 @@ static NSString *kUserInfoKey = @"kUserInfoKey";
     return sharedInstance;
 }
 
+#pragma mark - InfoViaWeChat
++ (void)saveUserInfoViaWX:(NSDictionary *)dic;
+{
+    [GTUserUtils saveUserInfo:dic];
+}
++ (void)saveTokenViaWX:(NSString *)token;
+{
+    [GTUserUtils saveToken:token];
+}
++ (void)saveUserIdViaWX:(NSString *)userId;
+{
+    [GTUserUtils saveUserId:userId];
+}
+#pragma mark - Save Info
+
 + (void)saveUserInfo:(NSDictionary *)dic;
 {
-    GTUserModel *userModel = [MTLJSONAdapter modelOfClass:[GTUserModel class] fromJSONDictionary:dic error:nil];
-    
-    [[TMCache sharedCache] setObject:userModel forKey:kUserInfoKey];
+    if(dic) {
+        GTUserModel *userModel = [MTLJSONAdapter modelOfClass:[GTUserModel class] fromJSONDictionary:dic error:nil];
+        [[TMCache sharedCache] setObject:userModel forKey:kUserInfoKey];
+    }
+    else {
+        [GTUserUtils sharedInstance].userModel = nil;//清内存数据
+        [[TMCache sharedCache] removeObjectForKey:kUserInfoKey];//清本地数据
+    }
+
+}
+
++ (void)saveToken:(NSString *)token
+{
+    if(token) {
+        [GTUserUtils sharedInstance].userModel.token = token;
+        [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
+    }
+    else {
+        [[TMCache sharedCache] removeObjectForKey:kUserInfoKey];//清本地数据
+    }
+}
+
++ (void)saveUserId:(NSString *)userId
+{
+    if(userId) {
+        [GTUserUtils sharedInstance].userModel.userId = userId;
+        [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
+    }
+    else {
+        [[TMCache sharedCache] removeObjectForKey:kUserInfoKey];
+    }
+}
+
++ (void)unRegisterUserInfo;
+{
+    [GTUserUtils sharedInstance].isLogin = NO;
+    [GTUserUtils saveUserInfo:nil];
+    [GTUserUtils saveToken:nil];
+    [GTUserUtils saveUserId:nil];
 }
 
 /*!
@@ -52,16 +104,37 @@ static NSString *kUserInfoKey = @"kUserInfoKey";
         return nil;
 }
 
-+ (void)saveToken:(NSString *)token
+
+
++ (void)saveBanners:(NSArray *)banners
 {
-    [GTUserUtils sharedInstance].userModel.token = token;
-    [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
+    [[TMCache sharedCache] setObject:banners forKey:kBannerKey];
 }
 
-+ (void)saveUserId:(NSString *)userId
++ (NSArray *)banners
 {
-    [GTUserUtils sharedInstance].userModel.userId = userId;
-    [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
+    return [[TMCache sharedCache] objectForKey:kBannerKey];
+}
+
++ (BOOL)isLogin
+{
+    return [GTUserUtils sharedInstance].isLogin;
+}
+
++ (void)loginSuccess;
+{
+    [GTUserUtils sharedInstance].isLogin = YES;
+}
+#pragma mark - other
+//获取当前屏幕显示的viewcontroller
++ (UIViewController *)appTopViewController
+{
+    UIViewController *appRootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *topVC = appRootVC;
+    while (topVC.presentedViewController) {
+        topVC = topVC.presentedViewController;
+    }
+    return topVC;
 }
 
 @end

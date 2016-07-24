@@ -10,7 +10,7 @@
 #import "NSMutableDictionary+HTTPExtension.h"
 #import "NSDictionary+HTTPExtionsion.h"
 
-//#define TESTURL
+#define TESTURL
 
 NSString * const kBaseUrl = @"http://acloud.gato.com.cn:8088";
 NSString * const kTestBaseUrl = @"http://115.159.44.248:8090";
@@ -84,8 +84,9 @@ NSInteger const APIErrorCode = 138102;
             token = [dic objectForKey:@"token"];
             userId = [dic objectForKey:@"userId"];
             
-            [GTUserUtils saveToken:token];
-            [GTUserUtils saveUserId:userId];
+            [GTUserUtils saveTokenViaWX:token];
+            [GTUserUtils saveUserIdViaWX:userId];
+            [GTUserUtils loginSuccess];
         }
         finishBlk(dic, nil);
         
@@ -340,7 +341,7 @@ NSInteger const APIErrorCode = 138102;
     [self POST:@"/start.do" parameters:[NSMutableDictionary dictionary] progress:^(NSProgress *downloadProgress) {
         
     } success:^(NSURLSessionDataTask *task, id responseObject) {
-        finishBlk(nil, responseObject);
+        finishBlk(responseObject, nil);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         finishBlk(nil, error);
     }];
@@ -389,14 +390,28 @@ NSInteger const APIErrorCode = 138102;
     
     NSString *urlString = [_baseUrl stringByAppendingString:URLString];
     
+    
     NSLog(@"发起POST请求：%@",urlString);
+    NSLog(@"参数：%@",parameters);
     
     void(^successBlock)(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) = ^void(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
         NSLog(@"返回的数据内容为：%@",responseObject);
-        success(task,responseObject);
+        if([responseObject isNeedLogin]){
+            NSLog(@"需要重新登录");
+            [GTUserUtils unRegisterUserInfo];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNeedsLoginNotification object:nil];
+        }
+        else {
+            success(task,responseObject);
+        }
     };
     
-    [manager POST:urlString parameters:parameters progress:progress success:successBlock failure:failure];
+    void (^failureBlock)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) = ^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"出错了，返回的数据内容为：%@", error);
+        failure(task, error);
+    };
+    
+    [manager POST:urlString parameters:parameters progress:progress success:successBlock failure:failureBlock];
     
     return manager;
 }

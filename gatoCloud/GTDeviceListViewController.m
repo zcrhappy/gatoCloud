@@ -42,6 +42,7 @@
     
     [_listTable registerClass:[GTDeviceListCell class] forCellReuseIdentifier:kDeviceListCellIdentifier];
     _listTable.rowHeight = 60;
+    _listTable.tableFooterView = [UIView new];
 }
 
 

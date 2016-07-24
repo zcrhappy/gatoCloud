@@ -13,6 +13,9 @@
 #import "OHHTTPStubs.h"
 #import "OHPathHelpers.h"
 #import "IQKeyboardManager.h"
+
+#define enableStubHTTP
+
 @interface AppDelegate ()<WXApiDelegate>
 
 @end
@@ -26,17 +29,22 @@
     //向微信注册
     [WXApi registerApp:@"wx91186ee878bacc62" withDescription:@"Gato Security"];
     
+    //初始化界面
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *rootViewController = [storyBoard instantiateInitialViewController];
     self.window = [[GTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:rootViewController];
     [self.window makeKeyAndVisible];
     
-    
     //配置键盘管理器
     [IQKeyboardManager sharedManager].enable = YES;
     [IQKeyboardManager sharedManager].toolbarDoneBarButtonItemText = @"完成";
     
+    //注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needsLoginAction:) name:kNeedsLoginNotification object:nil];
+#ifdef enableStubHTTP
+    [self stubHTTP];
+#endif
     return YES;
 }
 
@@ -76,22 +84,37 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)needsLoginAction:(NSNotification *)notification
+{
+    UIAlertController *controler = [UIAlertController alertControllerWithTitle:@"会话过期" message:@"需要重新登录" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        //初始化界面
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *rootViewController = [storyBoard instantiateInitialViewController];
+        self.window = [[GTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        [self.window setRootViewController:rootViewController];
+        [self.window makeKeyAndVisible];
+    }];
+    [controler addAction:doneAction];
+    [[GTUserUtils appTopViewController] presentViewController:controler animated:YES completion:nil];
+}
 
-- (void)enableStubHTTP
+- (void)stubHTTP
 {
     //test
-    
-    NSString *fileName = @"page.json";
-    NSDictionary *reqMap = @{@"queryWarningsPage.do": @"page.json"};
+//    NSDictionary *reqMap = @{@"queryWarningsPage.do": @"page.json"};
+    NSDictionary *reqMap = @{@"start.do":@"start.json"};
     
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [reqMap.allKeys containsObject:request.URL.lastPathComponent];
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
         // Stub it with our "wsresponse.json" stub file (which is in same bundle as self)
-        NSString* fixture = OHPathForFile(fileName, self.class);
+        NSString* fixture = OHPathForFile(reqMap[request.URL.lastPathComponent], self.class);
         return [OHHTTPStubsResponse responseWithFileAtPath:fixture
                                                 statusCode:200 headers:@{@"Content-Type":@"application/json"}];
     }];
 }
+
+
 
 @end

@@ -32,6 +32,7 @@
 @property (nonatomic, copy) NSString  *appVersion;
 @property (nonatomic, copy) NSString  *xmAppId;
 @property (nonatomic, copy) NSString  *token;
+@property (nonatomic, copy) NSString  *userType;
 
 @end
 

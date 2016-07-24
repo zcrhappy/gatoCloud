@@ -11,11 +11,24 @@
 
 @interface GTUserUtils : NSObject
 
-+ (void)saveUserInfo:(NSDictionary *)dic;
-
 + (GTUserModel *)userInfo;
++ (NSArray *)banners;
 
-+ (void)saveToken:(NSString *)token;
+//登录相关
++ (BOOL)isLogin;
++ (void)loginSuccess;
 
-+ (void)saveUserId:(NSString *)userId;
++ (void)unRegisterUserInfo;//注销当前用户的信息。
+
+//保存通过微信登录信息
++ (void)saveUserInfoViaWX:(NSDictionary *)dic;
++ (void)saveTokenViaWX:(NSString *)token;
++ (void)saveUserIdViaWX:(NSString *)userId;
+
+
++ (void)saveBanners:(NSArray *)banners;
+
++ (UIViewController *)getCurrentVC;
+
++ (UIViewController *)appTopViewController;
 @end

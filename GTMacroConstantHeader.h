@@ -19,10 +19,11 @@
 #define kReleaseVersion @"1.0.0"
 #define kAppType @"1"
 
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width);
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height);
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width;
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height;
 
 #define kUserDefaultKeyForDeviceCellMenuShow @"kUserDefaultKeyForDeviceCellMenuShow"
+#define kNeedsLoginNotification @"kNeedsLoginNotification"
 
 /** 自动定义 NSString **/
 #define NSSTRING_COPY  @property (nonatomic, copy) NSString

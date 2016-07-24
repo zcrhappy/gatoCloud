@@ -13,3 +13,4 @@ target “gatoCloud”
     pod 'OHHTTPStubs'
     pod 'IQKeyboardManager'
     pod 'CustomIOSAlertView'
+    pod 'SDCycleScrollView'
