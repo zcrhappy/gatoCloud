@@ -20,6 +20,9 @@
 #import "NSString+CheckingExtension.h"
 #import "MBProgressHUD+DisplayExtension.h"
 #import "UIView+DisplayExtention.h"
+#import "UIImage+DisplayExtension.h"
+#import "UIColor+DisplayExtension.h"
+
 //custom
 #import "GTMacroFunctionHeader.h"
 #import "GTMacroConstantHeader.h"

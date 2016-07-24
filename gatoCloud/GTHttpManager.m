@@ -10,6 +10,8 @@
 #import "NSMutableDictionary+HTTPExtension.h"
 #import "NSDictionary+HTTPExtionsion.h"
 
+//#define TESTURL
+
 NSString * const kBaseUrl = @"http://acloud.gato.com.cn:8088";
 NSString * const kTestBaseUrl = @"http://115.159.44.248:8090";
 
@@ -46,7 +48,9 @@ NSInteger const APIErrorCode = 138102;
     self = [super init];
     if(self){
         _baseUrl = kBaseUrl;
-//        _baseUrl = kTestBaseUrl;
+#ifdef TESTURL
+        _baseUrl = kTestBaseUrl;
+#endif
         token = @"";
         userId = @"";
     }
@@ -271,6 +275,7 @@ NSInteger const APIErrorCode = 138102;
         }
         else {
             NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
             finishBlk(nil, error);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -279,6 +284,30 @@ NSInteger const APIErrorCode = 138102;
     
 }
 
+- (void)GTWarningRecordsWithPageNo:(NSNumber *)pn
+                       finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    NSInteger rn = arc4random();
+    
+    [dic safeSetObject:pn forKey:@"pn"];
+    [dic safeSetObject:@(rn) forKey:@"rn"];
+    
+    [self POST:@"/queryWarningsPage.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
 
 #pragma mark - UserInfo
 - (void)GTUserFeedbackWithContents:(NSString *)content
@@ -304,7 +333,17 @@ NSInteger const APIErrorCode = 138102;
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         finishBlk(nil, error);
     }];
+}
 
+- (void)GTAppCheckUpdateWithFinishBlock:(GTResultBlock)finishBlk;
+{
+    [self POST:@"/start.do" parameters:[NSMutableDictionary dictionary] progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        finishBlk(nil, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
 }
 
 - (void)showErrorMsgWithResponse:(NSDictionary *)dic
@@ -349,6 +388,8 @@ NSInteger const APIErrorCode = 138102;
     [parameters safeSetObject:uuid forKey:@"appId"];
     
     NSString *urlString = [_baseUrl stringByAppendingString:URLString];
+    
+    NSLog(@"发起POST请求：%@",urlString);
     
     void(^successBlock)(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) = ^void(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
         NSLog(@"返回的数据内容为：%@",responseObject);

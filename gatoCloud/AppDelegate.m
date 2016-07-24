@@ -10,6 +10,9 @@
 #import "GTWindow.h"
 #import "GTLoginManager.h"
 #import "GestureViewController.h"
+#import "OHHTTPStubs.h"
+#import "OHPathHelpers.h"
+#import "IQKeyboardManager.h"
 @interface AppDelegate ()<WXApiDelegate>
 
 @end
@@ -28,6 +31,11 @@
     self.window = [[GTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:rootViewController];
     [self.window makeKeyAndVisible];
+    
+    
+    //配置键盘管理器
+    [IQKeyboardManager sharedManager].enable = YES;
+    [IQKeyboardManager sharedManager].toolbarDoneBarButtonItemText = @"完成";
     
     return YES;
 }
@@ -66,6 +74,24 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+- (void)enableStubHTTP
+{
+    //test
+    
+    NSString *fileName = @"page.json";
+    NSDictionary *reqMap = @{@"queryWarningsPage.do": @"page.json"};
+    
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [reqMap.allKeys containsObject:request.URL.lastPathComponent];
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        // Stub it with our "wsresponse.json" stub file (which is in same bundle as self)
+        NSString* fixture = OHPathForFile(fileName, self.class);
+        return [OHHTTPStubsResponse responseWithFileAtPath:fixture
+                                                statusCode:200 headers:@{@"Content-Type":@"application/json"}];
+    }];
 }
 
 @end

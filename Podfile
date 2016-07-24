@@ -10,3 +10,6 @@ target “gatoCloud”
     pod 'MJRefresh'
     pod 'QRCodeReaderViewController'
     pod 'SDWebImage'
+    pod 'OHHTTPStubs'
+    pod 'IQKeyboardManager'
+    pod 'CustomIOSAlertView'

@@ -110,6 +110,15 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
 - (void)GTDeviceDeleteWithDeviceNo:(NSString *)deviceNo
                        finishBlock:(GTResultBlock)finishBlk;
 
+/*!
+ *  @brief 报警记录接口
+ *
+ *  @param pn        页数
+ *  @param finishBlk 返回结果
+ */
+- (void)GTWarningRecordsWithPageNo:(NSNumber *)pn
+                       finishBlock:(GTResultBlock)finishBlk;
+
 
 #pragma mark - UserInfo
 /*!
@@ -121,6 +130,14 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
 - (void)GTUserFeedbackWithContents:(NSString *)content
                            contact:(NSString *)contact
                        finishBlock:(GTResultBlock)finishBlk;
+
+
+/*!
+ *  @brief 启动接口-处理升级
+ *
+ *  @param finishBlk 返回结果,需要自己处理返回结果，code=1代表可以升级，code=0代表不需升级。
+ */
+- (void)GTAppCheckUpdateWithFinishBlock:(GTResultBlock)finishBlk;
 @end
 
 #pragma clang diagnostic pop

@@ -35,6 +35,11 @@
 		3321FAC31D39291C00D3850E /* GTPhoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC21D39291C00D3850E /* GTPhoneLoginViewController.m */; };
 		3321FAC71D393B5F00D3850E /* GTUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */; };
 		3326A0371D3E6470000697DC /* GTFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3326A0361D3E6470000697DC /* GTFeedbackViewController.m */; };
+		332BA24B1D3F45E300B0C635 /* GTWarningRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA24A1D3F45E300B0C635 /* GTWarningRecordModel.m */; };
+		332BA24E1D3F502600B0C635 /* GTWarningRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA24D1D3F502600B0C635 /* GTWarningRecordsViewController.m */; };
+		332BA2511D3FADB500B0C635 /* GTWarningRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA2501D3FADB500B0C635 /* GTWarningRecordCell.m */; };
+		332BA2541D3FAF1200B0C635 /* GTWarningRecordDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA2531D3FAF1200B0C635 /* GTWarningRecordDataManager.m */; };
+		332BA2571D3FDF4B00B0C635 /* GTDeviceCellGestureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA2561D3FDF4B00B0C635 /* GTDeviceCellGestureManager.m */; };
 		3352A60E1D39CEEB00EED5C0 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A6091D39CEEB00EED5C0 /* PCCircle.m */; };
 		3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A60B1D39CEEB00EED5C0 /* PCCircleView.m */; };
 		3352A6101D39CEEB00EED5C0 /* PCCircleViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A60D1D39CEEB00EED5C0 /* PCCircleViewConst.m */; };
@@ -43,6 +48,11 @@
 		3352A61C1D39D8E100EED5C0 /* PCLockLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A61A1D39D8E100EED5C0 /* PCLockLabel.m */; };
 		3352A61F1D39D90600EED5C0 /* GestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A61E1D39D90600EED5C0 /* GestureViewController.m */; };
 		3352A6221D39D96700EED5C0 /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A6211D39D96700EED5C0 /* CALayer+Anim.m */; };
+		335380881D445FE100041BD9 /* UIColor+DisplayExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 335380871D445FE100041BD9 /* UIColor+DisplayExtension.m */; };
+		3353808B1D4461A900041BD9 /* GTWarningDetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3353808A1D4461A900041BD9 /* GTWarningDetailCommentCell.m */; };
+		3353808E1D44620C00041BD9 /* GTWarningDetailDoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3353808D1D44620C00041BD9 /* GTWarningDetailDoneCell.m */; };
+		33620C911D4128C800209AE7 /* page.json in Resources */ = {isa = PBXBuildFile; fileRef = 33620C901D4128C800209AE7 /* page.json */; };
+		336C612B1D41211A003C4410 /* GTWarningRecordCompleteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 336C612A1D41211A003C4410 /* GTWarningRecordCompleteModel.m */; };
 		33A0FC861D3D1C6A00C731DF /* GTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */; };
 		33A0FC891D3D1FBB00C731DF /* GTUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC881D3D1FBB00C731DF /* GTUserInfoCell.m */; };
 		33C620981D2FE7E60022A9F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620971D2FE7E60022A9F0 /* main.m */; };
@@ -52,6 +62,10 @@
 		33C620A61D2FE7E60022A9F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C620A41D2FE7E60022A9F0 /* LaunchScreen.storyboard */; };
 		33C620B01D30096E0022A9F0 /* GTAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620AF1D30096E0022A9F0 /* GTAddDeviceViewController.m */; };
 		33C620B31D300D750022A9F0 /* GTAddDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620B21D300D750022A9F0 /* GTAddDeviceCell.m */; };
+		33FF6D2F1D4370FE009C730E /* GTWarningDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FF6D2E1D4370FE009C730E /* GTWarningDetailViewController.m */; };
+		33FF6D341D4375D0009C730E /* GTWarningDetailCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FF6D331D4375D0009C730E /* GTWarningDetailCommonCell.m */; };
+		33FF6D3A1D43770F009C730E /* GTWarningDetailStateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FF6D391D43770F009C730E /* GTWarningDetailStateCell.m */; };
+		33FF6D3D1D437B83009C730E /* UIImage+DisplayExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FF6D3C1D437B83009C730E /* UIImage+DisplayExtension.m */; };
 		8BE677447F85240C7D463C57 /* libPods-gatoCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB7C0AA89F4ABA958A8D5DC /* libPods-gatoCloud.a */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +123,16 @@
 		3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTUserInfoViewController.m; sourceTree = "<group>"; };
 		3326A0351D3E6470000697DC /* GTFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFeedbackViewController.h; sourceTree = "<group>"; };
 		3326A0361D3E6470000697DC /* GTFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFeedbackViewController.m; sourceTree = "<group>"; };
+		332BA2491D3F45E300B0C635 /* GTWarningRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningRecordModel.h; sourceTree = "<group>"; };
+		332BA24A1D3F45E300B0C635 /* GTWarningRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningRecordModel.m; sourceTree = "<group>"; };
+		332BA24C1D3F502600B0C635 /* GTWarningRecordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningRecordsViewController.h; sourceTree = "<group>"; };
+		332BA24D1D3F502600B0C635 /* GTWarningRecordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningRecordsViewController.m; sourceTree = "<group>"; };
+		332BA24F1D3FADB500B0C635 /* GTWarningRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningRecordCell.h; sourceTree = "<group>"; };
+		332BA2501D3FADB500B0C635 /* GTWarningRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningRecordCell.m; sourceTree = "<group>"; };
+		332BA2521D3FAF1200B0C635 /* GTWarningRecordDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningRecordDataManager.h; sourceTree = "<group>"; };
+		332BA2531D3FAF1200B0C635 /* GTWarningRecordDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningRecordDataManager.m; sourceTree = "<group>"; };
+		332BA2551D3FDF4B00B0C635 /* GTDeviceCellGestureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDeviceCellGestureManager.h; sourceTree = "<group>"; };
+		332BA2561D3FDF4B00B0C635 /* GTDeviceCellGestureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDeviceCellGestureManager.m; sourceTree = "<group>"; };
 		3352A6081D39CEEB00EED5C0 /* PCCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircle.h; sourceTree = "<group>"; };
 		3352A6091D39CEEB00EED5C0 /* PCCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircle.m; sourceTree = "<group>"; };
 		3352A60A1D39CEEB00EED5C0 /* PCCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleView.h; sourceTree = "<group>"; };
@@ -125,6 +149,16 @@
 		3352A61E1D39D90600EED5C0 /* GestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureViewController.m; sourceTree = "<group>"; };
 		3352A6201D39D96700EED5C0 /* CALayer+Anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Anim.h"; sourceTree = "<group>"; };
 		3352A6211D39D96700EED5C0 /* CALayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Anim.m"; sourceTree = "<group>"; };
+		335380861D445FE100041BD9 /* UIColor+DisplayExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DisplayExtension.h"; sourceTree = "<group>"; };
+		335380871D445FE100041BD9 /* UIColor+DisplayExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DisplayExtension.m"; sourceTree = "<group>"; };
+		335380891D4461A900041BD9 /* GTWarningDetailCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningDetailCommentCell.h; sourceTree = "<group>"; };
+		3353808A1D4461A900041BD9 /* GTWarningDetailCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningDetailCommentCell.m; sourceTree = "<group>"; };
+		3353808C1D44620C00041BD9 /* GTWarningDetailDoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningDetailDoneCell.h; sourceTree = "<group>"; };
+		3353808D1D44620C00041BD9 /* GTWarningDetailDoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningDetailDoneCell.m; sourceTree = "<group>"; };
+		33620C901D4128C800209AE7 /* page.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = page.json; sourceTree = "<group>"; };
+		33620C921D4216E400209AE7 /* GTWarningRecordHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningRecordHeader.h; sourceTree = "<group>"; };
+		336C61291D41211A003C4410 /* GTWarningRecordCompleteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningRecordCompleteModel.h; sourceTree = "<group>"; };
+		336C612A1D41211A003C4410 /* GTWarningRecordCompleteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningRecordCompleteModel.m; sourceTree = "<group>"; };
 		33A0FC841D3D1C6A00C731DF /* GTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMainViewController.h; sourceTree = "<group>"; };
 		33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMainViewController.m; sourceTree = "<group>"; };
 		33A0FC871D3D1FBB00C731DF /* GTUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserInfoCell.h; sourceTree = "<group>"; };
@@ -144,6 +178,14 @@
 		33C620B41D300EBE0022A9F0 /* GTGlobalPrefixHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTGlobalPrefixHeader.h; sourceTree = "<group>"; };
 		33C620B51D30FD9D0022A9F0 /* GTMacroFunctionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMacroFunctionHeader.h; sourceTree = "<group>"; };
 		33C620B61D3107120022A9F0 /* GTMacroConstantHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMacroConstantHeader.h; sourceTree = "<group>"; };
+		33FF6D2D1D4370FE009C730E /* GTWarningDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningDetailViewController.h; sourceTree = "<group>"; };
+		33FF6D2E1D4370FE009C730E /* GTWarningDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningDetailViewController.m; sourceTree = "<group>"; };
+		33FF6D321D4375D0009C730E /* GTWarningDetailCommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningDetailCommonCell.h; sourceTree = "<group>"; };
+		33FF6D331D4375D0009C730E /* GTWarningDetailCommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningDetailCommonCell.m; sourceTree = "<group>"; };
+		33FF6D381D43770F009C730E /* GTWarningDetailStateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningDetailStateCell.h; sourceTree = "<group>"; };
+		33FF6D391D43770F009C730E /* GTWarningDetailStateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningDetailStateCell.m; sourceTree = "<group>"; };
+		33FF6D3B1D437B83009C730E /* UIImage+DisplayExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+DisplayExtension.h"; sourceTree = "<group>"; };
+		33FF6D3C1D437B83009C730E /* UIImage+DisplayExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DisplayExtension.m"; sourceTree = "<group>"; };
 		4E9C7E50B9B21A8135494CBF /* Pods-gatoCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gatoCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gatoCloud/Pods-gatoCloud.debug.xcconfig"; sourceTree = "<group>"; };
 		5DB7C0AA89F4ABA958A8D5DC /* libPods-gatoCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gatoCloud.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -191,6 +233,10 @@
 				3321FA921D33F96900D3850E /* NSDictionary+HTTPExtionsion.m */,
 				3321FABB1D37CAB500D3850E /* UIView+DisplayExtention.h */,
 				3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */,
+				33FF6D3B1D437B83009C730E /* UIImage+DisplayExtension.h */,
+				33FF6D3C1D437B83009C730E /* UIImage+DisplayExtension.m */,
+				335380861D445FE100041BD9 /* UIColor+DisplayExtension.h */,
+				335380871D445FE100041BD9 /* UIColor+DisplayExtension.m */,
 			);
 			name = Catagory;
 			sourceTree = "<group>";
@@ -243,6 +289,8 @@
 				3321FAA01D36743200D3850E /* GTDeviceListCell.m */,
 				3321FAA21D36782500D3850E /* GTDeviceModel.h */,
 				3321FAA31D36782500D3850E /* GTDeviceModel.m */,
+				332BA2551D3FDF4B00B0C635 /* GTDeviceCellGestureManager.h */,
+				332BA2561D3FDF4B00B0C635 /* GTDeviceCellGestureManager.m */,
 			);
 			name = DeviceList;
 			sourceTree = "<group>";
@@ -258,6 +306,16 @@
 				3326A0361D3E6470000697DC /* GTFeedbackViewController.m */,
 			);
 			name = ME;
+			sourceTree = "<group>";
+		};
+		332BA2481D3F45B900B0C635 /* WarningRecords */ = {
+			isa = PBXGroup;
+			children = (
+				33620C921D4216E400209AE7 /* GTWarningRecordHeader.h */,
+				33FF6D301D43715F009C730E /* WarningRecords */,
+				33FF6D311D437576009C730E /* WarningDetail */,
+			);
+			name = WarningRecords;
 			sourceTree = "<group>";
 		};
 		3352A6071D39CED500EED5C0 /* GestureUnlock */ = {
@@ -300,6 +358,7 @@
 		33C620951D2FE7E60022A9F0 /* gatoCloud */ = {
 			isa = PBXGroup;
 			children = (
+				332BA2481D3F45B900B0C635 /* WarningRecords */,
 				3321FAC41D393B3D00D3850E /* ME */,
 				3321FA8A1D33E85E00D3850E /* UserInfo */,
 				3321FA651D33B95100D3850E /* Login */,
@@ -324,6 +383,7 @@
 		33C620961D2FE7E60022A9F0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				33620C901D4128C800209AE7 /* page.json */,
 				33C620991D2FE7E60022A9F0 /* AppDelegate.h */,
 				33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */,
 				3321FA4C1D3240FD00D3850E /* GTWindow.h */,
@@ -349,6 +409,40 @@
 				3321FA9E1D36730000D3850E /* DeviceList */,
 			);
 			name = Devices;
+			sourceTree = "<group>";
+		};
+		33FF6D301D43715F009C730E /* WarningRecords */ = {
+			isa = PBXGroup;
+			children = (
+				332BA24C1D3F502600B0C635 /* GTWarningRecordsViewController.h */,
+				332BA24D1D3F502600B0C635 /* GTWarningRecordsViewController.m */,
+				332BA24F1D3FADB500B0C635 /* GTWarningRecordCell.h */,
+				332BA2501D3FADB500B0C635 /* GTWarningRecordCell.m */,
+				336C61291D41211A003C4410 /* GTWarningRecordCompleteModel.h */,
+				336C612A1D41211A003C4410 /* GTWarningRecordCompleteModel.m */,
+				332BA2521D3FAF1200B0C635 /* GTWarningRecordDataManager.h */,
+				332BA2531D3FAF1200B0C635 /* GTWarningRecordDataManager.m */,
+				332BA2491D3F45E300B0C635 /* GTWarningRecordModel.h */,
+				332BA24A1D3F45E300B0C635 /* GTWarningRecordModel.m */,
+			);
+			name = WarningRecords;
+			sourceTree = "<group>";
+		};
+		33FF6D311D437576009C730E /* WarningDetail */ = {
+			isa = PBXGroup;
+			children = (
+				33FF6D2D1D4370FE009C730E /* GTWarningDetailViewController.h */,
+				33FF6D2E1D4370FE009C730E /* GTWarningDetailViewController.m */,
+				33FF6D321D4375D0009C730E /* GTWarningDetailCommonCell.h */,
+				33FF6D331D4375D0009C730E /* GTWarningDetailCommonCell.m */,
+				33FF6D381D43770F009C730E /* GTWarningDetailStateCell.h */,
+				33FF6D391D43770F009C730E /* GTWarningDetailStateCell.m */,
+				335380891D4461A900041BD9 /* GTWarningDetailCommentCell.h */,
+				3353808A1D4461A900041BD9 /* GTWarningDetailCommentCell.m */,
+				3353808C1D44620C00041BD9 /* GTWarningDetailDoneCell.h */,
+				3353808D1D44620C00041BD9 /* GTWarningDetailDoneCell.m */,
+			);
+			name = WarningDetail;
 			sourceTree = "<group>";
 		};
 		4BF9F301F816C63B14762E82 /* Pods */ = {
@@ -436,6 +530,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33620C911D4128C800209AE7 /* page.json in Resources */,
 				33C620A61D2FE7E60022A9F0 /* LaunchScreen.storyboard in Resources */,
 				33C620A31D2FE7E60022A9F0 /* Assets.xcassets in Resources */,
 				3321FA621D3354FC00D3850E /* README.txt in Resources */,
@@ -502,33 +597,46 @@
 				3352A61B1D39D8E100EED5C0 /* PCCircleInfoView.m in Sources */,
 				3321FAC71D393B5F00D3850E /* GTUserInfoViewController.m in Sources */,
 				3352A6221D39D96700EED5C0 /* CALayer+Anim.m in Sources */,
+				33FF6D3D1D437B83009C730E /* UIImage+DisplayExtension.m in Sources */,
 				3321FA901D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.m in Sources */,
 				3321FAC31D39291C00D3850E /* GTPhoneLoginViewController.m in Sources */,
+				332BA2541D3FAF1200B0C635 /* GTWarningRecordDataManager.m in Sources */,
 				3321FA5A1D32A82E00D3850E /* GTHttpManager.m in Sources */,
 				3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */,
 				3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */,
 				3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */,
 				3326A0371D3E6470000697DC /* GTFeedbackViewController.m in Sources */,
+				33FF6D2F1D4370FE009C730E /* GTWarningDetailViewController.m in Sources */,
 				3352A6161D39D03B00EED5C0 /* GTGestureUnlockViewController.m in Sources */,
 				3321FAA11D36743200D3850E /* GTDeviceListCell.m in Sources */,
+				3353808B1D4461A900041BD9 /* GTWarningDetailCommentCell.m in Sources */,
 				33A0FC891D3D1FBB00C731DF /* GTUserInfoCell.m in Sources */,
 				3321FA8D1D33E87B00D3850E /* GTUserModel.m in Sources */,
 				3321FA931D33F96900D3850E /* NSDictionary+HTTPExtionsion.m in Sources */,
 				3352A60E1D39CEEB00EED5C0 /* PCCircle.m in Sources */,
 				3321FA531D329D1300D3850E /* NSString+CheckingExtension.m in Sources */,
+				336C612B1D41211A003C4410 /* GTWarningRecordCompleteModel.m in Sources */,
 				33A0FC861D3D1C6A00C731DF /* GTMainViewController.m in Sources */,
 				3321FA571D329ED600D3850E /* MBProgressHUD+DisplayExtension.m in Sources */,
 				33C620B31D300D750022A9F0 /* GTAddDeviceCell.m in Sources */,
 				3321FA891D33E40000D3850E /* GTUserUtils.m in Sources */,
 				3321FA681D33B96B00D3850E /* GTLoginViewController.m in Sources */,
+				332BA24B1D3F45E300B0C635 /* GTWarningRecordModel.m in Sources */,
 				3321FAA41D36782500D3850E /* GTDeviceModel.m in Sources */,
 				33C620B01D30096E0022A9F0 /* GTAddDeviceViewController.m in Sources */,
+				332BA2511D3FADB500B0C635 /* GTWarningRecordCell.m in Sources */,
 				3352A6101D39CEEB00EED5C0 /* PCCircleViewConst.m in Sources */,
+				33FF6D341D4375D0009C730E /* GTWarningDetailCommonCell.m in Sources */,
+				33FF6D3A1D43770F009C730E /* GTWarningDetailStateCell.m in Sources */,
 				33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */,
 				3321FA6B1D33BA3C00D3850E /* GTLoginManager.m in Sources */,
+				335380881D445FE100041BD9 /* UIColor+DisplayExtension.m in Sources */,
 				3352A61F1D39D90600EED5C0 /* GestureViewController.m in Sources */,
+				332BA24E1D3F502600B0C635 /* GTWarningRecordsViewController.m in Sources */,
 				3352A61C1D39D8E100EED5C0 /* PCLockLabel.m in Sources */,
 				3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */,
+				332BA2571D3FDF4B00B0C635 /* GTDeviceCellGestureManager.m in Sources */,
+				3353808E1D44620C00041BD9 /* GTWarningDetailDoneCell.m in Sources */,
 				3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */,
 				33C620981D2FE7E60022A9F0 /* main.m in Sources */,
 				3321FAAF1D368DEE00D3850E /* TLSwipeForOptionsCell.m in Sources */,

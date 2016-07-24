@@ -9,7 +9,7 @@
 #import "TLSwipeForOptionsCell.h"
 
 
-@interface GTDeviceListCell : TLSwipeForOptionsCell
+@interface GTDeviceListCell : UITableViewCell
 
 - (void)configDeviceName:(NSString *)name status:(NSString *)status;
 

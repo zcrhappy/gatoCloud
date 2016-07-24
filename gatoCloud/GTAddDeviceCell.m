@@ -13,6 +13,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UIImageView *QRImage;
 @property (strong, nonatomic) IBOutlet UIImageView *icon;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldLeadingToTitleConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldLeadingToIconConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldTrailingToQRImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldTrailingToRight;
+
 
 @end
 
@@ -52,11 +57,10 @@
             _title.hidden = YES;
             _icon.hidden = NO;
             
-//            [_textField mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.left.equalTo(_icon.mas_right).offset(10);
-//                make.right.equalTo(self.contentView).offset(-10);
-//                make.height.equalTo(self.contentView);
-//            }];
+            _textFieldLeadingToTitleConstraint.priority = UILayoutPriorityDefaultHigh;
+            _textFieldLeadingToIconConstraint.priority = UILayoutPriorityRequired;
+            _textFieldTrailingToQRImage.priority = UILayoutPriorityDefaultHigh;
+            _textFieldTrailingToRight.priority = UILayoutPriorityRequired;
             break;
         }
         case GTAddDeviceCellStyleTitle_textField:
@@ -65,11 +69,11 @@
             _title.hidden = NO;
             _icon.hidden = YES;
             
-//            [_textField mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.left.equalTo(_title.mas_right).offset(10);
-//                make.right.equalTo(self.contentView).offset(-10);
-//                make.height.equalTo(self.contentView);
-//            }];
+            _textFieldLeadingToTitleConstraint.priority = UILayoutPriorityRequired;
+            _textFieldLeadingToIconConstraint.priority = UILayoutPriorityDefaultHigh;
+            _textFieldTrailingToQRImage.priority = UILayoutPriorityDefaultHigh;
+            _textFieldTrailingToRight.priority = UILayoutPriorityRequired;
+
             break;
         }
         case GTAddDeviceCellStyleTitle_textField_QRImage:
@@ -78,11 +82,10 @@
             _title.hidden = NO;
             _icon.hidden = YES;
             
-//            [_textField mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.left.equalTo(_title.mas_right).offset(10);
-//                make.right.equalTo(_QRImage.mas_left).offset(-5);
-//                make.height.equalTo(self.contentView);
-//            }];
+            _textFieldLeadingToTitleConstraint.priority = UILayoutPriorityRequired;
+            _textFieldLeadingToIconConstraint.priority = UILayoutPriorityDefaultHigh;
+            _textFieldTrailingToQRImage.priority = UILayoutPriorityRequired;
+            _textFieldTrailingToRight.priority = UILayoutPriorityDefaultHigh;
         }
     }
 }

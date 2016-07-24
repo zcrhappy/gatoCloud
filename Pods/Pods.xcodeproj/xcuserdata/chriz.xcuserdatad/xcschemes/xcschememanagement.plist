@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CustomIOSAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FLEX.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -30,6 +40,11 @@
 			<false/>
 		</dict>
 		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>OHHTTPStubs.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,7 +72,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>09EF20390D1A675F97761C38196E4238</key>
+		<key>1AFDD945C0E436EA5C9484EAFA0D0F47</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>35560C5E8F4B06D2DCEB4C4783B9594C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,17 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>49F2785EC5C740C433FA023647306508</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E508CE489D75CAD6B75B6B42C62F969</key>
+		<key>551DF5029ED8779016F573B2007CC703</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>55DBDD8B7D446F1D618F303A9FB53209</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6A3E7C3A4E39D33477AFD6798025CE5C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8D3CB759BA2ECE1780BC50D077C715AD</key>
+		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
+		<key>99F2FB2798A21189499799EF33F16791</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BB8C557258992C2D9124AF8F79C2AB08</key>
 		<dict>
 			<key>primary</key>
 			<true/>
