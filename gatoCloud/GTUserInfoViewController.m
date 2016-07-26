@@ -10,6 +10,8 @@
 #import "GTUserInfoCell.h"
 #import "GTStartModel.h"
 #import "LCActionSheet.h"
+#import "GestureViewController.h"
+#import "PCCircleView.h"
 #import "GTDeviceManagerAuthorization.h"
 #import <AVFoundation/AVFoundation.h>
 
@@ -27,7 +29,7 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     GTPickPhotoViaAlbum = 1,
 };
 
-@interface GTUserInfoViewController()<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface GTUserInfoViewController()<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CircleViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *listTable;
 @property (nonatomic, strong) NSArray *rowArray;
@@ -115,6 +117,11 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
                 [MBProgressHUD showText:@"有新版本" inView:self.view];
             }
         }];
+    }
+    else if ([title isEqualToString:kModifyGestureCode]) {
+        GestureViewController *gestureUnlockViewController = [[GestureViewController alloc] init];
+        gestureUnlockViewController.type = GestureViewControllerTypeSetting;
+        [self.navigationController pushViewController:gestureUnlockViewController animated:YES];
     }
 }
 

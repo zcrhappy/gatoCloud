@@ -101,7 +101,10 @@
 - (void)setupSameUI
 {
     // 创建导航栏右边按钮
-    self.navigationItem.rightBarButtonItem = [self itemWithTitle:@"重设" target:self action:@selector(didClickBtn:) tag:buttonTagReset];
+//    self.navigationItem.rightBarButtonItem = [self itemWithTitle:@"重设" target:self action:@selector(didClickBtn:) tag:buttonTagReset];
+    
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"重设" style:UIBarButtonItemStylePlain target:self action:@selector(didClickBtn:)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
     
     // 解锁界面
     PCCircleView *lockView = [[PCCircleView alloc] init];
@@ -111,7 +114,7 @@
     
     PCLockLabel *msgLabel = [[PCLockLabel alloc] init];
     msgLabel.frame = CGRectMake(0, 0, kScreenW, 14);
-    msgLabel.center = CGPointMake(kScreenW/2, CGRectGetMinY(lockView.frame) - 30);
+    msgLabel.center = CGPointMake(kScreenW/2, CGRectGetMinY(lockView.frame) - 20);
     self.msgLabel = msgLabel;
     [self.view addSubview:msgLabel];
 }
@@ -121,6 +124,17 @@
 {
     [self.lockView setType:CircleViewTypeSetting];
     
+    // 头像
+    UIImageView  *imageView = [[UIImageView alloc] init];
+    imageView.frame = CGRectMake(0, 0, 65, 65);
+    imageView.layer.cornerRadius = 32.5;
+    imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    imageView.layer.borderWidth = 0.5;
+    imageView.layer.masksToBounds = YES;
+    imageView.center = CGPointMake(kScreenW/2, 120);
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils userHeadImgURLString]] placeholderImage:nil];
+    [self.view addSubview:imageView];
+
     self.title = @"设置手势密码";
     
     [self.msgLabel showNormalMsg:gestureTextBeforeSet];
@@ -140,17 +154,32 @@
     // 头像
     UIImageView  *imageView = [[UIImageView alloc] init];
     imageView.frame = CGRectMake(0, 0, 65, 65);
+    imageView.layer.cornerRadius = 32.5;
+    imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    imageView.layer.borderWidth = 0.5;
+    imageView.layer.masksToBounds = YES;
     imageView.center = CGPointMake(kScreenW/2, kScreenH/5);
-    [imageView setImage:[UIImage imageNamed:@"head"]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils userHeadImgURLString]] placeholderImage:nil];
     [self.view addSubview:imageView];
     
-    // 管理手势密码
-    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self creatButton:leftBtn frame:CGRectMake(CircleViewEdgeMargin + 20, kScreenH - 60, kScreenW/2, 20) title:@"管理手势密码" alignment:UIControlContentHorizontalAlignmentLeft tag:buttonTagManager];
+    UILabel *tipLabel = [[UILabel alloc] init];
+    tipLabel.text = @"请输入手势密码";
+    tipLabel.textColor = [UIColor whiteColor];
+    tipLabel.font = [UIFont systemFontOfSize:14];
+    [self.view addSubview:tipLabel];
     
-    // 登录其他账户
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self creatButton:rightBtn frame:CGRectMake(kScreenW/2 - CircleViewEdgeMargin - 20, kScreenH - 60, kScreenW/2, 20) title:@"登陆其他账户" alignment:UIControlContentHorizontalAlignmentRight tag:buttonTagForget];
+    [tipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(imageView.mas_bottom).offset(20);
+        make.centerX.equalTo(self.view);
+    }];
+    
+//    // 管理手势密码
+//    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [self creatButton:leftBtn frame:CGRectMake(CircleViewEdgeMargin + 20, kScreenH - 60, kScreenW/2, 20) title:@"管理手势密码" alignment:UIControlContentHorizontalAlignmentLeft tag:buttonTagManager];
+//    
+//    // 登录其他账户
+//    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [self creatButton:rightBtn frame:CGRectMake(kScreenW/2 - CircleViewEdgeMargin - 20, kScreenH - 60, kScreenW/2, 20) title:@"登陆其他账户" alignment:UIControlContentHorizontalAlignmentRight tag:buttonTagForget];
 }
 
 #pragma mark - 创建UIButton
@@ -167,39 +196,52 @@
 }
 
 #pragma mark - button点击事件
-- (void)didClickBtn:(UIButton *)sender
+- (void)didClickBtn:(id)sender
 {
-    NSLog(@"%ld", (long)sender.tag);
-    switch (sender.tag) {
-        case buttonTagReset:
-        {
-            NSLog(@"点击了重设按钮");
-            // 1.隐藏按钮
-            [self.resetBtn setHidden:YES];
-            
-            // 2.infoView取消选中
-            [self infoViewDeselectedSubviews];
-            
-            // 3.msgLabel提示文字复位
-            [self.msgLabel showNormalMsg:gestureTextBeforeSet];
-            
-            // 4.清除之前存储的密码
-            [PCCircleViewConst saveGesture:nil Key:gestureOneSaveKey];
-        }
-            break;
-        case buttonTagManager:
-        {
-            NSLog(@"点击了管理手势密码按钮");
-            
-        }
-            break;
-        case buttonTagForget:
-            NSLog(@"点击了登录其他账户按钮");
-            
-            break;
-        default:
-            break;
-    }
+    NSLog(@"点击了重设按钮");
+    // 1.隐藏按钮
+    [self.resetBtn setHidden:YES];
+    
+    // 2.infoView取消选中
+    [self infoViewDeselectedSubviews];
+    
+    // 3.msgLabel提示文字复位
+    [self.msgLabel showNormalMsg:gestureTextBeforeSet];
+    
+    // 4.清除之前存储的密码
+    [PCCircleViewConst saveGesture:nil Key:gestureOneSaveKey];
+
+//    NSLog(@"%ld", (long)sender.tag);
+//    switch (sender.tag) {
+//        case buttonTagReset:
+//        {
+//            NSLog(@"点击了重设按钮");
+//            // 1.隐藏按钮
+//            [self.resetBtn setHidden:YES];
+//            
+//            // 2.infoView取消选中
+//            [self infoViewDeselectedSubviews];
+//            
+//            // 3.msgLabel提示文字复位
+//            [self.msgLabel showNormalMsg:gestureTextBeforeSet];
+//            
+//            // 4.清除之前存储的密码
+//            [PCCircleViewConst saveGesture:nil Key:gestureOneSaveKey];
+//        }
+//            break;
+//        case buttonTagManager:
+//        {
+//            NSLog(@"点击了管理手势密码按钮");
+//            
+//        }
+//            break;
+//        case buttonTagForget:
+//            NSLog(@"点击了登录其他账户按钮");
+//            
+//            break;
+//        default:
+//            break;
+//    }
 }
 
 #pragma mark - circleView - delegate
@@ -237,7 +279,12 @@
         
         [self.msgLabel showWarnMsg:gestureTextSetSuccess];
         [PCCircleViewConst saveGesture:gesture Key:gestureFinalSaveKey];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        [MBProgressHUD showText:@"设置成功!" inView:self.view];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        });
         
     } else {
         NSLog(@"两次手势不匹配！");
@@ -255,7 +302,8 @@
         
         if (equal) {
             NSLog(@"登陆成功！");
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
+
         } else {
             NSLog(@"密码错误！");
             [self.msgLabel showWarnMsgAndShake:gestureTextGestureVerifyError];

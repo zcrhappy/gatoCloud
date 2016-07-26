@@ -13,11 +13,11 @@
 #import "GTShareActionSheet.h"
 @interface GTMainViewController()
 
-@property (strong, nonatomic) SDCycleScrollView *carouselView;
-@property (nonatomic, strong) IBOutlet UIImageView *headImgView;
-@property (nonatomic, strong) IBOutlet UILabel *deviceCountLabel;
-@property (nonatomic, strong) IBOutlet UILabel *zoneCountLabel;
-//data source
+@property (weak, nonatomic) IBOutlet SDCycleScrollView *carouselView;
+@property (nonatomic, weak) IBOutlet UIImageView *headImgView;
+@property (nonatomic, weak) IBOutlet UILabel *deviceCountLabel;
+@property (nonatomic, weak) IBOutlet UILabel *zoneCountLabel;
+//dataSource
 @property (nonatomic, strong) GTStartModel *startModel;
 @property (nonatomic, strong) GTMainViewInfoModel *infoModel;
 @end
@@ -27,24 +27,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    _carouselView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero delegate:nil placeholderImage:[UIImage imageWithColor:[UIColor grayColor]]];
-    [self.view addSubview:_carouselView];
-    [_carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(@0);
-        make.height.equalTo(@300);
-    }];
-    
+
     [self checkVersion];
     
     [self fetchMainViewInfo];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)configUI
 {
-    [super viewDidAppear:animated];
-    
-
+    _carouselView.placeholderImage = [UIImage imageWithColor:[UIColor grayColor]];
 }
 
 - (void)checkVersion
@@ -61,7 +52,6 @@
         }
     }];
 }
-
 
 - (void)fetchMainViewInfo
 {

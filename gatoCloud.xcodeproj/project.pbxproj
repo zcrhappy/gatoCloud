@@ -373,6 +373,17 @@
 			name = Utility;
 			sourceTree = "<group>";
 		};
+		337663BC1D4773DF003AA73C /* Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				3352A6151D39D03B00EED5C0 /* GTGestureUnlockViewController.m */,
+				3352A6141D39D03B00EED5C0 /* GTGestureUnlockViewController.h */,
+				3352A61D1D39D90600EED5C0 /* GestureViewController.h */,
+				3352A61E1D39D90600EED5C0 /* GestureViewController.m */,
+			);
+			name = Gesture;
+			sourceTree = "<group>";
+		};
 		33C6208A1D2FE7E60022A9F0 = {
 			isa = PBXGroup;
 			children = (
@@ -408,10 +419,7 @@
 				3321FA541D329D1600D3850E /* Catagory */,
 				3321FA581D32A82E00D3850E /* GTHttpManager.h */,
 				3321FA591D32A82E00D3850E /* GTHttpManager.m */,
-				3352A6141D39D03B00EED5C0 /* GTGestureUnlockViewController.h */,
-				3352A6151D39D03B00EED5C0 /* GTGestureUnlockViewController.m */,
-				3352A61D1D39D90600EED5C0 /* GestureViewController.h */,
-				3352A61E1D39D90600EED5C0 /* GestureViewController.m */,
+				337663BC1D4773DF003AA73C /* Gesture */,
 			);
 			path = gatoCloud;
 			sourceTree = "<group>";
