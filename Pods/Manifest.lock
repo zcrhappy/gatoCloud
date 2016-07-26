@@ -17,6 +17,7 @@ PODS:
   - CustomIOSAlertView (0.9.3)
   - FLEX (2.1.1)
   - IQKeyboardManager (3.3.7)
+  - LCActionSheet (1.2.3)
   - Mantle (2.0.7):
     - Mantle/extobjc (= 2.0.7)
   - Mantle/extobjc (2.0.7)
@@ -49,6 +50,7 @@ DEPENDENCIES:
   - CustomIOSAlertView
   - FLEX (~> 2.0)
   - IQKeyboardManager
+  - LCActionSheet
   - Mantle
   - Masonry
   - MBProgressHUD
@@ -64,6 +66,7 @@ SPEC CHECKSUMS:
   CustomIOSAlertView: 94d2401e34fcfb0ac0134679d6947f5e251b0446
   FLEX: 27b768fcae23a313a1eb115076d429180ca9b472
   IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
+  LCActionSheet: 690882cd8b9a6713f1b2881c3bb2c7f11954d034
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
@@ -74,6 +77,6 @@ SPEC CHECKSUMS:
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
 
-PODFILE CHECKSUM: 9388e287627172a465f92f0c10ffd92acdb70d8c
+PODFILE CHECKSUM: 303155bb32149a905f0d5b0a6fa019bddfa1b3f4
 
 COCOAPODS: 1.0.1

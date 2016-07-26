@@ -14,3 +14,4 @@ target “gatoCloud”
     pod 'IQKeyboardManager'
     pod 'CustomIOSAlertView'
     pod 'SDCycleScrollView'
+    pod 'LCActionSheet'

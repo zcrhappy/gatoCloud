@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'CAE95965D51DA245AE5D9F86A527FBB1'
+               BlueprintIdentifier = '43BB4AC2C54BF017500BD2940FFD029F'
                BlueprintName = 'Pods-gatoCloud'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-gatoCloud.a'>

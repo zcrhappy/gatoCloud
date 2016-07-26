@@ -55,6 +55,9 @@
 		335380971D44C80D00041BD9 /* GTStartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 335380961D44C80D00041BD9 /* GTStartModel.m */; };
 		33620C911D4128C800209AE7 /* page.json in Resources */ = {isa = PBXBuildFile; fileRef = 33620C901D4128C800209AE7 /* page.json */; };
 		336C612B1D41211A003C4410 /* GTWarningRecordCompleteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 336C612A1D41211A003C4410 /* GTWarningRecordCompleteModel.m */; };
+		337663B51D45E1D0003AA73C /* GTShareActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 337663B41D45E1D0003AA73C /* GTShareActionSheet.m */; };
+		337663B81D46097A003AA73C /* GTDeviceManagerAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 337663B71D46097A003AA73C /* GTDeviceManagerAuthorization.m */; };
+		337663BB1D474952003AA73C /* GTMainViewInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 337663BA1D474952003AA73C /* GTMainViewInfoModel.m */; };
 		33A0FC861D3D1C6A00C731DF /* GTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */; };
 		33A0FC891D3D1FBB00C731DF /* GTUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC881D3D1FBB00C731DF /* GTUserInfoCell.m */; };
 		33C620981D2FE7E60022A9F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620971D2FE7E60022A9F0 /* main.m */; };
@@ -164,6 +167,12 @@
 		33620C921D4216E400209AE7 /* GTWarningRecordHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningRecordHeader.h; sourceTree = "<group>"; };
 		336C61291D41211A003C4410 /* GTWarningRecordCompleteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningRecordCompleteModel.h; sourceTree = "<group>"; };
 		336C612A1D41211A003C4410 /* GTWarningRecordCompleteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningRecordCompleteModel.m; sourceTree = "<group>"; };
+		337663B31D45E1D0003AA73C /* GTShareActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTShareActionSheet.h; sourceTree = "<group>"; };
+		337663B41D45E1D0003AA73C /* GTShareActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTShareActionSheet.m; sourceTree = "<group>"; };
+		337663B61D46097A003AA73C /* GTDeviceManagerAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDeviceManagerAuthorization.h; sourceTree = "<group>"; };
+		337663B71D46097A003AA73C /* GTDeviceManagerAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDeviceManagerAuthorization.m; sourceTree = "<group>"; };
+		337663B91D474952003AA73C /* GTMainViewInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMainViewInfoModel.h; sourceTree = "<group>"; };
+		337663BA1D474952003AA73C /* GTMainViewInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMainViewInfoModel.m; sourceTree = "<group>"; };
 		33A0FC841D3D1C6A00C731DF /* GTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMainViewController.h; sourceTree = "<group>"; };
 		33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMainViewController.m; sourceTree = "<group>"; };
 		33A0FC871D3D1FBB00C731DF /* GTUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserInfoCell.h; sourceTree = "<group>"; };
@@ -349,8 +358,19 @@
 				33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */,
 				335380951D44C80D00041BD9 /* GTStartModel.h */,
 				335380961D44C80D00041BD9 /* GTStartModel.m */,
+				337663B91D474952003AA73C /* GTMainViewInfoModel.h */,
+				337663BA1D474952003AA73C /* GTMainViewInfoModel.m */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		337663B21D45E197003AA73C /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				337663B31D45E1D0003AA73C /* GTShareActionSheet.h */,
+				337663B41D45E1D0003AA73C /* GTShareActionSheet.m */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		33C6208A1D2FE7E60022A9F0 = {
@@ -374,6 +394,7 @@
 		33C620951D2FE7E60022A9F0 /* gatoCloud */ = {
 			isa = PBXGroup;
 			children = (
+				337663B21D45E197003AA73C /* Utility */,
 				335380941D44C7D000041BD9 /* Main */,
 				332BA2481D3F45B900B0C635 /* WarningRecords */,
 				3321FAC41D393B3D00D3850E /* ME */,
@@ -409,6 +430,8 @@
 				33C620A41D2FE7E60022A9F0 /* LaunchScreen.storyboard */,
 				3321FAB01D36924100D3850E /* UIView+GTCornerRadius.h */,
 				3321FAB11D36924100D3850E /* UIView+GTCornerRadius.m */,
+				337663B61D46097A003AA73C /* GTDeviceManagerAuthorization.h */,
+				337663B71D46097A003AA73C /* GTDeviceManagerAuthorization.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -620,9 +643,11 @@
 				332BA2541D3FAF1200B0C635 /* GTWarningRecordDataManager.m in Sources */,
 				3321FA5A1D32A82E00D3850E /* GTHttpManager.m in Sources */,
 				3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */,
+				337663B51D45E1D0003AA73C /* GTShareActionSheet.m in Sources */,
 				3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */,
 				3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */,
 				3326A0371D3E6470000697DC /* GTFeedbackViewController.m in Sources */,
+				337663B81D46097A003AA73C /* GTDeviceManagerAuthorization.m in Sources */,
 				33FF6D2F1D4370FE009C730E /* GTWarningDetailViewController.m in Sources */,
 				3352A6161D39D03B00EED5C0 /* GTGestureUnlockViewController.m in Sources */,
 				3321FAA11D36743200D3850E /* GTDeviceListCell.m in Sources */,
@@ -632,6 +657,7 @@
 				3321FA931D33F96900D3850E /* NSDictionary+HTTPExtionsion.m in Sources */,
 				3352A60E1D39CEEB00EED5C0 /* PCCircle.m in Sources */,
 				3321FA531D329D1300D3850E /* NSString+CheckingExtension.m in Sources */,
+				337663BB1D474952003AA73C /* GTMainViewInfoModel.m in Sources */,
 				336C612B1D41211A003C4410 /* GTWarningRecordCompleteModel.m in Sources */,
 				33A0FC861D3D1C6A00C731DF /* GTMainViewController.m in Sources */,
 				3321FA571D329ED600D3850E /* MBProgressHUD+DisplayExtension.m in Sources */,

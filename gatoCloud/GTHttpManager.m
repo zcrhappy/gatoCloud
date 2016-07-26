@@ -181,7 +181,37 @@ NSInteger const APIErrorCode = 138102;
         finishBlk(nil, error);
     }];
 }
+#pragma mark - Main
 
+/*!
+ *  @brief 首页数据接口
+ *
+ *  @param finishBlk 返回参数，包括deviceCount,zoneCount,headImg,desc
+ */
+- (void)GTQueryMainViewInfoWithFinishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [self POST:@"/queryIndexData.do" parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:dic];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        finishBlk(nil, error);
+    }];
+    
+
+}
 #pragma mark - Device
 
 - (void)GTDeviceFetchListWithFinishBlock:(GTResultBlock)finishBlk;
@@ -336,6 +366,28 @@ NSInteger const APIErrorCode = 138102;
     }];
 }
 
+- (void)GTUploadAvatarWithData:(NSData *)data
+                   finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [self POST:@"/user/uploadHeadImg.do" parameters:dic formData:data progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
+
+
 - (void)GTAppCheckUpdateWithFinishBlock:(GTResultBlock)finishBlk;
 {
     [self POST:@"/start.do" parameters:[NSMutableDictionary dictionary] progress:^(NSProgress *downloadProgress) {
@@ -363,7 +415,16 @@ NSInteger const APIErrorCode = 138102;
                        success:(void (^)(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject))success
                        failure:(void (^)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error))failure
 {
-    
+    return [self POST:URLString parameters:parameters formData:nil progress:progress success:success failure:failure];
+}
+
+- (AFHTTPSessionManager *)POST:(NSString *)URLString
+                    parameters:(id)parameters
+                      formData:(NSData *)data
+                      progress:(void (^)(NSProgress * _Nonnull downloadProgress))progress
+                       success:(void (^)(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject))success
+                       failure:(void (^)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error))failure
+{
     if (![parameters isKindOfClass:[NSMutableDictionary class]] && [parameters isKindOfClass:[NSDictionary class]]) {
         parameters = [parameters mutableCopy];
     }
@@ -411,10 +472,20 @@ NSInteger const APIErrorCode = 138102;
         failure(task, error);
     };
     
-    [manager POST:urlString parameters:parameters progress:progress success:successBlock failure:failureBlock];
+    
+    if(data == nil) {
+        [manager POST:urlString parameters:parameters progress:nil success:successBlock failure:failureBlock];
+    }
+    else {
+        [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+            [formData appendPartWithFileData:data name:@"file" fileName:@"headImg.jpg" mimeType:@"image/jpg"];
+        } progress:nil success:successBlock failure:failureBlock];
+    }
+    
     
     return manager;
 }
+
 
 
 @end

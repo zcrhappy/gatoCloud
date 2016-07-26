@@ -30,7 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     _deviceId = _deviceName = _userName = _userPwd = @"";
     
     _sections = [NSArray arrayWithObjects:DeviceSection, UserSection, nil];

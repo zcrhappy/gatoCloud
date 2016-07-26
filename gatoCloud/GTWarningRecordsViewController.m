@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     
      _dataManager = [[GTWarningRecordDataManager alloc] init];
     

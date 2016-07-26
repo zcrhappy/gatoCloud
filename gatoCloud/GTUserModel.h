@@ -9,16 +9,20 @@
 #import <Mantle/Mantle.h>
 
 @interface GTUserModel : MTLModel<MTLJSONSerializing>
-NSSTRING_COPY *city;
-NSSTRING_COPY *country;
-NSSTRING_COPY *headimgurl;
-NSSTRING_COPY *language;
-NSSTRING_COPY *nickname;
-NSSTRING_COPY *openid;
-NSSTRING_COPY *province;
-NSNUMBER_STRONG *sex;
-NSSTRING_COPY *unionid;
 
-NSSTRING_COPY *token;
-NSSTRING_COPY *userId;
+@property (nonatomic, copy) NSString *city;
+@property (nonatomic, copy) NSString *country;
+@property (nonatomic, copy) NSString *headimgurl;
+@property (nonatomic, copy) NSString *language;
+@property (nonatomic, copy) NSString *nickname;
+@property (nonatomic, copy) NSString *openid;
+@property (nonatomic, copy) NSString *province;
+@property (nonatomic, strong) NSNumber *sex;
+@property (nonatomic, copy) NSString *unionid;
+@property (nonatomic, copy) NSString *token;
+@property (nonatomic, copy) NSString *userId;
+
+
+@property (nonatomic, copy) NSString *customHeadImgUrlString;
+
 @end

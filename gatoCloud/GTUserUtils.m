@@ -12,9 +12,12 @@
 NSString *kUserInfoKey = @"kUserInfoKey";
 NSString *kBannerKey = @"kBannerKey";
 
+//NSString *kImgBaseURL = @"http://115.159.44.248:8085/";
+
 @interface GTUserUtils()
 
 @property (nonatomic, strong) GTUserModel *userModel;
+
 @property (nonatomic, assign) BOOL isLogin;
 @end
 
@@ -110,7 +113,7 @@ NSString *kBannerKey = @"kBannerKey";
 {
     [[TMCache sharedCache] setObject:banners forKey:kBannerKey];
 }
-
+#pragma mark -getter
 + (NSArray *)banners
 {
     return [[TMCache sharedCache] objectForKey:kBannerKey];
@@ -125,6 +128,22 @@ NSString *kBannerKey = @"kBannerKey";
 {
     [GTUserUtils sharedInstance].isLogin = YES;
 }
+
++ (NSString *)userHeadImgURLString
+{
+    NSString *fileName = [GTUserUtils sharedInstance].userModel.customHeadImgUrlString;
+    if(fileName == nil || [fileName isEmptyString])
+        return @"";
+
+    return fileName;
+}
++ (void)saveHeadImgURLString:(NSString *)urlStr;
+{
+    //因为头像有缓存，但是一个用户的头像url是一样的，所以每次修改完头像，都需要清除缓存。
+    [[SDImageCache sharedImageCache] removeImageForKey:urlStr fromDisk:YES];
+    [GTUserUtils sharedInstance].userModel.customHeadImgUrlString = urlStr;
+}
+
 #pragma mark - other
 //获取当前屏幕显示的viewcontroller
 + (UIViewController *)appTopViewController

@@ -147,92 +147,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/Mantle/Mantle/MTLJSONAdapter.m"
-            timestampString = "490853511.316719"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
-            landmarkName = "-modelFromJSONDictionary:error:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[MTLJSONAdapter modelFromJSONDictionary:error:]"
-                  moduleName = "gatoCloud"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chriz/Developer/gato/gatoCloud/Pods/Mantle/Mantle/MTLJSONAdapter.m"
-                  timestampString = "490853960.065717"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "286"
-                  endingLineNumber = "286"
-                  offsetFromSymbolStart = "1408">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[MTLJSONAdapter modelFromJSONDictionary:error:]"
-                  moduleName = "gatoCloud"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chriz/Developer/gato/gatoCloud/Pods/Mantle/Mantle/MTLJSONAdapter.m"
-                  timestampString = "490853960.065869"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "286"
-                  endingLineNumber = "286"
-                  offsetFromSymbolStart = "1413">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/Mantle/Mantle/MTLJSONAdapter.m"
-            timestampString = "490853522.374546"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "-modelFromJSONDictionary:error:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/Mantle/Mantle/MTLJSONAdapter.m"
-            timestampString = "490853537.687194"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
-            landmarkName = "-modelFromJSONDictionary:error:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "gatoCloud/GTHttpManager.m"
-            timestampString = "491067182.047269"
+            timestampString = "491211442.395945"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
             landmarkName = "-GTWarningRecordsWithPageNo:finishBlock:"
             landmarkType = "5">
          </BreakpointContent>

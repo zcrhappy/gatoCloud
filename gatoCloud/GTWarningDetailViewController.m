@@ -12,12 +12,14 @@
 #import "GTWarningDetailStateCell.h"
 #import "GTWarningDetailCommentCell.h"
 #import "GTWarningDetailDoneCell.h"
+#import "GTShareActionSheet.h"
 
 #define GTWarningDetailCommonCellIdentifier @"GTWarningDetailCommonCellIdentifier"
 #define GTWarningDetailStateCellIdentifier @"GTWarningDetailStateCellIdentifier"
 #define GTWarningDetailCommentCellIdentifier @"GTWarningDetailCommentCellIdentifier"
 #define GTWarningDetailDoneCellIdentifier @"GTWarningDetailDoneCellIdentifier"
 #define GTWarningDetailAddressCellIdentifier @"GTWarningDetailAddressCellIdentifier"
+
 NSString *warnType = @"报警类型";
 NSString *zoneName = @"防区名称";
 NSString *contact = @"紧急联系人";
@@ -141,7 +143,8 @@ NSString *done = @"确定";
 
 - (IBAction)clickShare:(id)sender
 {
-     
+    GTShareActionSheet *actionSheet = [[GTShareActionSheet alloc] initWithShareDestination:nil parentViewController:self];
+    [actionSheet show];
 }
 
 

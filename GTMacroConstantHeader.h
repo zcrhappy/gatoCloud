@@ -19,8 +19,9 @@
 #define kReleaseVersion @"1.0.0"
 #define kAppType @"1"
 
-#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width;
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height;
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define SINGLE_LINE_WIDTH (1 / [UIScreen mainScreen].scale)
 
 #define kUserDefaultKeyForDeviceCellMenuShow @"kUserDefaultKeyForDeviceCellMenuShow"
 #define kNeedsLoginNotification @"kNeedsLoginNotification"

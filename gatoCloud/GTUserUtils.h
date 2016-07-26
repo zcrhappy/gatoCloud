@@ -14,10 +14,12 @@
 + (GTUserModel *)userInfo;
 + (NSArray *)banners;
 
++ (NSString *)userHeadImgURLString;
++ (void)saveHeadImgURLString:(NSString *)urlStr;
+
 //登录相关
 + (BOOL)isLogin;
 + (void)loginSuccess;
-
 + (void)unRegisterUserInfo;//注销当前用户的信息。
 
 //保存通过微信登录信息

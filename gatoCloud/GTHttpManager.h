@@ -76,6 +76,15 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
                      finishBlock:(GTResultBlock)finishBlk;
 
 
+#pragma mark - Main
+
+/*!
+ *  @brief 首页数据接口
+ *
+ *  @param finishBlk 返回参数，包括deviceCount,zoneCount,headImg,desc
+ */
+- (void)GTQueryMainViewInfoWithFinishBlock:(GTResultBlock)finishBlk;
+
 #pragma mark - Device
 - (void)GTDeviceFetchListWithFinishBlock:(GTResultBlock)finishBlk;
 /*!
@@ -133,11 +142,21 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
 
 
 /*!
- *  @brief 启动接口-处理升级
+ *  @brief 头像上传
+ *
+ *  @param data      图片流
+ *  @param finishBlk 返回结果
+ */
+- (void)GTUploadAvatarWithData:(NSData *)data
+                   finishBlock:(GTResultBlock)finishBlk;
+
+/*!
+ *  @brief 启动接口-处理升级:两处有调用，首页和检测升级
  *
  *  @param finishBlk 返回结果,需要自己处理返回结果，code=1代表可以升级，code=0代表不需升级。
  */
 - (void)GTAppCheckUpdateWithFinishBlock:(GTResultBlock)finishBlk;
+
 @end
 
 #pragma clang diagnostic pop
