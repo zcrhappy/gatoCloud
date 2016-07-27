@@ -108,26 +108,26 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmS-co-8Je" userLabel="bottomContainer">
                                                     <rect key="frame" x="0.0" y="87" width="320" height="69"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Me-lM-Ya9" userLabel="View1">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Me-lM-Ya9" userLabel="View1">
                                                             <rect key="frame" x="6" y="6" width="56" height="56"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.57254901960000004" blue="0.24313725489999999" alpha="0.80386929900000004" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="8Me-lM-Ya9" secondAttribute="height" multiplier="1:1" id="9wO-nH-3Ge"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MK3-MJ-9eD" userLabel="View2">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MK3-MJ-9eD" userLabel="View2">
                                                             <rect key="frame" x="69" y="6" width="56" height="56"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.57254901960000004" blue="0.24313725489999999" alpha="0.80386929900000004" colorSpace="calibratedRGB"/>
                                                         </view>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZuN-RQ-cAL" userLabel="View3">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZuN-RQ-cAL" userLabel="View3">
                                                             <rect key="frame" x="132" y="6" width="56" height="56"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.57254901960000004" blue="0.24313725489999999" alpha="0.80386929900000004" colorSpace="calibratedRGB"/>
                                                         </view>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r0q-d7-EM4" userLabel="View4">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0q-d7-EM4" userLabel="View4">
                                                             <rect key="frame" x="195" y="6" width="56" height="56"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.57254901960000004" blue="0.24313725489999999" alpha="0.80386929900000004" colorSpace="calibratedRGB"/>
                                                         </view>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7f2-hK-9ki" userLabel="View5">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7f2-hK-9ki" userLabel="View5">
                                                             <rect key="frame" x="258" y="6" width="56" height="56"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.57254901960000004" blue="0.24313725489999999" alpha="0.80386929900000004" colorSpace="calibratedRGB"/>
                                                         </view>
@@ -137,6 +137,8 @@
                                                         <constraint firstItem="MK3-MJ-9eD" firstAttribute="width" secondItem="8Me-lM-Ya9" secondAttribute="width" id="3fn-Cb-npf"/>
                                                         <constraint firstItem="MK3-MJ-9eD" firstAttribute="leading" secondItem="8Me-lM-Ya9" secondAttribute="trailing" constant="7" id="Aqf-86-yF4"/>
                                                         <constraint firstItem="r0q-d7-EM4" firstAttribute="height" secondItem="ZuN-RQ-cAL" secondAttribute="height" id="BMP-iB-cax"/>
+                                                        <constraint firstAttribute="bottom" secondItem="8Me-lM-Ya9" secondAttribute="bottom" priority="750" constant="6" id="DZl-sc-1TE"/>
+                                                        <constraint firstItem="8Me-lM-Ya9" firstAttribute="leading" secondItem="wmS-co-8Je" secondAttribute="leading" constant="6" id="Doo-Jc-Sig"/>
                                                         <constraint firstItem="ZuN-RQ-cAL" firstAttribute="leading" secondItem="MK3-MJ-9eD" secondAttribute="trailing" constant="7" id="LHs-uT-NKn"/>
                                                         <constraint firstItem="r0q-d7-EM4" firstAttribute="centerY" secondItem="wmS-co-8Je" secondAttribute="centerY" id="NAx-Bx-3dH"/>
                                                         <constraint firstItem="7f2-hK-9ki" firstAttribute="width" secondItem="r0q-d7-EM4" secondAttribute="width" id="Nkm-PE-XfW"/>
