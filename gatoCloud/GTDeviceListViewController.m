@@ -13,7 +13,7 @@
 #define kDeviceListCellIdentifier @"kDeviceListCellIdentifier"
 @interface GTDeviceListViewController()<UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITableView *listTable;
+@property (weak, nonatomic) IBOutlet UITableView *deviceTable;
 
 @property (nonatomic, strong) NSMutableArray *deviceArray;
 
@@ -38,11 +38,9 @@
 {
     MJRefreshStateHeader *header = [MJRefreshStateHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDownToRefresh)];
     header.lastUpdatedTimeLabel.hidden = YES;
-    _listTable.mj_header = header;
+    _deviceTable.mj_header = header;
     
-    [_listTable registerClass:[GTDeviceListCell class] forCellReuseIdentifier:kDeviceListCellIdentifier];
-    _listTable.rowHeight = 60;
-    _listTable.tableFooterView = [UIView new];
+    _deviceTable.tableFooterView = [UIView new];
 }
 
 
@@ -51,11 +49,11 @@
     __weak __typeof(self)weakSelf = self;
     [[GTHttpManager shareManager] GTDeviceFetchListWithFinishBlock:^(id response, NSError *error) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf.listTable.mj_header endRefreshing];
+        [strongSelf.deviceTable.mj_header endRefreshing];
         
         strongSelf.deviceArray = [NSMutableArray arrayWithArray:[MTLJSONAdapter modelsOfClass:[GTDeviceModel class] fromJSONArray:(NSArray *)response error:nil]];
         
-        [strongSelf.listTable reloadData];
+        [strongSelf.deviceTable reloadData];
     }];
 }
 
@@ -107,16 +105,35 @@
     [[GTHttpManager shareManager] GTDeviceDeleteWithDeviceNo:model.deviceNo finishBlock:^(id response, NSError *error) {
         if(error == nil) {
             [MBProgressHUD showText:@"删除设备成功" inView:[UIView gt_keyWindow]];
-            [_listTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [_deviceTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         }
     }];
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static GTDeviceListCell *templateCell;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        templateCell = [tableView dequeueReusableCellWithIdentifier:kDeviceListCellIdentifier];
+    });
+    
+    CGFloat maxHeight = [templateCell.contentView systemLayoutSizeFittingSize:UILayoutFittingExpandedSize].height + 1;
+    CGFloat minHeight = [templateCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
+    return minHeight;
+}
+
 
 - (void)editActionWithIndexPath:(NSIndexPath *)indexPath {
     
     [self performSegueWithIdentifier:@"PushToEidtDeviceSegue" sender:indexPath];
 
 }
+
+
+
+
 #pragma mark - Segue Method
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

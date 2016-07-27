@@ -15,34 +15,42 @@
 @end
 @implementation GTDeviceListCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (void)awakeFromNib
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if(self) {
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        [self configUI];
-    }
-    return self;
+    [super awakeFromNib];
+    
+//    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.height.equalTo(@190);
+//    }];
 }
+//- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+//{
+//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+//    if(self) {
+//        self.selectionStyle = UITableViewCellSelectionStyleNone;
+//        [self configUI];
+//    }
+//    return self;
+//}
 
 
 - (void)configUI
 {
-    _nameLabel = [[UILabel alloc] init];
-    _statusLabel = [[UILabel alloc] init];
-    
-    [self.contentView addSubview:_nameLabel];
-    [self.contentView addSubview:_statusLabel];
-    
-    [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@15);
-        make.centerY.equalTo(self.contentView);
-    }];
-    
-    [_statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_nameLabel.mas_right).offset(15);
-        make.centerY.equalTo(self.contentView);
-    }];
+//    _nameLabel = [[UILabel alloc] init];
+//    _statusLabel = [[UILabel alloc] init];
+//    
+//    [self.contentView addSubview:_nameLabel];
+//    [self.contentView addSubview:_statusLabel];
+//    
+//    [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(@15);
+//        make.centerY.equalTo(self.contentView);
+//    }];
+//    
+//    [_statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(_nameLabel.mas_right).offset(15);
+//        make.centerY.equalTo(self.contentView);
+//    }];
 }
 
 - (void)configDeviceName:(NSString *)name status:(NSString *)status

@@ -58,6 +58,7 @@
 		337663B51D45E1D0003AA73C /* GTShareActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 337663B41D45E1D0003AA73C /* GTShareActionSheet.m */; };
 		337663B81D46097A003AA73C /* GTDeviceManagerAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 337663B71D46097A003AA73C /* GTDeviceManagerAuthorization.m */; };
 		337663BB1D474952003AA73C /* GTMainViewInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 337663BA1D474952003AA73C /* GTMainViewInfoModel.m */; };
+		337663C01D489A04003AA73C /* GTDeviceZoneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 337663BF1D489A04003AA73C /* GTDeviceZoneModel.m */; };
 		33A0FC861D3D1C6A00C731DF /* GTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */; };
 		33A0FC891D3D1FBB00C731DF /* GTUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC881D3D1FBB00C731DF /* GTUserInfoCell.m */; };
 		33C620981D2FE7E60022A9F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620971D2FE7E60022A9F0 /* main.m */; };
@@ -173,6 +174,8 @@
 		337663B71D46097A003AA73C /* GTDeviceManagerAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDeviceManagerAuthorization.m; sourceTree = "<group>"; };
 		337663B91D474952003AA73C /* GTMainViewInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMainViewInfoModel.h; sourceTree = "<group>"; };
 		337663BA1D474952003AA73C /* GTMainViewInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMainViewInfoModel.m; sourceTree = "<group>"; };
+		337663BE1D489A04003AA73C /* GTDeviceZoneModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDeviceZoneModel.h; sourceTree = "<group>"; };
+		337663BF1D489A04003AA73C /* GTDeviceZoneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDeviceZoneModel.m; sourceTree = "<group>"; };
 		33A0FC841D3D1C6A00C731DF /* GTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMainViewController.h; sourceTree = "<group>"; };
 		33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMainViewController.m; sourceTree = "<group>"; };
 		33A0FC871D3D1FBB00C731DF /* GTUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserInfoCell.h; sourceTree = "<group>"; };
@@ -384,6 +387,15 @@
 			name = Gesture;
 			sourceTree = "<group>";
 		};
+		337663BD1D4899EB003AA73C /* Zones */ = {
+			isa = PBXGroup;
+			children = (
+				337663BE1D489A04003AA73C /* GTDeviceZoneModel.h */,
+				337663BF1D489A04003AA73C /* GTDeviceZoneModel.m */,
+			);
+			name = Zones;
+			sourceTree = "<group>";
+		};
 		33C6208A1D2FE7E60022A9F0 = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +459,7 @@
 		33C620AD1D30090F0022A9F0 /* Devices */ = {
 			isa = PBXGroup;
 			children = (
+				337663BD1D4899EB003AA73C /* Zones */,
 				33C620AE1D30096E0022A9F0 /* GTAddDeviceViewController.h */,
 				33C620AF1D30096E0022A9F0 /* GTAddDeviceViewController.m */,
 				3321FAB31D3692FF00D3850E /* GTEditDeviceViewController.h */,
@@ -659,6 +672,7 @@
 				33FF6D2F1D4370FE009C730E /* GTWarningDetailViewController.m in Sources */,
 				3352A6161D39D03B00EED5C0 /* GTGestureUnlockViewController.m in Sources */,
 				3321FAA11D36743200D3850E /* GTDeviceListCell.m in Sources */,
+				337663C01D489A04003AA73C /* GTDeviceZoneModel.m in Sources */,
 				3353808B1D4461A900041BD9 /* GTWarningDetailCommentCell.m in Sources */,
 				33A0FC891D3D1FBB00C731DF /* GTUserInfoCell.m in Sources */,
 				3321FA8D1D33E87B00D3850E /* GTUserModel.m in Sources */,
