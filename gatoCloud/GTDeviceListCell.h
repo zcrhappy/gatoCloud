@@ -8,11 +8,24 @@
 
 #import "TLSwipeForOptionsCell.h"
 
+@protocol GRDeviceCellDelegate <NSObject>
+
+- (void)didSelectFunctionItemWithIndex:(NSNumber *)index;
+
+@optional
+- (void)didClickCell;
+
+@end
+
 
 @interface GTDeviceListCell : UITableViewCell
 
-- (void)configDeviceName:(NSString *)name status:(NSString *)status;
+@property (nonatomic, weak) id<GRDeviceCellDelegate> delegate;
 
-- (NSString *)deviceName;
+- (void)configZoneName:(NSString *)zoneName zoneCount:(NSNumber *)zoneCount state:(NSString *)state online:(NSString *)online;
+
+- (void)setupWithExpanded:(BOOL)expanded;
+
+//- (NSString *)deviceName;
 
 @end

@@ -179,13 +179,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "gatoCloud/GTDeviceListViewController.m"
-            timestampString = "491304175.871999"
+            filePath = "gatoCloud/GTTwoRowFolderCell.m"
+            timestampString = "491384437.50325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "-tableView:heightForRowAtIndexPath:"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-configUI"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

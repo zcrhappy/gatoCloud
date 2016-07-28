@@ -33,7 +33,10 @@
 @property (nonatomic, copy) NSString  *xmAppId;
 @property (nonatomic, copy) NSString  *token;
 @property (nonatomic, copy) NSString  *userType;
+@property (nonatomic, strong) NSNumber *zoneCount;
 
+//extension
+@property (nonatomic, assign) BOOL expanded;
 @end
 
 

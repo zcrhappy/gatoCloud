@@ -11,7 +11,7 @@
 #import "GTDeviceModel.h"
 #import "GTEditDeviceViewController.h"
 #define kDeviceListCellIdentifier @"kDeviceListCellIdentifier"
-@interface GTDeviceListViewController()<UITableViewDelegate, UITableViewDataSource>
+@interface GTDeviceListViewController()<UITableViewDelegate, UITableViewDataSource, GRDeviceCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *deviceTable;
 
@@ -40,7 +40,9 @@
     header.lastUpdatedTimeLabel.hidden = YES;
     _deviceTable.mj_header = header;
     
+    _deviceTable.estimatedRowHeight = 78;
     _deviceTable.tableFooterView = [UIView new];
+    _deviceTable.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 
@@ -57,7 +59,7 @@
     }];
 }
 
-#pragma mark - Delegate
+#pragma mark - TableView Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -76,10 +78,61 @@
     
     NSInteger index = [indexPath row];
     GTDeviceModel *model = _deviceArray[index];
-    [cell configDeviceName:model.deviceName status:model.onlineState];
+    cell.delegate = self;
+
+    [cell configZoneName:model.deviceName zoneCount:model.zoneCount state:model.onlineState online:model.online];
+    
 
     return cell;
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GTDeviceListCell *cell = (GTDeviceListCell *)[tableView cellForRowAtIndexPath:indexPath];
+    GTDeviceModel *model = [self modelAtIndexPath:indexPath];
+    
+    model.expanded = !model.expanded;
+    [cell setupWithExpanded:model.expanded];
+    [_deviceTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static GTDeviceListCell *templateCell;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        templateCell = [tableView dequeueReusableCellWithIdentifier:kDeviceListCellIdentifier];
+    });
+    
+    GTDeviceModel *model = [self modelAtIndexPath:indexPath];
+    [templateCell setupWithExpanded:model.expanded];
+    
+    CGFloat minHeight = [templateCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
+    return minHeight;
+}
+
+- (GTDeviceModel *)modelAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger row = [indexPath row];
+    return _deviceArray[row];
+}
+
+
+- (void)editActionWithIndexPath:(NSIndexPath *)indexPath {
+    
+    [self performSegueWithIdentifier:@"PushToEidtDeviceSegue" sender:indexPath];
+
+}
+
+#pragma mark - Cell Delega
+- (void)didSelectFunctionItemWithIndex:(NSNumber *)index
+{
+    [MBProgressHUD showText:index.stringValue inView:self.view];
+}
+
+#pragma mark - 侧滑功能栏
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -109,28 +162,6 @@
         }
     }];
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static GTDeviceListCell *templateCell;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        templateCell = [tableView dequeueReusableCellWithIdentifier:kDeviceListCellIdentifier];
-    });
-    
-    CGFloat maxHeight = [templateCell.contentView systemLayoutSizeFittingSize:UILayoutFittingExpandedSize].height + 1;
-    CGFloat minHeight = [templateCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
-    return minHeight;
-}
-
-
-- (void)editActionWithIndexPath:(NSIndexPath *)indexPath {
-    
-    [self performSegueWithIdentifier:@"PushToEidtDeviceSegue" sender:indexPath];
-
-}
-
 
 
 

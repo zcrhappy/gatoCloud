@@ -78,7 +78,7 @@
     
     
 #ifdef TEST
-    _QRResult = @"2006c574edfa9240";
+    _QRResult = @"200753a88f5e1240";
     _deviceId = _QRResult;
 #endif
     if([sectionName isEqualToString:DeviceSection]) {
