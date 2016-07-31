@@ -9,6 +9,7 @@
 #import "GTDeviceListCell.h"
 #import "GTDeviceCellGestureManager.h"
 #import "GTDeviceFuntionItem.h"
+#import "GTDeviceModel.h"
 @interface GTDeviceListCell()<GTDeviceFunctionItemDelegate>
 @property (strong, nonatomic) UIView *upContainer;
 @property (strong, nonatomic) UILabel *zoneLocationLabel;
@@ -20,6 +21,8 @@
 
 @property (nonatomic, strong) MASConstraint *expandConstaint;
 @property (nonatomic, strong) MASConstraint *unExpandConstaint;
+
+@property (nonatomic, strong) GTDeviceModel *model;
 @end
 @implementation GTDeviceListCell
 @synthesize upContainer,zoneLocationLabel,zoneNumberLabel,stateButton,horSerparatorLine,bottomContainer,expandConstaint,unExpandConstaint;
@@ -77,7 +80,6 @@
         make.top.equalTo(upContainer.mas_bottom);
         make.left.right.equalTo(@0);
         make.height.equalTo(@(SINGLE_LINE_WIDTH));
-        make.bottom.equalTo(self.contentView.mas_bottom).priorityMedium();
     }];
     
     //----------------
@@ -121,30 +123,52 @@
         lastView = curItem; 
     }];
     
+    
     [bottomContainer mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
         make.top.equalTo(horSerparatorLine.mas_bottom);
         make.width.equalTo(self.contentView);
-        make.height.equalTo(lastView.mas_height).offset(14);
-        expandConstaint = make.bottom.equalTo(self.contentView.mas_bottom).priorityHigh();
+        expandConstaint = make.height.equalTo(lastView.mas_height).offset(14);
+        unExpandConstaint = make.height.equalTo(@0);
+        make.bottom.equalTo(self.contentView.mas_bottom);
         [self expand:NO];
     }];
     
 }
 
-- (void)setupWithExpanded:(BOOL)expanded;
-{
-    [self expand:expanded];
-}
-
 - (void)expand:(BOOL)isExpand
 {
     if(isExpand) {
+        [unExpandConstaint uninstall];
         [expandConstaint install];
+        for(UIView *view in bottomContainer.subviews) {
+            view.hidden = NO;
+        }
     }
     else {
+        [unExpandConstaint install];
         [expandConstaint uninstall];
+        for(UIView *view in bottomContainer.subviews) {
+            view.hidden = YES;
+        }
     }
+}
+
+- (void)setupWithModel:(GTDeviceModel *)model;
+{
+    _model = model;
+    NSString *zoneName = model.deviceName;
+    NSNumber *zoneCount = model.zoneCount;
+    NSString *state = model.onlineState;
+    NSString *online = model.online;
+    
+    [self configZoneName:zoneName zoneCount:zoneCount state:state online:online];
+    [self setupWithExpanded:model.expanded];
+}
+
+- (void)setupWithExpanded:(BOOL)expanded;
+{
+    [self expand:expanded];
 }
 
 - (void)configZoneName:(NSString *)zoneName zoneCount:(NSNumber *)zoneCount state:(NSString *)state online:(NSString *)online
@@ -175,8 +199,10 @@
 
 - (void)clickFunctionItemAtIndex:(NSNumber *)index
 {
-    if(_delegate && [_delegate respondsToSelector:@selector(didSelectFunctionItemWithIndex:)]) {
-        [_delegate performSelector:@selector(didSelectFunctionItemWithIndex:) withObject:index];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:index,@"index", _model, @"model", nil];
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(didSelectFunctionItemWithDic:)]) {
+        [_delegate performSelector:@selector(didSelectFunctionItemWithDic:) withObject:dic];
     }
 }
 

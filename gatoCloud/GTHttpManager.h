@@ -128,6 +128,26 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
 - (void)GTWarningRecordsWithPageNo:(NSNumber *)pn
                        finishBlock:(GTResultBlock)finishBlk;
 
+#pragma mark - Zone
+/*!
+ *  @brief 设备对应防区列表
+ *
+ *  @param devceNo   设备号
+ *  @param finishBlk 返回结果zoneModel
+ */
+- (void)GTDeviceZoneWithDeviceNo:(NSString *)deviceNo
+                     finishBlock:(GTResultBlock)finishBlk;
+
+/*!
+ *  @brief 单个防区布防，撤防操作
+ *
+ *  @param iState    1撤防 2布防
+ *  @param zoneNo    防区唯一编号
+ *  @param finishBlk 返回结果
+ */
+- (void)GTDeviceZoneChangeDefenceWithState:(NSString *)iState
+                                    zoneNo:(NSString *)zoneNo
+                               finishBlock:(GTResultBlock)finishBlk;
 
 #pragma mark - UserInfo
 /*!

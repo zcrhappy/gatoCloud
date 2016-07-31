@@ -10,6 +10,8 @@
 #import "GTDeviceListCell.h"
 #import "GTDeviceModel.h"
 #import "GTEditDeviceViewController.h"
+#import "GTRoutesListViewController.h"
+
 #define kDeviceListCellIdentifier @"kDeviceListCellIdentifier"
 @interface GTDeviceListViewController()<UITableViewDelegate, UITableViewDataSource, GRDeviceCellDelegate>
 
@@ -74,14 +76,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GTDeviceListCell *cell = (GTDeviceListCell *)[tableView dequeueReusableCellWithIdentifier:kDeviceListCellIdentifier forIndexPath:indexPath];
-
-    
-    NSInteger index = [indexPath row];
-    GTDeviceModel *model = _deviceArray[index];
     cell.delegate = self;
 
-    [cell configZoneName:model.deviceName zoneCount:model.zoneCount state:model.onlineState online:model.online];
-    
+    GTDeviceModel *model = [self modelAtIndexPath:indexPath];
+    [cell setupWithModel:model];
 
     return cell;
 }
@@ -91,10 +89,10 @@
 {
     GTDeviceListCell *cell = (GTDeviceListCell *)[tableView cellForRowAtIndexPath:indexPath];
     GTDeviceModel *model = [self modelAtIndexPath:indexPath];
-    
     model.expanded = !model.expanded;
-    [cell setupWithExpanded:model.expanded];
-    [_deviceTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [cell setupWithModel:model];
+   
+    [_deviceTable reloadData];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,7 +105,7 @@
     });
     
     GTDeviceModel *model = [self modelAtIndexPath:indexPath];
-    [templateCell setupWithExpanded:model.expanded];
+    [templateCell setupWithModel:model];
     
     CGFloat minHeight = [templateCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
     return minHeight;
@@ -127,9 +125,22 @@
 }
 
 #pragma mark - Cell Delega
-- (void)didSelectFunctionItemWithIndex:(NSNumber *)index
+- (void)didSelectFunctionItemWithDic:(NSDictionary *)dic
 {
+    NSNumber *index = [dic objectForKey:@"index"];
+    GTDeviceModel *model = [dic objectForKey:@"model"];
+    
+    
     [MBProgressHUD showText:index.stringValue inView:self.view];
+    
+    
+    
+    if(index.integerValue == 3) {//防区列表
+        GTRoutesListViewController *controller = [[GTRoutesListViewController alloc] initWithDeviceNo:model.deviceNo];
+        controller.navigationItem.title = @"通道列表";
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    
 }
 
 #pragma mark - 侧滑功能栏

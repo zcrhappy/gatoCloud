@@ -11,6 +11,10 @@
 #import "GTStartModel.h"
 #import "GTMainViewInfoModel.h"
 #import "GTShareActionSheet.h"
+
+
+//test
+#import "GTRoutesListViewController.h"
 @interface GTMainViewController()
 
 @property (weak, nonatomic) IBOutlet SDCycleScrollView *carouselView;
@@ -35,6 +39,7 @@
 
 - (void)configUI
 {
+    _carouselView.bannerImageViewContentMode = UIViewContentModeScaleAspectFit;
     _carouselView.placeholderImage = [UIImage imageWithColor:[UIColor grayColor]];
 }
 
@@ -68,6 +73,12 @@
     }];
 }
 
+- (IBAction)clickZoneList:(id)sender
+{
+    GTRoutesListViewController *controller = [[GTRoutesListViewController alloc] init];
+    [self presentViewController:controller animated:YES completion:nil];
+
+}
 
 - (void)updateBanners
 {

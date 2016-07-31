@@ -10,7 +10,7 @@
 
 @protocol GRDeviceCellDelegate <NSObject>
 
-- (void)didSelectFunctionItemWithIndex:(NSNumber *)index;
+- (void)didSelectFunctionItemWithDic:(NSDictionary *)infoDic;
 
 @optional
 - (void)didClickCell;
@@ -22,9 +22,12 @@
 
 @property (nonatomic, weak) id<GRDeviceCellDelegate> delegate;
 
-- (void)configZoneName:(NSString *)zoneName zoneCount:(NSNumber *)zoneCount state:(NSString *)state online:(NSString *)online;
+//- (void)configZoneName:(NSString *)zoneName zoneCount:(NSNumber *)zoneCount state:(NSString *)state online:(NSString *)online;
+//
+//- (void)setupWithExpanded:(BOOL)expanded;
 
-- (void)setupWithExpanded:(BOOL)expanded;
+- (void)setupWithModel:(id)model;
+
 
 //- (NSString *)deviceName;
 

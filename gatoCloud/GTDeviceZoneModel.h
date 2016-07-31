@@ -34,4 +34,10 @@
 @property (nonatomic, copy) NSString *appVersion;
 @property (nonatomic, copy) NSString *token;
 
+@property (nonatomic, assign) BOOL isExpand;
+
+- (NSString *)zoneTypeStringWithSuffix:(BOOL)needsSuffix;
+- (NSString *)zoneStateString;
+- (BOOL)zoneStateForSwithButton;
+
 @end
