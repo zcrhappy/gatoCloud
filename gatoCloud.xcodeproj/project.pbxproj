@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3313FED11D4F8892001B27C6 /* GTGestureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313FED01D4F8892001B27C6 /* GTGestureManager.m */; };
+		3313FED41D4F8CE8001B27C6 /* GTBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313FED31D4F8CE8001B27C6 /* GTBaseNavigationController.m */; };
 		3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA4D1D3240FD00D3850E /* GTWindow.m */; };
 		3321FA531D329D1300D3850E /* NSString+CheckingExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA521D329D1300D3850E /* NSString+CheckingExtension.m */; };
 		3321FA571D329ED600D3850E /* MBProgressHUD+DisplayExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA561D329ED600D3850E /* MBProgressHUD+DisplayExtension.m */; };
@@ -83,6 +84,8 @@
 		1E0F76716D129E10DF7A68C4 /* Pods-gatoCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gatoCloud.release.xcconfig"; path = "Pods/Target Support Files/Pods-gatoCloud/Pods-gatoCloud.release.xcconfig"; sourceTree = "<group>"; };
 		3313FECF1D4F8892001B27C6 /* GTGestureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTGestureManager.h; sourceTree = "<group>"; };
 		3313FED01D4F8892001B27C6 /* GTGestureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTGestureManager.m; sourceTree = "<group>"; };
+		3313FED21D4F8CE8001B27C6 /* GTBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTBaseNavigationController.h; sourceTree = "<group>"; };
+		3313FED31D4F8CE8001B27C6 /* GTBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTBaseNavigationController.m; sourceTree = "<group>"; };
 		3321FA4C1D3240FD00D3850E /* GTWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWindow.h; sourceTree = "<group>"; };
 		3321FA4D1D3240FD00D3850E /* GTWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWindow.m; sourceTree = "<group>"; };
 		3321FA511D329D1300D3850E /* NSString+CheckingExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CheckingExtension.h"; sourceTree = "<group>"; };
@@ -377,6 +380,8 @@
 				335380961D44C80D00041BD9 /* GTStartModel.m */,
 				337663B91D474952003AA73C /* GTMainViewInfoModel.h */,
 				337663BA1D474952003AA73C /* GTMainViewInfoModel.m */,
+				3313FED21D4F8CE8001B27C6 /* GTBaseNavigationController.h */,
+				3313FED31D4F8CE8001B27C6 /* GTBaseNavigationController.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -691,6 +696,7 @@
 				3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */,
 				3326A0371D3E6470000697DC /* GTFeedbackViewController.m in Sources */,
 				337663B81D46097A003AA73C /* GTDeviceManagerAuthorization.m in Sources */,
+				3313FED41D4F8CE8001B27C6 /* GTBaseNavigationController.m in Sources */,
 				33FF6D2F1D4370FE009C730E /* GTWarningDetailViewController.m in Sources */,
 				3352A6161D39D03B00EED5C0 /* GTGestureUnlockViewController.m in Sources */,
 				3321FAA11D36743200D3850E /* GTDeviceListCell.m in Sources */,

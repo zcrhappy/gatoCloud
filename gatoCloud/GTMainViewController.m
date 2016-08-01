@@ -12,7 +12,7 @@
 #import "GTMainViewInfoModel.h"
 #import "GTShareActionSheet.h"
 #import "GTRoutesListViewController.h"
-
+#import "GTBaseNavigationController.h"
 //test
 #import "GTRoutesListViewController.h"
 @interface GTMainViewController()
@@ -96,8 +96,9 @@
 - (IBAction)clickDefenceList:(id)sender
 {
     GTRoutesListViewController *controller = [[GTRoutesListViewController alloc] init];
-    
-    [self presentViewController:controller animated:YES completion:nil];
+    controller.navigationItem.title = @"防区列表";
+    GTBaseNavigationController *navigationController = [[GTBaseNavigationController alloc] initWithRootViewController:controller];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 //********************************************************
 
