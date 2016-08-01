@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3313FED11D4F8892001B27C6 /* GTGestureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313FED01D4F8892001B27C6 /* GTGestureManager.m */; };
 		3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA4D1D3240FD00D3850E /* GTWindow.m */; };
 		3321FA531D329D1300D3850E /* NSString+CheckingExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA521D329D1300D3850E /* NSString+CheckingExtension.m */; };
 		3321FA571D329ED600D3850E /* MBProgressHUD+DisplayExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA561D329ED600D3850E /* MBProgressHUD+DisplayExtension.m */; };
@@ -80,6 +81,8 @@
 
 /* Begin PBXFileReference section */
 		1E0F76716D129E10DF7A68C4 /* Pods-gatoCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gatoCloud.release.xcconfig"; path = "Pods/Target Support Files/Pods-gatoCloud/Pods-gatoCloud.release.xcconfig"; sourceTree = "<group>"; };
+		3313FECF1D4F8892001B27C6 /* GTGestureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTGestureManager.h; sourceTree = "<group>"; };
+		3313FED01D4F8892001B27C6 /* GTGestureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTGestureManager.m; sourceTree = "<group>"; };
 		3321FA4C1D3240FD00D3850E /* GTWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWindow.h; sourceTree = "<group>"; };
 		3321FA4D1D3240FD00D3850E /* GTWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWindow.m; sourceTree = "<group>"; };
 		3321FA511D329D1300D3850E /* NSString+CheckingExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CheckingExtension.h"; sourceTree = "<group>"; };
@@ -394,6 +397,8 @@
 				3352A6141D39D03B00EED5C0 /* GTGestureUnlockViewController.h */,
 				3352A61D1D39D90600EED5C0 /* GestureViewController.h */,
 				3352A61E1D39D90600EED5C0 /* GestureViewController.m */,
+				3313FECF1D4F8892001B27C6 /* GTGestureManager.h */,
+				3313FED01D4F8892001B27C6 /* GTGestureManager.m */,
 			);
 			name = Gesture;
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 				TargetAttributes = {
 					33C620921D2FE7E60022A9F0 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 294BADX983;
 					};
 				};
 			};
@@ -679,6 +685,7 @@
 				332BA2541D3FAF1200B0C635 /* GTWarningRecordDataManager.m in Sources */,
 				3321FA5A1D32A82E00D3850E /* GTHttpManager.m in Sources */,
 				3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */,
+				3313FED11D4F8892001B27C6 /* GTGestureManager.m in Sources */,
 				337663B51D45E1D0003AA73C /* GTShareActionSheet.m in Sources */,
 				3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */,
 				3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */,
@@ -839,6 +846,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GTGlobalPrefixHeader.h;
@@ -850,6 +859,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.security;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -860,6 +870,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GTGlobalPrefixHeader.h;
@@ -871,6 +883,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.security;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

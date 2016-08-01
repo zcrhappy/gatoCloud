@@ -28,6 +28,14 @@
     return self;
 }
 
+- (instancetype)init;
+{
+    if(self = [super init]) {
+        
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,9 +65,26 @@
 
 - (void)pullDownToRefresh
 {
-    [self fetchListWithDeviceNo:_deviceNo];
+    if(_deviceNo)
+        [self fetchListWithDeviceNo:_deviceNo];
+    else
+        [self fetchList];
 }
 
+- (void)fetchList
+{
+    [[GTHttpManager shareManager] GTDeviceZoneListWithPn:@"0" finishBlock:^(id response, NSError *error) {
+        [_routesTable.mj_header endRefreshing];
+        
+        if(error == nil) {
+            NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
+            
+            _zoneModelsArray = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:array error:nil];
+            [_routesTable reloadData];
+            NSLog(@"");
+        }
+    }];
+}
 
 - (void)fetchListWithDeviceNo:(NSString *)deviceNo
 {

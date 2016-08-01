@@ -1270,6 +1270,15 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7t-VN-J5j" customClass="SDCycleScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="268"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yN-tU-yXO">
+                                        <rect key="frame" x="267" y="19" width="30" height="30"/>
+                                        <state key="normal" title="我"/>
+                                        <connections>
+                                            <segue destination="FUu-vm-FMt" kind="modal" id="BGv-gW-ghu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="268" id="q2u-Ab-GY5"/>
@@ -1372,11 +1381,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7k-i0-oTv">
                                         <rect key="frame" x="0.0" y="0.0" width="107" height="85"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yN-tU-yXO">
-                                                <rect key="frame" x="38" y="28" width="30" height="30"/>
-                                                <state key="normal" title="我"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Vo-JK-5s3">
+                                                <rect key="frame" x="17" y="15" width="73" height="56"/>
+                                                <color key="backgroundColor" red="0.22352941179999999" green="0.63137254899999995" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="防区管理">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
-                                                    <segue destination="FUu-vm-FMt" kind="modal" id="BGv-gW-ghu"/>
+                                                    <action selector="clickDefenceList:" destination="AvF-08-fHn" eventType="touchUpInside" id="eRq-qb-opU"/>
                                                 </connections>
                                             </button>
                                         </subviews>

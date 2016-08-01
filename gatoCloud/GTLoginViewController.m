@@ -9,6 +9,7 @@
 #import "GTLoginViewController.h"
 #import "GTLoginManager.h"
 #import "GTHttpManager.h"
+#import "GTGestureManager.h"
 @interface GTLoginViewController()
 
 @property (weak, nonatomic) IBOutlet UIButton *phoneLoginButton;
@@ -45,6 +46,12 @@
             NSLog(@"success");
             
             [self performSegueWithIdentifier:@"EnterMainViewSegue" sender:self];
+            
+            
+            if([GTGestureManager isFirstLoad])
+                [[GTGestureManager sharedInstance] showSettingGestureView];
+            else
+                [[GTGestureManager sharedInstance] showLoginGestureView];
         }
             
     }];

@@ -149,6 +149,15 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
                                     zoneNo:(NSString *)zoneNo
                                finishBlock:(GTResultBlock)finishBlk;
 
+/*!
+ *  @brief 全部防区列表
+ *
+ *  @param pn        页数
+ *  @param finishBlk 返回结果 包含zoneModel
+ */
+- (void)GTDeviceZoneListWithPn:(NSString *)pn
+                   finishBlock:(GTResultBlock)finishBlk;
+
 #pragma mark - UserInfo
 /*!
  *  @brief 用户反馈

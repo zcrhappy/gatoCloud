@@ -11,7 +11,7 @@
 #import "GTStartModel.h"
 #import "GTMainViewInfoModel.h"
 #import "GTShareActionSheet.h"
-
+#import "GTRoutesListViewController.h"
 
 //test
 #import "GTRoutesListViewController.h"
@@ -73,13 +73,6 @@
     }];
 }
 
-- (IBAction)clickZoneList:(id)sender
-{
-    GTRoutesListViewController *controller = [[GTRoutesListViewController alloc] init];
-    [self presentViewController:controller animated:YES completion:nil];
-
-}
-
 - (void)updateBanners
 {
     NSMutableArray *urlArr = [NSMutableArray array];
@@ -100,8 +93,12 @@
     [self checkVersion];
 }
 
-
-
+- (IBAction)clickDefenceList:(id)sender
+{
+    GTRoutesListViewController *controller = [[GTRoutesListViewController alloc] init];
+    
+    [self presentViewController:controller animated:YES completion:nil];
+}
 //********************************************************
 
 - (IBAction)clickShare:(id)sender

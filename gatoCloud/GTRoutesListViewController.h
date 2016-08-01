@@ -12,4 +12,6 @@
 
 - (instancetype)initWithDeviceNo:(NSString *)deviceNo;
 
+- (instancetype)init;
+
 @end

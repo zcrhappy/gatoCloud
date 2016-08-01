@@ -10,7 +10,7 @@
 #import "NSMutableDictionary+HTTPExtension.h"
 #import "NSDictionary+HTTPExtionsion.h"
 
-#define TESTURL
+//#define TESTURL
 
 NSString * const kBaseUrl = @"http://acloud.gato.com.cn:8088";
 NSString * const kTestBaseUrl = @"http://115.159.44.248:8090";
@@ -389,6 +389,35 @@ NSInteger const APIErrorCode = 138102;
     [dic safeSetObject:zoneNo forKey:@"zoneNo"];
     
     [self POST:@"/service/defence.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
+
+/*!
+ *  @brief 全部防区列表
+ *
+ *  @param pn        页数
+ *  @param finishBlk 返回结果 包含zoneModel
+ */
+- (void)GTDeviceZoneListWithPn:(NSString *)pn
+                   finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:pn forKey:@"pn"];
+    
+    [self POST:@"/queryZones.do" parameters:dic progress:^(NSProgress *downloadProgress) {
         
     } success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isVaildResponse]) {
