@@ -12,6 +12,10 @@
 
 + (void)showText:(NSString *)text inView:(UIView *)view;
 {
+    if([MBProgressHUD HUDForView:view]){
+        [MBProgressHUD hideHUDForView:view animated:YES];
+    }
+    
     [self showText:text inView:view withTime:1.5];
 }
 

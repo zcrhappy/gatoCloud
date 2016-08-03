@@ -33,14 +33,6 @@ NSString *kBannerKey = @"kBannerKey";
     return sharedInstance;
 }
 
-- (instancetype)init
-{
-    if(self = [super init]){
-        _userModel = [[GTUserModel alloc] init];
-    }
-    return self;
-}
-
 #pragma mark - InfoViaWeChat
 + (void)saveUserInfoViaWX:(NSDictionary *)dic;
 {

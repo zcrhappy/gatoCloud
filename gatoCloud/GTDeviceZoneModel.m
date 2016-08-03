@@ -61,6 +61,9 @@
 
 - (BOOL)zoneStateForSwithButton;
 {
+    if(![self zoneOnlineBoolValue])
+        return NO;
+    
     NSInteger index = self.zoneState.integerValue;;
     
     if(index == 4)
@@ -68,6 +71,15 @@
     else
         return NO;
 }
+
+- (BOOL)zoneOnlineBoolValue
+{
+    if([self.zoneOnline isEqualToString:@"1"])
+        return YES;
+    else
+        return NO;
+}
+
 
 + (NSArray <GTDeviceZoneModel *>*)transformFromArray:(NSArray <GTDeviceZoneModel2 *>*)oldArr
 {

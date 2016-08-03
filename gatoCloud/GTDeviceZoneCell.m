@@ -238,9 +238,14 @@
     }
 }
 
-- (void)clickSwitch:(id)sender
+- (void)clickSwitch:(UISwitch *)btn
 {
-    UISwitch *btn = sender;
+    if(![_model zoneOnlineBoolValue]) {
+        [MBProgressHUD showText:@"当前防区不在线，不能操作!" inView:[UIView gt_keyWindow]];
+        [btn setOn:NO animated:YES];
+        return;
+    }
+    
     BOOL isOn = btn.isOn;
     
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:_model, @"model", @(isOn), @"isOn", nil];
