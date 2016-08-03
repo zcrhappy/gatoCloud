@@ -69,4 +69,24 @@
         return NO;
 }
 
++ (NSArray <GTDeviceZoneModel *>*)transformFromArray:(NSArray <GTDeviceZoneModel2 *>*)oldArr
+{
+    NSMutableArray *newArr = [NSMutableArray array];
+    
+    for(GTDeviceZoneModel2 *oldModel in oldArr) {
+        GTDeviceZoneModel *newModel = [[GTDeviceZoneModel alloc] init];
+        [newModel mergeValuesForKeysFromModel:oldModel];
+        newModel.deviceName = oldModel.devicename;
+        newModel.zoneOnline = oldModel.ZONEONLINE;
+        newModel.deviceNo = oldModel.DEVICENO;
+        newModel.zoneStrainVpt = oldModel.ZONESTRAINVPT;
+        newModel.zoneType = oldModel.ZONETYPE;
+        newModel.zoneVmp = oldModel.ZONEVMP;
+        newModel.zoneStrain = oldModel.ZONESTRAIN;
+        
+        [newArr addObject:newModel];
+    }
+    return newArr;
+}
+
 @end

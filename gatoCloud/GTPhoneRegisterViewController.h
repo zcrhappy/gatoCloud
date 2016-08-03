@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GTPhoneLoginViewController : UIViewController
+@interface GTPhoneRegisterViewController : UIViewController
 
 @end

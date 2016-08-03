@@ -48,7 +48,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="157"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalHuggingPriority="1000" tableViewCell="FZl-wk-QVN" id="c4u-wc-HK2">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="157"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="156.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -114,7 +114,7 @@
                                 <rect key="frame" x="0.0" y="113.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4o-XZ-cl7" id="WH3-Ts-QXr">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVd-kq-n3o">
@@ -254,7 +254,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YtO-qS-c1k" id="khd-KI-yYZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="防区/设备名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-n9-LKb">
@@ -388,7 +388,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3lJ-lK-vPz" id="Js0-as-SSc">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9d-bH-Tce">
@@ -438,7 +438,7 @@
                                         <rect key="frame" x="0.0" y="147" width="320" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JPW-qj-ofp" id="Q42-uZ-bHO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="73.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9B-zE-RYd">
@@ -475,7 +475,7 @@
                                         <rect key="frame" x="0.0" y="221" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vgl-e3-i2j" id="jUe-Yf-v4O">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWH-Ev-5Cb">
@@ -565,7 +565,7 @@
                                         <rect key="frame" x="0.0" y="287" width="320" height="165"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RQ2-KP-Uko" id="vN7-sr-BL1">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="165"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="164.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="db3-k0-YEU">
@@ -612,7 +612,7 @@
                                         <rect key="frame" x="0.0" y="452" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SZQ-2i-rwP" id="pj0-OQ-bCX">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQd-2y-4Tu">
@@ -766,7 +766,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r59-le-A4g" id="cGC-cy-Nq6">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -796,10 +796,10 @@
             </objects>
             <point key="canvasLocation" x="-10" y="898"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login Menu View Controller-->
         <scene sceneID="jLP-XP-5yK">
             <objects>
-                <viewController id="E1j-ni-XSX" customClass="GTLoginViewController" sceneMemberID="viewController">
+                <viewController id="E1j-ni-XSX" customClass="GTLoginMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="va0-GJ-8lf"/>
                         <viewControllerLayoutGuide type="bottom" id="Kr9-Do-INA"/>
@@ -832,7 +832,7 @@
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.57254901960000004" blue="0.24313725489999999" alpha="0.80386929900000004" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="手机登录"/>
                                 <connections>
-                                    <segue destination="aPc-Wg-OGd" kind="modal" id="cSE-a8-0D8"/>
+                                    <segue destination="aPc-Wg-OGd" kind="modal" identifier="EnterPhoneRegisterSegue" id="cSE-a8-0D8"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="GTLogo" translatesAutoresizingMaskIntoConstraints="NO" id="wws-Rd-9Yx">
@@ -846,6 +846,12 @@
                                     <segue destination="AvF-08-fHn" kind="modal" id="zVk-fu-kg3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="已有账号在此登录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4e-cv-wtc">
+                                <rect key="frame" x="91" y="527" width="141" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -865,19 +871,21 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="loginLabel" destination="d4e-cv-wtc" id="B6e-p7-80C"/>
                         <outlet property="phoneLoginButton" destination="JhY-Ij-yVa" id="sJX-at-5o1"/>
                         <outlet property="weChatLoginButton" destination="8Zw-lV-Hpo" id="y1T-a9-HvB"/>
                         <segue destination="AvF-08-fHn" kind="modal" identifier="EnterMainViewSegue" id="AwR-qC-aX1"/>
+                        <segue destination="kOH-we-ArX" kind="modal" identifier="EnterLoginSegue" id="X95-P5-Hwr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ot1-if-L0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-781" y="246"/>
+            <point key="canvasLocation" x="-985" y="208"/>
         </scene>
-        <!--Phone Login View Controller-->
+        <!--Phone Register View Controller-->
         <scene sceneID="hNp-4R-bYl">
             <objects>
-                <viewController id="aPc-Wg-OGd" customClass="GTPhoneLoginViewController" sceneMemberID="viewController">
+                <viewController id="aPc-Wg-OGd" customClass="GTPhoneRegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ecn-GS-gsH"/>
                         <viewControllerLayoutGuide type="bottom" id="fmF-He-nPM"/>
@@ -892,6 +900,15 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="GTLoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="bUv-Hg-Caj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="umy-wK-0MO" userLabel="verLine">
+                                <rect key="frame" x="52" y="352" width="208" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z34-l9-cgG">
+                                <rect key="frame" x="52" y="318" width="208" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UCt-sp-XaS" userLabel="PhoneBG">
                                 <rect key="frame" x="56" y="170" width="208" height="35"/>
                                 <subviews>
@@ -933,19 +950,19 @@
                                     </textField>
                                 </subviews>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqZ-aC-HwH">
-                                <rect key="frame" x="52" y="360" width="216" height="49"/>
-                                <state key="normal" title="完成" backgroundImage="GTBtnBG"/>
-                                <connections>
-                                    <action selector="clickRegister:" destination="aPc-Wg-OGd" eventType="touchUpInside" id="YW2-RS-Xnu"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEm-nr-fis">
                                 <rect key="frame" x="36" y="40" width="20" height="17"/>
                                 <state key="normal" image="GTBackBtn"/>
                                 <connections>
                                     <action selector="clickBack:" destination="aPc-Wg-OGd" eventType="touchUpInside" id="mIs-8q-KiE"/>
                                     <segue destination="LyW-mE-hlL" kind="unwind" identifier="backToLoginSegue" unwindAction="unwindToLoginController:" id="pnD-F7-R2z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqZ-aC-HwH">
+                                <rect key="frame" x="48" y="401" width="216" height="49"/>
+                                <state key="normal" title="完成" backgroundImage="GTBtnBG"/>
+                                <connections>
+                                    <action selector="clickRegister:" destination="aPc-Wg-OGd" eventType="touchUpInside" id="YW2-RS-Xnu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -958,21 +975,23 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fetchCodeButton" destination="nGy-HG-KQz" id="jUT-Mh-K57"/>
+                        <outlet property="fetchPinButton" destination="nGy-HG-KQz" id="Rhl-hY-vXM"/>
                         <outlet property="phoneTextField" destination="2fl-Uw-L5X" id="Dva-Uy-rHf"/>
-                        <outlet property="registerButton" destination="NqZ-aC-HwH" id="LOy-eG-qYr"/>
-                        <outlet property="veriryCode" destination="r0T-dd-yjN" id="7hj-4Z-AXs"/>
+                        <outlet property="pinTextField" destination="r0T-dd-yjN" id="SMH-j6-PtM"/>
+                        <outlet property="pwdTextField" destination="z34-l9-cgG" id="cGG-dq-Mwk"/>
+                        <outlet property="registerButton" destination="NqZ-aC-HwH" id="eer-J8-jOp"/>
+                        <segue destination="AvF-08-fHn" kind="modal" identifier="EnterMainViewSegue" id="QTv-PV-BPx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fhc-3t-l8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LyW-mE-hlL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1006" y="970"/>
+            <point key="canvasLocation" x="-1118" y="970"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="7qn-2D-yzU">
             <objects>
-                <viewController id="kOH-we-ArX" sceneMemberID="viewController">
+                <viewController id="kOH-we-ArX" customClass="GTLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dar-mD-6JV"/>
                         <viewControllerLayoutGuide type="bottom" id="PpG-OX-Jzm"/>
@@ -981,16 +1000,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Re-iW-qHV">
-                                <rect key="frame" x="88" y="205" width="167" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入用户名或手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OOH-Qc-Fgv">
-                                <rect key="frame" x="88" y="158" width="167" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="GTLoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Ywu-9r-sn6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="GTUserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="mfu-35-gTT">
                                 <rect key="frame" x="58" y="162" width="15" height="22"/>
                             </imageView>
@@ -1006,7 +1018,7 @@
                                 <color key="backgroundColor" red="0.41960784313725491" green="0.58431372549019611" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwt-0z-r4t">
-                                <rect key="frame" x="17" y="259" width="287" height="50"/>
+                                <rect key="frame" x="17" y="257" width="287" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.45490196078431372" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="登录"/>
                                 <userDefinedRuntimeAttributes>
@@ -1014,18 +1026,43 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickLogin:" destination="kOH-we-ArX" eventType="touchUpInside" id="65S-hn-SAY"/>
+                                </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="GTLoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Ywu-9r-sn6">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPj-4g-VuK">
+                                <rect key="frame" x="20" y="28" width="20" height="17"/>
+                                <state key="normal" image="GTBackBtn"/>
+                                <connections>
+                                    <action selector="clickBack:" destination="kOH-we-ArX" eventType="touchUpInside" id="Ers-rr-x44"/>
+                                    <action selector="clickBack:" destination="aPc-Wg-OGd" eventType="touchUpInside" id="wi8-Pn-kvL"/>
+                                    <segue destination="3Ng-WB-fsY" kind="unwind" identifier="BackToLoginMenuSegue" unwindAction="unwindToLoginController:" id="Hrr-M8-zeO"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入用户名或手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6VB-5h-pEr">
+                                <rect key="frame" x="81" y="158" width="187" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V8D-Dg-KJY">
+                                <rect key="frame" x="81" y="205" width="187" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="D3M-Vr-Dtt"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="6VB-5h-pEr" id="cyV-3o-JDM"/>
+                        <outlet property="pwdLabel" destination="V8D-Dg-KJY" id="61b-ZF-7U9"/>
+                        <segue destination="AvF-08-fHn" kind="modal" identifier="kEnterMainViewSegue" id="w8G-Rk-vdD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVm-JJ-Gp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3Ng-WB-fsY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-545" y="970"/>
+            <point key="canvasLocation" x="-736" y="971"/>
         </scene>
         <!--用户反馈-->
         <scene sceneID="CKP-sI-m3J">
@@ -1122,7 +1159,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dhr-aE-hat" id="CJw-Na-HDe">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SU5-0z-bdG" userLabel="avatar">
@@ -1542,6 +1579,6 @@
         <image name="GTUserIcon" width="15" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zVk-fu-kg3"/>
+        <segue reference="w8G-Rk-vdD"/>
     </inferredMetricsTieBreakers>
 </document>

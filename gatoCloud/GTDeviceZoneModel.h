@@ -7,7 +7,7 @@
 //
 
 #import <Mantle/Mantle.h>
-
+#import "GTDeviceZoneModel2.h"
 @interface GTDeviceZoneModel : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, copy) NSString *deviceName;
@@ -39,5 +39,7 @@
 - (NSString *)zoneTypeStringWithSuffix:(BOOL)needsSuffix;
 - (NSString *)zoneStateString;
 - (BOOL)zoneStateForSwithButton;
+
++ (NSArray <GTDeviceZoneModel *>*)transformFromArray:(NSArray <GTDeviceZoneModel2 *>*)array;
 
 @end

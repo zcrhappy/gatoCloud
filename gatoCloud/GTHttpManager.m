@@ -10,7 +10,7 @@
 #import "NSMutableDictionary+HTTPExtension.h"
 #import "NSDictionary+HTTPExtionsion.h"
 
-//#define TESTURL
+#define TESTURL
 
 NSString * const kBaseUrl = @"http://acloud.gato.com.cn:8088";
 NSString * const kTestBaseUrl = @"http://115.159.44.248:8090";
@@ -132,7 +132,7 @@ NSInteger const APIErrorCode = 138102;
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic safeSetObject:mobileNo forKey:@"mobileNo"];
     [dic safeSetObject:password forKey:@"password"];
-    [dic safeSetObject:verifyCode forKey:@"code"];
+    [dic safeSetObject:verifyCode forKey:@"yzm"];
     
     [self POST:@"/user/mobRegister.do" parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -162,7 +162,7 @@ NSInteger const APIErrorCode = 138102;
     [dic safeSetObject:mobileNo forKey:@"mobileNo"];
     [dic safeSetObject:password forKey:@"password"];
     
-    [self POST:@"/user/mobRegister.do" parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
+    [self POST:@"/user/mobLogin.do" parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
@@ -527,15 +527,14 @@ NSInteger const APIErrorCode = 138102;
     static NSString *uuid = nil;
     uuid = [[NSUUID UUID] UUIDString];
     
-    if([token isEmptyString]) {
+    if(token == nil || [token isEmptyString]) {
         token = [GTUserUtils userInfo].token;
     }
-    if([userId isEmptyString]) {
+    if(userId == nil || [userId isEmptyString]) {
         userId = [GTUserUtils userInfo].userId;
     }
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
     [parameters safeSetObject:kReleaseVersion forKey:@"releaseVersion"];
     [parameters safeSetObject:kAppType forKey:@"appType"];
     [parameters safeSetObject:userId forKey:@"userId"];

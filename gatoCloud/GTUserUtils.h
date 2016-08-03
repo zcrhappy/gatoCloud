@@ -26,11 +26,10 @@
 + (void)saveUserInfoViaWX:(NSDictionary *)dic;
 + (void)saveTokenViaWX:(NSString *)token;
 + (void)saveUserIdViaWX:(NSString *)userId;
-
+//保存通过手机注册返回的信息
++ (void)saveUserInfoViaRegister:(NSDictionary *)dic;
 
 + (void)saveBanners:(NSArray *)banners;
-
-+ (UIViewController *)getCurrentVC;
 
 + (UIViewController *)appTopViewController;
 @end

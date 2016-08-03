@@ -8,6 +8,7 @@
 
 #import "GTRoutesListViewController.h"
 #import "GTDeviceZoneModel.h"
+#import "GTDeviceZoneModel2.h"
 #import "GTDeviceZoneCell.h"
 
 #define kGTDeviceZoneCellIdentifier @"GTDeviceZoneCellIdentifier"
@@ -73,13 +74,15 @@
 
 - (void)fetchList
 {
-    [[GTHttpManager shareManager] GTDeviceZoneListWithPn:@"0" finishBlock:^(id response, NSError *error) {
+    [[GTHttpManager shareManager] GTDeviceZoneListWithPn:@"1" finishBlock:^(id response, NSError *error) {
         [_routesTable.mj_header endRefreshing];
         
         if(error == nil) {
             NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
             
-            _zoneModelsArray = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:array error:nil];
+            NSArray *oldModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];
+            _zoneModelsArray = [GTDeviceZoneModel transformFromArray:oldModelArr];
+            
             [_routesTable reloadData];
             NSLog(@"");
         }

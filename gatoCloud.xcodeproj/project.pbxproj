@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		330E31371D51F40D00B94695 /* GTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330E31361D51F40D00B94695 /* GTLoginViewController.m */; };
+		330E313B1D52220900B94695 /* GTDeviceZoneModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 330E313A1D52220900B94695 /* GTDeviceZoneModel2.m */; };
 		3313FED11D4F8892001B27C6 /* GTGestureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313FED01D4F8892001B27C6 /* GTGestureManager.m */; };
 		3313FED41D4F8CE8001B27C6 /* GTBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313FED31D4F8CE8001B27C6 /* GTBaseNavigationController.m */; };
 		3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA4D1D3240FD00D3850E /* GTWindow.m */; };
@@ -15,7 +17,7 @@
 		3321FA5A1D32A82E00D3850E /* GTHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA591D32A82E00D3850E /* GTHttpManager.m */; };
 		3321FA611D3354FC00D3850E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA5C1D3354FC00D3850E /* libWeChatSDK.a */; };
 		3321FA621D3354FC00D3850E /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3321FA5D1D3354FC00D3850E /* README.txt */; };
-		3321FA681D33B96B00D3850E /* GTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA671D33B96B00D3850E /* GTLoginViewController.m */; };
+		3321FA681D33B96B00D3850E /* GTLoginMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA671D33B96B00D3850E /* GTLoginMenuViewController.m */; };
 		3321FA6B1D33BA3C00D3850E /* GTLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA6A1D33BA3C00D3850E /* GTLoginManager.m */; };
 		3321FA6D1D33BC1C00D3850E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA6C1D33BC1C00D3850E /* Security.framework */; };
 		3321FA711D33BE1D00D3850E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA701D33BE1D00D3850E /* libc++.tbd */; };
@@ -34,7 +36,7 @@
 		3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB11D36924100D3850E /* UIView+GTCornerRadius.m */; };
 		3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */; };
 		3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */; };
-		3321FAC31D39291C00D3850E /* GTPhoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC21D39291C00D3850E /* GTPhoneLoginViewController.m */; };
+		3321FAC31D39291C00D3850E /* GTPhoneRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC21D39291C00D3850E /* GTPhoneRegisterViewController.m */; };
 		3321FAC71D393B5F00D3850E /* GTUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */; };
 		3326A0371D3E6470000697DC /* GTFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3326A0361D3E6470000697DC /* GTFeedbackViewController.m */; };
 		332BA24B1D3F45E300B0C635 /* GTWarningRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA24A1D3F45E300B0C635 /* GTWarningRecordModel.m */; };
@@ -82,6 +84,10 @@
 
 /* Begin PBXFileReference section */
 		1E0F76716D129E10DF7A68C4 /* Pods-gatoCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gatoCloud.release.xcconfig"; path = "Pods/Target Support Files/Pods-gatoCloud/Pods-gatoCloud.release.xcconfig"; sourceTree = "<group>"; };
+		330E31351D51F40D00B94695 /* GTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLoginViewController.h; sourceTree = "<group>"; };
+		330E31361D51F40D00B94695 /* GTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLoginViewController.m; sourceTree = "<group>"; };
+		330E31391D52220900B94695 /* GTDeviceZoneModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDeviceZoneModel2.h; sourceTree = "<group>"; };
+		330E313A1D52220900B94695 /* GTDeviceZoneModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDeviceZoneModel2.m; sourceTree = "<group>"; };
 		3313FECF1D4F8892001B27C6 /* GTGestureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTGestureManager.h; sourceTree = "<group>"; };
 		3313FED01D4F8892001B27C6 /* GTGestureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTGestureManager.m; sourceTree = "<group>"; };
 		3313FED21D4F8CE8001B27C6 /* GTBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTBaseNavigationController.h; sourceTree = "<group>"; };
@@ -99,8 +105,8 @@
 		3321FA5E1D3354FC00D3850E /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		3321FA5F1D3354FC00D3850E /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		3321FA601D3354FC00D3850E /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		3321FA661D33B96B00D3850E /* GTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLoginViewController.h; sourceTree = "<group>"; };
-		3321FA671D33B96B00D3850E /* GTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLoginViewController.m; sourceTree = "<group>"; };
+		3321FA661D33B96B00D3850E /* GTLoginMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLoginMenuViewController.h; sourceTree = "<group>"; };
+		3321FA671D33B96B00D3850E /* GTLoginMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLoginMenuViewController.m; sourceTree = "<group>"; };
 		3321FA691D33BA3C00D3850E /* GTLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLoginManager.h; path = Login/GTLoginManager.h; sourceTree = "<group>"; };
 		3321FA6A1D33BA3C00D3850E /* GTLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLoginManager.m; path = Login/GTLoginManager.m; sourceTree = "<group>"; };
 		3321FA6C1D33BC1C00D3850E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -132,8 +138,8 @@
 		3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTEditDeviceViewController.m; sourceTree = "<group>"; };
 		3321FABB1D37CAB500D3850E /* UIView+DisplayExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DisplayExtention.h"; sourceTree = "<group>"; };
 		3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DisplayExtention.m"; sourceTree = "<group>"; };
-		3321FAC11D39291C00D3850E /* GTPhoneLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPhoneLoginViewController.h; sourceTree = "<group>"; };
-		3321FAC21D39291C00D3850E /* GTPhoneLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPhoneLoginViewController.m; sourceTree = "<group>"; };
+		3321FAC11D39291C00D3850E /* GTPhoneRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPhoneRegisterViewController.h; sourceTree = "<group>"; };
+		3321FAC21D39291C00D3850E /* GTPhoneRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPhoneRegisterViewController.m; sourceTree = "<group>"; };
 		3321FAC51D393B5F00D3850E /* GTUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserInfoViewController.h; sourceTree = "<group>"; };
 		3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTUserInfoViewController.m; sourceTree = "<group>"; };
 		3326A0351D3E6470000697DC /* GTFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFeedbackViewController.h; sourceTree = "<group>"; };
@@ -289,12 +295,14 @@
 			isa = PBXGroup;
 			children = (
 				3321FA5B1D33548D00D3850E /* WeChatAPI */,
-				3321FA661D33B96B00D3850E /* GTLoginViewController.h */,
-				3321FA671D33B96B00D3850E /* GTLoginViewController.m */,
+				3321FA661D33B96B00D3850E /* GTLoginMenuViewController.h */,
+				3321FA671D33B96B00D3850E /* GTLoginMenuViewController.m */,
 				3321FA691D33BA3C00D3850E /* GTLoginManager.h */,
 				3321FA6A1D33BA3C00D3850E /* GTLoginManager.m */,
-				3321FAC11D39291C00D3850E /* GTPhoneLoginViewController.h */,
-				3321FAC21D39291C00D3850E /* GTPhoneLoginViewController.m */,
+				3321FAC11D39291C00D3850E /* GTPhoneRegisterViewController.h */,
+				3321FAC21D39291C00D3850E /* GTPhoneRegisterViewController.m */,
+				330E31351D51F40D00B94695 /* GTLoginViewController.h */,
+				330E31361D51F40D00B94695 /* GTLoginViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -413,6 +421,8 @@
 			children = (
 				337663BE1D489A04003AA73C /* GTDeviceZoneModel.h */,
 				337663BF1D489A04003AA73C /* GTDeviceZoneModel.m */,
+				330E31391D52220900B94695 /* GTDeviceZoneModel2.h */,
+				330E313A1D52220900B94695 /* GTDeviceZoneModel2.m */,
 				337663C71D49F04C003AA73C /* GTRoutesListViewController.h */,
 				337663C81D49F04C003AA73C /* GTRoutesListViewController.m */,
 				337663CA1D49FC88003AA73C /* GTDeviceZoneCell.h */,
@@ -686,7 +696,7 @@
 				3352A6221D39D96700EED5C0 /* CALayer+Anim.m in Sources */,
 				33FF6D3D1D437B83009C730E /* UIImage+DisplayExtension.m in Sources */,
 				3321FA901D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.m in Sources */,
-				3321FAC31D39291C00D3850E /* GTPhoneLoginViewController.m in Sources */,
+				3321FAC31D39291C00D3850E /* GTPhoneRegisterViewController.m in Sources */,
 				332BA2541D3FAF1200B0C635 /* GTWarningRecordDataManager.m in Sources */,
 				3321FA5A1D32A82E00D3850E /* GTHttpManager.m in Sources */,
 				3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */,
@@ -704,6 +714,7 @@
 				337663C01D489A04003AA73C /* GTDeviceZoneModel.m in Sources */,
 				3353808B1D4461A900041BD9 /* GTWarningDetailCommentCell.m in Sources */,
 				33A0FC891D3D1FBB00C731DF /* GTUserInfoCell.m in Sources */,
+				330E313B1D52220900B94695 /* GTDeviceZoneModel2.m in Sources */,
 				3321FA8D1D33E87B00D3850E /* GTUserModel.m in Sources */,
 				3321FA931D33F96900D3850E /* NSDictionary+HTTPExtionsion.m in Sources */,
 				3352A60E1D39CEEB00EED5C0 /* PCCircle.m in Sources */,
@@ -715,7 +726,7 @@
 				33C620B31D300D750022A9F0 /* GTAddDeviceCell.m in Sources */,
 				3321FA891D33E40000D3850E /* GTUserUtils.m in Sources */,
 				337663CC1D49FC88003AA73C /* GTDeviceZoneCell.m in Sources */,
-				3321FA681D33B96B00D3850E /* GTLoginViewController.m in Sources */,
+				3321FA681D33B96B00D3850E /* GTLoginMenuViewController.m in Sources */,
 				332BA24B1D3F45E300B0C635 /* GTWarningRecordModel.m in Sources */,
 				3321FAA41D36782500D3850E /* GTDeviceModel.m in Sources */,
 				33C620B01D30096E0022A9F0 /* GTAddDeviceViewController.m in Sources */,
@@ -723,6 +734,7 @@
 				3352A6101D39CEEB00EED5C0 /* PCCircleViewConst.m in Sources */,
 				33FF6D341D4375D0009C730E /* GTWarningDetailCommonCell.m in Sources */,
 				33FF6D3A1D43770F009C730E /* GTWarningDetailStateCell.m in Sources */,
+				330E31371D51F40D00B94695 /* GTLoginViewController.m in Sources */,
 				335380971D44C80D00041BD9 /* GTStartModel.m in Sources */,
 				337663C91D49F04C003AA73C /* GTRoutesListViewController.m in Sources */,
 				33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */,

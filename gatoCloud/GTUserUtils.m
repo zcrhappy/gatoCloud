@@ -33,6 +33,14 @@ NSString *kBannerKey = @"kBannerKey";
     return sharedInstance;
 }
 
+- (instancetype)init
+{
+    if(self = [super init]){
+        _userModel = [[GTUserModel alloc] init];
+    }
+    return self;
+}
+
 #pragma mark - InfoViaWeChat
 + (void)saveUserInfoViaWX:(NSDictionary *)dic;
 {
@@ -46,6 +54,30 @@ NSString *kBannerKey = @"kBannerKey";
 {
     [GTUserUtils saveUserId:userId];
 }
+
+//保存通过手机注册返回的信息
++ (void)saveUserInfoViaRegister:(NSDictionary *)dic;
+{
+    [GTUserUtils sharedInstance].userModel = [[GTUserModel alloc] init];
+    
+    NSString *token = [dic objectForKey:@"token"];
+    NSString *userId = [dic objectForKey:@"userId"];
+    
+    [GTUserUtils saveToken:token];
+    [GTUserUtils saveUserId:userId];
+    
+    [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
+}
+
+
++ (void)saveTokenViaRegister:(NSString *)token;
+{
+    [GTUserUtils saveToken:token];
+}
++ (void)saveUserIdViaRegister:(NSString *)userId;
+{
+    [GTUserUtils saveUserId:userId];
+}
 #pragma mark - Save Info
 
 + (void)saveUserInfo:(NSDictionary *)dic;
@@ -56,7 +88,6 @@ NSString *kBannerKey = @"kBannerKey";
     }
     else {
         [GTUserUtils sharedInstance].userModel = nil;//清内存数据
-        [[TMCache sharedCache] removeObjectForKey:kUserInfoKey];//清本地数据
     }
 
 }
@@ -65,10 +96,6 @@ NSString *kBannerKey = @"kBannerKey";
 {
     if(token) {
         [GTUserUtils sharedInstance].userModel.token = token;
-        [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
-    }
-    else {
-        [[TMCache sharedCache] removeObjectForKey:kUserInfoKey];//清本地数据
     }
 }
 
@@ -76,10 +103,6 @@ NSString *kBannerKey = @"kBannerKey";
 {
     if(userId) {
         [GTUserUtils sharedInstance].userModel.userId = userId;
-        [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
-    }
-    else {
-        [[TMCache sharedCache] removeObjectForKey:kUserInfoKey];
     }
 }
 
@@ -87,8 +110,7 @@ NSString *kBannerKey = @"kBannerKey";
 {
     [GTUserUtils sharedInstance].isLogin = NO;
     [GTUserUtils saveUserInfo:nil];
-    [GTUserUtils saveToken:nil];
-    [GTUserUtils saveUserId:nil];
+    [[TMCache sharedCache] removeObjectForKey:kUserInfoKey];
 }
 
 /*!
