@@ -46,6 +46,9 @@
 
 - (NSString *)zoneStateString;
 {
+    if(![self zoneOnlineBoolValue])
+        return @"离线";
+    
     NSArray *stateArray = @[@"未知", @"撤防中", @"布防中", @"撤防", @"布防"];
     NSInteger index;
     

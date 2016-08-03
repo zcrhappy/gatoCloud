@@ -240,9 +240,21 @@
 
 - (void)clickSwitch:(UISwitch *)btn
 {
+    [btn setOn:NO animated:YES];//状态由服务器确定。因此这里不进行修改
+    
+    NSString *warningString = nil;
     if(![_model zoneOnlineBoolValue]) {
-        [MBProgressHUD showText:@"当前防区不在线，不能操作!" inView:[UIView gt_keyWindow]];
-        [btn setOn:NO animated:YES];
+        warningString =@"当前防区不在线，不能操作!";
+    }
+    else if(_model.zoneState.integerValue == kZoneStateUnderDisguarding) {
+        warningString = @"正在撤防中，不能操作!";
+    }
+    else if (_model.zoneState.integerValue == kZoneStateUnderGuarding) {
+        warningString = @"正在布防中，不能操作!";
+    }
+    
+    if(warningString) {
+        [MBProgressHUD showText:warningString inView:[UIView gt_keyWindow]];
         return;
     }
     

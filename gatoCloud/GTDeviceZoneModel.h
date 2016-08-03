@@ -8,6 +8,16 @@
 
 #import <Mantle/Mantle.h>
 #import "GTDeviceZoneModel2.h"
+
+typedef NS_ENUM(NSInteger, kZoneState)
+{
+    kZoneStateUnderDisguarding = 1,
+    kZoneStateUnderGuarding = 2,
+    kZoneStateDisguarded = 3,
+    kZoneStateGuarded = 4
+};
+
+
 @interface GTDeviceZoneModel : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, copy) NSString *deviceName;

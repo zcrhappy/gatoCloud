@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, kSwitchState) {
+    kSwitchStateDisguarded = 1,
+    kSwitchStateGuarded = 2
+};
+
 @protocol GTDeviceZoneCellDelegate <NSObject>
 
 - (void)clickEditWithModel:(id)model;

@@ -385,7 +385,7 @@ NSInteger const APIErrorCode = 138102;
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     
-    [dic safeSetObject:iState forKey:@"iState"];
+    [dic safeSetObject:iState forKey:@"istate"];
     [dic safeSetObject:zoneNo forKey:@"zoneNo"];
     
     [self POST:@"/service/defence.do" parameters:dic progress:^(NSProgress *downloadProgress) {
