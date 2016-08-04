@@ -13,8 +13,9 @@
 
 @property (nonatomic, strong) NSNumber *numPerPage;
 @property (nonatomic, strong) NSNumber *currentPage;
+@property (nonatomic, strong) NSNumber *totalPages;
 @property (nonatomic, strong) NSArray *resultList;
 
 + (NSDictionary *)warningTypeDict;
-
+- (BOOL)hasMore;
 @end

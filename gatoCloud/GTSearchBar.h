@@ -13,5 +13,5 @@
 - (instancetype)initWithPlaceholder:(NSString *)placeholder;
 
 @property (nonatomic, copy) void (^didEndEditingBlock)(NSString *keyword);
- 
+
 @end

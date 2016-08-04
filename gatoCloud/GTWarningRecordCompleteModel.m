@@ -15,6 +15,7 @@
     return @{
              @"numPerPage":@"numPerPage",
              @"currentPage":@"currentPage",
+             @"totalPages":@"totalPages",
              @"resultList":@"resultList",
              };
 }
@@ -30,6 +31,13 @@
 + (NSDictionary *)warningTypeDict
 {
     return @{@"dev": @"主机报警", @"net": @"通讯报警", @"fence": @"入侵报警"};
+}
+
+- (BOOL)hasMore
+{
+    if(self.currentPage.integerValue < self.totalPages.integerValue)
+        return YES;
+    return NO;
 }
 
 @end

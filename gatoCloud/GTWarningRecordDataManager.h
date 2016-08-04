@@ -13,7 +13,7 @@
 
 
 @property (nonatomic, strong) GTWarningRecordCompleteModel *dataSource;
-
+@property (nonatomic, assign) BOOL hasMore;
 
 - (void)refreshDataWithFinishBlock:(GTResultBlock)finshBlock;
 

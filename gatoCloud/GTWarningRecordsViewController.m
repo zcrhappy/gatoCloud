@@ -10,6 +10,7 @@
 #import "GTWarningRecordDataManager.h"
 #import "GTWarningRecordCell.h"
 #import "GTWarningDetailViewController.h"
+#import "MJRefresh.h"
 #define GTWarningRecordCellIdentifier @"GTWarningRecordCellIdentifier"
 
 @interface GTWarningRecordsViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -29,23 +30,40 @@
      _dataManager = [[GTWarningRecordDataManager alloc] init];
     
     [self configTable];
-    [self pullDowmToRefresh];
+    [self pullDownToRefresh];
 }
 
 - (void)configTable
 {
-    MJRefreshStateHeader *header = [MJRefreshStateHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDowmToRefresh)];
-    header.lastUpdatedTimeLabel.hidden = YES;
-    _warningTable.mj_header = header;
+    _warningTable.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDownToRefresh)];
+    _warningTable.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullUpToRefresh)];
     _warningTable.tableFooterView = [UIView new];
 }
 
-- (void)pullDowmToRefresh
+- (void)pullDownToRefresh
 {
+    [_warningTable.mj_footer resetNoMoreData];
+    
     __weak __typeof(self)weakSelf = self;
     [_dataManager refreshDataWithFinishBlock:^(id response, NSError *error) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
+        if(!strongSelf.dataManager.hasMore)
+           [strongSelf.warningTable.mj_footer endRefreshingWithNoMoreData];
+        
         [strongSelf.warningTable.mj_header endRefreshing];
+        [strongSelf.warningTable reloadData];
+    }];
+}
+
+- (void)pullUpToRefresh
+{
+    __weak __typeof(self)weakSelf = self;
+    [_dataManager loadMoreDataWithFinishBlock:^(id response, NSError *error) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        if(!strongSelf.dataManager.hasMore)
+            [strongSelf.warningTable.mj_footer endRefreshingWithNoMoreData];
+        else
+            [strongSelf.warningTable.mj_footer endRefreshing];
         [strongSelf.warningTable reloadData];
     }];
 }

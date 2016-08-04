@@ -18,17 +18,18 @@
 - (instancetype)init
 {
     if(self = [super init]) {
-        _currentPage = @1;
+    
     }
     return self;
 }
 
 - (void)refreshDataWithFinishBlock:(GTResultBlock)finshBlock;
 {
-    [[GTHttpManager shareManager] GTWarningRecordsWithPageNo:_currentPage finishBlock:^(id response, NSError *error) {
-       
+    [[GTHttpManager shareManager] GTWarningRecordsWithPageNo:@1 finishBlock:^(id response, NSError *error) {
+        
         if(error == nil) {
             _dataSource = [MTLJSONAdapter modelOfClass:GTWarningRecordCompleteModel.class fromJSONDictionary:[response objectForKey:@"page"] error:nil];
+            _hasMore = _dataSource.hasMore;
         }
         finshBlock(response, error);
     }];
@@ -36,7 +37,17 @@
 
 - (void)loadMoreDataWithFinishBlock:(GTResultBlock)finshBlock;
 {
-    
+    [[GTHttpManager shareManager] GTWarningRecordsWithPageNo:@(_dataSource.currentPage.integerValue+1) finishBlock:^(id response, NSError *error) {
+        
+        if(error == nil) {
+            GTWarningRecordCompleteModel *addDataSource = [MTLJSONAdapter modelOfClass:GTWarningRecordCompleteModel.class fromJSONDictionary:[response objectForKey:@"page"] error:nil];
+            _hasMore = addDataSource.hasMore;
+            _dataSource.currentPage = addDataSource.currentPage;
+            _dataSource.totalPages = addDataSource.totalPages;
+            _dataSource.resultList = [_dataSource.resultList arrayByAddingObjectsFromArray:addDataSource.resultList];
+        }
+        finshBlock(response, error);
+    }];
 }
 
 @end
