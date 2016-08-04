@@ -158,6 +158,30 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
 - (void)GTDeviceZoneListWithPn:(NSString *)pn
                    finishBlock:(GTResultBlock)finishBlk;
 
+
+/*!
+ *  @brief 防区按设备名称搜索
+ *
+ *  @param name      设备名称 eg.武汉展厅
+ *  @param pn        页数 eg.1
+ *  @param finishBlk 返回结果
+ */
+- (void)GTDeviceZoneWithDeviceName:(NSString *)name
+                                pn:(NSString *)pn
+                       finishBlock:(GTResultBlock)finishBlk;
+
+
+/*!
+ *  @brief 防区按防区名称搜索
+ *
+ *  @param zoneName  防区名称 eg.武汉001
+ *  @param pn        页数 eg.1
+ *  @param finishBlk 返回结果
+ */
+- (void)GTDeviceZoneListWithZoneName:(NSString *)zoneName
+                                  pn:(NSString *)pn
+                         finishBlock:(GTResultBlock)finishBlk;
+
 #pragma mark - UserInfo
 /*!
  *  @brief 用户反馈

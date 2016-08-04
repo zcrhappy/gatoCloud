@@ -433,6 +433,70 @@ NSInteger const APIErrorCode = 138102;
     }];
 }
 
+/*!
+ *  @brief 防区按设备名称搜索
+ *
+ *  @param name      设备名称
+ *  @param pn        页数
+ *  @param finishBlk 返回结果
+ */
+- (void)GTDeviceZoneWithDeviceName:(NSString *)deviceName
+                                pn:(NSString *)pn
+                       finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:pn forKey:@"pn"];
+    [dic safeSetObject:deviceName forKey:@"deviceName"];
+    
+    [self POST:@"/queryZones.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
+
+/*!
+ *  @brief 防区按防区名称搜索
+ *
+ *  @param zoneName  防区名称 eg.武汉001
+ *  @param pn        页数 eg.1
+ *  @param finishBlk 返回结果
+ */
+- (void)GTDeviceZoneListWithZoneName:(NSString *)zoneName
+                                  pn:(NSString *)pn
+                         finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:pn forKey:@"pn"];
+    [dic safeSetObject:zoneName forKey:@"zoneName"];
+    
+    [self POST:@"/queryZones.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
+
 #pragma mark - UserInfo
 - (void)GTUserFeedbackWithContents:(NSString *)content
                            contact:(NSString *)contact

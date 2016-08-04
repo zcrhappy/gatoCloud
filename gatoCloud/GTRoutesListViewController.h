@@ -10,8 +10,11 @@
 
 @interface GTRoutesListViewController : UIViewController
 
-- (instancetype)initWithDeviceNo:(NSString *)deviceNo;
+- (instancetype)initWithDeviceNo:(NSString *)deviceNo;//特定设备的防区列表
+- (instancetype)initWithDeviceName:(NSString *)deviceName;
+- (instancetype)initWithZoneName:(NSString *)zoneName;
+- (instancetype)init;//全部防区
 
-- (instancetype)init;
 
+- (void)enableSearchBar:(BOOL)yesOrNo;
 @end

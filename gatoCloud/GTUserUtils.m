@@ -81,7 +81,6 @@ NSString *kBannerKey = @"kBannerKey";
     else {
         [GTUserUtils sharedInstance].userModel = nil;//清内存数据
     }
-
 }
 
 + (void)saveToken:(NSString *)token
