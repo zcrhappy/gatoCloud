@@ -182,6 +182,25 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
                                   pn:(NSString *)pn
                          finishBlock:(GTResultBlock)finishBlk;
 
+
+/*!
+ *  @brief 设备防区信息编辑
+ *
+ *  @param zoneNo        编号200afe6b30e38007
+ *  @param zoneName      名称007
+ *  @param zoneContactor 联系人1
+ *  @param zonePhone     电话2
+ *  @param zoneLoc       地理信息3
+ *  @param zoneDesc      描述4
+ *  @param finishBlk     返回结果
+ */
+- (void)GTDeviceZoneEditInfoWithZoneNo:(NSString *)zoneNo
+                              zoneName:(NSString *)zoneName
+                         zoneContactor:(NSString *)zoneContactor
+                             zonePhone:(NSString *)zonePhone
+                               zoneLoc:(NSString *)zoneLoc
+                              zoneDesc:(NSString *)zoneDesc
+                           finishBlock:(GTResultBlock)finishBlk;
 #pragma mark - UserInfo
 /*!
  *  @brief 用户反馈

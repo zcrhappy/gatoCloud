@@ -108,5 +108,13 @@
     self.frame = frame;
 }
 
+- (UIView *(^)(CGFloat top))_top
+{
+    return ^id(CGFloat top) {
+        self.top = top;
+        return self;
+    };
+}
+
 
 @end

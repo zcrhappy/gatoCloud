@@ -54,8 +54,7 @@
     [backItem setCustomView:backBtn];
     [viewController.navigationItem setLeftBarButtonItems:@[backItem]];
     
-    
-    
+    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:17]};
 }
 
 - (void)doExit

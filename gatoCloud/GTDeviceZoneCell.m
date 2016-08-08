@@ -196,17 +196,17 @@
     guardSwitch.on = model.zoneStateForSwithButton;
     zoneTypeLabel.text = [NSString stringWithFormat:@"防区类型:%@",[model zoneTypeStringWithSuffix:YES]];
     
-    if(model.zoneContactor || [model.zoneContactor isEmptyString])
+    if(!model.zoneContactor || [model.zoneContactor isEmptyString])
         contactLabel.text = @"--";
     else
         contactLabel.text = model.zoneContactor;
     
-    if(model.zonePhone || [model.zonePhone isEmptyString])
+    if(!model.zonePhone || [model.zonePhone isEmptyString])
         zonePhoneLabel.text = @"--";
     else
         zonePhoneLabel.text = model.zonePhone;
     
-    if(model.zoneLoc || [model.zoneLoc isEmptyString])
+    if(!model.zoneLoc || [model.zoneLoc isEmptyString])
         zoneLocLabel.text = @"--";
     else
         zoneLocLabel.text = model.zoneLoc;

@@ -29,5 +29,6 @@
 
 @property (nonatomic) CGFloat centerY;
 
+- (UIView *(^)(CGFloat top))_top;
 
 @end

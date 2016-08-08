@@ -12,6 +12,7 @@
 #import "GTDeviceZoneCell.h"
 #import "GTSearchActionSheet.h"
 #import "GTSearchBar.h"
+#import "GTZoneEditViewController.h"
 
 #define kGTDeviceZoneCellIdentifier @"GTDeviceZoneCellIdentifier"
 #define kSearchViaZoneName @"按防区搜索"
@@ -25,7 +26,7 @@ typedef NS_ENUM(NSInteger, kListType) {
 
 @interface GTRoutesListViewController ()<UITableViewDelegate, UITableViewDataSource, GTDeviceZoneCellDelegate>
 @property (nonatomic, strong) UITableView *routesTable;
-@property (nonatomic, strong) NSArray<GTDeviceZoneModel *> *zoneModelsArray;
+@property (nonatomic, strong) NSMutableArray<GTDeviceZoneModel *> *zoneModelsArray;
 @property (nonatomic, copy) NSString *deviceNo;
 @property (nonatomic, copy) NSString *deviceName;
 @property (nonatomic, copy) NSString *zoneName;
@@ -277,6 +278,12 @@ typedef NS_ENUM(NSInteger, kListType) {
     return _zoneModelsArray[row];
 }
 
+- (NSIndexPath *)indexPathOfModel:(GTDeviceZoneModel *)model
+{
+    NSInteger row = [_zoneModelsArray indexOfObject:model];
+    return [NSIndexPath indexPathForRow:row inSection:0];
+}
+
 #pragma mark - Search Item
 - (void)enableSearchBar:(BOOL)yesOrNo;
 {
@@ -449,6 +456,19 @@ typedef NS_ENUM(NSInteger, kListType) {
 - (void)clickEditWithModel:(GTDeviceZoneModel *)model
 {
     //点击进入防区信息详情页
+    NSIndexPath *indexPath = [self indexPathOfModel:model];
+    
+    GTZoneEditViewController *viewController = [[GTZoneEditViewController alloc] initWithModel:model];
+    __weak __typeof(self)weakSelf = self;
+    [viewController setEditSuccessBlock:^(GTDeviceZoneModel *newModel) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        NSInteger row = [indexPath row];
+        strongSelf.zoneModelsArray[row] = newModel;
+        [strongSelf.routesTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        
+    }];
+    [self.navigationController pushViewController:viewController animated:YES];
+    
 }
 
 @end

@@ -497,6 +497,51 @@ NSInteger const APIErrorCode = 138102;
     }];
 }
 
+
+/*!
+ *  @brief 设备防区信息编辑
+ *
+ *  @param zoneNo        编号200afe6b30e38007
+ *  @param zoneName      名称007
+ *  @param zoneContactor 联系人1
+ *  @param zonePhone     电话2
+ *  @param zoneLoc       地理信息3
+ *  @param zoneDesc      描述4
+ *  @param finishBlk     返回结果
+ */
+- (void)GTDeviceZoneEditInfoWithZoneNo:(NSString *)zoneNo
+                              zoneName:(NSString *)zoneName
+                         zoneContactor:(NSString *)zoneContactor
+                             zonePhone:(NSString *)zonePhone
+                               zoneLoc:(NSString *)zoneLoc
+                              zoneDesc:(NSString *)zoneDesc
+                           finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:zoneNo forKey:@"zoneNo"];
+    [dic safeSetObject:zoneName forKey:@"zoneName"];
+    [dic safeSetObject:zoneContactor forKey:@"zoneContactor"];
+    [dic safeSetObject:zonePhone forKey:@"zonePhone"];
+    [dic safeSetObject:zoneLoc forKey:@"zoneLoc"];
+    [dic safeSetObject:zoneDesc forKey:@"zoneDesc"];
+    
+    [self POST:@"/service/editZone.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
+
 #pragma mark - UserInfo
 - (void)GTUserFeedbackWithContents:(NSString *)content
                            contact:(NSString *)contact
