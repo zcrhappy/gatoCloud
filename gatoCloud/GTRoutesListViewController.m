@@ -164,7 +164,7 @@ typedef NS_ENUM(NSInteger, kListType) {
             NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
             
             NSArray *oldModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];
-            _zoneModelsArray = [GTDeviceZoneModel transformFromArray:oldModelArr];
+            _zoneModelsArray = [NSMutableArray arrayWithArray:[GTDeviceZoneModel transformFromArray:oldModelArr]];
             
             [_routesTable reloadData];
             NSLog(@"");
@@ -180,7 +180,8 @@ typedef NS_ENUM(NSInteger, kListType) {
         if(error == nil) {
             NSArray *resData = [response objectForKey:@"list"];
             
-            _zoneModelsArray = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:resData error:nil];
+            NSArray *array = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:resData error:nil];
+            _zoneModelsArray = [NSMutableArray arrayWithArray:array];
             [_routesTable reloadData];
             NSLog(@"");
         }
@@ -196,7 +197,7 @@ typedef NS_ENUM(NSInteger, kListType) {
             NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
             
             NSArray *oldModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];
-            _zoneModelsArray = [GTDeviceZoneModel transformFromArray:oldModelArr];
+            _zoneModelsArray = [NSMutableArray arrayWithArray:[GTDeviceZoneModel transformFromArray:oldModelArr]] ;
             
             [_routesTable reloadData];
             NSLog(@"");
@@ -213,7 +214,7 @@ typedef NS_ENUM(NSInteger, kListType) {
             NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
             
             NSArray *oldModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];
-            _zoneModelsArray = [GTDeviceZoneModel transformFromArray:oldModelArr];
+            _zoneModelsArray = [NSMutableArray arrayWithArray:[GTDeviceZoneModel transformFromArray:oldModelArr]];
             
             [_routesTable reloadData];
             NSLog(@"");
@@ -410,7 +411,9 @@ typedef NS_ENUM(NSInteger, kListType) {
                  if(error == nil)
                  {
                      NSArray *resData = [response objectForKey:@"list"];
-                     _zoneModelsArray = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:resData error:nil];
+                     NSArray *array = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:resData error:nil];
+                     _zoneModelsArray = [NSMutableArray arrayWithArray:array];
+                     
                      for (GTDeviceZoneModel *curModel in _zoneModelsArray)
                      {
                          if([curModel.zoneNo isEqualToString:model.zoneNo])

@@ -78,9 +78,6 @@
 		33C620B01D30096E0022A9F0 /* GTAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620AF1D30096E0022A9F0 /* GTAddDeviceViewController.m */; };
 		33C620B31D300D750022A9F0 /* GTAddDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620B21D300D750022A9F0 /* GTAddDeviceCell.m */; };
 		33FEDBB41D562371009A3D06 /* GTZoneEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */; };
-		33FEDBB71D562B19009A3D06 /* UIView+Zone.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBB61D562B19009A3D06 /* UIView+Zone.m */; };
-		33FEDBC01D56E6D3009A3D06 /* CRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBBF1D56E6D3009A3D06 /* CRTextView.m */; };
-		33FEDBC91D58A941009A3D06 /* NSString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBC81D58A941009A3D06 /* NSString+Common.m */; };
 		33FEDBCD1D58B775009A3D06 /* GTEditOneRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */; };
 		33FEDBD01D58BF27009A3D06 /* GTEditOneRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBCF1D58BF27009A3D06 /* GTEditOneRowCell.m */; };
 		33FEDBD41D58C1BF009A3D06 /* GTEditTwoRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBD21D58C1BF009A3D06 /* GTEditTwoRowCell.m */; };
@@ -232,12 +229,6 @@
 		33C620B61D3107120022A9F0 /* GTMacroConstantHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMacroConstantHeader.h; sourceTree = "<group>"; };
 		33FEDBB21D562371009A3D06 /* GTZoneEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneEditViewController.h; sourceTree = "<group>"; };
 		33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneEditViewController.m; sourceTree = "<group>"; };
-		33FEDBB51D562B19009A3D06 /* UIView+Zone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Zone.h"; sourceTree = "<group>"; };
-		33FEDBB61D562B19009A3D06 /* UIView+Zone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Zone.m"; sourceTree = "<group>"; };
-		33FEDBBE1D56E6D3009A3D06 /* CRTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTextView.h; sourceTree = "<group>"; };
-		33FEDBBF1D56E6D3009A3D06 /* CRTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTextView.m; sourceTree = "<group>"; };
-		33FEDBC71D58A941009A3D06 /* NSString+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Common.h"; sourceTree = "<group>"; };
-		33FEDBC81D58A941009A3D06 /* NSString+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Common.m"; sourceTree = "<group>"; };
 		33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTEditOneRowCell.xib; sourceTree = "<group>"; };
 		33FEDBCE1D58BF27009A3D06 /* GTEditOneRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTEditOneRowCell.h; sourceTree = "<group>"; };
 		33FEDBCF1D58BF27009A3D06 /* GTEditOneRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTEditOneRowCell.m; sourceTree = "<group>"; };
@@ -289,8 +280,6 @@
 		3321FA541D329D1600D3850E /* Catagory */ = {
 			isa = PBXGroup;
 			children = (
-				33FEDBC71D58A941009A3D06 /* NSString+Common.h */,
-				33FEDBC81D58A941009A3D06 /* NSString+Common.m */,
 				3321FA511D329D1300D3850E /* NSString+CheckingExtension.h */,
 				3321FA521D329D1300D3850E /* NSString+CheckingExtension.m */,
 				3321FA551D329ED600D3850E /* MBProgressHUD+DisplayExtension.h */,
@@ -305,8 +294,6 @@
 				33FF6D3C1D437B83009C730E /* UIImage+DisplayExtension.m */,
 				335380861D445FE100041BD9 /* UIColor+DisplayExtension.h */,
 				335380871D445FE100041BD9 /* UIColor+DisplayExtension.m */,
-				33FEDBB51D562B19009A3D06 /* UIView+Zone.h */,
-				33FEDBB61D562B19009A3D06 /* UIView+Zone.m */,
 			);
 			name = Catagory;
 			sourceTree = "<group>";
@@ -435,8 +422,6 @@
 				33651FD41D53302900F5CA9F /* GTSearchActionSheet.m */,
 				33651FDC1D53801E00F5CA9F /* GTSearchBar.h */,
 				33651FDD1D53801E00F5CA9F /* GTSearchBar.m */,
-				33FEDBBE1D56E6D3009A3D06 /* CRTextView.h */,
-				33FEDBBF1D56E6D3009A3D06 /* CRTextView.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -776,7 +761,6 @@
 				3321FA8D1D33E87B00D3850E /* GTUserModel.m in Sources */,
 				3321FA931D33F96900D3850E /* NSDictionary+HTTPExtionsion.m in Sources */,
 				3352A60E1D39CEEB00EED5C0 /* PCCircle.m in Sources */,
-				33FEDBB71D562B19009A3D06 /* UIView+Zone.m in Sources */,
 				3321FA531D329D1300D3850E /* NSString+CheckingExtension.m in Sources */,
 				337663BB1D474952003AA73C /* GTMainViewInfoModel.m in Sources */,
 				336C612B1D41211A003C4410 /* GTWarningRecordCompleteModel.m in Sources */,
@@ -797,11 +781,9 @@
 				330E31371D51F40D00B94695 /* GTLoginViewController.m in Sources */,
 				335380971D44C80D00041BD9 /* GTStartModel.m in Sources */,
 				337663C91D49F04C003AA73C /* GTRoutesListViewController.m in Sources */,
-				33FEDBC01D56E6D3009A3D06 /* CRTextView.m in Sources */,
 				33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */,
 				3321FA6B1D33BA3C00D3850E /* GTLoginManager.m in Sources */,
 				335380881D445FE100041BD9 /* UIColor+DisplayExtension.m in Sources */,
-				33FEDBC91D58A941009A3D06 /* NSString+Common.m in Sources */,
 				3352A61F1D39D90600EED5C0 /* GestureViewController.m in Sources */,
 				332BA24E1D3F502600B0C635 /* GTWarningRecordsViewController.m in Sources */,
 				33FEDBD01D58BF27009A3D06 /* GTEditOneRowCell.m in Sources */,

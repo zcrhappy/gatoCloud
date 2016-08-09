@@ -90,6 +90,9 @@
     UIAlertController *controler = [UIAlertController alertControllerWithTitle:@"会话过期" message:@"需要重新登录" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         //初始化界面
+        if([GTUserUtils isViewControllerPresent])
+            [[GTUserUtils appTopViewController] dismissViewControllerAnimated:NO completion:nil];
+        
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *rootViewController = [storyBoard instantiateInitialViewController];
         self.window = [[GTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -97,6 +100,7 @@
         [self.window makeKeyAndVisible];
     }];
     [controler addAction:doneAction];
+    
     [[GTUserUtils appTopViewController] presentViewController:controler animated:YES completion:nil];
 }
 

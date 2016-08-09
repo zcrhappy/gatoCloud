@@ -31,5 +31,7 @@
 
 + (void)saveBanners:(NSArray *)banners;
 
+//视图相关工具类
 + (UIViewController *)appTopViewController;
++ (BOOL)isViewControllerPresent;
 @end

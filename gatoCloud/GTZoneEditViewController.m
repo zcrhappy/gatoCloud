@@ -7,7 +7,6 @@
 //
 
 #import "GTZoneEditViewController.h"
-#import "UIView+Zone.h"
 #import "GTEditOneRowCell.h"
 #import "GTEditTwoRowCell.h"
 #define kZoneName @"防区名称"

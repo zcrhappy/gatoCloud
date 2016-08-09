@@ -169,4 +169,20 @@ NSString *kBannerKey = @"kBannerKey";
     return topVC;
 }
 
++ (BOOL)isViewControllerPresent
+{
+    UIViewController *topVC = [GTUserUtils appTopViewController];
+    NSArray *viewcontrollers = topVC.navigationController.viewControllers;
+    
+    if (viewcontrollers.count > 1) {
+        if ([viewcontrollers objectAtIndex:viewcontrollers.count-1]==self) {
+            //push方式
+            return NO;
+        }
+    }
+    
+    //present方式
+    return YES;
+}
+
 @end
