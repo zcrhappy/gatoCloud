@@ -37,7 +37,9 @@
             
                 [GTUserUtils unRegisterUserInfo];
                 [GTUserUtils saveUserInfoViaRegister:response];
-                [GTUserUtils loginSuccess];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:kDidLoginNotification object:nil];
+                
                 [self performSegueWithIdentifier:@"kEnterMainViewSegue" sender:self];
                 
                 

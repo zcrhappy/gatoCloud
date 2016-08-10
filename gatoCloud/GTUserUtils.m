@@ -55,10 +55,13 @@ NSString *kBannerKey = @"kBannerKey";
     NSString *token = [dic objectForKey:@"token"];
     NSString *userId = [dic objectForKey:@"userId"];
     
-    [GTUserUtils saveToken:token];
-    [GTUserUtils saveUserId:userId];
+    if(token != nil && userId != nil) {
+        [GTUserUtils saveToken:token];
+        [GTUserUtils saveUserId:userId];
+        [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
+        [GTUserUtils loginSuccess];
+    }
     
-    [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
 }
 
 
@@ -77,6 +80,7 @@ NSString *kBannerKey = @"kBannerKey";
     if(dic) {
         GTUserModel *userModel = [MTLJSONAdapter modelOfClass:[GTUserModel class] fromJSONDictionary:dic error:nil];
         [[TMCache sharedCache] setObject:userModel forKey:kUserInfoKey];
+        [GTUserUtils loginSuccess];
     }
     else {
         [GTUserUtils sharedInstance].userModel = nil;//清内存数据

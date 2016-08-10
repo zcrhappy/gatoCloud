@@ -53,6 +53,8 @@ NSInteger const APIErrorCode = 138102;
 #endif
         token = @"";
         userId = @"";
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin) name:kDidLoginNotification object:nil];
     }
     
     return self;
@@ -795,6 +797,16 @@ NSInteger const APIErrorCode = 138102;
     return manager;
 }
 
+- (void)didLogin
+{
+    token = [GTUserUtils userInfo].token;
+    userId = [GTUserUtils userInfo].userId;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidLoginNotification object:nil];
+}
 
 
 @end
