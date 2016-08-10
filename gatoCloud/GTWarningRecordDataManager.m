@@ -44,7 +44,7 @@
             _hasMore = addDataSource.hasMore;
             _dataSource.currentPage = addDataSource.currentPage;
             _dataSource.totalPages = addDataSource.totalPages;
-            _dataSource.resultList = [_dataSource.resultList arrayByAddingObjectsFromArray:addDataSource.resultList];
+            _dataSource.resultList = [NSMutableArray arrayWithArray:[_dataSource.resultList arrayByAddingObjectsFromArray:addDataSource.resultList]];
         }
         finshBlock(response, error);
     }];
