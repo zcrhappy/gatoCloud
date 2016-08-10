@@ -32,6 +32,9 @@ NSString *done = @"确定";
 @interface GTWarningDetailViewController()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UITableView *detailTable;
 @property (nonatomic, strong) NSArray *rowArray;
+
+@property (nonatomic, strong) NSNumber *istate;
+@property (nonatomic, copy) NSString *memo;
 @end
 
 @implementation GTWarningDetailViewController
@@ -93,14 +96,30 @@ NSString *done = @"确定";
     else if([rowName isEqualToString:warnState]) {
         GTWarningDetailStateCell *cell = (GTWarningDetailStateCell *)[tableView dequeueReusableCellWithIdentifier:GTWarningDetailStateCellIdentifier forIndexPath:indexPath];
         [cell setupState:_model.ISTATE];
+        __weak __typeof(self)weakSelf = self;
+        [cell setClickBtnBlock:^(NSNumber *state) {
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            strongSelf.istate = state;
+        }];
         return cell;
     }
     else if([rowName isEqualToString:comment]) {
         GTWarningDetailCommentCell *cell = (GTWarningDetailCommentCell *)[tableView dequeueReusableCellWithIdentifier:GTWarningDetailCommentCellIdentifier forIndexPath:indexPath];
+        __weak __typeof(self)weakSelf = self;
+        [cell setMemoDidChangeBlock:^(NSString *text) {
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            strongSelf.memo = text;
+        }];
         return cell;
     }
     else if([rowName isEqualToString:done]) {
         GTWarningDetailDoneCell *cell = (GTWarningDetailDoneCell *)[tableView dequeueReusableCellWithIdentifier:GTWarningDetailDoneCellIdentifier forIndexPath:indexPath];
+        __weak __typeof(self)weakSelf = self;
+        [cell setClickDoneBlock:^{
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            [strongSelf clickDone];
+        }];
+        
         return cell;
     }
 
@@ -135,6 +154,20 @@ NSString *done = @"确定";
 }
 
 #pragma mark - click action
+
+- (void)clickDone
+{
+    _model.ISTATE = self.istate;
+    _model.memo = self.memo;
+    
+    [[GTHttpManager shareManager] GTWarningRecordHandleWithWarningId:_model.WARNINGID istate:self.istate zoneNo:_model.ZONENO memo:self.memo finishBlock:^(id response, NSError *error) {
+        if(!error) {
+            [MBProgressHUD showText:@"处理成功" inView:[UIView gt_keyWindow]];
+
+            [self performSegueWithIdentifier:@"backToWarningRecordSegue" sender:self];
+        }
+    }];
+}
 
 - (IBAction)clickBack:(id)sender
 {

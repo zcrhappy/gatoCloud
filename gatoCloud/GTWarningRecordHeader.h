@@ -13,7 +13,7 @@ typedef NS_ENUM(NSInteger, kWarningState)
 {
     kWarningStateUnsolved = 0,
     kWarningStateSolved = 1,
-    kWarningStateMissReport = 2
+    kWarningStateMisReport = 2
 };
 #define kWarningStateString(enum) [@[@"未解决",@"已解决",@"误报"] objectAtIndex:enum]
 #define kWarningSteteCount 3

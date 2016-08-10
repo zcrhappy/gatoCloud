@@ -24,7 +24,7 @@
 + (NSValueTransformer *)resultListJSONTransformer
 {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        return [MTLJSONAdapter modelsOfClass:[GTWarningRecordModel class] fromJSONArray:value error:nil];
+        return [NSMutableArray arrayWithArray:[MTLJSONAdapter modelsOfClass:[GTWarningRecordModel class] fromJSONArray:value error:nil]];
     }];
 }
 

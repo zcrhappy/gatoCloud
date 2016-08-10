@@ -12,4 +12,6 @@
 
 - (void)setupState:(NSNumber *)state;
 
+@property (nonatomic, copy) void (^clickBtnBlock)(NSNumber *state);
+
 @end

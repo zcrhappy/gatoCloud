@@ -71,7 +71,7 @@
         _status.layer.borderColor = buttonColor.CGColor;
         [_status setTitleColor:buttonColor forState:UIControlStateNormal];
     }
-    else if(kWarningStateMissReport == warnStateIndex) {
+    else if(kWarningStateMisReport == warnStateIndex) {
         UIColor *buttonColor = [UIColor redColor];
         _status.layer.borderColor = buttonColor.CGColor;
         [_status setTitleColor:buttonColor forState:UIControlStateNormal];

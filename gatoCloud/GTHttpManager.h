@@ -130,6 +130,21 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
 
 
 /*!
+ *  @brief 单个报警消警
+ *
+ *  @param warningId 报警Id1470253697
+ *  @param istate    0未处理  1已处理  2误报
+ *  @param zoneNo    防区200afe6b30e38003
+ *  @param memo      hello
+ *  @param finishBlk 返回结果
+ */
+- (void)GTWarningRecordHandleWithWarningId:(NSString *)warningId
+                                    istate:(NSNumber *)istate
+                                    zoneNo:(NSString *)zoneNo
+                                      memo:(NSString *)memo
+                               finishBlock:(GTResultBlock)finishBlk;
+
+/*!
  *  @brief 报警搜索
  *
  *  @param searchType 查询类型0时间段搜索 1报警类型搜索 2设备搜索 3防区搜索

@@ -14,4 +14,10 @@
 @end
 @implementation GTWarningDetailDoneCell
 
+
+- (IBAction)clickDone:(id)sender {
+    if(self.clickDoneBlock)
+        self.clickDoneBlock();
+}
+
 @end

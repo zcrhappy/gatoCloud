@@ -10,4 +10,6 @@
 
 @interface GTWarningDetailDoneCell : UITableViewCell
 
+@property (nonatomic, copy) void(^clickDoneBlock)(void);
+
 @end

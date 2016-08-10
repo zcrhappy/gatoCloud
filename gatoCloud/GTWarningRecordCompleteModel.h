@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSNumber *numPerPage;
 @property (nonatomic, strong) NSNumber *currentPage;
 @property (nonatomic, strong) NSNumber *totalPages;
-@property (nonatomic, strong) NSArray *resultList;
+@property (nonatomic, strong) NSMutableArray <GTWarningRecordModel *>*resultList;
 
 + (NSDictionary *)warningTypeDict;
 - (BOOL)hasMore;

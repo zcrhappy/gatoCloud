@@ -32,6 +32,9 @@
     else {
         _placeholderTextView.hidden = YES;
     }
+    
+    if(self.memoDidChangeBlock)
+        self.memoDidChangeBlock(_textView.text);
 }
 
 @end

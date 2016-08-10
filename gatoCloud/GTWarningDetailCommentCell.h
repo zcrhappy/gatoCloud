@@ -10,4 +10,6 @@
 
 @interface GTWarningDetailCommentCell : UITableViewCell
 
+@property (nonatomic, copy) void (^memoDidChangeBlock)(NSString *text);
+
 @end

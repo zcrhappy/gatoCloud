@@ -67,8 +67,24 @@
     
     sender.selected = YES;
     sender.layer.borderColor = [UIColor clearColor].CGColor;
+    
+    if(self.clickBtnBlock){
+        self.clickBtnBlock([self curState]);
+    }
 }
 
 
+
+- (NSNumber *)curState
+{
+    if(_buttonForResolved.selected)
+        return @(kWarningStateSolved);
+    if(_buttonForUnresolved.selected)
+        return @(kWarningStateUnsolved);
+    if(_buttonForMisReport.selected)
+        return @(kWarningStateMisReport);
+    
+    return @(-1);
+}
 
 @end

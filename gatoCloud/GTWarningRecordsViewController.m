@@ -17,7 +17,7 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *warningTable;
 @property (nonatomic, strong) GTWarningRecordDataManager *dataManager;
-@property (nonatomic, strong) id currentModel;
+@property (nonatomic, strong) GTWarningRecordModel *currentModel;
 
 @end
 
@@ -104,6 +104,14 @@
     detailViewController.model = _currentModel;
 }
 
+- (IBAction)unwindToWarningRecordsViewController:(UIStoryboardSegue *)unwindSegue
+{
+    NSInteger row = [_dataManager.dataSource.resultList indexOfObject:_currentModel];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+    
+    _currentModel = ((GTWarningDetailViewController *)(unwindSegue.sourceViewController)).model;
+    [_warningTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
 
 
 - (IBAction)clickBack:(id)sender
