@@ -128,6 +128,26 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
 - (void)GTWarningRecordsWithPageNo:(NSNumber *)pn
                        finishBlock:(GTResultBlock)finishBlk;
 
+
+/*!
+ *  @brief 报警搜索
+ *
+ *  @param searchType 查询类型0时间段搜索 1报警类型搜索 2设备搜索 3防区搜索
+ *  @param beginDate  开始时间 yyyy-MM-dd
+ *  @param endDate    结束时间 yyyy-MM-dd
+ *  @param warnType   报警类型 dev:主机报警 net:通讯报警 fence:入侵报警
+ *  @param deivceName 设备名称
+ *  @param zoneName   防区名称
+ *  @param finishBlk  返回结果
+ */
+- (void)GTSearchWarningRecordsWithSearchType:(NSNumber *)searchType
+                                   beginDate:(NSString *)beginDate
+                                     endDate:(NSString *)endDate
+                                    warnType:(NSString *)warnType
+                                  deviceName:(NSString *)deivceName
+                                    zoneName:(NSString *)zoneName
+                                 finishBlock:(GTResultBlock)finishBlk;
+
 #pragma mark - Zone
 /*!
  *  @brief 设备对应防区列表

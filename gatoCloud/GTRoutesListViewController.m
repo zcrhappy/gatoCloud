@@ -426,7 +426,6 @@ typedef NS_ENUM(NSInteger, kListType) {
                              }
                          }
                      }
-                     
                  }
              }];
             break;
