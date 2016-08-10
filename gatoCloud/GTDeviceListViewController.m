@@ -129,18 +129,72 @@
 {
     NSNumber *index = [dic objectForKey:@"index"];
     GTDeviceModel *model = [dic objectForKey:@"model"];
-    
-    
-    [MBProgressHUD showText:index.stringValue inView:self.view];
-    
-    
-    
-    if(index.integerValue == 3) {//防区列表
+
+    if(index.integerValue == 0)
+    { //一键布防
+        [self checkPwdWithFinishBlk:^(NSString *pwd) {
+            [[GTHttpManager shareManager] GTOneKeyDealingGuardWithDeviceNo:model.deviceNo istate:@2 pwd:pwd finishBlock:^(id response, NSError *error) {
+                if(!error) {
+                    [MBProgressHUD showText:@"布防成功" inView:self.view];
+                }
+            }];
+        }];
+    }
+    else if(index.integerValue == 1)
+    { //一键撤防
+        [self checkPwdWithFinishBlk:^(NSString *pwd) {
+            [[GTHttpManager shareManager] GTOneKeyDealingGuardWithDeviceNo:model.deviceNo istate:@1 pwd:pwd finishBlock:^(id response, NSError *error) {
+                if(!error) {
+                    [MBProgressHUD showText:@"撤防成功" inView:self.view];
+                }
+            }];
+        }];
+    }
+    else if(index.integerValue == 2)
+    { //一键消警
+        [[GTHttpManager shareManager] GTOneKeyDisableWarningWithDeviceNo:model.deviceNo finishBlock:^(id response, NSError *error) {
+            if(!error) {
+                [MBProgressHUD showText:@"消警成功" inView:self.view];
+            }
+        }];
+    }
+    else if(index.integerValue == 3)
+    {//防区列表
         GTRoutesListViewController *controller = [[GTRoutesListViewController alloc] initWithDeviceNo:model.deviceNo];
         controller.navigationItem.title = @"通道列表";
         [self.navigationController pushViewController:controller animated:YES];
     }
     
+}
+
+- (void)checkPwdWithFinishBlk:(void (^)(NSString *pwd))finishBlk
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"验证密码" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    //创建按钮
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"确认按钮block");
+        //取出输入框文字
+        NSString *pwd = alertController.textFields.firstObject.text;
+        finishBlk(pwd);
+    }];
+    //取消按钮（只能创建一个）
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"取消按钮block");
+    }];
+
+    //将按钮添加到UIAlertController对象上
+    [alertController addAction:sureAction];
+    [alertController addAction:cancelAction];
+    
+    //添加文本框（只能在UIAlertController的UIAlertControllerStyleAlert样式下添加）
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"请输入设备密码";
+        textField.secureTextEntry = YES;
+    }];
+    
+    //显示弹窗视图控制器
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - 侧滑功能栏

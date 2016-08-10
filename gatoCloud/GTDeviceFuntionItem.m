@@ -34,7 +34,7 @@
     [self addSubview:_funcIcon];
     
     [_funcIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@10);
+        make.top.equalTo(@16);
         make.centerX.equalTo(self);
     }];
     
@@ -42,7 +42,7 @@
     [self addSubview:_funcLabel];
     
     [_funcLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self).offset(-6);
+        make.bottom.equalTo(self).offset(-12);
         make.centerX.equalTo(self);
     }];
     

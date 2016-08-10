@@ -7,7 +7,6 @@
 //
 
 #import "GTDeviceListCell.h"
-#import "GTDeviceCellGestureManager.h"
 #import "GTDeviceFuntionItem.h"
 #import "GTDeviceModel.h"
 @interface GTDeviceListCell()<GTDeviceFunctionItemDelegate>
@@ -87,18 +86,17 @@
     bottomContainer = macroCreateView(CGRectZero, [UIColor colorWithString:@"f5f5f5"]);
     [self.contentView addSubview:bottomContainer];
     
-    NSArray *funcArray= [NSArray arrayWithObjects:@"布防",@"撤防",@"消警",@"防区列表",@"验证密码", nil];
+    NSArray *funcArray= [NSArray arrayWithObjects:@"布防",@"撤防",@"消警",@"防区列表", nil];
     
     NSDictionary *iconDic = @{@"布防":@"GTFuncItemIconProtect",
                           @"撤防":@"GTFuncItemIconUnProtect",
                           @"消警":@"GTFuncItemIconDisableAlarm",
-                          @"防区列表":@"GTFuncItemIconZoneList",
-                          @"验证密码":@"GTFuncItemIconVerifyPassword"};
+                          @"防区列表":@"GTFuncItemIconZoneList"};
     
 
     __block UIView *lastView = nil;
     
-    CGFloat itemWidth = (SCREEN_WIDTH - 7*6)/5.0;
+    CGFloat itemWidth = (SCREEN_WIDTH - 7*(funcArray.count+1))/(CGFloat)(funcArray.count);
     
     [funcArray enumerateObjectsUsingBlock:^(id  _Nonnull functionName, NSUInteger idx, BOOL * _Nonnull stop) {
        
@@ -116,7 +114,7 @@
             make.height.equalTo(curItem.mas_width);
             make.width.equalTo(@(itemWidth));
             
-            if(idx == 4)
+            if(idx == funcArray.count - 1)
                 make.right.equalTo(bottomContainer.mas_right).offset(-7);
         }];
         

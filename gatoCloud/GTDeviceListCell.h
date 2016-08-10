@@ -6,8 +6,6 @@
 //  Copyright © 2016年 Gato. All rights reserved.
 //
 
-#import "TLSwipeForOptionsCell.h"
-
 @protocol GRDeviceCellDelegate <NSObject>
 
 - (void)didSelectFunctionItemWithDic:(NSDictionary *)infoDic;

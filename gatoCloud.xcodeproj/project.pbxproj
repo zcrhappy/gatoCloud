@@ -32,7 +32,6 @@
 		3321FA9A1D34C55300D3850E /* GTDeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA991D34C55300D3850E /* GTDeviceListViewController.m */; };
 		3321FAA11D36743200D3850E /* GTDeviceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAA01D36743200D3850E /* GTDeviceListCell.m */; };
 		3321FAA41D36782500D3850E /* GTDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAA31D36782500D3850E /* GTDeviceModel.m */; };
-		3321FAAF1D368DEE00D3850E /* TLSwipeForOptionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAAE1D368DEE00D3850E /* TLSwipeForOptionsCell.m */; };
 		3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB11D36924100D3850E /* UIView+GTCornerRadius.m */; };
 		3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */; };
 		3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */; };
@@ -43,7 +42,6 @@
 		332BA24E1D3F502600B0C635 /* GTWarningRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA24D1D3F502600B0C635 /* GTWarningRecordsViewController.m */; };
 		332BA2511D3FADB500B0C635 /* GTWarningRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA2501D3FADB500B0C635 /* GTWarningRecordCell.m */; };
 		332BA2541D3FAF1200B0C635 /* GTWarningRecordDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA2531D3FAF1200B0C635 /* GTWarningRecordDataManager.m */; };
-		332BA2571D3FDF4B00B0C635 /* GTDeviceCellGestureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA2561D3FDF4B00B0C635 /* GTDeviceCellGestureManager.m */; };
 		3352A60E1D39CEEB00EED5C0 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A6091D39CEEB00EED5C0 /* PCCircle.m */; };
 		3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A60B1D39CEEB00EED5C0 /* PCCircleView.m */; };
 		3352A6101D39CEEB00EED5C0 /* PCCircleViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A60D1D39CEEB00EED5C0 /* PCCircleViewConst.m */; };
@@ -137,8 +135,6 @@
 		3321FAA01D36743200D3850E /* GTDeviceListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDeviceListCell.m; sourceTree = "<group>"; };
 		3321FAA21D36782500D3850E /* GTDeviceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDeviceModel.h; sourceTree = "<group>"; };
 		3321FAA31D36782500D3850E /* GTDeviceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDeviceModel.m; sourceTree = "<group>"; };
-		3321FAAD1D368DEE00D3850E /* TLSwipeForOptionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSwipeForOptionsCell.h; sourceTree = "<group>"; };
-		3321FAAE1D368DEE00D3850E /* TLSwipeForOptionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSwipeForOptionsCell.m; sourceTree = "<group>"; };
 		3321FAB01D36924100D3850E /* UIView+GTCornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GTCornerRadius.h"; sourceTree = "<group>"; };
 		3321FAB11D36924100D3850E /* UIView+GTCornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GTCornerRadius.m"; sourceTree = "<group>"; };
 		3321FAB31D3692FF00D3850E /* GTEditDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTEditDeviceViewController.h; sourceTree = "<group>"; };
@@ -159,8 +155,6 @@
 		332BA2501D3FADB500B0C635 /* GTWarningRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningRecordCell.m; sourceTree = "<group>"; };
 		332BA2521D3FAF1200B0C635 /* GTWarningRecordDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningRecordDataManager.h; sourceTree = "<group>"; };
 		332BA2531D3FAF1200B0C635 /* GTWarningRecordDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningRecordDataManager.m; sourceTree = "<group>"; };
-		332BA2551D3FDF4B00B0C635 /* GTDeviceCellGestureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDeviceCellGestureManager.h; sourceTree = "<group>"; };
-		332BA2561D3FDF4B00B0C635 /* GTDeviceCellGestureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDeviceCellGestureManager.m; sourceTree = "<group>"; };
 		3352A6081D39CEEB00EED5C0 /* PCCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircle.h; sourceTree = "<group>"; };
 		3352A6091D39CEEB00EED5C0 /* PCCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircle.m; sourceTree = "<group>"; };
 		3352A60A1D39CEEB00EED5C0 /* PCCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleView.h; sourceTree = "<group>"; };
@@ -342,14 +336,10 @@
 			children = (
 				3321FA981D34C55300D3850E /* GTDeviceListViewController.h */,
 				3321FA991D34C55300D3850E /* GTDeviceListViewController.m */,
-				3321FAAD1D368DEE00D3850E /* TLSwipeForOptionsCell.h */,
-				3321FAAE1D368DEE00D3850E /* TLSwipeForOptionsCell.m */,
 				3321FA9F1D36743200D3850E /* GTDeviceListCell.h */,
 				3321FAA01D36743200D3850E /* GTDeviceListCell.m */,
 				3321FAA21D36782500D3850E /* GTDeviceModel.h */,
 				3321FAA31D36782500D3850E /* GTDeviceModel.m */,
-				332BA2551D3FDF4B00B0C635 /* GTDeviceCellGestureManager.h */,
-				332BA2561D3FDF4B00B0C635 /* GTDeviceCellGestureManager.m */,
 				337663C11D48CD5D003AA73C /* GTDeviceFuntionItem.h */,
 				337663C21D48CD5D003AA73C /* GTDeviceFuntionItem.m */,
 			);
@@ -789,11 +779,9 @@
 				33FEDBD01D58BF27009A3D06 /* GTEditOneRowCell.m in Sources */,
 				3352A61C1D39D8E100EED5C0 /* PCLockLabel.m in Sources */,
 				3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */,
-				332BA2571D3FDF4B00B0C635 /* GTDeviceCellGestureManager.m in Sources */,
 				3353808E1D44620C00041BD9 /* GTWarningDetailDoneCell.m in Sources */,
 				3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */,
 				33C620981D2FE7E60022A9F0 /* main.m in Sources */,
-				3321FAAF1D368DEE00D3850E /* TLSwipeForOptionsCell.m in Sources */,
 				33FEDBD41D58C1BF009A3D06 /* GTEditTwoRowCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
