@@ -148,6 +148,29 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
                                     zoneName:(NSString *)zoneName
                                  finishBlock:(GTResultBlock)finishBlk;
 
+/*!
+ *  @brief 一键消警
+ *
+ *  @param deviceNo  设备编号
+ *  @param finishBlk 返回结果
+ */
+- (void)GTOneKeyDisableWarningWithDeviceNo:(NSString *)deviceNo
+                               finishBlock:(GTResultBlock)finishBlk;
+
+
+/*!
+ *  @brief 一键布撤防
+ *
+ *  @param deviceNo  设备编号
+ *  @param istate    状态  2一键布防   1一键撤防
+ *  @param pwd       设备密码
+ *  @param finishBlk  code  10000调用成功  其他失败  -4000:密码错误
+ */
+- (void)GTOneKeyDealingGuardWithDeviceNo:(NSString *)deviceNo
+                                  istate:(NSNumber *)istate
+                                     pwd:(NSString *)pwd
+                             finishBlock:(GTResultBlock)finishBlk;
+
 #pragma mark - Zone
 /*!
  *  @brief 设备对应防区列表

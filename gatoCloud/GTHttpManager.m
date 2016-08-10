@@ -341,6 +341,70 @@ NSInteger const APIErrorCode = 138102;
 }
 
 /*!
+ *  @brief 一键消警
+ *
+ *  @param deviceNo  设备编号
+ *  @param finishBlk 返回结果
+ */
+- (void)GTOneKeyDisableWarningWithDeviceNo:(NSString *)deviceNo
+                               finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:deviceNo forKey:@"deviceNo"];
+    
+    [self POST:@"/service/deviceHandleWaring.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
+
+/*!
+ *  @brief 一键布撤防
+ *
+ *  @param deviceNo  设备编号
+ *  @param istate    状态  2一键布防   1一键撤防
+ *  @param pwd       设备密码
+ *  @param finishBlk  code  10000调用成功  其他失败  -4000:密码错误
+ */
+- (void)GTOneKeyDealingGuardWithDeviceNo:(NSString *)deviceNo
+                                  istate:(NSNumber *)istate
+                                     pwd:(NSString *)pwd
+                             finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:deviceNo forKey:@"deviceNo"];
+    [dic safeSetObject:istate forKey:@"istate"];
+    [dic safeSetObject:pwd forKey:@"pwd"];
+    
+    [self POST:@"/service/deviceDefence.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
+
+/*!
  *  @brief 报警搜索
  *
  *  @param searchType 查询类型0时间段搜索 1报警类型搜索 2设备搜索 3防区搜索
