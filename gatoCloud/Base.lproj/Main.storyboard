@@ -361,17 +361,16 @@
                     </navigationItem>
                     <connections>
                         <outlet property="warningTable" destination="dSk-4q-2x3" id="I21-5W-j1Y"/>
-                        <segue destination="nGq-8Y-zc9" kind="push" identifier="pushToWarningDetailSegue" id="uF9-2f-qHs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJ7-Xm-zIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="272" y="970"/>
+            <point key="canvasLocation" x="341" y="924"/>
         </scene>
         <!--报警详情-->
         <scene sceneID="zLJ-w9-6Ry">
             <objects>
-                <viewController id="nGq-8Y-zc9" customClass="GTWarningDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GTWarningDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nGq-8Y-zc9" customClass="GTWarningDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OX3-1b-Q4r"/>
                         <viewControllerLayoutGuide type="bottom" id="ajW-SX-WXV"/>
@@ -385,7 +384,7 @@
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GTWarningDetailCommonCellIdentifier" rowHeight="55" id="3lJ-lK-vPz" customClass="GTWarningDetailCommonCell">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="55"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3lJ-lK-vPz" id="Js0-as-SSc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
@@ -435,7 +434,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GTWarningDetailAddressCellIdentifier" rowHeight="74" id="JPW-qj-ofp" customClass="GTWarningDetailCommonCell">
-                                        <rect key="frame" x="0.0" y="147" width="320" height="74"/>
+                                        <rect key="frame" x="0.0" y="83" width="320" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JPW-qj-ofp" id="Q42-uZ-bHO">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
@@ -472,7 +471,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GTWarningDetailStateCellIdentifier" rowHeight="66" id="Vgl-e3-i2j" customClass="GTWarningDetailStateCell">
-                                        <rect key="frame" x="0.0" y="221" width="320" height="66"/>
+                                        <rect key="frame" x="0.0" y="157" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vgl-e3-i2j" id="jUe-Yf-v4O">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
@@ -562,7 +561,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GTWarningDetailCommentCellIdentifier" rowHeight="165" id="RQ2-KP-Uko" customClass="GTWarningDetailCommentCell">
-                                        <rect key="frame" x="0.0" y="287" width="320" height="165"/>
+                                        <rect key="frame" x="0.0" y="223" width="320" height="165"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RQ2-KP-Uko" id="vN7-sr-BL1">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="165"/>
@@ -609,7 +608,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GTWarningDetailDoneCellIdentifier" rowHeight="66" id="SZQ-2i-rwP" customClass="GTWarningDetailDoneCell">
-                                        <rect key="frame" x="0.0" y="452" width="320" height="66"/>
+                                        <rect key="frame" x="0.0" y="388" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SZQ-2i-rwP" id="pj0-OQ-bCX">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
@@ -681,7 +680,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cB-VX-6pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="GvY-oC-9fQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="652" y="1459"/>
+            <point key="canvasLocation" x="-1118" y="1630"/>
         </scene>
         <!--设备名称编辑-->
         <scene sceneID="WJq-iJ-Iz2">
@@ -1469,6 +1468,7 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="clickWarningList:" destination="AvF-08-fHn" eventType="touchUpInside" id="Luo-jk-E3W"/>
                                                     <segue destination="A2y-Wk-O3e" kind="modal" id="Eje-fl-C3V"/>
                                                 </connections>
                                             </button>
@@ -1584,6 +1584,6 @@
         <image name="GTUserIcon" width="15" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="w8G-Rk-vdD"/>
+        <segue reference="zVk-fu-kg3"/>
     </inferredMetricsTieBreakers>
 </document>

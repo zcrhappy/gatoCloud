@@ -13,6 +13,7 @@
 #import "GTShareActionSheet.h"
 #import "GTRoutesListViewController.h"
 #import "GTBaseNavigationController.h"
+#import "GTWarningRecordsViewController.h"
 //test
 #import "GTRoutesListViewController.h"
 @interface GTMainViewController()
@@ -99,6 +100,15 @@
     controller.navigationItem.title = @"防区列表";
     GTBaseNavigationController *navigationController = [[GTBaseNavigationController alloc] initWithRootViewController:controller];
     [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+- (IBAction)clickWarningList:(id)sender
+{
+    GTWarningRecordsViewController *controller = [[GTWarningRecordsViewController alloc] init];
+    controller.navigationItem.title = @"报警记录";
+    GTBaseNavigationController *navigationController = [[GTBaseNavigationController alloc] initWithRootViewController:controller];
+    [self presentViewController:navigationController animated:YES completion:nil];
+    
 }
 //********************************************************
 

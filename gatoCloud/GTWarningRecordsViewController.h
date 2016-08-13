@@ -10,4 +10,9 @@
 
 @interface GTWarningRecordsViewController : UIViewController
 
+
+- (instancetype)init;
+
+- (instancetype)initViaType:(NSString *)typeStr;
+
 @end

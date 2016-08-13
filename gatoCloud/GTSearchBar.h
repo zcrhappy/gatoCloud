@@ -11,7 +11,7 @@
 @interface GTSearchBar : UIView
 
 - (instancetype)initWithPlaceholder:(NSString *)placeholder;
-
+- (void)disableEdit;
 @property (nonatomic, copy) void (^didEndEditingBlock)(NSString *keyword);
-
+@property (nonatomic, copy) NSString *placeholder;
 @end

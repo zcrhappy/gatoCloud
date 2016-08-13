@@ -318,6 +318,7 @@ NSInteger const APIErrorCode = 138102;
 }
 
 - (void)GTWarningRecordsWithPageNo:(NSNumber *)pn
+                            istate:(NSNumber *)istate
                        finishBlock:(GTResultBlock)finishBlk;
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -325,6 +326,7 @@ NSInteger const APIErrorCode = 138102;
     
     [dic safeSetObject:pn forKey:@"pn"];
     [dic safeSetObject:@(rn) forKey:@"rn"];
+    [dic safeSetObject:istate forKey:@"istate"];
     
     [self POST:@"/queryWarningsPage.do" parameters:dic progress:^(NSProgress *downloadProgress) {
         
@@ -453,23 +455,26 @@ NSInteger const APIErrorCode = 138102;
  *  @param warnType   报警类型 dev:主机报警 net:通讯报警 fence:入侵报警
  *  @param deivceName 设备名称
  *  @param zoneName   防区名称
+ *  @param pn         页数
  *  @param finishBlk  返回结果
  */
 - (void)GTSearchWarningRecordsWithSearchType:(NSNumber *)searchType
                                    beginDate:(NSString *)beginDate
                                      endDate:(NSString *)endDate
                                     warnType:(NSString *)warnType
-                                  deviceName:(NSString *)deivceName
+                                  deviceName:(NSString *)deviceName
                                     zoneName:(NSString *)zoneName
+                                          pn:(NSNumber *)pn
                                  finishBlock:(GTResultBlock)finishBlk;
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     
-    [dic safeSetObject:searchType forKey:@"searchType"];
+    [dic safeSetObject:searchType.stringValue forKey:@"searchType"];
+    [dic safeSetObject:pn forKey:@"pn"];
     [dic safeSetObject:beginDate forKey:@"beginDate"];
     [dic safeSetObject:endDate forKey:@"endDate"];
     [dic safeSetObject:warnType forKey:@"warnType"];
-    [dic safeSetObject:deivceName forKey:@"deivceName"];
+    [dic safeSetObject:deviceName forKey:@"deviceName"];
     [dic safeSetObject:zoneName forKey:@"zoneName"];
     
     [self POST:@"/searchWarns.do" parameters:dic progress:^(NSProgress *downloadProgress) {

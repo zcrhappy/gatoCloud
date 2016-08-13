@@ -11,7 +11,7 @@
 @interface GTSearchBar()<UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *textField;
-@property (nonatomic, copy) NSString *placeholder;
+
 
 @end
 
@@ -64,6 +64,18 @@
 {
     if(self.didEndEditingBlock)
         self.didEndEditingBlock(textField.text);
+}
+
+- (void)disableEdit
+{
+    _textField.enabled = NO;
+    [_textField resignFirstResponder];
+}
+
+- (void)setPlaceholder:(NSString *)placeholder
+{
+    _placeholder = placeholder;
+    _textField.placeholder = placeholder;
 }
 
 @end

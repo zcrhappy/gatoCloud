@@ -10,7 +10,7 @@
 
 #define kAnimtionDuration 0
 #define kRowHeight 50
-#define kRowWidth 120
+#define kRowWidth 150
 @interface GTSearchActionSheet()<UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate>
 @property (nonatomic, strong) UITableView *selectionList;
 @property (nonatomic, strong) UIView *customView;
@@ -123,7 +123,7 @@
 - (void)setupWithSelection:(NSArray *)selection
 {
     _selections = selection;
-    _selectionList.frame = CGRectMake(SCREEN_WIDTH - kRowWidth - 15, 64, kRowWidth, kRowHeight*selection.count);
+    _selectionList.frame = CGRectMake(SCREEN_WIDTH - kRowWidth, 64, kRowWidth, kRowHeight*selection.count);
     [_selectionList reloadData];
 }
 
