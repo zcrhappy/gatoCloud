@@ -160,7 +160,8 @@
     }
     else if(index.integerValue == 3)
     {//防区列表
-        GTRoutesListViewController *controller = [[GTRoutesListViewController alloc] initWithDeviceNo:model.deviceNo];
+        GTRoutesListViewController *controller = [[GTRoutesListViewController alloc] initWithListType:kListTypeViaDeviceNo];
+        controller.searchKeyword = model.deviceNo;
         controller.navigationItem.title = @"通道列表";
         [self.navigationController pushViewController:controller animated:YES];
     }

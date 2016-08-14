@@ -18,11 +18,11 @@
 #import "GTDatePickActionSheet.h"
 #define GTWarningRecordCellIdentifier @"GTWarningRecordCellIdentifier"
 
-static NSString *kSearchViaUnhandled = @"未处理报警";
-static NSString *kSearchViaTime = @"按时间段搜索";
+static NSString *kSearchViaUnhandled   = @"未处理报警";
+static NSString *kSearchViaTime        = @"按时间段搜索";
 static NSString *kSearchViaWarningType = @"按报警类型搜索";
-static NSString *kSearchViaDeviceName = @"按设备搜索";
-static NSString *kSearchViaZone = @"按防区搜索";
+static NSString *kSearchViaDeviceName  = @"按设备搜索";
+static NSString *kSearchViaZone        = @"按防区搜索";
 
 @interface GTWarningRecordsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -32,6 +32,7 @@ static NSString *kSearchViaZone = @"按防区搜索";
 
 @property (nonatomic, copy) NSString *typeStr;
 @property (nonatomic, strong) GTSearchBar *searchBar;
+@property (nonatomic, assign) BOOL autoRefresh;
 //search keyword
 @property (nonatomic, strong) NSMutableDictionary *searchKeywordDict;//和dataManager约定好的数据Dic；
 
@@ -43,7 +44,6 @@ static NSString *kSearchViaZone = @"按防区搜索";
     [super viewDidLoad];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     
-
     [self configTableView];
     [self configSearchBar];
     
@@ -59,9 +59,24 @@ static NSString *kSearchViaZone = @"按防区搜索";
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     if(_searchBar) {
-        [_searchBar removeFromSuperview];
+        _searchBar.hidden = YES;
+        [_searchBar resignFirstResponder];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if(_searchBar) {
+        _searchBar.hidden = NO;
+    }
+}
+
+- (void)dealloc
+{
+    [_searchBar removeFromSuperview];
 }
 
 - (instancetype)init
@@ -80,18 +95,23 @@ static NSString *kSearchViaZone = @"按防区搜索";
         
         if([_typeStr isEqualToString:kSearchViaDeviceName]) {
             _dataManager = [[GTWarningRecordDataManager alloc] initWithSearchType:kSearchTypeViaDeviceName];
+            _autoRefresh = NO;
         }
         else if ([_typeStr isEqualToString:kSearchViaZone]){
             _dataManager = [[GTWarningRecordDataManager alloc] initWithSearchType:kSearchTypeViaZoneName];
+            _autoRefresh = NO;
         }
         else if ([_typeStr isEqualToString:kSearchViaWarningType]) {
             _dataManager = [[GTWarningRecordDataManager alloc] initWithSearchType:kSearchTypeViaWarningType];
+            _autoRefresh = NO;
         }
         else if ([_typeStr isEqualToString:kSearchViaUnhandled]) {
             _dataManager = [[GTWarningRecordDataManager alloc] initWithSearchType:kSearchTypeWithUnhandled];
+            _autoRefresh = YES;
         }
         else if ([_typeStr isEqualToString:kSearchViaTime]) {
             _dataManager = [[GTWarningRecordDataManager alloc] initWithSearchType:kSearchTypeViaTime];
+            _autoRefresh = YES;
         }
         else {
             _dataManager = [[GTWarningRecordDataManager alloc] init];
@@ -110,6 +130,8 @@ static NSString *kSearchViaZone = @"按防区搜索";
     
     _warningTable.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDownToRefresh)];
     _warningTable.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullUpToRefresh)];
+    _warningTable.mj_footer.hidden = !_autoRefresh;
+    _warningTable.mj_header.hidden = !_autoRefresh;
     _warningTable.tableFooterView = [UIView new];
 }
 
@@ -136,15 +158,15 @@ static NSString *kSearchViaZone = @"按防区搜索";
     __weak __typeof(self)weakSelf = self;
     [_searchBar setDidEndEditingBlock:^(NSString *keyword) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
-        
-        if(keyword) {
-            strongSelf.dataManager.searchKeywordDict = [NSMutableDictionary dictionaryWithObjectsAndKeys: keyword, keyForSearchKeyword, nil];
-            [strongSelf pullDownToRefresh];
+        if(strongSelf.searchBar.hidden == NO) {
+            if(![keyword isEmptyString]) {
+                strongSelf.dataManager.searchKeywordDict = [NSMutableDictionary dictionaryWithObjectsAndKeys: keyword, keyForSearchKeyword, nil];
+                [strongSelf pullDownToRefresh];
+            }
+            else {
+                [MBProgressHUD showText:placeholder inView:strongSelf.view];
+            }
         }
-        else {
-            [MBProgressHUD showText:placeholder inView:strongSelf.view];
-        }
-        
     }];
 }
 
@@ -154,7 +176,7 @@ static NSString *kSearchViaZone = @"按防区搜索";
     __weak __typeof(self)weakSelf = self;
     [panel setClickItemBlock:^(NSString *text) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
-        strongSelf.searchBar.placeholder = text;
+        strongSelf.searchBar.text = text;
         strongSelf.dataManager.searchKeywordDict = [NSMutableDictionary dictionaryWithObjectsAndKeys: text, keyForSearchWarningType, nil];
         [strongSelf pullDownToRefresh];
     }];
@@ -205,15 +227,21 @@ static NSString *kSearchViaZone = @"按防区搜索";
 
 - (void)pullDownToRefresh
 {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [_warningTable.mj_header setHidden:NO];
     [_warningTable.mj_footer resetNoMoreData];
     
     __weak __typeof(self)weakSelf = self;
     [_dataManager refreshDataWithFinishBlock:^(id response, NSError *error) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
         if(!strongSelf.dataManager.hasMore)
             [strongSelf.warningTable.mj_footer endRefreshingWithNoMoreData];
+        if(strongSelf.dataManager.isEmpty)
+            [MBProgressHUD showText:@"未搜索到报警记录" inView:strongSelf.view];
         
         [strongSelf.warningTable.mj_header endRefreshing];
+        [strongSelf.warningTable.mj_footer setHidden:NO];
         [strongSelf.warningTable reloadData];
     }];
 }
@@ -244,11 +272,10 @@ static NSString *kSearchViaZone = @"按防区搜索";
 - (UIBarButtonItem *)itemWithTitle:(NSString *)title target:(id)target action:(SEL)action
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:title forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"GTSearch"] forState:UIControlStateNormal];
+    button.imageEdgeInsets = UIEdgeInsetsMake(8.5, 8.5, 8.5, 8.5);
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    button.frame = (CGRect){CGPointZero, {100, 20}};
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:17];
+    button.frame = (CGRect){CGPointZero, {34, 34}};
     [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
     return [[UIBarButtonItem alloc] initWithCustomView:button];
 }
@@ -270,8 +297,10 @@ static NSString *kSearchViaZone = @"按防区搜索";
         NSString *selection = [selectionArr objectAtIndex:index];
         
         GTWarningRecordsViewController *controller = [[GTWarningRecordsViewController alloc] initViaType:selection];
-        if([selection isEqualToString:kSearchViaUnhandled])
-            controller.title = @"未处理报警";
+        if([selection isEqualToString:kSearchViaUnhandled] ||
+           [selection isEqualToString:kSearchViaTime]) {
+            controller.title = selection;
+        }
         [strongSelf.navigationController pushViewController:controller animated:YES];
     }];
 }
@@ -312,14 +341,15 @@ static NSString *kSearchViaZone = @"按防区搜索";
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     GTWarningDetailViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"GTWarningDetailViewController"];
+    detailViewController.model = _currentModel;
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    GTWarningDetailViewController *detailViewController = segue.destinationViewController;
-    detailViewController.model = _currentModel;
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    GTWarningDetailViewController *detailViewController = segue.destinationViewController;
+//    detailViewController.model = _currentModel;
+//}
 
 - (IBAction)unwindToWarningRecordsViewController:(UIStoryboardSegue *)unwindSegue
 {

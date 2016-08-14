@@ -26,8 +26,6 @@
         self.delegate = self;
         self.navigationBar.translucent = NO;
         self.navigationBar.barTintColor = [UIColor colorWithString:@"40a2e4"];
-        self.navigationBar.tintColor = [UIColor whiteColor];
-        self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:17]};
     }
     return self;
 }
@@ -54,7 +52,12 @@
     [backItem setCustomView:backBtn];
     [viewController.navigationItem setLeftBarButtonItems:@[backItem]];
     
-    self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:17]};
+    
+    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [UIFont systemFontOfSize:20],NSFontAttributeName,
+                                    [UIColor whiteColor],NSForegroundColorAttributeName,
+                                    [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
+    navigationController.navigationBar.titleTextAttributes = textAttributes;
 }
 
 - (void)doExit
@@ -67,7 +70,10 @@
     {
         [self popViewControllerAnimated:YES];
     }
+}
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end

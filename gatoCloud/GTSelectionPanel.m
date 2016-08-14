@@ -78,6 +78,10 @@
     }
     
     self.frame = CGRectMake(0, 0, SCREEN_WIDTH, lastItem.bottom + VGap);
+    
+    UIView *btmLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.height - SINGLE_LINE_WIDTH, SCREEN_WIDTH, SINGLE_LINE_WIDTH)];
+    btmLine.backgroundColor = [UIColor colorWithString:@"c2c2c2"];
+    [self addSubview:btmLine];
 }
 
 @end

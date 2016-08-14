@@ -10,4 +10,6 @@
 
 @interface GTBaseNavigationController : UINavigationController
 
+- (instancetype)initWithRootViewController:(UIViewController *)rootViewController;
+
 @end

@@ -43,7 +43,7 @@
     [self.contentView addSubview:upContainer];
     [upContainer mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(@0);
-        make.height.equalTo(@77.5);
+        make.height.equalTo(@60);
     }];
     
     zoneLocationLabel = macroCreateLabel(CGRectZero, [UIColor whiteColor], 18, [UIColor colorWithString:@"212121"]);
@@ -96,7 +96,7 @@
 
     __block UIView *lastView = nil;
     
-    CGFloat itemWidth = (SCREEN_WIDTH - 7*(funcArray.count+1))/(CGFloat)(funcArray.count);
+    CGFloat itemWidth = (SCREEN_WIDTH - 15*(funcArray.count+1))/(CGFloat)(funcArray.count);
     
     [funcArray enumerateObjectsUsingBlock:^(id  _Nonnull functionName, NSUInteger idx, BOOL * _Nonnull stop) {
        
@@ -109,13 +109,13 @@
         [bottomContainer addSubview:curItem];
         
         [curItem mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(lastView ? lastView.mas_right : bottomContainer.mas_left).offset(7);
+            make.left.equalTo(lastView ? lastView.mas_right : bottomContainer.mas_left).offset(15);
             make.centerY.equalTo(bottomContainer.mas_centerY);
             make.height.equalTo(curItem.mas_width);
             make.width.equalTo(@(itemWidth));
             
             if(idx == funcArray.count - 1)
-                make.right.equalTo(bottomContainer.mas_right).offset(-7);
+                make.right.equalTo(bottomContainer.mas_right).offset(-15);
         }];
         
         lastView = curItem; 

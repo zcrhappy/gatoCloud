@@ -8,6 +8,7 @@
 
 #import "GTDeviceZoneCell.h"
 #import "GTDeviceZoneModel.h"
+#define bottomBackgroundColor [UIColor colorWithString:@"f5f5f5"]
 @interface GTDeviceZoneCell()
 @property (strong, nonatomic) UIView *upContainer;
 @property (strong, nonatomic) UIView *horSerparatorLine;
@@ -95,20 +96,22 @@
         make.height.equalTo(@(SINGLE_LINE_WIDTH));
     }];
     
-    bottomContainer = macroCreateView(CGRectZero, [UIColor colorWithString:@"f5f5f5"]);
+    bottomContainer = macroCreateView(CGRectZero, bottomBackgroundColor);
     [self.contentView addSubview:bottomContainer];
     
-    UILabel *label1 = macroCreateLabel(CGRectZero, [UIColor colorWithString:@"f5f5f5"], 14, [UIColor greenColor]);
-    label1.text = @"防区信息";
+    UILabel *label1 = macroCreateLabel(CGRectZero, bottomBackgroundColor, 16, [UIColor colorWithString:@"1bbc9b"]);
+    label1.text = @"防区参数";
     [bottomContainer addSubview:label1];
     [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@10);
         make.left.equalTo(@16);
+        make.height.equalTo(@18);
     }];
     
-    editButton = macroCreateButton(CGRectZero, [UIColor colorWithString:@"f5f5f5"]);
+    editButton = macroCreateButton(CGRectZero, bottomBackgroundColor);
+    editButton.titleLabel.font = [UIFont systemFontOfSize:16];
     [editButton setTitle:@"编辑" forState:UIControlStateNormal];
-    [editButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [editButton setTitleColor:[UIColor colorWithString:@"1bbc9b"] forState:UIControlStateNormal];
     [editButton addTarget:self action:@selector(clickEdit:) forControlEvents:UIControlEventTouchUpInside];
     [bottomContainer addSubview:editButton];
     [editButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,9 +119,10 @@
         make.right.equalTo(bottomContainer).offset(-10);
         make.width.equalTo(@40);
         make.top.equalTo(@20);
+        make.height.equalTo(@40);
     }];
     
-    UILabel *label2 = macroCreateLabel(CGRectZero, [UIColor colorWithString:@"f5f5f5"], 14, [UIColor colorWithString:@"212121"]);
+    UILabel *label2 = macroCreateLabel(CGRectZero, bottomBackgroundColor, 14, [UIColor colorWithString:@"212121"]);
     label2.text = @"紧急联系人";
     [bottomContainer addSubview:label2];
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -126,7 +130,7 @@
         make.left.equalTo(label1);
     }];
     
-    contactLabel = macroCreateLabel(CGRectZero, [UIColor colorWithString:@"f5f5f5"], 14, [UIColor colorWithString:@"212121"]);
+    contactLabel = macroCreateLabel(CGRectZero, bottomBackgroundColor, 14, [UIColor colorWithString:@"212121"]);
     [bottomContainer addSubview:contactLabel];
     contactLabel.numberOfLines = 0;
     [contactLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -135,7 +139,7 @@
         make.width.lessThanOrEqualTo(@(SCREEN_WIDTH/2.0 - 40));
     }];
     
-    UILabel *label3 = macroCreateLabel(CGRectZero, [UIColor colorWithString:@"f5f5f5"], 14, [UIColor colorWithString:@"212121"]);
+    UILabel *label3 = macroCreateLabel(CGRectZero, bottomBackgroundColor, 14, [UIColor colorWithString:@"212121"]);
     label3.text = @"防区电话";
     [bottomContainer addSubview:label3];
     [label3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -143,7 +147,7 @@
         make.left.equalTo(@(SCREEN_WIDTH/2.0));
     }];
     
-    zonePhoneLabel = macroCreateLabel(CGRectZero, [UIColor colorWithString:@"f5f5f5"], 14, [UIColor colorWithString:@"212121"]);
+    zonePhoneLabel = macroCreateLabel(CGRectZero, bottomBackgroundColor, 14, [UIColor colorWithString:@"212121"]);
     [bottomContainer addSubview:zonePhoneLabel];
     zonePhoneLabel.numberOfLines = 0;
     [zonePhoneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -152,7 +156,7 @@
         make.right.lessThanOrEqualTo(bottomContainer).offset(-10);
     }];
     
-    UILabel *label4 = macroCreateLabel(CGRectZero, [UIColor colorWithString:@"f5f5f5"], 14, [UIColor colorWithString:@"212121"]);
+    UILabel *label4 = macroCreateLabel(CGRectZero, bottomBackgroundColor, 14, [UIColor colorWithString:@"212121"]);
     label4.text = @"防区地理位置信息";
     [bottomContainer addSubview:label4];
     [label4 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -160,7 +164,7 @@
         make.left.equalTo(label2);
     }];
     
-    zoneLocLabel = macroCreateLabel(CGRectZero, [UIColor colorWithString:@"f5f5f5"], 14, [UIColor colorWithString:@"212121"]);
+    zoneLocLabel = macroCreateLabel(CGRectZero, bottomBackgroundColor, 14, [UIColor colorWithString:@"212121"]);
     zoneLocLabel.numberOfLines = 0;
     [bottomContainer addSubview:zoneLocLabel];
     [zoneLocLabel mas_makeConstraints:^(MASConstraintMaker *make) {

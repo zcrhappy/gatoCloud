@@ -30,7 +30,7 @@
 
 + (NSDictionary *)warningTypeDict
 {
-    return @{@"dev": @"主机报警", @"net": @"通讯报警", @"fence": @"入侵报警"};
+    return @{@"dev": @"设备故障报警", @"net": @"通讯异常", @"fence": @"入侵报警", @"fire": @"火警"};
 }
 
 - (BOOL)hasMore

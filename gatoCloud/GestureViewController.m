@@ -102,9 +102,11 @@
 {
     // 创建导航栏右边按钮
 //    self.navigationItem.rightBarButtonItem = [self itemWithTitle:@"重设" target:self action:@selector(didClickBtn:) tag:buttonTagReset];
-    
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"重设" style:UIBarButtonItemStylePlain target:self action:@selector(didClickBtn:)];
     self.navigationItem.rightBarButtonItem = anotherButton;
+    
+    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
+    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor whiteColor]];
     
     // 解锁界面
     PCCircleView *lockView = [[PCCircleView alloc] init];

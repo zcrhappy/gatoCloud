@@ -103,7 +103,12 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     else if([title isEqualToString:kContactUs]) {
         UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"联系我们" message:@"拨打电话:4006840078" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *call = [UIAlertAction actionWithTitle:@"拨打" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"4006840078"];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+        }];
         [controller addAction:cancle];
+        [controller addAction:call];
         
         [self.navigationController presentViewController:controller animated:YES completion:nil];
     }
@@ -114,7 +119,7 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
                 [MBProgressHUD showText:@"您已经是最新版本" inView:self.view];
             }
             else {
-                [MBProgressHUD showText:@"有新版本" inView:self.view];
+                [MBProgressHUD showText:@"有新版本，请前往App Store下载" inView:self.view];
             }
         }];
     }

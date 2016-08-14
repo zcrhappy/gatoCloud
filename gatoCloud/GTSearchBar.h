@@ -12,6 +12,8 @@
 
 - (instancetype)initWithPlaceholder:(NSString *)placeholder;
 - (void)disableEdit;
+- (void)resignFirstResponder;
 @property (nonatomic, copy) void (^didEndEditingBlock)(NSString *keyword);
 @property (nonatomic, copy) NSString *placeholder;
+@property (nonatomic, copy) NSString *text;
 @end

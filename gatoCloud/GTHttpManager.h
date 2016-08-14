@@ -216,7 +216,7 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
  *  @param pn        页数
  *  @param finishBlk 返回结果 包含zoneModel
  */
-- (void)GTDeviceZoneListWithPn:(NSString *)pn
+- (void)GTDeviceZoneListWithPn:(NSNumber *)pn
                    finishBlock:(GTResultBlock)finishBlk;
 
 
@@ -228,7 +228,7 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
  *  @param finishBlk 返回结果
  */
 - (void)GTDeviceZoneWithDeviceName:(NSString *)name
-                                pn:(NSString *)pn
+                                pn:(NSNumber *)pn
                        finishBlock:(GTResultBlock)finishBlk;
 
 
@@ -240,7 +240,7 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
  *  @param finishBlk 返回结果
  */
 - (void)GTDeviceZoneListWithZoneName:(NSString *)zoneName
-                                  pn:(NSString *)pn
+                                  pn:(NSNumber *)pn
                          finishBlock:(GTResultBlock)finishBlk;
 
 

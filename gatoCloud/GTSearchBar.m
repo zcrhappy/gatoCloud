@@ -7,7 +7,7 @@
 //
 
 #import "GTSearchBar.h"
-
+#import "IQKeyboardManager.h"
 @interface GTSearchBar()<UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *textField;
@@ -39,7 +39,8 @@
     }];
     
     UIImageView *icon = [[UIImageView alloc] init];
-    icon.backgroundColor = [UIColor redColor];
+    icon.image = [UIImage imageNamed:@"GTSearch"];
+    icon.tintColor = [UIColor whiteColor];
     [self addSubview:icon];
     [icon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@10);
@@ -48,10 +49,13 @@
     }];
     
     _textField = macroCreateTextField(CGRectZero, [UIColor clearColor]);
+    _textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:_placeholder attributes:@{NSForegroundColorAttributeName: [UIColor colorWithString:@"9ccaf1"]}];
     _textField.textColor = [UIColor whiteColor];
+    _textField.returnKeyType = UIReturnKeyDone;
     _textField.placeholder = _placeholder;
     _textField.delegate = self;
     [_textField becomeFirstResponder];
+    [IQKeyboardManager sharedManager].toolbarDoneBarButtonItemText = @"搜索";
     [self addSubview:_textField];
     [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(icon.mas_right).offset(5);
@@ -66,6 +70,12 @@
         self.didEndEditingBlock(textField.text);
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
+}
+
 - (void)disableEdit
 {
     _textField.enabled = NO;
@@ -75,7 +85,21 @@
 - (void)setPlaceholder:(NSString *)placeholder
 {
     _placeholder = placeholder;
-    _textField.placeholder = placeholder;
+    _textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:_placeholder attributes:@{NSForegroundColorAttributeName: [UIColor colorWithString:@"9ccaf1"]}];
 }
 
+- (void)setText:(NSString *)text
+{
+    _textField.text = text;
+}
+
+- (void)resignFirstResponder
+{
+    [_textField resignFirstResponder];
+}
+
+- (void)dealloc
+{
+    [IQKeyboardManager sharedManager].toolbarDoneBarButtonItemText = nil;
+}
 @end

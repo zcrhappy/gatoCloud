@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GTZoneDataManager.h"
 @interface GTRoutesListViewController : UIViewController
 
-- (instancetype)initWithDeviceNo:(NSString *)deviceNo;//特定设备的防区列表
-- (instancetype)initWithDeviceName:(NSString *)deviceName;
-- (instancetype)initWithZoneName:(NSString *)zoneName;
+@property (nonatomic, copy) NSString *searchKeyword;
+
+- (instancetype)initWithListType:(kListType)listType;
 - (instancetype)init;//全部防区
 
 

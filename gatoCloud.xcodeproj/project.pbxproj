@@ -13,6 +13,7 @@
 		3313FED41D4F8CE8001B27C6 /* GTBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313FED31D4F8CE8001B27C6 /* GTBaseNavigationController.m */; };
 		331D90341D5F24BA00C69699 /* GTDatePickPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 331D90331D5F24BA00C69699 /* GTDatePickPanel.m */; };
 		331D90371D5F2ECF00C69699 /* GTDatePickActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 331D90361D5F2ECF00C69699 /* GTDatePickActionSheet.m */; };
+		331D90401D6084D400C69699 /* GTZoneDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 331D903F1D6084D400C69699 /* GTZoneDataManager.m */; };
 		3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA4D1D3240FD00D3850E /* GTWindow.m */; };
 		3321FA531D329D1300D3850E /* NSString+CheckingExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA521D329D1300D3850E /* NSString+CheckingExtension.m */; };
 		3321FA571D329ED600D3850E /* MBProgressHUD+DisplayExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA561D329ED600D3850E /* MBProgressHUD+DisplayExtension.m */; };
@@ -106,6 +107,8 @@
 		331D90331D5F24BA00C69699 /* GTDatePickPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDatePickPanel.m; sourceTree = "<group>"; };
 		331D90351D5F2ECF00C69699 /* GTDatePickActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDatePickActionSheet.h; sourceTree = "<group>"; };
 		331D90361D5F2ECF00C69699 /* GTDatePickActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDatePickActionSheet.m; sourceTree = "<group>"; };
+		331D903E1D6084D400C69699 /* GTZoneDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneDataManager.h; sourceTree = "<group>"; };
+		331D903F1D6084D400C69699 /* GTZoneDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneDataManager.m; sourceTree = "<group>"; };
 		3321FA4C1D3240FD00D3850E /* GTWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWindow.h; sourceTree = "<group>"; };
 		3321FA4D1D3240FD00D3850E /* GTWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWindow.m; sourceTree = "<group>"; };
 		3321FA511D329D1300D3850E /* NSString+CheckingExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CheckingExtension.h"; sourceTree = "<group>"; };
@@ -450,6 +453,8 @@
 		337663BD1D4899EB003AA73C /* Zones */ = {
 			isa = PBXGroup;
 			children = (
+				331D903E1D6084D400C69699 /* GTZoneDataManager.h */,
+				331D903F1D6084D400C69699 /* GTZoneDataManager.m */,
 				33FEDBD61D58C2A2009A3D06 /* Cells */,
 				337663BE1D489A04003AA73C /* GTDeviceZoneModel.h */,
 				337663BF1D489A04003AA73C /* GTDeviceZoneModel.m */,
@@ -797,6 +802,7 @@
 				33FF6D3A1D43770F009C730E /* GTWarningDetailStateCell.m in Sources */,
 				330E31371D51F40D00B94695 /* GTLoginViewController.m in Sources */,
 				335380971D44C80D00041BD9 /* GTStartModel.m in Sources */,
+				331D90401D6084D400C69699 /* GTZoneDataManager.m in Sources */,
 				337663C91D49F04C003AA73C /* GTRoutesListViewController.m in Sources */,
 				33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */,
 				3321FA6B1D33BA3C00D3850E /* GTLoginManager.m in Sources */,

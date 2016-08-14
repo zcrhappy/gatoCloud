@@ -154,12 +154,9 @@
     NSDictionary *keywordDic = [GTWarningRecordCompleteModel warningTypeDict];
     
     NSString *showStr= [_searchKeywordDict objectForKey:keyForSearchWarningType];
-    NSDictionary *dic = @{ devStr:@"主机报警", netStr:@"通讯报警", fenceStr:@"入侵报警", fireStr:@"火警"};
-    
-    NSString *normalStr = [dic objectForKey:showStr];
 
     [keywordDic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        if([obj isEqualToString:normalStr]){
+        if([obj isEqualToString:showStr]){
             keyword = key;
             *stop = YES;
         }
@@ -176,5 +173,12 @@
 - (NSString *)searchEndDate
 {
     return [_searchKeywordDict objectForKey:keyForDateEnd];
+}
+
+- (BOOL)isEmpty
+{
+    if(self.dataSource.resultList.count == 0)
+        return YES;
+    return NO;
 }
 @end

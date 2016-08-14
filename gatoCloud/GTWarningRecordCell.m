@@ -15,6 +15,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *warntypeLabel;//报警类型
 @property (nonatomic, weak) IBOutlet UILabel *warnTime;//报警时间
 @property (nonatomic, weak) IBOutlet UIButton *status;
+@property (nonatomic, weak) IBOutlet UIImageView *statusIcon;
 
 
 @end
@@ -67,7 +68,7 @@
         _status.layer.borderColor = buttonColor.CGColor;
         [_status setTitleColor:buttonColor forState:UIControlStateNormal];
     }
-    
+    _statusIcon.image = [UIImage imageNamed:kWarningStateIconWithIndex(warnStateIndex)];
     
     if(warnStateIndex < kWarningSteteCount) {
         [_status setTitle:kWarningStateString(warnStateIndex) forState:UIControlStateNormal];

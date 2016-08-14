@@ -32,6 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self configUI];
 
     [self checkVersion];
     
@@ -40,8 +42,15 @@
 
 - (void)configUI
 {
-    _carouselView.bannerImageViewContentMode = UIViewContentModeScaleAspectFit;
-    _carouselView.placeholderImage = [UIImage imageWithColor:[UIColor grayColor]];
+    _headImgView.layer.cornerRadius = _headImgView.width/2.0;
+    _headImgView.layer.masksToBounds = YES;
+    _headImgView.layer.borderWidth = 1.5;
+    _headImgView.layer.borderColor = [UIColor colorWithString:@"fcfcfc"].CGColor;
+    _headImgView.backgroundColor = [UIColor whiteColor];
+    _headImgView.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickHeadImg)];
+    [_headImgView addGestureRecognizer:tap];
 }
 
 - (void)checkVersion
@@ -89,9 +98,17 @@
 {
     
 }
+
+
+- (void)clickHeadImg
+{
+    [self performSegueWithIdentifier:@"modalToMeSegue" sender:self];
+}
+
 - (IBAction)reCheckVersion:(id)sender {
     
     [self checkVersion];
+    [self fetchMainViewInfo];
 }
 
 - (IBAction)clickDefenceList:(id)sender

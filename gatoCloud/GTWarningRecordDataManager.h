@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, kSearchType) {
     kSearchTypeViaWarningType = 1,
     kSearchTypeViaDeviceName  = 2,
     kSearchTypeViaZoneName    = 3,
-    kSearchTypeWithUnhandled      = 99,//未处理的报警记录
+    kSearchTypeWithUnhandled  = 99,//未处理的报警记录
 };
 
 #define fenceStr @"入侵报警"
@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, kSearchType) {
 
 @property (nonatomic, strong) GTWarningRecordCompleteModel *dataSource;
 @property (nonatomic, assign) BOOL hasMore;
-
+@property (nonatomic, assign) BOOL isEmpty;
 @property (nonatomic, strong) NSMutableDictionary *searchKeywordDict;
 
 - (void)refreshDataWithFinishBlock:(GTResultBlock)finshBlock;

@@ -563,7 +563,7 @@ NSInteger const APIErrorCode = 138102;
  *  @param pn        页数
  *  @param finishBlk 返回结果 包含zoneModel
  */
-- (void)GTDeviceZoneListWithPn:(NSString *)pn
+- (void)GTDeviceZoneListWithPn:(NSNumber *)pn
                    finishBlock:(GTResultBlock)finishBlk;
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -594,7 +594,7 @@ NSInteger const APIErrorCode = 138102;
  *  @param finishBlk 返回结果
  */
 - (void)GTDeviceZoneWithDeviceName:(NSString *)deviceName
-                                pn:(NSString *)pn
+                                pn:(NSNumber *)pn
                        finishBlock:(GTResultBlock)finishBlk;
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -626,7 +626,7 @@ NSInteger const APIErrorCode = 138102;
  *  @param finishBlk 返回结果
  */
 - (void)GTDeviceZoneListWithZoneName:(NSString *)zoneName
-                                  pn:(NSString *)pn
+                                  pn:(NSNumber *)pn
                          finishBlock:(GTResultBlock)finishBlk;
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];

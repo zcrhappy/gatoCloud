@@ -15,7 +15,8 @@ typedef NS_ENUM(NSInteger, kWarningState)
     kWarningStateSolved = 1,
     kWarningStateMisReport = 2
 };
-#define kWarningStateString(enum) [@[@"未解决",@"已解决",@"误报"] objectAtIndex:enum]
+#define kWarningStateString(enum) [@[@"未处理",@"已处理",@"误报"] objectAtIndex:enum]
+#define kWarningStateIconWithIndex(enum) [@[@"kWarningStateUnsolvedIcon",@"kWarningStateSolvedIcon",@"kWarningStateMisReportIcon"] objectAtIndex:enum]
 #define kWarningSteteCount 3
 
 typedef NS_ENUM(NSInteger, kWarningType)

@@ -46,11 +46,11 @@
     NSInteger stateIndex = state.integerValue;
     
     NSString *stateString = kWarningStateString(stateIndex);
-    if([stateString isEqualToString:@"已解决"]) {
+    if([stateString isEqualToString:@"已处理"]) {
         _buttonForResolved.selected = YES;
         _buttonForResolved.layer.borderColor = [UIColor clearColor].CGColor;
     }
-    else if([stateString isEqualToString:@"未解决"]) {
+    else if([stateString isEqualToString:@"未处理"]) {
         _buttonForUnresolved.selected = YES;
         _buttonForUnresolved.layer.borderColor = [UIColor clearColor].CGColor;
     }

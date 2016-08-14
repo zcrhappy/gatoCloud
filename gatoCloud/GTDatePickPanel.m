@@ -40,6 +40,10 @@
     _rightItem.titleLabel.text = @"结束日期";
     _rightItem.dateLabel.text = [self stringFromDate:[NSDate date]];
     [self addSubview:_rightItem];
+    
+    UIView *btmLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.height - SINGLE_LINE_WIDTH, SCREEN_WIDTH, SINGLE_LINE_WIDTH)];
+    btmLine.backgroundColor = [UIColor colorWithString:@"c2c2c2"];
+    [self addSubview:btmLine];
 }
 
 - (NSString *)stringFromDate:(NSDate *)date

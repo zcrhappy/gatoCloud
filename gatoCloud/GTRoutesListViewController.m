@@ -14,51 +14,34 @@
 #import "GTSearchBar.h"
 #import "GTZoneEditViewController.h"
 
+
 #define kGTDeviceZoneCellIdentifier @"GTDeviceZoneCellIdentifier"
 #define kSearchViaZoneName @"按防区搜索"
 #define kSearchViaDeviceName @"按设备搜索"
-typedef NS_ENUM(NSInteger, kListType) {
-    kListTypeAllZone,
-    kListTypeCertainDevice,
-    kListTypeViaDeviceName,
-    kListTypeViaZoneName
-};
+//typedef NS_ENUM(NSInteger, kListType) {
+//    kListTypeAllZone,
+//    kListTypeCertainDevice,
+//    kListTypeViaDeviceName,
+//    kListTypeViaZoneName
+//};
 
 @interface GTRoutesListViewController ()<UITableViewDelegate, UITableViewDataSource, GTDeviceZoneCellDelegate>
 @property (nonatomic, strong) UITableView *routesTable;
-@property (nonatomic, strong) NSMutableArray<GTDeviceZoneModel *> *zoneModelsArray;
-@property (nonatomic, copy) NSString *deviceNo;
-@property (nonatomic, copy) NSString *deviceName;
-@property (nonatomic, copy) NSString *zoneName;
 @property (nonatomic, assign) kListType listType;
+@property (nonatomic, strong) GTZoneDataManager *dataManager;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) NSInteger loopCount;
 @property (nonatomic, strong) GTSearchBar *searchBar;
+@property (nonatomic, assign) BOOL autoRefresh;
 @end
 
 @implementation GTRoutesListViewController
 
-- (instancetype)initWithDeviceName:(NSString *)deviceName;
+
+- (instancetype)initWithListType:(kListType)listType
 {
     if(self = [super init]) {
-        _deviceName = deviceName;
-        _listType = kListTypeViaDeviceName;
-    }
-    return self;
-}
-- (instancetype)initWithZoneName:(NSString *)zoneName;
-{
-    if(self = [super init]) {
-        _zoneName = zoneName;
-        _listType = kListTypeViaZoneName;
-    }
-    return self;
-}
-- (instancetype)initWithDeviceNo:(NSString *)deviceNo
-{
-    if(self = [super init]) {
-        _deviceNo = deviceNo;
-        _listType = kListTypeCertainDevice;
+        _listType = listType;
     }
     return self;
 }
@@ -68,40 +51,54 @@ typedef NS_ENUM(NSInteger, kListType) {
     if(self = [super init]) {
         [self enableSearchBar:YES];
         _listType = kListTypeAllZone;
+        
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self configUI];
+    if(_listType == kListTypeAllZone || _listType == kListTypeViaDeviceNo)
+        _autoRefresh = YES;
+    else
+        _autoRefresh = NO;
     
-    if(_listType == kListTypeAllZone || _listType == kListTypeCertainDevice)
+    _dataManager = [[GTZoneDataManager alloc] initWithListType:_listType];
+    
+    [self configTable];
+    [self configSearchBar];
+    
+    if(_autoRefresh)
         [self pullDownToRefresh];
 }
 
 - (void)dealloc
 {
     [_timer invalidate];
+    [_searchBar removeFromSuperview];
     _timer = nil;
 }
-- (void)configUI
+
+- (void)configTable
 {
-    _routesTable = macroCreateTableView(self.view.bounds, [UIColor whiteColor]);
+    _routesTable = macroCreateTableView(CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64), [UIColor whiteColor]);
     [self.view addSubview:_routesTable];
     _routesTable.delegate = self;
     _routesTable.dataSource = self;
     
-    MJRefreshStateHeader *header = [MJRefreshStateHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDownToRefresh)];
-    header.lastUpdatedTimeLabel.hidden = YES;
-    _routesTable.mj_header = header;
-    
+    _routesTable.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDownToRefresh)];
+    _routesTable.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullUpToRefresh)];
+
     _routesTable.tableFooterView = [UIView new];
     _routesTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     _routesTable.rowHeight = 78;
     [_routesTable registerClass:GTDeviceZoneCell.class forCellReuseIdentifier:kGTDeviceZoneCellIdentifier];
-    
+    _routesTable.mj_footer.hidden = !_autoRefresh;
+    _routesTable.mj_header.hidden = !_autoRefresh;
+}
+
+- (void)configSearchBar
+{
     if(_listType == kListTypeViaZoneName || _listType == kListTypeViaDeviceName)
     {
         NSString *placeholder;
@@ -116,11 +113,8 @@ typedef NS_ENUM(NSInteger, kListType) {
         __weak __typeof(self)weakSelf = self;
         [_searchBar setDidEndEditingBlock:^(NSString *keyword) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
-            
-            if(strongSelf.listType == kListTypeViaZoneName)
-                strongSelf.zoneName = keyword;
-            else if(strongSelf.listType == kListTypeViaDeviceName)
-                strongSelf.deviceName = keyword;
+            strongSelf.searchKeyword = keyword;
+            strongSelf.dataManager.searchKeyword = strongSelf.searchKeyword;
             
             [strongSelf pullDownToRefresh];
         }];
@@ -129,98 +123,59 @@ typedef NS_ENUM(NSInteger, kListType) {
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     if(_searchBar) {
-        [_searchBar removeFromSuperview];
+        _searchBar.hidden = YES;
+        [_searchBar resignFirstResponder];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if(_searchBar) {
+        _searchBar.hidden = NO;
+    }
+}
+
+#pragma mark - refresh
+
+
+- (void)pullUpToRefresh
+{
+    __weak __typeof(self)weakSelf = self;
+    [_dataManager loadMoreWithFinishBlock:^(id response, NSError *error) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        if(!strongSelf.dataManager.hasMore)
+            [strongSelf.routesTable.mj_footer endRefreshingWithNoMoreData];
+        else
+            [strongSelf.routesTable.mj_footer endRefreshing];
+        [strongSelf.routesTable reloadData];
+    }];
 }
 
 
 - (void)pullDownToRefresh
 {
-    switch (_listType) {
-        case kListTypeAllZone:
-            [self fetchList];
-            break;
-        case kListTypeCertainDevice:
-            [self fetchListWithDeviceNo:_deviceNo];
-            break;
-        case kListTypeViaZoneName:
-            [self fetchListWithZoneName:_zoneName];
-            break;
-        case kListTypeViaDeviceName:
-            [self fetchListWithDeviceName:_deviceName];
-            break;
-    }
-}
-
-#pragma mark - Data Manager
-
-- (void)fetchList
-{
-    [[GTHttpManager shareManager] GTDeviceZoneListWithPn:@"1" finishBlock:^(id response, NSError *error) {
-        [_routesTable.mj_header endRefreshing];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [_routesTable.mj_header setHidden:NO];
+    [_routesTable.mj_footer resetNoMoreData];
+    
+    __weak __typeof(self)weakSelf = self;
+    [_dataManager refreshDataWithFinishBlock:^(id response, NSError *error) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
+        if(!strongSelf.dataManager.hasMore)
+            [strongSelf.routesTable.mj_footer endRefreshingWithNoMoreData];
+        if(strongSelf.dataManager.isEmpty)
+            [MBProgressHUD showText:@"未搜索到防区" inView:strongSelf.view];
         
-        if(error == nil) {
-            NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
-            
-            NSArray *oldModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];
-            _zoneModelsArray = [NSMutableArray arrayWithArray:[GTDeviceZoneModel transformFromArray:oldModelArr]];
-            
-            [_routesTable reloadData];
-            NSLog(@"");
-        }
+        [strongSelf.routesTable.mj_header endRefreshing];
+        [strongSelf.routesTable.mj_footer setHidden:NO];
+        [strongSelf.routesTable reloadData];
     }];
 }
 
-- (void)fetchListWithDeviceNo:(NSString *)deviceNo
-{
-    [[GTHttpManager shareManager] GTDeviceZoneWithDeviceNo:deviceNo finishBlock:^(id response, NSError *error) {
-        [_routesTable.mj_header endRefreshing];
-        
-        if(error == nil) {
-            NSArray *resData = [response objectForKey:@"list"];
-            
-            NSArray *array = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:resData error:nil];
-            _zoneModelsArray = [NSMutableArray arrayWithArray:array];
-            [_routesTable reloadData];
-            NSLog(@"");
-        }
-    }];
-}
-
-- (void)fetchListWithDeviceName:(NSString *)deviceName
-{
-    [[GTHttpManager shareManager] GTDeviceZoneWithDeviceName:deviceName pn:@"1" finishBlock:^(id response, NSError *error) {
-        [_routesTable.mj_header endRefreshing];
-        
-        if(error == nil) {
-            NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
-            
-            NSArray *oldModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];
-            _zoneModelsArray = [NSMutableArray arrayWithArray:[GTDeviceZoneModel transformFromArray:oldModelArr]] ;
-            
-            [_routesTable reloadData];
-            NSLog(@"");
-        }
-    }];
-}
-
-- (void)fetchListWithZoneName:(NSString *)zoneName
-{
-    [[GTHttpManager shareManager] GTDeviceZoneListWithZoneName:zoneName pn:@"1" finishBlock:^(id response, NSError *error) {
-        [_routesTable.mj_header endRefreshing];
-        
-        if(error == nil) {
-            NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
-            
-            NSArray *oldModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];
-            _zoneModelsArray = [NSMutableArray arrayWithArray:[GTDeviceZoneModel transformFromArray:oldModelArr]];
-            
-            [_routesTable reloadData];
-            NSLog(@"");
-        }
-    }];
-}
 
 #pragma mark - tableview delegate
 
@@ -231,7 +186,7 @@ typedef NS_ENUM(NSInteger, kListType) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _zoneModelsArray.count;
+    return _dataManager.zoneModelsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -276,12 +231,12 @@ typedef NS_ENUM(NSInteger, kListType) {
 - (GTDeviceZoneModel *)modelAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = [indexPath row];
-    return _zoneModelsArray[row];
+    return _dataManager.zoneModelsArray[row];
 }
 
 - (NSIndexPath *)indexPathOfModel:(GTDeviceZoneModel *)model
 {
-    NSInteger row = [_zoneModelsArray indexOfObject:model];
+    NSInteger row = [_dataManager.zoneModelsArray indexOfObject:model];
     return [NSIndexPath indexPathForRow:row inSection:0];
 }
 
@@ -298,11 +253,10 @@ typedef NS_ENUM(NSInteger, kListType) {
 - (UIBarButtonItem *)itemWithTitle:(NSString *)title target:(id)target action:(SEL)action
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:title forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"GTSearch"] forState:UIControlStateNormal];
+    [button setImageEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    button.frame = (CGRect){CGPointZero, {100, 20}};
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:17];
+    button.frame = (CGRect){CGPointZero, {40, 40}};
     [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
     return [[UIBarButtonItem alloc] initWithCustomView:button];
 }
@@ -323,11 +277,11 @@ typedef NS_ENUM(NSInteger, kListType) {
         [strongSheet dismiss];
         NSString *selection = [selectionArr objectAtIndex:index];
         if([selection isEqualToString:kSearchViaZoneName]) {
-            GTRoutesListViewController *viewController = [[GTRoutesListViewController alloc] initWithZoneName:nil];
+            GTRoutesListViewController *viewController = [[GTRoutesListViewController alloc] initWithListType:kListTypeViaZoneName];
             [strongSelf.navigationController pushViewController:viewController animated:YES];
         }
         else if([selection isEqualToString:kSearchViaDeviceName]) {
-            GTRoutesListViewController *viewController = [[GTRoutesListViewController alloc] initWithDeviceName:nil];
+            GTRoutesListViewController *viewController = [[GTRoutesListViewController alloc] initWithListType:kListTypeViaDeviceName];
             [strongSelf.navigationController pushViewController:viewController animated:YES];
         }
     }];
@@ -382,52 +336,52 @@ typedef NS_ENUM(NSInteger, kListType) {
         case kListTypeAllZone:
         {
             //TODO: page number
-            [[GTHttpManager shareManager] GTDeviceZoneListWithPn:@"1" finishBlock:^(id response, NSError *error)
-             {
-                 if(error == nil)
-                 {
-                     NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
-                     NSArray *curModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];
-                     for (GTDeviceZoneModel2 *curModel in curModelArr)
-                     {
-                         if([curModel.zoneNo isEqualToString:model.zoneNo])
-                         {
-                             if((iState.integerValue == kSwitchStateGuarded && curModel.zoneState.integerValue == kZoneStateGuarded)||
-                                (iState.integerValue == kSwitchStateDisguarded && curModel.zoneState.integerValue == kZoneStateDisguarded))
-                             {
-                                 querySuccess = YES;
-                                 break;
-                             }
-                         }
-                     }
-                 }
-             }];
+//            [[GTHttpManager shareManager] GTDeviceZoneListWithPn:@"1" finishBlock:^(id response, NSError *error)
+//             {
+//                 if(error == nil)
+//                 {
+//                     NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
+//                     NSArray *curModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];
+//                     for (GTDeviceZoneModel2 *curModel in curModelArr)
+//                     {
+//                         if([curModel.zoneNo isEqualToString:model.zoneNo])
+//                         {
+//                             if((iState.integerValue == kSwitchStateGuarded && curModel.zoneState.integerValue == kZoneStateGuarded)||
+//                                (iState.integerValue == kSwitchStateDisguarded && curModel.zoneState.integerValue == kZoneStateDisguarded))
+//                             {
+//                                 querySuccess = YES;
+//                                 break;
+//                             }
+//                         }
+//                     }
+//                 }
+//             }];
             break;
         }
-        case kListTypeCertainDevice:
+        case kListTypeViaDeviceNo:
         {
-            [[GTHttpManager shareManager] GTDeviceZoneWithDeviceNo:_deviceNo finishBlock:^(id response, NSError *error)
-             {
-                 if(error == nil)
-                 {
-                     NSArray *resData = [response objectForKey:@"list"];
-                     NSArray *array = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:resData error:nil];
-                     _zoneModelsArray = [NSMutableArray arrayWithArray:array];
-                     
-                     for (GTDeviceZoneModel *curModel in _zoneModelsArray)
-                     {
-                         if([curModel.zoneNo isEqualToString:model.zoneNo])
-                         {
-                             if((iState.integerValue == kSwitchStateGuarded && curModel.zoneState.integerValue == kZoneStateGuarded)||
-                                (iState.integerValue == kSwitchStateDisguarded && curModel.zoneState.integerValue == kZoneStateDisguarded))
-                             {
-                                 querySuccess = YES;
-                                 break;
-                             }
-                         }
-                     }
-                 }
-             }];
+//            [[GTHttpManager shareManager] GTDeviceZoneWithDeviceNo:_deviceNo finishBlock:^(id response, NSError *error)
+//             {
+//                 if(error == nil)
+//                 {
+//                     NSArray *resData = [response objectForKey:@"list"];
+//                     NSArray *array = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:resData error:nil];
+//                     _dataManager.zoneModelsArray = [NSMutableArray arrayWithArray:array];
+//                     
+//                     for (GTDeviceZoneModel *curModel in _dataManager.zoneModelsArray)
+//                     {
+//                         if([curModel.zoneNo isEqualToString:model.zoneNo])
+//                         {
+//                             if((iState.integerValue == kSwitchStateGuarded && curModel.zoneState.integerValue == kZoneStateGuarded)||
+//                                (iState.integerValue == kSwitchStateDisguarded && curModel.zoneState.integerValue == kZoneStateDisguarded))
+//                             {
+//                                 querySuccess = YES;
+//                                 break;
+//                             }
+//                         }
+//                     }
+//                 }
+//             }];
             break;
         }
         default:
@@ -465,7 +419,7 @@ typedef NS_ENUM(NSInteger, kListType) {
     [viewController setEditSuccessBlock:^(GTDeviceZoneModel *newModel) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         NSInteger row = [indexPath row];
-        strongSelf.zoneModelsArray[row] = newModel;
+        strongSelf.dataManager.zoneModelsArray[row] = newModel;
         [strongSelf.routesTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         
     }];
