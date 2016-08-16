@@ -13,10 +13,10 @@
 #import "OHHTTPStubs.h"
 #import "OHPathHelpers.h"
 #import "IQKeyboardManager.h"
-
+#import "MiPushSDK.h"
 #define enableStubHTTP
 
-@interface AppDelegate ()<WXApiDelegate>
+@interface AppDelegate ()<WXApiDelegate, MiPushSDKDelegate>
 
 @end
 
@@ -45,6 +45,12 @@
 #ifdef enableStubHTTP
     [self stubHTTP];
 #endif
+    
+    //注册APNS
+//    [MiPushSDK registerMiPush:self];
+    // 同时启用APNs跟应用内长连接
+    [MiPushSDK registerMiPush:self type:0 connect:YES];
+    
     return YES;
 }
 
@@ -120,6 +126,44 @@
     }];
 }
 
+#pragma mark UIApplicationDelegate
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    // 注册APNS成功, 注册deviceToken
+    [MiPushSDK bindDeviceToken:deviceToken];
+}
 
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err
+{
+    // 注册APNS失败
+    // 自行处理
+}
+
+#pragma mark MiPushSDKDelegate
+
+- (void)miPushRequestSuccWithSelector:(NSString *)selector data:(NSDictionary *)data
+{
+    // 请求成功
+    // 可在此获取regId
+    if ([selector isEqualToString:@"bindDeviceToken:"]) {
+        NSLog(@"regid = %@", data[@"regid"]);
+    }
+}
+
+- (void)miPushRequestErrWithSelector:(NSString *)selector error:(int)error data:(NSDictionary *)data
+{
+    // 请求失败
+}
+
+- ( void )miPushReceiveNotification:( NSDictionary *)data
+{
+    // 长连接收到的消息。消息格式跟APNs格式一样
+}
+
+- ( void )application:( UIApplication *)application didReceiveRemoteNotification:( NSDictionary *)userInfo
+{
+    [ MiPushSDK handleReceiveRemoteNotification :userInfo];
+    // 使用此方法后，所有消息会进行去重，然后通过miPushReceiveNotification:回调返回给App
+}
 
 @end

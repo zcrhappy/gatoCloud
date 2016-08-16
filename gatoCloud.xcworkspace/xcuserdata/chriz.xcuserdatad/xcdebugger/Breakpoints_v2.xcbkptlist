@@ -179,13 +179,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "gatoCloud/GTMainViewController.m"
-            timestampString = "492880070.482527"
+            filePath = "gatoCloud/GTDeviceListViewController.m"
+            timestampString = "492968756.54537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "-clickHeadImg"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-didSelectFunctionItemWithDic:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

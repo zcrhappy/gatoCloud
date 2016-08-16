@@ -111,6 +111,9 @@
     [self fetchMainViewInfo];
 }
 
+#pragma mark - functions
+
+//防区管理
 - (IBAction)clickDefenceList:(id)sender
 {
     GTRoutesListViewController *controller = [[GTRoutesListViewController alloc] init];
@@ -119,6 +122,7 @@
     [self presentViewController:navigationController animated:YES completion:nil];
 }
 
+//报警管理
 - (IBAction)clickWarningList:(id)sender
 {
     GTWarningRecordsViewController *controller = [[GTWarningRecordsViewController alloc] init];
@@ -127,20 +131,34 @@
     [self presentViewController:navigationController animated:YES completion:nil];
     
 }
-//********************************************************
 
-- (IBAction)clickShare:(id)sender
+//设备管理
+- (IBAction)clickDeviceCenter:(id)sender
 {
-    GTShareActionSheet *actionSheet = [[GTShareActionSheet alloc] initWithShareDestination:nil parentViewController:self];
-    [actionSheet show];
+    [self performSegueWithIdentifier:@"ModalToDeviceCenterSegue" sender:self];
 }
 
+//联系我们
+- (IBAction)clickContactUs:(id)sender {
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"联系我们" message:@"拨打电话:4006840078" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *call = [UIAlertAction actionWithTitle:@"拨打" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"4006840078"];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    }];
+    [controller addAction:cancle];
+    [controller addAction:call];
+    
+    [self presentViewController:controller animated:YES completion:nil];
+}
 
-
-
-
-
-
-
-
+//消除报警
+- (IBAction)tapDisguard:(id)sender {
+    
+    GTWarningRecordsViewController *controller = [[GTWarningRecordsViewController alloc] initViaType:@"未处理报警"];
+    controller.navigationItem.title = @"报警处理";
+    GTBaseNavigationController *navigationController = [[GTBaseNavigationController alloc] initWithRootViewController:controller];
+    [self presentViewController:navigationController animated:YES completion:nil];
+    
+}
 @end
