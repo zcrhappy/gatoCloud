@@ -215,6 +215,15 @@
     else
         zoneLocLabel.text = model.zoneLoc;
     
+    if([model.zoneStyle isEqualToString:@"2"]){
+        zoneStateLabel.text = [NSString stringWithFormat:@"24小时防区 %@",[model twentyFourHourZoneStateString]];
+        guardSwitch.hidden = YES;
+    }
+    else {
+        guardSwitch.hidden = NO;
+    }
+    
+    
     [self setupWithExpanded:model.isExpand];
 }
 

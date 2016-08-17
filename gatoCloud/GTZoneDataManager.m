@@ -142,8 +142,7 @@
         
         if(error == nil) {
             NSArray *resData = [response objectForKey:@"list"];
-            self.currentPage = [[response objectForKey:@"page"] objectForKey:@"currentPage"];
-            self.hasMore = [self checkDataHasMore];
+            self.hasMore = NO;
             
             NSArray *array = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:resData error:nil];
             _zoneModelsArray = [NSMutableArray arrayWithArray:array];
@@ -170,7 +169,7 @@
 
 - (void)refreshListWithZoneName:(NSString *)zoneName finishBlock:(GTResultBlock)finishBlock
 {
-    [[GTHttpManager shareManager] GTDeviceZoneListWithZoneName:zoneName pn:@"1" finishBlock:^(id response, NSError *error) {
+    [[GTHttpManager shareManager] GTDeviceZoneListWithZoneName:zoneName pn:@1 finishBlock:^(id response, NSError *error) {
         
         if(error == nil) {
             NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];

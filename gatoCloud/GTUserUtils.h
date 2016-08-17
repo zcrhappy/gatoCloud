@@ -11,6 +11,8 @@
 
 @interface GTUserUtils : NSObject
 
+
+
 + (GTUserModel *)userInfo;
 + (NSArray *)banners;
 
@@ -30,6 +32,12 @@
 + (void)saveUserInfoViaRegister:(NSDictionary *)dic;
 
 + (void)saveBanners:(NSArray *)banners;
+
+//推送相关
++ (void)saveRegId:(NSString *)regId;
++ (NSString *)regId;
++ (void)setNotDisturbStatus:(NSInteger)status;//免打扰0开启，1只在夜间开启，2关闭
++ (NSNumber *)notDisturbStatus;//免打扰0开启，1只在夜间开启，2关闭
 
 //视图相关工具类
 + (UIViewController *)appTopViewController;

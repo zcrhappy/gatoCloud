@@ -64,7 +64,8 @@
         _autoRefresh = NO;
     
     _dataManager = [[GTZoneDataManager alloc] initWithListType:_listType];
-    
+    if(_searchKeyword)
+        _dataManager.searchKeyword = _searchKeyword;
     [self configTable];
     [self configSearchBar];
     
@@ -81,6 +82,8 @@
 
 - (void)configTable
 {
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     _routesTable = macroCreateTableView(CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64), [UIColor whiteColor]);
     [self.view addSubview:_routesTable];
     _routesTable.delegate = self;

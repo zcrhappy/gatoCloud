@@ -1258,12 +1258,104 @@
                     <connections>
                         <outlet property="listTable" destination="eL5-YD-wRa" id="QSv-6S-msU"/>
                         <segue destination="Te5-ZH-TET" kind="push" identifier="pushToFeedbackSegue" id="liU-Sq-63M"/>
+                        <segue destination="4Y4-5u-vmC" kind="push" identifier="pushToNotDisturbSegue" id="4x2-lJ-myg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2kw-Mb-vrW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Gmu-2J-NDR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="390" y="-468"/>
+        </scene>
+        <!--消息免打扰-->
+        <scene sceneID="OlQ-hk-TFL">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4Y4-5u-vmC" customClass="GTNotDisturbViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q0B-6E-5JS"/>
+                        <viewControllerLayoutGuide type="bottom" id="ddd-Yh-39U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mHF-NN-zUw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="5MB-kk-LmA">
+                                <rect key="frame" x="0.0" y="64" width="320" height="149"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="149" id="0qb-6b-dYe"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="S7i-p0-3Zp" customClass="GTNotDisturbCell">
+                                        <rect key="frame" x="0.0" y="1" width="320" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S7i-p0-3Zp" id="Oaj-PN-sxT">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="只在夜间开启" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D84-ai-pV9">
+                                                    <rect key="frame" x="15" y="14" width="102" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" id="4eZ-bw-nnV"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="5kS-0g-Pkt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GTFuncItemIconProtect" translatesAutoresizingMaskIntoConstraints="NO" id="5lZ-FZ-cEf">
+                                                    <rect key="frame" x="268" y="8" width="34" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="6Ys-FZ-2L2"/>
+                                                        <constraint firstAttribute="width" constant="34" id="9pc-lq-Grh"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5lZ-FZ-cEf" firstAttribute="centerY" secondItem="Oaj-PN-sxT" secondAttribute="centerY" id="BAb-Mw-vqn"/>
+                                                <constraint firstAttribute="trailing" secondItem="5lZ-FZ-cEf" secondAttribute="trailing" constant="18" id="GlL-0P-Dtk"/>
+                                                <constraint firstItem="D84-ai-pV9" firstAttribute="leading" secondItem="Oaj-PN-sxT" secondAttribute="leading" constant="15" id="Tr2-Vy-zwe"/>
+                                                <constraint firstItem="D84-ai-pV9" firstAttribute="centerY" secondItem="Oaj-PN-sxT" secondAttribute="centerY" id="qJk-11-ObJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="icon" destination="5lZ-FZ-cEf" id="b7Y-A3-9Ic"/>
+                                            <outlet property="label" destination="D84-ai-pV9" id="GHE-0q-2IN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4Y4-5u-vmC" id="YZ6-BI-ouw"/>
+                                    <outlet property="delegate" destination="4Y4-5u-vmC" id="1cA-cF-bfz"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如果设置为“只在夜间开启”，则只在22:00~次日8:00生效" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZb-l6-Wzr">
+                                <rect key="frame" x="7" y="221" width="306" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="RXj-P2-yzc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.74901960784313726" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5MB-kk-LmA" secondAttribute="trailing" id="8Ag-er-9oZ"/>
+                            <constraint firstItem="fZb-l6-Wzr" firstAttribute="top" secondItem="5MB-kk-LmA" secondAttribute="bottom" constant="8" id="M54-Tb-4Mu"/>
+                            <constraint firstItem="5MB-kk-LmA" firstAttribute="leading" secondItem="mHF-NN-zUw" secondAttribute="leading" id="VKW-e3-Jnr"/>
+                            <constraint firstItem="5MB-kk-LmA" firstAttribute="top" secondItem="q0B-6E-5JS" secondAttribute="bottom" id="XiT-hb-tPP"/>
+                            <constraint firstItem="fZb-l6-Wzr" firstAttribute="leading" secondItem="mHF-NN-zUw" secondAttribute="leading" constant="7" id="jlk-EO-EBs"/>
+                            <constraint firstAttribute="trailing" secondItem="fZb-l6-Wzr" secondAttribute="trailing" constant="7" id="rut-1I-Ww5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="消息免打扰" id="wcI-mz-N1h"/>
+                    <connections>
+                        <outlet property="NotDisturbTable" destination="5MB-kk-LmA" id="RK2-jf-094"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CzY-Mc-TPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="890" y="-414"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SnN-PP-y3U">
@@ -1665,6 +1757,7 @@
         <image name="GTBackBtn" width="20" height="17"/>
         <image name="GTBtnBG" width="286" height="49"/>
         <image name="GTDeviceAddIcon" width="29" height="29"/>
+        <image name="GTFuncItemIconProtect" width="26" height="26"/>
         <image name="GTLoginBackground" width="360" height="640"/>
         <image name="GTLoginWeChatIcon" width="25" height="25"/>
         <image name="GTLogo" width="117" height="74"/>

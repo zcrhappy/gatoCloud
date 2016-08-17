@@ -42,6 +42,7 @@
     
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needsLoginAction:) name:kNeedsLoginNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushStatusDidChange:) name:kPushStatusDidChange object:nil];
 #ifdef enableStubHTTP
     [self stubHTTP];
 #endif
@@ -49,7 +50,7 @@
     //注册APNS
 //    [MiPushSDK registerMiPush:self];
     // 同时启用APNs跟应用内长连接
-    [MiPushSDK registerMiPush:self type:0 connect:YES];
+    [self setupPushService];
     
     return YES;
 }
@@ -146,6 +147,7 @@
     // 请求成功
     // 可在此获取regId
     if ([selector isEqualToString:@"bindDeviceToken:"]) {
+        [GTUserUtils saveRegId:data[@"regid"]];
         NSLog(@"regid = %@", data[@"regid"]);
     }
 }
@@ -164,6 +166,25 @@
 {
     [ MiPushSDK handleReceiveRemoteNotification :userInfo];
     // 使用此方法后，所有消息会进行去重，然后通过miPushReceiveNotification:回调返回给App
+}
+
+- (void)pushStatusDidChange:(NSNotification *)noti
+{
+    [self setupPushService];
+}
+
+- (void)setupPushService
+{
+    if(![GTUserUtils notDisturbStatus]) {
+        [GTUserUtils setNotDisturbStatus:2];//
+        [MiPushSDK registerMiPush:self type:0 connect:YES];
+    }
+    else if ([GTUserUtils notDisturbStatus].integerValue == 0) {
+        [MiPushSDK unregisterMiPush];
+    }
+    else if ([GTUserUtils notDisturbStatus].integerValue == 2) {
+        [MiPushSDK registerMiPush:self type:0 connect:YES];
+    }
 }
 
 @end

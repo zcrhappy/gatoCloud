@@ -18,6 +18,8 @@
 		331FC0C21D635BED0038C7B6 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 331FC0C11D635BED0038C7B6 /* libresolv.tbd */; };
 		331FC0C41D635BFD0038C7B6 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 331FC0C31D635BFD0038C7B6 /* libxml2.tbd */; };
 		331FC0C61D635C170038C7B6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331FC0C51D635C170038C7B6 /* MobileCoreServices.framework */; };
+		331FC0CA1D649A190038C7B6 /* GTNotDisturbViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 331FC0C91D649A190038C7B6 /* GTNotDisturbViewController.m */; };
+		331FC0CD1D64A0700038C7B6 /* GTNotDisturbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 331FC0CC1D64A0700038C7B6 /* GTNotDisturbCell.m */; };
 		3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA4D1D3240FD00D3850E /* GTWindow.m */; };
 		3321FA531D329D1300D3850E /* NSString+CheckingExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA521D329D1300D3850E /* NSString+CheckingExtension.m */; };
 		3321FA571D329ED600D3850E /* MBProgressHUD+DisplayExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA561D329ED600D3850E /* MBProgressHUD+DisplayExtension.m */; };
@@ -118,6 +120,10 @@
 		331FC0C11D635BED0038C7B6 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		331FC0C31D635BFD0038C7B6 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		331FC0C51D635C170038C7B6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		331FC0C81D649A190038C7B6 /* GTNotDisturbViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTNotDisturbViewController.h; sourceTree = "<group>"; };
+		331FC0C91D649A190038C7B6 /* GTNotDisturbViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTNotDisturbViewController.m; sourceTree = "<group>"; };
+		331FC0CB1D64A0700038C7B6 /* GTNotDisturbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTNotDisturbCell.h; sourceTree = "<group>"; };
+		331FC0CC1D64A0700038C7B6 /* GTNotDisturbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTNotDisturbCell.m; sourceTree = "<group>"; };
 		3321FA4C1D3240FD00D3850E /* GTWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWindow.h; sourceTree = "<group>"; };
 		3321FA4D1D3240FD00D3850E /* GTWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWindow.m; sourceTree = "<group>"; };
 		3321FA511D329D1300D3850E /* NSString+CheckingExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CheckingExtension.h"; sourceTree = "<group>"; };
@@ -396,6 +402,10 @@
 				33A0FC881D3D1FBB00C731DF /* GTUserInfoCell.m */,
 				3326A0351D3E6470000697DC /* GTFeedbackViewController.h */,
 				3326A0361D3E6470000697DC /* GTFeedbackViewController.m */,
+				331FC0C81D649A190038C7B6 /* GTNotDisturbViewController.h */,
+				331FC0C91D649A190038C7B6 /* GTNotDisturbViewController.m */,
+				331FC0CB1D64A0700038C7B6 /* GTNotDisturbCell.h */,
+				331FC0CC1D64A0700038C7B6 /* GTNotDisturbCell.m */,
 			);
 			name = ME;
 			sourceTree = "<group>";
@@ -475,9 +485,9 @@
 		337663BD1D4899EB003AA73C /* Zones */ = {
 			isa = PBXGroup;
 			children = (
+				33FEDBD61D58C2A2009A3D06 /* Cells */,
 				331D903E1D6084D400C69699 /* GTZoneDataManager.h */,
 				331D903F1D6084D400C69699 /* GTZoneDataManager.m */,
-				33FEDBD61D58C2A2009A3D06 /* Cells */,
 				337663BE1D489A04003AA73C /* GTDeviceZoneModel.h */,
 				337663BF1D489A04003AA73C /* GTDeviceZoneModel.m */,
 				330E31391D52220900B94695 /* GTDeviceZoneModel2.h */,
@@ -777,8 +787,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				331D90341D5F24BA00C69699 /* GTDatePickPanel.m in Sources */,
+				331FC0CD1D64A0700038C7B6 /* GTNotDisturbCell.m in Sources */,
 				3321FA9A1D34C55300D3850E /* GTDeviceListViewController.m in Sources */,
 				3352A61B1D39D8E100EED5C0 /* PCCircleInfoView.m in Sources */,
+				331FC0CA1D649A190038C7B6 /* GTNotDisturbViewController.m in Sources */,
 				3321FAC71D393B5F00D3850E /* GTUserInfoViewController.m in Sources */,
 				33B578AB1D5EFFFC00A1401B /* GTSelectionPanel.m in Sources */,
 				33651FD51D53302900F5CA9F /* GTSearchActionSheet.m in Sources */,

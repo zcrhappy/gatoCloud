@@ -11,7 +11,8 @@
 
 NSString *kUserInfoKey = @"kUserInfoKey";
 NSString *kBannerKey = @"kBannerKey";
-
+NSString *kRegIdKey = @"kRegIdKey";
+NSString *kPushStatus = @"kPushStatus";
 //NSString *kImgBaseURL = @"http://115.159.44.248:8085/";
 
 @interface GTUserUtils()
@@ -187,6 +188,27 @@ NSString *kBannerKey = @"kBannerKey";
     
     //present方式
     return YES;
+}
+//推送相关
++ (void)saveRegId:(NSString *)regId
+{
+    if(regId)
+        [[NSUserDefaults standardUserDefaults] setObject:regId forKey:kRegIdKey];
+}
+
++ (NSString *)regId
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kRegIdKey];
+}
+
++ (void)setNotDisturbStatus:(NSInteger)status
+{
+     [[NSUserDefaults standardUserDefaults] setObject:@(status) forKey:kPushStatus];
+}
+
++ (NSNumber *)notDisturbStatus
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kPushStatus];
 }
 
 @end

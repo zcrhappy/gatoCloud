@@ -68,7 +68,7 @@ NSInteger const APIErrorCode = 138102;
     NSString *headimgurl = [GTUserUtils userInfo].headimgurl;
     NSString *nickname = [GTUserUtils userInfo].nickname;
     NSString *unionid = [GTUserUtils userInfo].unionid;
-    NSString *xmAppid = [[NSUUID UUID] UUIDString];
+    NSString *xmAppid = [GTUserUtils regId];
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     
@@ -132,9 +132,11 @@ NSInteger const APIErrorCode = 138102;
                         finishBlock:(GTResultBlock)finishBlk;
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
     [dic safeSetObject:mobileNo forKey:@"mobileNo"];
     [dic safeSetObject:password forKey:@"password"];
     [dic safeSetObject:verifyCode forKey:@"yzm"];
+    [dic safeSetObject:[GTUserUtils regId] forKey:@"xmAppid"];
     
     [self POST:@"/user/mobRegister.do" parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -163,7 +165,7 @@ NSInteger const APIErrorCode = 138102;
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic safeSetObject:mobileNo forKey:@"mobileNo"];
     [dic safeSetObject:password forKey:@"password"];
-    
+    [dic safeSetObject:[GTUserUtils regId] forKey:@"xmAppid"];
     [self POST:@"/user/mobLogin.do" parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

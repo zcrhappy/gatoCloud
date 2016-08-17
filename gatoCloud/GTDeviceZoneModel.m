@@ -62,6 +62,15 @@
     return stateArray[index];
 }
 
+- (NSString *)twentyFourHourZoneStateString
+{
+    if([self.zoneState isEqualToString:@"1"]) {
+        return @"布防";
+    }
+    else
+        return @"故障";
+}
+
 - (BOOL)zoneStateForSwithButton;
 {
     if(![self zoneOnlineBoolValue])

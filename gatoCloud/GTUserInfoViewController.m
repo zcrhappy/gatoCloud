@@ -128,6 +128,9 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
         gestureUnlockViewController.type = GestureViewControllerTypeSetting;
         [self.navigationController pushViewController:gestureUnlockViewController animated:YES];
     }
+    else if ([title isEqualToString:kNoDisturb]) {
+        [self performSegueWithIdentifier:@"pushToNotDisturbSegue" sender:self];
+    }
 }
 
 
