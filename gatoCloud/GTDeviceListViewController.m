@@ -11,12 +11,12 @@
 #import "GTDeviceModel.h"
 #import "GTEditDeviceViewController.h"
 #import "GTRoutesListViewController.h"
-
+#import "GTNoDeviceView.h"
 #define kDeviceListCellIdentifier @"kDeviceListCellIdentifier"
 @interface GTDeviceListViewController()<UITableViewDelegate, UITableViewDataSource, GRDeviceCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *deviceTable;
-
+@property (nonatomic, strong) UIView *noDeviceView;
 @property (nonatomic, strong) NSMutableArray *deviceArray;
 
 @end
@@ -30,7 +30,8 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     _deviceArray = [NSMutableArray array];
-    
+    _noDeviceView = [[GTNoDeviceView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_noDeviceView];
     [self configTableView];
     
     [self pullDownToRefresh];
@@ -56,6 +57,15 @@
         [strongSelf.deviceTable.mj_header endRefreshing];
         
         strongSelf.deviceArray = [NSMutableArray arrayWithArray:[MTLJSONAdapter modelsOfClass:[GTDeviceModel class] fromJSONArray:(NSArray *)response error:nil]];
+        
+        if(strongSelf.deviceArray.count == 0){
+            strongSelf.deviceTable.hidden = YES;
+            strongSelf.noDeviceView.hidden = NO;
+        }
+        else {
+            strongSelf.deviceTable.hidden = NO;
+            strongSelf.noDeviceView.hidden = YES;
+        }
         
         [strongSelf.deviceTable reloadData];
     }];
