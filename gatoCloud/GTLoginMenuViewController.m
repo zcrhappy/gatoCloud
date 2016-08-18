@@ -69,7 +69,6 @@
             
             [self performSegueWithIdentifier:@"EnterMainViewSegue" sender:self];
             
-            
             if([GTGestureManager isFirstLoad])
                 [[GTGestureManager sharedInstance] showSettingGestureView];
             else

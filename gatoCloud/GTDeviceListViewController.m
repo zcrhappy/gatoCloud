@@ -31,6 +31,7 @@
     
     _deviceArray = [NSMutableArray array];
     _noDeviceView = [[GTNoDeviceView alloc] initWithFrame:self.view.bounds];
+    _noDeviceView.hidden = YES;
     [self.view addSubview:_noDeviceView];
     [self configTableView];
     

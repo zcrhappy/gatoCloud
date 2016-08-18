@@ -19,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _pwdLabel.secureTextEntry = YES;
 }
 
 
