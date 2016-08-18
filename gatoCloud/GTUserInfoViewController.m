@@ -77,6 +77,15 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
         NSString *avatarStr = [GTUserUtils userHeadImgURLString];
         [cell setupCellWithType:GTUserInfoCellTypeAvatar title:title subTitle:nil avatarStr:avatarStr];
     }
+    else if ([title isEqualToString:kQuitAccount]){
+        [cell setupCellWithType:GTUserInfoCellTypeButton title:nil subTitle:nil avatarStr:nil];
+        __weak __typeof(cell)weakCell = cell;
+        [cell setClickQuitBlock:^{
+            [GTUserUtils unRegisterUserInfo];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserDidLogout object:nil];
+            weakCell.clickQuitBlock = nil;
+        }];
+    }
     else {
         [cell setupCellWithType:GTUserInfoCellTypeArrow title:title subTitle:nil avatarStr:nil];
     }

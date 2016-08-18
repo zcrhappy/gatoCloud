@@ -26,6 +26,7 @@
 #define kUserDefaultKeyForDeviceCellMenuShow @"kUserDefaultKeyForDeviceCellMenuShow"
 #define kNeedsLoginNotification @"kNeedsLoginNotification"
 #define kPushStatusDidChange @"kPushStatusDidChange"
+#define kUserDidLogout @"kUserDidLogout"
 
 /** 自动定义 NSString **/
 #define NSSTRING_COPY  @property (nonatomic, copy) NSString

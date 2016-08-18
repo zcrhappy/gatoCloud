@@ -11,11 +11,13 @@
 typedef NS_ENUM(NSInteger, GTUserInfoCellType){
     GTUserInfoCellTypeAvatar,//右边是头像
     GTUserInfoCellTypeArrow,//右边是箭头，可以配置副标题
+    GTUserInfoCellTypeButton
 };
 
 
 @interface GTUserInfoCell : UITableViewCell
 
+@property (nonatomic, copy) void (^clickQuitBlock)(void);
 
 - (void)setupCellWithType:(GTUserInfoCellType)type
                     title:(NSString *)title

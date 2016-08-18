@@ -30,11 +30,7 @@
     [WXApi registerApp:@"wx91186ee878bacc62" withDescription:@"Gato Security"];
     
     //初始化界面
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *rootViewController = [storyBoard instantiateInitialViewController];
-    self.window = [[GTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.window setRootViewController:rootViewController];
-    [self.window makeKeyAndVisible];
+    [self showRootViewController];
     
     //配置键盘管理器
     [IQKeyboardManager sharedManager].enable = YES;
@@ -43,6 +39,7 @@
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needsLoginAction:) name:kNeedsLoginNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushStatusDidChange:) name:kPushStatusDidChange object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogout:) name:kUserDidLogout object:nil];
 #ifdef enableStubHTTP
     [self stubHTTP];
 #endif
@@ -100,15 +97,25 @@
         if([GTUserUtils isViewControllerPresent])
             [[GTUserUtils appTopViewController] dismissViewControllerAnimated:NO completion:nil];
         
-        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController *rootViewController = [storyBoard instantiateInitialViewController];
-        self.window = [[GTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        [self.window setRootViewController:rootViewController];
-        [self.window makeKeyAndVisible];
+        [self showRootViewController];
     }];
     [controler addAction:doneAction];
     
     [[GTUserUtils appTopViewController] presentViewController:controler animated:YES completion:nil];
+}
+
+- (void)didLogout:(NSNotification *)noti
+{
+    [self showRootViewController];
+}
+
+- (void)showRootViewController
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *rootViewController = [storyBoard instantiateInitialViewController];
+    self.window = [[GTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setRootViewController:rootViewController];
+    [self.window makeKeyAndVisible];
 }
 
 - (void)stubHTTP

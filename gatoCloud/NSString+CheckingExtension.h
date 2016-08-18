@@ -12,4 +12,5 @@
 
 - (BOOL)isEmptyString;
 
++ (BOOL)valiMobile:(NSString *)mobile;//返回是否合法的电话
 @end
