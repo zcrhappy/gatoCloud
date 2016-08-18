@@ -78,6 +78,8 @@
 		337663CC1D49FC88003AA73C /* GTDeviceZoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 337663CB1D49FC88003AA73C /* GTDeviceZoneCell.m */; };
 		33A0FC861D3D1C6A00C731DF /* GTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */; };
 		33A0FC891D3D1FBB00C731DF /* GTUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC881D3D1FBB00C731DF /* GTUserInfoCell.m */; };
+		33B0FF781D65DC1400F9429A /* GTQuitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B0FF761D65DC1400F9429A /* GTQuitCell.m */; };
+		33B0FF791D65DC1400F9429A /* GTQuitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B0FF771D65DC1400F9429A /* GTQuitCell.xib */; };
 		33B578A71D5CC2D200A1401B /* GTWarningRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B578A61D5CC2D200A1401B /* GTWarningRecordCell.xib */; };
 		33B578AB1D5EFFFC00A1401B /* GTSelectionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B578AA1D5EFFFC00A1401B /* GTSelectionPanel.m */; };
 		33B578B01D5F02AC00A1401B /* NSString+GTCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B578AF1D5F02AC00A1401B /* NSString+GTCommon.m */; };
@@ -236,6 +238,9 @@
 		33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMainViewController.m; sourceTree = "<group>"; };
 		33A0FC871D3D1FBB00C731DF /* GTUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserInfoCell.h; sourceTree = "<group>"; };
 		33A0FC881D3D1FBB00C731DF /* GTUserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTUserInfoCell.m; sourceTree = "<group>"; };
+		33B0FF751D65DC1400F9429A /* GTQuitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTQuitCell.h; sourceTree = "<group>"; };
+		33B0FF761D65DC1400F9429A /* GTQuitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTQuitCell.m; sourceTree = "<group>"; };
+		33B0FF771D65DC1400F9429A /* GTQuitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTQuitCell.xib; sourceTree = "<group>"; };
 		33B578A61D5CC2D200A1401B /* GTWarningRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTWarningRecordCell.xib; sourceTree = "<group>"; };
 		33B578A91D5EFFFC00A1401B /* GTSelectionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTSelectionPanel.h; sourceTree = "<group>"; };
 		33B578AA1D5EFFFC00A1401B /* GTSelectionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTSelectionPanel.m; sourceTree = "<group>"; };
@@ -411,6 +416,9 @@
 				331FC0C91D649A190038C7B6 /* GTNotDisturbViewController.m */,
 				331FC0CB1D64A0700038C7B6 /* GTNotDisturbCell.h */,
 				331FC0CC1D64A0700038C7B6 /* GTNotDisturbCell.m */,
+				33B0FF751D65DC1400F9429A /* GTQuitCell.h */,
+				33B0FF761D65DC1400F9429A /* GTQuitCell.m */,
+				33B0FF771D65DC1400F9429A /* GTQuitCell.xib */,
 			);
 			name = ME;
 			sourceTree = "<group>";
@@ -727,6 +735,7 @@
 				33FEDBD51D58C1BF009A3D06 /* GTEditTwoRowCell.xib in Resources */,
 				33FEDBCD1D58B775009A3D06 /* GTEditOneRowCell.xib in Resources */,
 				33B578A71D5CC2D200A1401B /* GTWarningRecordCell.xib in Resources */,
+				33B0FF791D65DC1400F9429A /* GTQuitCell.xib in Resources */,
 				33620C911D4128C800209AE7 /* page.json in Resources */,
 				33C620A61D2FE7E60022A9F0 /* LaunchScreen.storyboard in Resources */,
 				33C620A31D2FE7E60022A9F0 /* Assets.xcassets in Resources */,
@@ -796,6 +805,7 @@
 				3321FA9A1D34C55300D3850E /* GTDeviceListViewController.m in Sources */,
 				3352A61B1D39D8E100EED5C0 /* PCCircleInfoView.m in Sources */,
 				331FC0CA1D649A190038C7B6 /* GTNotDisturbViewController.m in Sources */,
+				33B0FF781D65DC1400F9429A /* GTQuitCell.m in Sources */,
 				3321FAC71D393B5F00D3850E /* GTUserInfoViewController.m in Sources */,
 				33B578AB1D5EFFFC00A1401B /* GTSelectionPanel.m in Sources */,
 				33651FD51D53302900F5CA9F /* GTSearchActionSheet.m in Sources */,

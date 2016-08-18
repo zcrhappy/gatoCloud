@@ -23,7 +23,6 @@
 
 - (void)setup
 {
-    [_nameTextField becomeFirstResponder];
     _nameTextField.text = _currentDeviceName;
 }
 

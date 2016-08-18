@@ -14,6 +14,16 @@
 
 @implementation GTBaseNavigationController
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    self.interactivePopGestureRecognizer.delegate = self;
+    self.delegate = self;
+    self.navigationBar.translucent = NO;
+    self.navigationBar.barTintColor = [UIColor colorWithString:@"40a2e4"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 }

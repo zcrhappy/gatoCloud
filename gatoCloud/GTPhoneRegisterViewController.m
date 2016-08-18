@@ -89,7 +89,7 @@
 
 - (void)fireTimer
 {
-    _counts = 10;
+    _counts = 60;
     [_fetchPinButton setEnabled:NO];
     [_fetchPinButton setBackgroundColor:[UIColor lightGrayColor]];
     

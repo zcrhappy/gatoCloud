@@ -13,6 +13,7 @@
 #import "GestureViewController.h"
 #import "PCCircleView.h"
 #import "GTDeviceManagerAuthorization.h"
+#import "GTQuitCell.h"
 #import <AVFoundation/AVFoundation.h>
 
 NSString *kAvatar = @"头像";
@@ -54,6 +55,8 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
 - (void)configUI
 {
     _listTable.tableFooterView = [UIView new];
+    
+    [_listTable registerNib:[UINib nibWithNibName:@"GTQuitCell" bundle:nil] forCellReuseIdentifier:@"quitCell"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -71,24 +74,28 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     NSInteger row = [indexPath row];
     NSString *title = [_rowArray objectAtIndex:row];
     
+    if([title isEqualToString:kQuitAccount]) {
+        GTQuitCell *quitCell = (GTQuitCell *)[tableView dequeueReusableCellWithIdentifier:@"quitCell" forIndexPath:indexPath];
+        [quitCell.quitButton setTitle:@"退出当前账号" forState:UIControlStateNormal];
+        [quitCell setClickQuitButton:^{
+            [GTUserUtils unRegisterUserInfo];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserDidLogout object:nil];
+        }];
+        
+        return quitCell;
+    }
+    
+    
     GTUserInfoCell *cell = (GTUserInfoCell *)[tableView dequeueReusableCellWithIdentifier:@"GTUserInfoCellIdentifier" forIndexPath:indexPath];
     
     if([title isEqualToString:kAvatar]) {
         NSString *avatarStr = [GTUserUtils userHeadImgURLString];
         [cell setupCellWithType:GTUserInfoCellTypeAvatar title:title subTitle:nil avatarStr:avatarStr];
     }
-    else if ([title isEqualToString:kQuitAccount]){
-        [cell setupCellWithType:GTUserInfoCellTypeButton title:nil subTitle:nil avatarStr:nil];
-        __weak __typeof(cell)weakCell = cell;
-        [cell setClickQuitBlock:^{
-            [GTUserUtils unRegisterUserInfo];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kUserDidLogout object:nil];
-            weakCell.clickQuitBlock = nil;
-        }];
-    }
     else {
         [cell setupCellWithType:GTUserInfoCellTypeArrow title:title subTitle:nil avatarStr:nil];
     }
+    
     return cell;
 }
 
@@ -149,11 +156,14 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     NSInteger row = [indexPath row];
     NSString *title = [_rowArray objectAtIndex:row];
     
-    if([title isEqualToString:@"头像"]){
+    if([title isEqualToString:kAvatar]){
         return 88;
     }
+    else if ([title isEqualToString:kQuitAccount]) {
+        return 90;
+    }
     else {
-        return 44;
+        return 50;
     }
 }
 
@@ -302,6 +312,5 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     [imageData writeToFile:fullPathToFile atomically:YES];
     return fullPathToFile;
 }
-
 
 @end
