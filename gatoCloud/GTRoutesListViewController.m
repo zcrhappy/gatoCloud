@@ -13,17 +13,10 @@
 #import "GTSearchActionSheet.h"
 #import "GTSearchBar.h"
 #import "GTZoneEditViewController.h"
-
-
+#import "GTBottomSelectionView.h"
 #define kGTDeviceZoneCellIdentifier @"GTDeviceZoneCellIdentifier"
 #define kSearchViaZoneName @"按防区搜索"
 #define kSearchViaDeviceName @"按设备搜索"
-//typedef NS_ENUM(NSInteger, kListType) {
-//    kListTypeAllZone,
-//    kListTypeCertainDevice,
-//    kListTypeViaDeviceName,
-//    kListTypeViaZoneName
-//};
 
 @interface GTRoutesListViewController ()<UITableViewDelegate, UITableViewDataSource, GTDeviceZoneCellDelegate>
 @property (nonatomic, strong) UITableView *routesTable;
@@ -33,6 +26,8 @@
 @property (nonatomic, assign) NSInteger loopCount;
 @property (nonatomic, strong) GTSearchBar *searchBar;
 @property (nonatomic, assign) BOOL autoRefresh;
+@property (nonatomic, strong) NSArray <NSIndexPath *>*selectArray;//能够被选择的列表
+@property (nonatomic, strong) GTBottomSelectionView *bottomSelection;
 @end
 
 @implementation GTRoutesListViewController
@@ -66,8 +61,10 @@
     _dataManager = [[GTZoneDataManager alloc] initWithListType:_listType];
     if(_searchKeyword)
         _dataManager.searchKeyword = _searchKeyword;
+    
     [self configTable];
     [self configSearchBar];
+    [self configSelectionItem];
     
     if(_autoRefresh)
         [self pullDownToRefresh];
@@ -98,30 +95,8 @@
     [_routesTable registerClass:GTDeviceZoneCell.class forCellReuseIdentifier:kGTDeviceZoneCellIdentifier];
     _routesTable.mj_footer.hidden = !_autoRefresh;
     _routesTable.mj_header.hidden = !_autoRefresh;
-}
-
-- (void)configSearchBar
-{
-    if(_listType == kListTypeViaZoneName || _listType == kListTypeViaDeviceName)
-    {
-        NSString *placeholder;
-        if(_listType == kListTypeViaZoneName)
-            placeholder = @"请输入防区名称";
-        else if(_listType == kListTypeViaDeviceName)
-            placeholder = @"请输入设备名";
-        
-        _searchBar = [[GTSearchBar alloc] initWithPlaceholder:placeholder];
-        [self.navigationController.navigationBar addSubview:_searchBar];
-        
-        __weak __typeof(self)weakSelf = self;
-        [_searchBar setDidEndEditingBlock:^(NSString *keyword) {
-            __strong __typeof(weakSelf)strongSelf = weakSelf;
-            strongSelf.searchKeyword = keyword;
-            strongSelf.dataManager.searchKeyword = strongSelf.searchKeyword;
-            
-            [strongSelf pullDownToRefresh];
-        }];
-    }
+    
+    _routesTable.allowsMultipleSelectionDuringEditing = _listType == kListTypeViaDeviceNo;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -142,7 +117,6 @@
 }
 
 #pragma mark - refresh
-
 
 - (void)pullUpToRefresh
 {
@@ -222,14 +196,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GTDeviceZoneCell *cell = (GTDeviceZoneCell *)[tableView cellForRowAtIndexPath:indexPath];
-    GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
-    
-    model.isExpand = !model.isExpand;
-    [cell setupWithZoneModel:model];
-
-    [_routesTable reloadData];
+    if(!tableView.isEditing) {
+        GTDeviceZoneCell *cell = (GTDeviceZoneCell *)[tableView cellForRowAtIndexPath:indexPath];
+        GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
+        
+        model.isExpand = !model.isExpand;
+        [cell setupWithZoneModel:model];
+        
+        [_routesTable reloadData];
+    }
+    else {
+        GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
+        if(!(model.canZoneDealWithOneKey)){//model.canZoneDealWithOneKey
+            [MBProgressHUD showText:@"当前防区不可布防撤防" inView:self.view];
+        }
+    }
 }
+
+#pragma mark - model / index
 
 - (GTDeviceZoneModel *)modelAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -243,20 +227,58 @@
     return [NSIndexPath indexPathForRow:row inSection:0];
 }
 
-#pragma mark - Search Item
+#pragma mark - Nav Item
+- (void)configSearchBar
+{
+    if(_listType == kListTypeViaZoneName || _listType == kListTypeViaDeviceName)
+    {
+        NSString *placeholder;
+        if(_listType == kListTypeViaZoneName)
+            placeholder = @"请输入防区名称";
+        else if(_listType == kListTypeViaDeviceName)
+            placeholder = @"请输入设备名";
+        
+        _searchBar = [[GTSearchBar alloc] initWithPlaceholder:placeholder];
+        [self.navigationController.navigationBar addSubview:_searchBar];
+        
+        __weak __typeof(self)weakSelf = self;
+        [_searchBar setDidEndEditingBlock:^(NSString *keyword) {
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            strongSelf.searchKeyword = keyword;
+            strongSelf.dataManager.searchKeyword = strongSelf.searchKeyword;
+            
+            [strongSelf pullDownToRefresh];
+        }];
+    }
+}
+
 - (void)enableSearchBar:(BOOL)yesOrNo;
 {
     if(yesOrNo == YES)
-        self.navigationItem.rightBarButtonItem = [self itemWithTitle:@"搜索" target:self action:@selector(didClickSearch:)];
-    else
-        self.navigationItem.rightBarButtonItem = nil;
+        self.navigationItem.rightBarButtonItem = [self itemWithTitle:nil imgName:@"GTSearch" target:self action:@selector(didClickSearch:)];
+}
+
+- (void)configSelectionItem
+{
+    if(_listType == kListTypeViaDeviceNo) {
+       self.navigationItem.rightBarButtonItem = [self itemWithTitle:@"全选" imgName:nil target:self action:@selector(clickSelection:)];
+    }
+}
+
+- (void)configCancelItem
+{
+    self.navigationItem.rightBarButtonItem = [self itemWithTitle:@"取消" imgName:nil target:self action:@selector(clickCancelSelection:)];
 }
 
 //创建UIBarButtonItem
-- (UIBarButtonItem *)itemWithTitle:(NSString *)title target:(id)target action:(SEL)action
+- (UIBarButtonItem *)itemWithTitle:(NSString *)title imgName:(NSString *)imgName target:(id)target action:(SEL)action
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"GTSearch"] forState:UIControlStateNormal];
+    
+    if(title)
+       [button setTitle:title forState:UIControlStateNormal];
+    else if (imgName)
+        [button setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
     [button setImageEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     button.frame = (CGRect){CGPointZero, {40, 40}};
@@ -288,6 +310,169 @@
             [strongSelf.navigationController pushViewController:viewController animated:YES];
         }
     }];
+}
+
+#pragma mark - Selection
+
+- (void)clickSelection:(id)sender
+{
+    [self configSelectArray];
+    
+    if (_selectArray.count == 0) {
+        [MBProgressHUD showText:@"没有可以布防撤防的防区" inView:self.view];
+    }
+    else {
+        //刷新navItem
+        [self configCancelItem];
+        
+        //选择可以被选中的cell
+        [_routesTable setEditing:YES animated:YES];
+        __weak __typeof(self)weakSelf = self;
+        [_selectArray enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull indexPath, NSUInteger idx, BOOL * _Nonnull stop) {
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            [strongSelf.routesTable selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+        }];
+        
+        //底部弹出选项
+        [self showBottomSelection];
+    }
+}
+
+- (void)configSelectArray
+{
+    //获取可以选中的indexPath
+    NSMutableArray *array = [NSMutableArray array];
+    
+   [_dataManager.zoneModelsArray enumerateObjectsUsingBlock:^(GTDeviceZoneModel * _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+        GTDeviceZoneCell *cell = (GTDeviceZoneCell *)[_routesTable cellForRowAtIndexPath:indexPath];
+       
+        if (model.canZoneDealWithOneKey) {//model.canZoneDealWithOneKey
+            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+            [array addObject:indexPath];
+        }
+        else {
+            //不可被选中
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+   }];
+    
+    _selectArray = [NSArray arrayWithArray:array];
+}
+
+- (void)clickCancelSelection:(id)sender
+{
+    [self configSelectionItem];
+    //停止编辑状态
+    [_routesTable setEditing:NO animated:YES];
+    _selectArray = [NSArray array];
+    [self hideButtonSelection];
+}
+//底部显示布防撤防按钮
+- (void)showBottomSelection
+{
+    if(!_bottomSelection)
+        _bottomSelection =  [[[NSBundle mainBundle] loadNibNamed:@"GTBottomSelectionView" owner:self options:nil] lastObject];
+    _bottomSelection.top = _routesTable.bottom;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        _bottomSelection.bottom = _routesTable.bottom;
+    }];
+    
+    [self.view addSubview:_bottomSelection];
+    __weak __typeof(self)weakSelf = self;
+    //批量布防
+    [_bottomSelection setClickGuardBlock:^{
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf checkPwdWithFinishBlk:^(NSString *pwd) {
+            [MBProgressHUD showHUDAddedTo:strongSelf.view animated:YES];
+            [[GTHttpManager shareManager] GTDeviceZoneBatchGuardWithDeviceNo:strongSelf.searchKeyword istate:@2 pwd:pwd zoneNos:strongSelf.zoneNos finishBlock:^(id response, NSError *error) {
+                [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
+                if(!error) {
+                    [MBProgressHUD showText:@"批量布防成功" inView:strongSelf.view];
+                }
+                [strongSelf hideButtonSelection];
+                [strongSelf.routesTable reloadData];
+            }];
+        }];
+    }];
+    
+    //批量撤防
+    [_bottomSelection setClickDisguardBlock:^{
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf checkPwdWithFinishBlk:^(NSString *pwd) {
+            [MBProgressHUD showHUDAddedTo:strongSelf.view animated:YES];
+            [[GTHttpManager shareManager] GTDeviceZoneBatchGuardWithDeviceNo:strongSelf.searchKeyword istate:@1 pwd:pwd zoneNos:strongSelf.zoneNos finishBlock:^(id response, NSError *error) {
+                [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
+                if(!error) {
+                    [MBProgressHUD showText:@"批量撤防成功" inView:strongSelf.view];
+                }
+                [strongSelf hideButtonSelection];
+                [strongSelf.routesTable reloadData];
+            }];
+        }];
+
+    }];
+}
+
+- (void)hideButtonSelection
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        _bottomSelection.top = self.view.bottom;
+        _routesTable.bottom = self.view.height;
+    } completion:^(BOOL finished) {
+    }];
+}
+
+- (NSString *)zoneNos
+{
+    __block NSString *str = @"";
+    
+    __weak __typeof(self)weakSelf = self;
+    [_selectArray enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull indexPath, NSUInteger idx, BOOL * _Nonnull stop) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        NSInteger row = [indexPath row];
+        GTDeviceZoneModel *model = [strongSelf.dataManager.zoneModelsArray objectAtIndex:row];
+        str = [str stringByAppendingString:model.zoneNo];
+        str = [str stringByAppendingString:@","];
+    }];
+    
+    if(str.length > 0)
+        str = [str substringToIndex:str.length-1];
+    
+    return str;
+}
+
+#pragma mark - utils
+
+- (void)checkPwdWithFinishBlk:(void (^)(NSString *pwd))finishBlk
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"验证密码" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    //创建按钮
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"确认按钮block");
+        //取出输入框文字
+        NSString *pwd = alertController.textFields.firstObject.text;
+        finishBlk(pwd);
+    }];
+    //取消按钮（只能创建一个）
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"取消按钮block");
+    }];
+    
+    //将按钮添加到UIAlertController对象上
+    [alertController addAction:sureAction];
+    [alertController addAction:cancelAction];
+    
+    //添加文本框（只能在UIAlertController的UIAlertControllerStyleAlert样式下添加）
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"请输入设备密码";
+        textField.secureTextEntry = YES;
+    }];
+    
+    //显示弹窗视图控制器
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - Cell Delegate

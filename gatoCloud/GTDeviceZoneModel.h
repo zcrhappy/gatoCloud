@@ -54,6 +54,7 @@ typedef NS_ENUM(NSInteger, kZoneState)
 - (NSString *)twentyFourHourZoneStateString;
 - (BOOL)zoneOnlineBoolValue;
 - (BOOL)zoneStateForSwithButton;
+- (BOOL)canZoneDealWithOneKey;//能够一键布防撤防
 
 + (NSArray <GTDeviceZoneModel *>*)transformFromArray:(NSArray <GTDeviceZoneModel2 *>*)array;
 

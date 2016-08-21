@@ -42,10 +42,19 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.selectionStyle = UITableViewCellSelectionStyleBlue;
+        self.selectedBackgroundView = macroCreateView(CGRectZero, [UIColor clearColor]);
+        
         [self configUI];
     }
     return self;
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+    
+    horSerparatorLine.backgroundColor = [UIColor colorWithString:@"e0e0e0"];
 }
 
 - (void)configUI
@@ -62,6 +71,7 @@
     [zoneNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@16);
         make.left.equalTo(@18);
+        make.height.greaterThanOrEqualTo(@21);
     }];
     
     zoneTypeLabel = macroCreateLabel(CGRectZero, [UIColor whiteColor], 14, [UIColor colorWithString:@"b9bdc0"]);

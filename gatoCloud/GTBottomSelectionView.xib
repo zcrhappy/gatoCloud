@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9Qy-aw-wwP" customClass="GTBottomSelectionView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13v-Sa-3DN" userLabel="布防">
+                    <rect key="frame" x="0.0" y="1" width="299" height="599"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="布防"/>
+                    <connections>
+                        <action selector="clickGuard:" destination="9Qy-aw-wwP" eventType="touchUpInside" id="dMh-5L-GSX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaJ-IZ-TMI" userLabel="撤防">
+                    <rect key="frame" x="301" y="1" width="299" height="599"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="撤防"/>
+                    <connections>
+                        <action selector="clickDisguard:" destination="9Qy-aw-wwP" eventType="touchUpInside" id="ZfB-NB-Wg2"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdS-lq-tKm" userLabel="hor">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="1"/>
+                    <color key="backgroundColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="aE3-oa-Pcz"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVa-H9-wA3" userLabel="ver">
+                    <rect key="frame" x="300" y="0.0" width="1" height="600"/>
+                    <color key="backgroundColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="vsX-m3-JYU"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="RVa-H9-wA3" firstAttribute="top" secondItem="9Qy-aw-wwP" secondAttribute="top" constant="8" id="9Ft-ha-vJs"/>
+                <constraint firstAttribute="bottom" secondItem="13v-Sa-3DN" secondAttribute="bottom" id="ArZ-Wc-7dN"/>
+                <constraint firstItem="EdS-lq-tKm" firstAttribute="leading" secondItem="9Qy-aw-wwP" secondAttribute="leading" id="BTD-zN-fCv"/>
+                <constraint firstAttribute="trailing" secondItem="EdS-lq-tKm" secondAttribute="trailing" id="Cvd-Wh-onB"/>
+                <constraint firstItem="RVa-H9-wA3" firstAttribute="centerY" secondItem="9Qy-aw-wwP" secondAttribute="centerY" id="DD7-tT-mCQ"/>
+                <constraint firstItem="13v-Sa-3DN" firstAttribute="width" secondItem="9Qy-aw-wwP" secondAttribute="width" multiplier="0.5" constant="-1" id="Hgk-G8-QBp"/>
+                <constraint firstAttribute="bottom" secondItem="RVa-H9-wA3" secondAttribute="bottom" constant="8" id="ITO-Iq-l2W"/>
+                <constraint firstItem="13v-Sa-3DN" firstAttribute="top" secondItem="9Qy-aw-wwP" secondAttribute="top" constant="1" id="M4v-GO-JFp"/>
+                <constraint firstAttribute="bottom" secondItem="ZaJ-IZ-TMI" secondAttribute="bottom" id="UGa-YJ-RAK"/>
+                <constraint firstItem="ZaJ-IZ-TMI" firstAttribute="width" secondItem="9Qy-aw-wwP" secondAttribute="width" multiplier="0.5" constant="-1" id="UV9-nm-xau"/>
+                <constraint firstAttribute="trailing" secondItem="ZaJ-IZ-TMI" secondAttribute="trailing" id="VhT-z6-JHN"/>
+                <constraint firstItem="13v-Sa-3DN" firstAttribute="leading" secondItem="9Qy-aw-wwP" secondAttribute="leading" id="fkF-yG-WQL"/>
+                <constraint firstItem="RVa-H9-wA3" firstAttribute="height" secondItem="9Qy-aw-wwP" secondAttribute="height" id="sZE-II-3Yn"/>
+                <constraint firstItem="EdS-lq-tKm" firstAttribute="top" secondItem="9Qy-aw-wwP" secondAttribute="top" id="uDC-P7-xK7"/>
+                <constraint firstItem="RVa-H9-wA3" firstAttribute="centerX" secondItem="9Qy-aw-wwP" secondAttribute="centerX" id="wBM-Z1-BBz"/>
+                <constraint firstItem="ZaJ-IZ-TMI" firstAttribute="top" secondItem="9Qy-aw-wwP" secondAttribute="top" constant="1" id="wW8-Kr-B34"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="9Ft-ha-vJs"/>
+                    <exclude reference="ITO-Iq-l2W"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="disguardBtn" destination="ZaJ-IZ-TMI" id="ytC-6S-FKf"/>
+                <outlet property="guardBtn" destination="13v-Sa-3DN" id="5eC-M5-KeX"/>
+            </connections>
+            <point key="canvasLocation" x="514" y="284"/>
+        </view>
+    </objects>
+</document>

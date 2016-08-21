@@ -262,6 +262,21 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
                                zoneLoc:(NSString *)zoneLoc
                               zoneDesc:(NSString *)zoneDesc
                            finishBlock:(GTResultBlock)finishBlk;
+
+/*!
+ *  @brief 批量布撤防
+ *
+ *  @param deviceNo  设备编号
+ *  @param istate    1批量撤防 2批量布防
+ *  @param pwd       密码
+ *  @param zoneNos   防区编号  用英文逗号分割
+ *  @param finishBlk 返回结果
+ */
+- (void)GTDeviceZoneBatchGuardWithDeviceNo:(NSString *)deviceNo
+                                    istate:(NSNumber *)istate
+                                       pwd:(NSString *)pwd
+                                   zoneNos:(NSString *)zoneNos
+                               finishBlock:(GTResultBlock)finishBlk;
 #pragma mark - UserInfo
 /*!
  *  @brief 用户反馈

@@ -697,6 +697,44 @@ NSInteger const APIErrorCode = 138102;
     }];
 }
 
+/*!
+ *  @brief 批量布撤防
+ *
+ *  @param deviceNo  设备编号
+ *  @param istate    1批量撤防 2批量布防
+ *  @param pwd       密码
+ *  @param zoneNos   防区编号  用英文逗号分割
+ *  @param finishBlk 返回结果
+ */
+- (void)GTDeviceZoneBatchGuardWithDeviceNo:(NSString *)deviceNo
+                                    istate:(NSNumber *)istate
+                                       pwd:(NSString *)pwd
+                                   zoneNos:(NSString *)zoneNos
+                               finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:deviceNo forKey:@"deviceNo"];
+    [dic safeSetObject:istate forKey:@"istate"];
+    [dic safeSetObject:pwd forKey:@"pwd"];
+    [dic safeSetObject:zoneNos forKey:@"zoneNos"];
+    
+    [self POST:@"/service/batchDefence.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
+
 #pragma mark - UserInfo
 - (void)GTUserFeedbackWithContents:(NSString *)content
                            contact:(NSString *)contact

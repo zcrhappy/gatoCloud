@@ -113,4 +113,12 @@
     return newArr;
 }
 
+- (BOOL)canZoneDealWithOneKey;//能够一键布防撤防
+{
+    if(self.zoneStyle.integerValue >= 3)
+        return YES;
+    else
+        return NO;    
+}
+
 @end
