@@ -15,4 +15,16 @@
     return [NSDictionary mtl_identityPropertyMapWithModel:self];
 }
 
+- (NSString *)screenOnlineState
+{
+    if([self.onlineState isEqualToString:@"上线"]) {
+        return @"在线";
+    }
+    else if ([self.onlineState isEqualToString:@"下线"]) {
+        return @"离线";
+    }
+    else
+        return self.onlineState;
+}
+
 @end

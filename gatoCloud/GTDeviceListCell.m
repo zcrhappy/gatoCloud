@@ -61,6 +61,7 @@
     }];
     
     stateButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    stateButton.userInteractionEnabled = NO;
     stateButton.layer.borderWidth = SINGLE_LINE_WIDTH;
     stateButton.layer.cornerRadius = 4;
     stateButton.layer.masksToBounds = YES;
@@ -157,7 +158,7 @@
     _model = model;
     NSString *zoneName = model.deviceName;
     NSNumber *zoneCount = model.zoneCount;
-    NSString *state = model.onlineState;
+    NSString *state = model.screenOnlineState;
     NSString *online = model.online;
     
     [self configZoneName:zoneName zoneCount:zoneCount state:state online:online];

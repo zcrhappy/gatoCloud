@@ -134,7 +134,7 @@
                                 <rect key="frame" x="0.0" y="113.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4o-XZ-cl7" id="WH3-Ts-QXr">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="j1n-HW-QeR">
@@ -150,8 +150,8 @@
                                                 <constraint firstAttribute="height" constant="36" id="gaD-oP-zB2"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="设备编号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVd-kq-n3o">
-                                            <rect key="frame" x="15" y="-1" width="68" height="46"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设备编号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVd-kq-n3o">
+                                            <rect key="frame" x="15" y="0.0" width="68" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="FeB-AP-XXU"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="68" id="PvT-MQ-R72"/>
@@ -164,12 +164,12 @@
                                     <constraints>
                                         <constraint firstItem="Aq3-NN-4G7" firstAttribute="centerY" secondItem="WH3-Ts-QXr" secondAttribute="centerY" id="4N9-oU-rxO"/>
                                         <constraint firstItem="j1n-HW-QeR" firstAttribute="trailing" secondItem="Aq3-NN-4G7" secondAttribute="leading" id="6e4-DB-UzT"/>
-                                        <constraint firstItem="yVd-kq-n3o" firstAttribute="centerY" secondItem="WH3-Ts-QXr" secondAttribute="centerY" id="C19-aq-BKR"/>
                                         <constraint firstAttribute="trailing" secondItem="Aq3-NN-4G7" secondAttribute="trailing" constant="15" id="EDr-8E-eSz"/>
                                         <constraint firstAttribute="trailing" secondItem="j1n-HW-QeR" secondAttribute="trailing" priority="750" constant="51" id="JpD-D0-otR"/>
                                         <constraint firstItem="j1n-HW-QeR" firstAttribute="centerY" secondItem="WH3-Ts-QXr" secondAttribute="centerY" id="MmI-lG-KAc"/>
                                         <constraint firstItem="j1n-HW-QeR" firstAttribute="height" secondItem="WH3-Ts-QXr" secondAttribute="height" constant="1.5" id="OOY-St-uXG"/>
                                         <constraint firstItem="yVd-kq-n3o" firstAttribute="leading" secondItem="WH3-Ts-QXr" secondAttribute="leading" constant="15" id="TnE-6v-5J1"/>
+                                        <constraint firstItem="yVd-kq-n3o" firstAttribute="top" secondItem="WH3-Ts-QXr" secondAttribute="top" id="gUw-Vt-alS"/>
                                         <constraint firstItem="j1n-HW-QeR" firstAttribute="leading" secondItem="yVd-kq-n3o" secondAttribute="trailing" constant="5" id="yNb-Br-xDg"/>
                                     </constraints>
                                 </tableViewCellContentView>

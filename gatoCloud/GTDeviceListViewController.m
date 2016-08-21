@@ -240,8 +240,6 @@
     }];
 }
 
-
-
 #pragma mark - Segue Method
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -259,13 +257,6 @@
             destVC.deviceNo = model.deviceNo;
         }
     }
-}
-
-- (IBAction)clickBack:(id)sender
-{
-    [self.navigationController dismissViewControllerAnimated:self completion:^{
-        
-    }];
 }
 
 - (IBAction)unwindToListViewController:(UIStoryboardSegue *)unwindSegue

@@ -37,6 +37,7 @@
 
 //extension
 @property (nonatomic, assign) BOOL expanded;
+@property (nonatomic, copy) NSString *screenOnlineState;
 @end
 
 
