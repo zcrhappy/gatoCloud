@@ -30,6 +30,7 @@
 
 @property (nonatomic, strong) GTDeviceZoneModel *model;
 
+@property (nonatomic, strong) MASConstraint *stateLabelRightConstaint;
 @end
 
 @implementation GTDeviceZoneCell
@@ -87,14 +88,15 @@
     [guardSwitch mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(upContainer).offset(-18);
         make.centerY.equalTo(zoneNameLabel);
-        make.width.equalTo(@51);
+        make.width.equalTo(@51).priorityHigh();
         make.height.equalTo(@31);
     }];
     
     zoneStateLabel = macroCreateLabel(CGRectZero, [UIColor whiteColor], 14, [UIColor colorWithString:@"b9bdc0"]);
     [upContainer addSubview:zoneStateLabel];
     [zoneStateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(guardSwitch.mas_left).offset(-10);
+        _stateLabelRightConstaint = make.right.equalTo(guardSwitch.mas_left).offset(-10).priorityHigh();
+        make.right.equalTo(upContainer).offset(-18).priorityMedium();
         make.centerY.equalTo(guardSwitch);
     }];
     
@@ -228,9 +230,11 @@
     if([model.zoneStyle isEqualToString:@"2"]){
         zoneStateLabel.text = [NSString stringWithFormat:@"24小时防区 %@",[model twentyFourHourZoneStateString]];
         guardSwitch.hidden = YES;
+        [_stateLabelRightConstaint uninstall];
     }
     else {
         guardSwitch.hidden = NO;
+        [_stateLabelRightConstaint install];
     }
     
     

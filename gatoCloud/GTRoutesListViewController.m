@@ -187,6 +187,13 @@
     });
     
     GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
+#ifdef kGlobalTest
+    NSInteger row = [indexPath row];
+    if(row%2 == 0)
+        model.zoneStyle = @"2";
+    if(row%4 == 0)
+        model.zoneState = @"1";
+#endif
     [templateCell setupWithZoneModel:model];
     
     CGFloat heigit = [templateCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
