@@ -30,20 +30,34 @@
     self.layer.borderColor = [UIColor colorWithString:@"e0e0e0"].CGColor;
     self.backgroundColor = [UIColor whiteColor];
     
+    UIView *container = macroCreateView(CGRectZero, [UIColor whiteColor]);
+    [self addSubview:container];
+    
+    
     _funcIcon = macroCreateImage(CGRectZero, [UIColor whiteColor]);
-    [self addSubview:_funcIcon];
+    [container addSubview:_funcIcon];
+    
+    [container mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self);
+    }];
     
     [_funcIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@16);
-        make.centerX.equalTo(self);
+        make.top.equalTo(container).offset(2);
+        make.width.height.equalTo(@26.5);
+        make.centerX.equalTo(container);
+        make.left.greaterThanOrEqualTo(container);
+        make.right.lessThanOrEqualTo(container);
     }];
     
     _funcLabel = macroCreateLabel(CGRectZero, [UIColor whiteColor], 14, [UIColor colorWithString:@"212121"]);
-    [self addSubview:_funcLabel];
+    [container addSubview:_funcLabel];
     
     [_funcLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self).offset(-12);
-        make.centerX.equalTo(self);
+        make.top.equalTo(_funcIcon.mas_bottom).offset(5);
+        make.bottom.equalTo(container);
+        make.centerX.equalTo(container);
+        make.left.greaterThanOrEqualTo(container);
+        make.right.lessThanOrEqualTo(container);
     }];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];

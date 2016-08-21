@@ -8,6 +8,7 @@
 
 #import "GTAddDeviceViewController.h"
 #import "GTAddDeviceCell.h"
+#import "GTAddDeviceNoCell.h"
 #import "QRCodeReaderViewController.h"
 #define DeviceSection @"DeviceSection"
 #define UserSection   @"UserSection"
@@ -24,6 +25,8 @@
 @property (nonatomic, copy) NSString *userPwd;
 @property (nonatomic, strong) QRCodeReaderViewController *reader;
 @property (nonatomic, copy) NSString *QRResult;
+
+@property (nonatomic, strong) NSDictionary *testDic;
 @end
 
 @implementation GTAddDeviceViewController
@@ -35,6 +38,13 @@
     
     _sections = [NSArray arrayWithObjects:DeviceSection, UserSection, nil];
     [self configTableView];
+    
+    _testDic = @{
+                 @"deviceId":@"200753a88f5e1240",
+                 @"userName":@"admin",
+                 @"userPwd" :@"111111"
+                 };
+    
 }
 
 - (void)configTableView
@@ -62,66 +72,51 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GTAddDeviceCell *cell = (GTAddDeviceCell *)[tableView dequeueReusableCellWithIdentifier:AddDeviceIdentifier];
+    UITableViewCell *cell;
     
     NSInteger section = [indexPath section];
     NSInteger row = [indexPath row];
 
     NSString *sectionName = _sections[section];
     
-    __weak __typeof(self)weakSelf = self;
+    _userName = _testDic[@"userName"];
+    _userPwd = _testDic[@"userPwd"];
+    _deviceId = _testDic[@"deviceId"];
     
-    [cell setClickQRImage:^{
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf goQRScan];
-    }];
-    
-    
-#ifdef TEST
-    _QRResult = @"200753a88f5e1240";
-    _deviceId = _QRResult;
-#endif
     if([sectionName isEqualToString:DeviceSection]) {
-        if(row == 0) {
-            [cell setUpCellWithTitle:@"设备编号:" content:_QRResult placeholder:nil icon:nil cellStyle:GTAddDeviceCellStyleTitle_textField_QRImage];
-            
-            [cell becomeActive];
-            
-            [cell setTextChangedBlock:^(NSString *content) {
-                __strong __typeof(weakSelf)strongSelf = weakSelf;
-                strongSelf.deviceId = content;
-            }];
-        }
-        else {
-            [cell setUpCellWithTitle:@"设备名称:" content:nil placeholder:nil icon:nil cellStyle:GTAddDeviceCellStyleTitle_textField];
-            
-            [cell setTextChangedBlock:^(NSString *content) {
-                __strong __typeof(weakSelf)strongSelf = weakSelf;
-                strongSelf.deviceName = content;
-            }];
-        }
+        cell = (GTAddDeviceNoCell *)[tableView dequeueReusableCellWithIdentifier:@"GTAddDeviceNoCellIdentifier" forIndexPath:indexPath];
+        [(GTAddDeviceNoCell *)cell setUpCellWithContent:_deviceId placeholder:@"请输入设备编号"];
+        
+        __weak __typeof(self)weakSelf = self;
+        [(GTAddDeviceNoCell *)cell setClickQRImage:^{
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            [strongSelf goQRScan];
+        }];
+        
+        [(GTAddDeviceNoCell *)cell setTextChangedBlock:^(NSString *content) {
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            strongSelf.deviceId = content;
+        }];
     }
     else if ([sectionName isEqualToString:UserSection]) {
+        
+         cell = (GTAddDeviceCell *)[tableView dequeueReusableCellWithIdentifier:@"GTAddDeviceCellIdentifier" forIndexPath:indexPath];
+        
         if(row == 0) {
-#ifdef TEST
-            [cell setUpCellWithTitle:nil content:@"admin" placeholder:@"请输入设备用户名" icon:[UIImage imageNamed:@"GTUserIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
-            _userName = @"admin";
-#else
-            [cell setUpCellWithTitle:nil content:nil placeholder:@"请输入设备用户名" icon:[UIImage imageNamed:@"GTUserIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
-#endif
-            [cell setTextChangedBlock:^(NSString *content) {
+            [(GTAddDeviceCell *)cell setUpCellWithContent:_userName placeholder:@"请输入设备用户名" icon:[UIImage imageNamed:@"GTUserIcon"]];
+        
+            __weak __typeof(self)weakSelf = self;
+            [(GTAddDeviceCell *)cell setTextChangedBlock:^(NSString *content) {
                 __strong __typeof(weakSelf)strongSelf = weakSelf;
                 strongSelf.userName = content;
             }];
         }
         else {
-#ifdef TEST
-            [cell setUpCellWithTitle:nil content:@"111111" placeholder:@"请输入设备密码" icon:[UIImage imageNamed:@"GTPasswordIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
-            _userPwd = @"111111";
-#else
-            [cell setUpCellWithTitle:nil content:nil placeholder:@"请输入设备密码" icon:[UIImage imageNamed:@"GTPasswordIcon"] cellStyle:GTAddDeviceCellStyleIcon_textTield];
-#endif
-            [cell setTextChangedBlock:^(NSString *content) {
+
+            [(GTAddDeviceCell *)cell setUpCellWithContent:_userPwd placeholder:@"请输入设备密码" icon:[UIImage imageNamed:@"GTPasswordIcon"]];
+    
+            __weak __typeof(self)weakSelf = self;
+            [(GTAddDeviceCell *)cell setTextChangedBlock:^(NSString *content) {
                 __strong __typeof(weakSelf)strongSelf = weakSelf;
                 strongSelf.userPwd = content;
             }];
@@ -133,8 +128,20 @@
 
 - (IBAction)clickAddDeviceButton:(id)sender {
 
+    if([_deviceId isEmptyString]) {
+        [MBProgressHUD showText:@"请输入设备编号" inView:self.view];
+        return;
+    }
+    else if ([_userName isEmptyString]) {
+        [MBProgressHUD showText:@"请输入设备用户名" inView:self.view];
+        return;
+    }
+    else if ([_userPwd isEmptyString]) {
+        [MBProgressHUD showText:@"请输入密码" inView:self.view];
+        return;
+    }
+    
     [[GTHttpManager shareManager] GTDeviceAddWithDeviceNo:_deviceId deviceUserName:_userName devicePwd:_userPwd finishBlock:^(NSDictionary *response, NSError *error) {
-        
         if(error == nil) {
             [MBProgressHUD showText:@"恭喜您添加设备成功" inView:[UIView gt_keyWindow]];
             [self performSegueWithIdentifier:@"BackToListSegue" sender:self];

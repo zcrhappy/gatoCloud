@@ -52,6 +52,7 @@
 		332BA24E1D3F502600B0C635 /* GTWarningRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA24D1D3F502600B0C635 /* GTWarningRecordsViewController.m */; };
 		332BA2511D3FADB500B0C635 /* GTWarningRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA2501D3FADB500B0C635 /* GTWarningRecordCell.m */; };
 		332BA2541D3FAF1200B0C635 /* GTWarningRecordDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA2531D3FAF1200B0C635 /* GTWarningRecordDataManager.m */; };
+		334FBDF61D695C1C0076346E /* GTAddDeviceNoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 334FBDF51D695C1C0076346E /* GTAddDeviceNoCell.m */; };
 		3352A60E1D39CEEB00EED5C0 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A6091D39CEEB00EED5C0 /* PCCircle.m */; };
 		3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A60B1D39CEEB00EED5C0 /* PCCircleView.m */; };
 		3352A6101D39CEEB00EED5C0 /* PCCircleViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A60D1D39CEEB00EED5C0 /* PCCircleViewConst.m */; };
@@ -189,6 +190,8 @@
 		332BA2501D3FADB500B0C635 /* GTWarningRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningRecordCell.m; sourceTree = "<group>"; };
 		332BA2521D3FAF1200B0C635 /* GTWarningRecordDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningRecordDataManager.h; sourceTree = "<group>"; };
 		332BA2531D3FAF1200B0C635 /* GTWarningRecordDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningRecordDataManager.m; sourceTree = "<group>"; };
+		334FBDF41D695C1C0076346E /* GTAddDeviceNoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTAddDeviceNoCell.h; sourceTree = "<group>"; };
+		334FBDF51D695C1C0076346E /* GTAddDeviceNoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTAddDeviceNoCell.m; sourceTree = "<group>"; };
 		3352A6081D39CEEB00EED5C0 /* PCCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircle.h; sourceTree = "<group>"; };
 		3352A6091D39CEEB00EED5C0 /* PCCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircle.m; sourceTree = "<group>"; };
 		3352A60A1D39CEEB00EED5C0 /* PCCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleView.h; sourceTree = "<group>"; };
@@ -438,6 +441,19 @@
 			name = WarningRecords;
 			sourceTree = "<group>";
 		};
+		334FBDF31D695BCC0076346E /* AddDevice */ = {
+			isa = PBXGroup;
+			children = (
+				33C620AE1D30096E0022A9F0 /* GTAddDeviceViewController.h */,
+				33C620AF1D30096E0022A9F0 /* GTAddDeviceViewController.m */,
+				33C620B11D300D750022A9F0 /* GTAddDeviceCell.h */,
+				33C620B21D300D750022A9F0 /* GTAddDeviceCell.m */,
+				334FBDF41D695C1C0076346E /* GTAddDeviceNoCell.h */,
+				334FBDF51D695C1C0076346E /* GTAddDeviceNoCell.m */,
+			);
+			name = AddDevice;
+			sourceTree = "<group>";
+		};
 		3352A6071D39CED500EED5C0 /* GestureUnlock */ = {
 			isa = PBXGroup;
 			children = (
@@ -589,12 +605,9 @@
 			isa = PBXGroup;
 			children = (
 				3321FA9E1D36730000D3850E /* DeviceList */,
-				33C620AE1D30096E0022A9F0 /* GTAddDeviceViewController.h */,
-				33C620AF1D30096E0022A9F0 /* GTAddDeviceViewController.m */,
+				334FBDF31D695BCC0076346E /* AddDevice */,
 				3321FAB31D3692FF00D3850E /* GTEditDeviceViewController.h */,
 				3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */,
-				33C620B11D300D750022A9F0 /* GTAddDeviceCell.h */,
-				33C620B21D300D750022A9F0 /* GTAddDeviceCell.m */,
 			);
 			name = Devices;
 			sourceTree = "<group>";
@@ -879,6 +892,7 @@
 				3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */,
 				3353808E1D44620C00041BD9 /* GTWarningDetailDoneCell.m in Sources */,
 				3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */,
+				334FBDF61D695C1C0076346E /* GTAddDeviceNoCell.m in Sources */,
 				33C620981D2FE7E60022A9F0 /* main.m in Sources */,
 				33FEDBD41D58C1BF009A3D06 /* GTEditTwoRowCell.m in Sources */,
 			);

@@ -125,6 +125,16 @@
 - (void)setupSubViewsSettingVc
 {
     [self.lockView setType:CircleViewTypeSetting];
+
+    self.title = @"设置手势密码";
+    
+    [self.msgLabel showNormalMsg:gestureTextBeforeSet];
+    
+    PCCircleInfoView *infoView = [[PCCircleInfoView alloc] init];
+    infoView.frame = CGRectMake(0, 0, CircleRadius * 2 * 0.6, CircleRadius * 2 * 0.6);
+    infoView.center = CGPointMake(kScreenW/2, CGRectGetMinY(self.msgLabel.frame) - CGRectGetHeight(infoView.frame)/2 - 10);
+    self.infoView = infoView;
+    [self.view addSubview:infoView];
     
     // 头像
     UIImageView  *imageView = [[UIImageView alloc] init];
@@ -136,16 +146,12 @@
     imageView.center = CGPointMake(kScreenW/2, 120);
     [imageView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils userHeadImgURLString]] placeholderImage:nil];
     [self.view addSubview:imageView];
-
-    self.title = @"设置手势密码";
     
-    [self.msgLabel showNormalMsg:gestureTextBeforeSet];
-    
-    PCCircleInfoView *infoView = [[PCCircleInfoView alloc] init];
-    infoView.frame = CGRectMake(0, 0, CircleRadius * 2 * 0.6, CircleRadius * 2 * 0.6);
-    infoView.center = CGPointMake(kScreenW/2, CGRectGetMinY(self.msgLabel.frame) - CGRectGetHeight(infoView.frame)/2 - 10);
-    self.infoView = infoView;
-    [self.view addSubview:infoView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(infoView.mas_top).offset(-10);
+        make.centerX.equalTo(self.view);
+        make.height.width.equalTo(@65);
+    }];
 }
 
 #pragma mark - 登陆手势密码界面
