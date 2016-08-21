@@ -454,6 +454,19 @@
 			name = AddDevice;
 			sourceTree = "<group>";
 		};
+		334FBDF71D69CCA00076346E /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				337663C71D49F04C003AA73C /* GTRoutesListViewController.h */,
+				337663C81D49F04C003AA73C /* GTRoutesListViewController.m */,
+				33FEDBB21D562371009A3D06 /* GTZoneEditViewController.h */,
+				33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */,
+				337663CA1D49FC88003AA73C /* GTDeviceZoneCell.h */,
+				337663CB1D49FC88003AA73C /* GTDeviceZoneCell.m */,
+			);
+			name = Routes;
+			sourceTree = "<group>";
+		};
 		3352A6071D39CED500EED5C0 /* GestureUnlock */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +535,7 @@
 		337663BD1D4899EB003AA73C /* Zones */ = {
 			isa = PBXGroup;
 			children = (
+				334FBDF71D69CCA00076346E /* Routes */,
 				33FEDBD61D58C2A2009A3D06 /* Cells */,
 				331D903E1D6084D400C69699 /* GTZoneDataManager.h */,
 				331D903F1D6084D400C69699 /* GTZoneDataManager.m */,
@@ -529,12 +543,6 @@
 				337663BF1D489A04003AA73C /* GTDeviceZoneModel.m */,
 				330E31391D52220900B94695 /* GTDeviceZoneModel2.h */,
 				330E313A1D52220900B94695 /* GTDeviceZoneModel2.m */,
-				337663C71D49F04C003AA73C /* GTRoutesListViewController.h */,
-				337663C81D49F04C003AA73C /* GTRoutesListViewController.m */,
-				33FEDBB21D562371009A3D06 /* GTZoneEditViewController.h */,
-				33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */,
-				337663CA1D49FC88003AA73C /* GTDeviceZoneCell.h */,
-				337663CB1D49FC88003AA73C /* GTDeviceZoneCell.m */,
 			);
 			name = Zones;
 			sourceTree = "<group>";

@@ -121,6 +121,7 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             strongSelf.zoneName = text;
         }];
+        self.zoneName = _model.zoneName;
         return [cell setupWithTitle:@"防区名称：" placeholder:@"请输入防区名称(必填)" content:_model.zoneName showLine:YES];
     }
     else if([name isEqualToString:kContact]) {
@@ -130,6 +131,7 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             strongSelf.zoneContactor = text;
         }];
+        self.zoneContactor = _model.zoneContactor;
         return [cell setupWithTitle:@"紧急联系人：" placeholder:@"请输入紧急联系人名称" content:_model.zoneContactor showLine:YES];
     }
     else if([name isEqualToString:kPhone]) {
@@ -139,6 +141,7 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             strongSelf.zonePhone = text;
         }];
+        self.zonePhone = _model.zonePhone;
         return [cell setupWithTitle:@"联系电话：" placeholder:@"请输入联系电话" content:_model.zonePhone showLine:YES];
     }
     else if ([name isEqualToString:kLocInfo]) {
@@ -148,6 +151,7 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             strongSelf.zoneLoc = text;
         }];
+        self.zoneLoc = _model.zoneLoc;
         return [cell setupWithTitle:@"防区地理位置信息：" placeholder:@"请输入防区地理位置信息" content:_model.zoneLoc showLine:NO];
     }
     else if ([name isEqualToString:kZoneDesc]) {
@@ -157,6 +161,7 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             strongSelf.zoneDesc = text;
         }];
+        self.zoneDesc = _model.zoneDesc;
         return [cell setupWithTitle:@"防区描述：" placeholder:@"请输入防区描述" content:_model.zoneDesc showLine:NO];
     }
     
@@ -200,6 +205,11 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
 
 - (void)clickDone
 {
+    if([_zoneName isEmptyString] || _zoneName == nil) {
+        [MBProgressHUD showText:@"请输入防区名称" inView:self.view];
+        return;
+    }
+    
     [[GTHttpManager shareManager] GTDeviceZoneEditInfoWithZoneNo:_model.zoneNo zoneName:_zoneName zoneContactor:_zoneContactor zonePhone:_zonePhone zoneLoc:_zoneLoc zoneDesc:_zoneDesc finishBlock:^(id response, NSError *error) {
         if(!error) {
             _model.zoneName = _zoneName;
