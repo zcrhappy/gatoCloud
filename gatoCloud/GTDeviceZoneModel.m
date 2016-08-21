@@ -62,6 +62,14 @@
     return stateArray[index];
 }
 
+- (BOOL)isTwentyFourHourZone;
+{
+    if(self.zoneStyle.integerValue <= 3)
+        return YES;
+    else
+        return NO;
+}
+
 - (NSString *)twentyFourHourZoneStateString
 {
     if([self.zoneState isEqualToString:@"1"]) {
@@ -119,6 +127,15 @@
         return YES;
     else
         return NO;    
+}
+
+- (BOOL)canEdit;//管理员才可编辑
+{
+    NSLog(@"%@",self.userType);
+    if([self.userType isEqualToString:@"0"])
+        return YES;
+    else
+        return NO;
 }
 
 @end

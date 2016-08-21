@@ -44,17 +44,19 @@ typedef NS_ENUM(NSInteger, kZoneState)
 @property (nonatomic, copy) NSString *appVersion;
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, copy) NSString *zoneStyle;//1：屏蔽防区  2：24小时有声防区 3：24小时无声防区 4：即时防区  5：布撤防防区  6：延时//防区  7：传递延时防区 (若不传或则为空则以即时防区处理)
-
+@property (nonatomic, copy) NSString *userType;//0:管理员， 1:操作员
 
 @property (nonatomic, assign) BOOL isExpand;
 
 - (NSString *)zoneTypeStringWithSuffix:(BOOL)needsSuffix;
 - (NSString *)zoneStateString;
 //24小时防区状态
+- (BOOL)isTwentyFourHourZone;
 - (NSString *)twentyFourHourZoneStateString;
 - (BOOL)zoneOnlineBoolValue;
 - (BOOL)zoneStateForSwithButton;
 - (BOOL)canZoneDealWithOneKey;//能够一键布防撤防
+- (BOOL)canEdit;//管理员才可编辑
 
 + (NSArray <GTDeviceZoneModel *>*)transformFromArray:(NSArray <GTDeviceZoneModel2 *>*)array;
 

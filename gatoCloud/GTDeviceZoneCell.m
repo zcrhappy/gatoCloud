@@ -227,7 +227,7 @@
     else
         zoneLocLabel.text = model.zoneLoc;
     
-    if([model.zoneStyle isEqualToString:@"2"]){
+    if(model.isTwentyFourHourZone){
         zoneStateLabel.text = [NSString stringWithFormat:@"24小时防区 %@",[model twentyFourHourZoneStateString]];
         guardSwitch.hidden = YES;
         [_stateLabelRightConstaint uninstall];
@@ -237,7 +237,15 @@
         [_stateLabelRightConstaint install];
     }
     
-    
+    if(model.canEdit) {
+        [editButton setTitle:@"编辑" forState:UIControlStateNormal];
+        editButton.userInteractionEnabled = YES;
+    }
+    else {
+        [editButton setTitle:@"" forState:UIControlStateNormal];
+        editButton.userInteractionEnabled = NO;
+    }
+
     [self setupWithExpanded:model.isExpand];
 }
 
@@ -264,6 +272,7 @@
         }
     }
 }
+
 
 - (void)clickSwitch:(UISwitch *)btn
 {

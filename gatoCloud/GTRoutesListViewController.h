@@ -11,7 +11,7 @@
 @interface GTRoutesListViewController : UIViewController
 
 @property (nonatomic, copy) NSString *searchKeyword;
-
+@property (nonatomic, copy) NSString *userType;//仅在kListType = kListTypeViaDeviceNo 时传入。
 - (instancetype)initWithListType:(kListType)listType;
 - (instancetype)init;//全部防区
 

@@ -32,7 +32,7 @@
 @property (nonatomic, copy) NSString  *appVersion;
 @property (nonatomic, copy) NSString  *xmAppId;
 @property (nonatomic, copy) NSString  *token;
-@property (nonatomic, copy) NSString  *userType;
+@property (nonatomic, copy) NSString  *userType;//0为管理员，可以编辑防区，1为操作员，不能编辑防区
 @property (nonatomic, strong) NSNumber *zoneCount;
 
 //extension

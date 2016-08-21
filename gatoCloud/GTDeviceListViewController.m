@@ -125,7 +125,13 @@
 - (GTDeviceModel *)modelAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = [indexPath row];
-    return _deviceArray[row];
+    GTDeviceModel *model = _deviceArray[row];
+    
+#ifdef kGlobalTest
+    if(row %2 ==0 )
+        model.userType = @"1";
+#endif
+    return model;
 }
 
 
@@ -173,6 +179,8 @@
     {//防区列表
         GTRoutesListViewController *controller = [[GTRoutesListViewController alloc] initWithListType:kListTypeViaDeviceNo];
         controller.searchKeyword = model.deviceNo;
+        controller.userType = model.userType;
+        NSLog(@"设备列表传入userType:%@",model.userType);
         controller.navigationItem.title = @"通道列表";
         [self.navigationController pushViewController:controller animated:YES];
     }
