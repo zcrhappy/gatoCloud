@@ -502,12 +502,20 @@
     else
         iState = @"1";
     
+#ifdef kGlobalTest
+    _loopCount = 5;
+    _timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(timerFired:) userInfo:infoDic repeats:YES];
+    [_timer fire];
+    [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    return;
+#endif
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[GTHttpManager shareManager] GTDeviceZoneChangeDefenceWithState:iState zoneNo:model.zoneNo finishBlock:^(id response, NSError *error) {
         if(error == nil) {
             _loopCount = 5;
-            _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timerFired:) userInfo:infoDic repeats:YES];
+            _timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(timerFired:) userInfo:infoDic repeats:YES];
             [_timer fire];
+            [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
         }
         else {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -516,14 +524,16 @@
     
 }
 
-- (void)timerFired:(NSDictionary *)infoDic
+- (void)timerFired:(NSTimer *)timer
 {
     if(_loopCount <= 0)
         return;
     else
         _loopCount--;
     
-    __block GTDeviceZoneModel *model = [infoDic objectForKey:@"model"];
+    NSDictionary *infoDic = timer.userInfo;
+    
+    __block GTDeviceZoneModel *changedModel = [infoDic objectForKey:@"model"];
     NSNumber *isOn = [infoDic objectForKey:@"isOn"];
     NSString *iState;
     if(isOn.boolValue == YES)
@@ -538,6 +548,11 @@
     switch (_listType) {
         case kListTypeAllZone:
         {
+            [[GTHttpManager shareManager] GTDeviceZoneQueryWithZoneNo:changedModel.zoneNo finishBlock:^(id response, NSError *error) {
+                if(error == nil) {
+//                    GTDeviceZoneModel *model = [response ]
+                }
+            }];
             //TODO: page number
 //            [[GTHttpManager shareManager] GTDeviceZoneListWithPn:@"1" finishBlock:^(id response, NSError *error)
 //             {
@@ -598,13 +613,13 @@
         if(iState.integerValue == kSwitchStateDisguarded) {//撤防成功
             [MBProgressHUD showText:@"撤防成功" inView:self.view];
             //改变model状态。
-            model.zoneState = @"3";
+            changedModel.zoneState = @"3";
             
         }
         else {//布防成功
             [MBProgressHUD showText:@"布防成功" inView:self.view];
             //改变model状态。
-            model.zoneState = @"4";
+            changedModel.zoneState = @"4";
         }
         //刷新界面
         [_routesTable reloadData];

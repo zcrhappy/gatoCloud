@@ -196,7 +196,7 @@
                   moduleName = "gatoCloud"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTHttpManager.m"
-                  timestampString = "493477776.983402"
+                  timestampString = "493481021.922143"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "722"
@@ -211,7 +211,7 @@
                   moduleName = "gatoCloud"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTHttpManager.m"
-                  timestampString = "493477776.983509"
+                  timestampString = "493481021.92234"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "724"
@@ -228,60 +228,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "gatoCloud/GTDeviceZoneModel.m"
-            timestampString = "493477565.393854"
+            timestampString = "493480179.373557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "-canEdit"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "gatoCloud/GTRoutesListViewController.m"
-            timestampString = "493476546.868967"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "gatoCloud/GTDeviceZoneModel.m"
-            timestampString = "493477776.839176"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "-isTwentyFourHourZone"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "gatoCloud/GTDeviceZoneModel.m"
-            timestampString = "493477777.231224"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-isTwentyFourHourZone"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

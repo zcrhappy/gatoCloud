@@ -151,10 +151,10 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设备编号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVd-kq-n3o">
-                                            <rect key="frame" x="15" y="0.0" width="68" height="45"/>
+                                            <rect key="frame" x="15" y="0.0" width="68" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="45" id="FeB-AP-XXU"/>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="68" id="PvT-MQ-R72"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="PvT-MQ-R72"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="YfI-sQ-Rhq"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -170,6 +170,7 @@
                                         <constraint firstItem="j1n-HW-QeR" firstAttribute="height" secondItem="WH3-Ts-QXr" secondAttribute="height" constant="1.5" id="OOY-St-uXG"/>
                                         <constraint firstItem="yVd-kq-n3o" firstAttribute="leading" secondItem="WH3-Ts-QXr" secondAttribute="leading" constant="15" id="TnE-6v-5J1"/>
                                         <constraint firstItem="yVd-kq-n3o" firstAttribute="top" secondItem="WH3-Ts-QXr" secondAttribute="top" id="gUw-Vt-alS"/>
+                                        <constraint firstItem="yVd-kq-n3o" firstAttribute="centerY" secondItem="WH3-Ts-QXr" secondAttribute="centerY" id="wfO-vR-vqf"/>
                                         <constraint firstItem="j1n-HW-QeR" firstAttribute="leading" secondItem="yVd-kq-n3o" secondAttribute="trailing" constant="5" id="yNb-Br-xDg"/>
                                     </constraints>
                                 </tableViewCellContentView>

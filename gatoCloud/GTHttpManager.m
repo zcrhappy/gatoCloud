@@ -735,6 +735,35 @@ NSInteger const APIErrorCode = 138102;
     }];
 }
 
+/*!
+ *  @brief 单个防区状态查询（用于修改防区状态之后轮询）
+ *
+ *  @param zoneNo    防区编号
+ *  @param finishBlk zoneState 3 或者 4 提示 恭喜您操作成功! 1、2 时  继续轮询，最多轮询5次   1 撤防中 2布放中 3 撤防 4 布防
+ */
+- (void)GTDeviceZoneQueryWithZoneNo:(NSString *)zoneNo
+                        finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:zoneNo forKey:@"zoneNo"];
+    
+    [self POST:@"/queryZones.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
+
 #pragma mark - UserInfo
 - (void)GTUserFeedbackWithContents:(NSString *)content
                            contact:(NSString *)contact

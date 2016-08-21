@@ -39,12 +39,13 @@
     _sections = [NSArray arrayWithObjects:DeviceSection, UserSection, nil];
     [self configTableView];
     
+#ifdef kGlobalTest
     _testDic = @{
                  @"deviceId":@"200753a88f5e1240",
                  @"userName":@"admin",
                  @"userPwd" :@"111111"
                  };
-    
+#endif
 }
 
 - (void)configTableView

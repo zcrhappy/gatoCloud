@@ -288,12 +288,14 @@
     else if (_model.zoneState.integerValue == kZoneStateUnderGuarding) {
         warningString = @"正在布防中，不能操作!";
     }
-    
+
+#ifndef kGlobalTest
     if(warningString) {
         [MBProgressHUD showText:warningString inView:[UIView gt_keyWindow]];
         return;
     }
     
+#endif
     BOOL isOn = btn.isOn;
     
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:_model, @"model", @(isOn), @"isOn", nil];

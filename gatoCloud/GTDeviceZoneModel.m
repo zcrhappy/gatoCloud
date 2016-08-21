@@ -64,6 +64,10 @@
 
 - (BOOL)isTwentyFourHourZone;
 {
+#ifdef kGlobalTest
+    return NO;
+#endif
+    
     if(self.zoneStyle.integerValue <= 3)
         return YES;
     else

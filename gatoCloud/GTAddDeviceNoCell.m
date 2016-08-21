@@ -20,6 +20,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     UITapGestureRecognizer *tapImage = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(goQRScan)];
     [_QRCode addGestureRecognizer:tapImage];
     

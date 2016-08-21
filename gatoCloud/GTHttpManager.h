@@ -277,6 +277,18 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
                                        pwd:(NSString *)pwd
                                    zoneNos:(NSString *)zoneNos
                                finishBlock:(GTResultBlock)finishBlk;
+
+
+/*!
+ *  @brief 单个防区状态查询（用于修改防区状态之后轮询）
+ *
+ *  @param zoneNo    防区编号
+ *  @param finishBlk zoneState 3 或者 4 提示 恭喜您操作成功! 1、2 时  继续轮询，最多轮询5次   1 撤防中 2布放中 3 撤防 4 布防
+ */
+- (void)GTDeviceZoneQueryWithZoneNo:(NSString *)zoneNo
+                        finishBlock:(GTResultBlock)finishBlk;
+
+
 #pragma mark - UserInfo
 /*!
  *  @brief 用户反馈
