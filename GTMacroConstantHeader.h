@@ -25,6 +25,7 @@
 
 #define kUserDefaultKeyForDeviceCellMenuShow @"kUserDefaultKeyForDeviceCellMenuShow"
 #define kNeedsLoginNotification @"kNeedsLoginNotification"
+#define kAddDeviceSuccessNotification @"kAddDeviceSuccessNotification"
 #define kPushStatusDidChange @"kPushStatusDidChange"
 #define kUserDidLogout @"kUserDidLogout"
 

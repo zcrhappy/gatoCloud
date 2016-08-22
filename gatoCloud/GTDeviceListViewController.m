@@ -269,8 +269,10 @@
 
 - (IBAction)unwindToListViewController:(UIStoryboardSegue *)unwindSegue
 {
+    //添加成功后，从加入页回来需要刷新，并且发送noti
     if([unwindSegue.identifier isEqualToString:@"BackToListSegue"]) {
         [self pullDownToRefresh];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAddDeviceSuccessNotification object:nil];
     }
 }
 

@@ -33,11 +33,16 @@
 {
     [super viewDidLoad];
     
-    [self configUI];
-
-    [self checkVersion];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didAddDeviceSuccess:) name:kAddDeviceSuccessNotification object:nil];
     
+    [self configUI];
+    [self checkVersion];
     [self fetchMainViewInfo];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kAddDeviceSuccessNotification object:nil];
 }
 
 - (void)configUI
@@ -154,11 +159,15 @@
 
 //消除报警
 - (IBAction)tapDisguard:(id)sender {
-    
     GTWarningRecordsViewController *controller = [[GTWarningRecordsViewController alloc] initViaType:@"未处理报警"];
     controller.navigationItem.title = @"报警处理";
     GTBaseNavigationController *navigationController = [[GTBaseNavigationController alloc] initWithRootViewController:controller];
     [self presentViewController:navigationController animated:YES completion:nil];
-    
+}
+
+//添加设备后需要增加
+- (void)didAddDeviceSuccess:(NSNotification *)notification
+{
+    [self fetchMainViewInfo];
 }
 @end

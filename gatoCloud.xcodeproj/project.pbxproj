@@ -254,7 +254,7 @@
 		33B578AA1D5EFFFC00A1401B /* GTSelectionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTSelectionPanel.m; sourceTree = "<group>"; };
 		33B578AE1D5F02AC00A1401B /* NSString+GTCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GTCommon.h"; sourceTree = "<group>"; };
 		33B578AF1D5F02AC00A1401B /* NSString+GTCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GTCommon.m"; sourceTree = "<group>"; };
-		33C620931D2FE7E60022A9F0 /* gatoCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gatoCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33C620931D2FE7E60022A9F0 /* 广拓云警.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "广拓云警.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C620971D2FE7E60022A9F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		33C620991D2FE7E60022A9F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		33C6209A1D2FE7E60022A9F0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -560,7 +560,7 @@
 		33C620941D2FE7E60022A9F0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				33C620931D2FE7E60022A9F0 /* gatoCloud.app */,
+				33C620931D2FE7E60022A9F0 /* 广拓云警.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -720,7 +720,7 @@
 			);
 			name = gatoCloud;
 			productName = gatoCloud;
-			productReference = 33C620931D2FE7E60022A9F0 /* gatoCloud.app */;
+			productReference = 33C620931D2FE7E60022A9F0 /* 广拓云警.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -734,7 +734,7 @@
 				TargetAttributes = {
 					33C620921D2FE7E60022A9F0 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 294BADX983;
+						DevelopmentTeam = J2ATXHKPAQ;
 					};
 				};
 			};
@@ -1019,7 +1019,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Guangtuo Information Technology Co., Ltd. (J2ATXHKPAQ)";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GTGlobalPrefixHeader.h;
@@ -1030,8 +1030,8 @@
 					"$(PROJECT_DIR)/gatoCloud",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.securityApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c1ee6365-ee61-4e17-a969-4471b6eb3c3e";
+				PRODUCT_NAME = "广拓云警";
+				PROVISIONING_PROFILE = "dfb928e7-02ad-4bc6-89dd-160657d7e0e7";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1043,7 +1043,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Guangtuo Information Technology Co., Ltd. (J2ATXHKPAQ)";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GTGlobalPrefixHeader.h;
@@ -1054,8 +1054,8 @@
 					"$(PROJECT_DIR)/gatoCloud",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.securityApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c1ee6365-ee61-4e17-a969-4471b6eb3c3e";
+				PRODUCT_NAME = "广拓云警";
+				PROVISIONING_PROFILE = "dfb928e7-02ad-4bc6-89dd-160657d7e0e7";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

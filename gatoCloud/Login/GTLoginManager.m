@@ -130,7 +130,6 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:kDidLoginNotification object:nil];
             }
         });
-        
     });
 }
 
