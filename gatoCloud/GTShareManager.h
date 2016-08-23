@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface GTShareManager : NSObject
-+ (void)ShareToWXFrindWithText:(NSString *)text;
++ (instancetype)shareInstance;
+- (void)shareToWXFrindWithText:(NSString *)text;
+- (void)shareViaMessageWithText:(NSString *)text;
 @end

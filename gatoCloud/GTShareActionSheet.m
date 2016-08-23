@@ -232,11 +232,11 @@ static NSString* const Share_Message     = @"短信";
             self.shareToWXFriend();
 //        NSMutableDictionary *shareDic = [QYPPCircleFeedMTLModel makeShareDictionaryWithFeedModel:feedModel];
 //        [QIYIPaopaoShareActionSheet shareToPaopaoWithDict:shareDic ViewController:parentVc];
-        [self hideView];
-        return;
     }else if ([btnTitle isEqualToString:Share_Message]){//分享到短信
+        if(self.shareViaMessage)
+            self.shareViaMessage();
         
-      }
+    }
 //    
 //    NSDictionary* usrInfo= [QIYIPaopaoShareActionSheet makeThirdPartyShareInfoByModel:model shareType:shareType ViewController:curVC];
 //    [QIYIPaopaoShareActionSheet shareToThirdPartyDict:usrInfo];

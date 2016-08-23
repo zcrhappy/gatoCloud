@@ -24,7 +24,6 @@
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *userPwd;
 @property (nonatomic, strong) QRCodeReaderViewController *reader;
-@property (nonatomic, copy) NSString *QRResult;
 
 @property (nonatomic, strong) NSDictionary *testDic;
 @end
@@ -80,9 +79,9 @@
 
     NSString *sectionName = _sections[section];
     
-    _userName = _testDic[@"userName"];
-    _userPwd = _testDic[@"userPwd"];
-    _deviceId = _testDic[@"deviceId"];
+//    _userName = _testDic[@"userName"];
+//    _userPwd = _testDic[@"userPwd"];
+//    _deviceId = _testDic[@"deviceId"];
     
     if([sectionName isEqualToString:DeviceSection]) {
         cell = (GTAddDeviceNoCell *)[tableView dequeueReusableCellWithIdentifier:@"GTAddDeviceNoCellIdentifier" forIndexPath:indexPath];
@@ -162,7 +161,7 @@
         NSLog(@"qr:%@", result);
         
         __strong __typeof(weakSelf)strongSelf = weakSelf;
-        strongSelf.QRResult = result;
+        strongSelf.deviceId = result;
         [strongSelf.table reloadData];
     }];
 }

@@ -15,5 +15,5 @@
 - (void)show;
 
 @property (nonatomic, copy) void (^shareToWXFriend)(void);
-
+@property (nonatomic, copy) void (^shareViaMessage)(void);
 @end

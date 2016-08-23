@@ -65,9 +65,9 @@ NSString *kStateString = @"1q2w3e4r5t6y7u8i9o0p";
  */
 - (void)onResp:(BaseResp *)resp
 {
-    [MBProgressHUD showHUDAddedTo:[UIView gt_keyWindow] animated:YES];
-    
     if ([resp isKindOfClass:[SendAuthResp class]]) {
+        [MBProgressHUD showHUDAddedTo:[UIView gt_keyWindow] animated:YES];
+        
         SendAuthResp *aresp = (SendAuthResp *)resp;
         if (aresp.errCode == 0 && [aresp.state isEqualToString:kStateString]) {
             authCode = aresp.code;

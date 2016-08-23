@@ -186,7 +186,19 @@ NSString *done = @"确定";
         NSString *thirdLine = [NSString stringWithFormat:@"\n报警时间:%@",[strongSelf.model getDateStrWithFormat:@"yyyy-MM-dd HH:mm"]];
         NSString *content = [[firstLine stringByAppendingString:secondLine] stringByAppendingString:thirdLine];
         
-        [GTShareManager ShareToWXFrindWithText:content];
+        [[GTShareManager shareInstance] shareToWXFrindWithText:content];
+    }];
+    
+    [actionSheet setShareViaMessage:^{
+        
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        
+        NSString *firstLine = [NSString stringWithFormat:@"%@报警",strongSelf.model.zonename];
+        NSString *secondLine = [NSString stringWithFormat:@"\n类型:%@ 状态:%@",[strongSelf.model getWarningTypeStr], [strongSelf.model getIstateString]];
+        NSString *thirdLine = [NSString stringWithFormat:@"\n报警时间:%@",[strongSelf.model getDateStrWithFormat:@"yyyy-MM-dd HH:mm"]];
+        NSString *content = [[firstLine stringByAppendingString:secondLine] stringByAppendingString:thirdLine];
+        
+        [[GTShareManager shareInstance] shareViaMessageWithText:content];
     }];
     
     [actionSheet show];
