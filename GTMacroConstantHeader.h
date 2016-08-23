@@ -10,7 +10,10 @@
 #define GTMacroConstantHeader_h
 
 //notificationName
-#define kDidLoginNotification @"kDidLoginNotification"
+#define kDidLoginSuccessNotification @"kDidLoginSuccessNotification"
+#define kNeedsLoginNotification @"kNeedsLoginNotification"
+#define kAddDeviceSuccessNotification @"kAddDeviceSuccessNotification"
+
 
 #define kAuthScope      @"snsapi_userinfo"
 #define kAppId          @"wx91186ee878bacc62"
@@ -24,8 +27,7 @@
 #define SINGLE_LINE_WIDTH (1 / [UIScreen mainScreen].scale)
 
 #define kUserDefaultKeyForDeviceCellMenuShow @"kUserDefaultKeyForDeviceCellMenuShow"
-#define kNeedsLoginNotification @"kNeedsLoginNotification"
-#define kAddDeviceSuccessNotification @"kAddDeviceSuccessNotification"
+
 #define kPushStatusDidChange @"kPushStatusDidChange"
 #define kUserDidLogout @"kUserDidLogout"
 

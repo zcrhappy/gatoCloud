@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GTWindow.h"
-#import "GTLoginManager.h"
+#import "GTWXLoginManager.h"
 #import "GestureViewController.h"
 #import "OHHTTPStubs.h"
 #import "OHPathHelpers.h"
@@ -53,11 +53,11 @@
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [WXApi handleOpenURL:url delegate:[GTLoginManager sharedManager]];
+    return [WXApi handleOpenURL:url delegate:[GTWXLoginManager sharedManager]];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [WXApi handleOpenURL:url delegate:[GTLoginManager sharedManager]];
+    return [WXApi handleOpenURL:url delegate:[GTWXLoginManager sharedManager]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

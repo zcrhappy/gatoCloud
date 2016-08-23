@@ -54,7 +54,7 @@ NSInteger const APIErrorCode = 138102;
         token = @"";
         userId = @"";
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin) name:kDidLoginNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin) name:kDidLoginSuccessNotification object:nil];
     }
     
     return self;
@@ -917,7 +917,7 @@ NSInteger const APIErrorCode = 138102;
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidLoginNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidLoginSuccessNotification object:nil];
 }
 
 

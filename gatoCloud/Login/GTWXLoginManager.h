@@ -27,7 +27,7 @@
 @end
 
 
-@interface GTLoginManager : NSObject<WXApiDelegate>
+@interface GTWXLoginManager : NSObject<WXApiDelegate>
 
 @property (nonatomic, assign) id<WXApiManagerDelegate> delegate;
 

@@ -28,7 +28,7 @@
 		3321FA611D3354FC00D3850E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA5C1D3354FC00D3850E /* libWeChatSDK.a */; };
 		3321FA621D3354FC00D3850E /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3321FA5D1D3354FC00D3850E /* README.txt */; };
 		3321FA681D33B96B00D3850E /* GTLoginMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA671D33B96B00D3850E /* GTLoginMenuViewController.m */; };
-		3321FA6B1D33BA3C00D3850E /* GTLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA6A1D33BA3C00D3850E /* GTLoginManager.m */; };
+		3321FA6B1D33BA3C00D3850E /* GTWXLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FA6A1D33BA3C00D3850E /* GTWXLoginManager.m */; };
 		3321FA6D1D33BC1C00D3850E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA6C1D33BC1C00D3850E /* Security.framework */; };
 		3321FA711D33BE1D00D3850E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA701D33BE1D00D3850E /* libc++.tbd */; };
 		3321FA731D33BE2700D3850E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321FA721D33BE2700D3850E /* libz.tbd */; };
@@ -147,8 +147,8 @@
 		3321FA601D3354FC00D3850E /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		3321FA661D33B96B00D3850E /* GTLoginMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLoginMenuViewController.h; sourceTree = "<group>"; };
 		3321FA671D33B96B00D3850E /* GTLoginMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLoginMenuViewController.m; sourceTree = "<group>"; };
-		3321FA691D33BA3C00D3850E /* GTLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLoginManager.h; path = Login/GTLoginManager.h; sourceTree = "<group>"; };
-		3321FA6A1D33BA3C00D3850E /* GTLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLoginManager.m; path = Login/GTLoginManager.m; sourceTree = "<group>"; };
+		3321FA691D33BA3C00D3850E /* GTWXLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTWXLoginManager.h; path = Login/GTWXLoginManager.h; sourceTree = "<group>"; };
+		3321FA6A1D33BA3C00D3850E /* GTWXLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTWXLoginManager.m; path = Login/GTWXLoginManager.m; sourceTree = "<group>"; };
 		3321FA6C1D33BC1C00D3850E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3321FA6E1D33BE0E00D3850E /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		3321FA701D33BE1D00D3850E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -373,8 +373,8 @@
 				3321FA5B1D33548D00D3850E /* WeChatAPI */,
 				3321FA661D33B96B00D3850E /* GTLoginMenuViewController.h */,
 				3321FA671D33B96B00D3850E /* GTLoginMenuViewController.m */,
-				3321FA691D33BA3C00D3850E /* GTLoginManager.h */,
-				3321FA6A1D33BA3C00D3850E /* GTLoginManager.m */,
+				3321FA691D33BA3C00D3850E /* GTWXLoginManager.h */,
+				3321FA6A1D33BA3C00D3850E /* GTWXLoginManager.m */,
 				3321FAC11D39291C00D3850E /* GTPhoneRegisterViewController.h */,
 				3321FAC21D39291C00D3850E /* GTPhoneRegisterViewController.m */,
 				330E31351D51F40D00B94695 /* GTLoginViewController.h */,
@@ -734,7 +734,7 @@
 				TargetAttributes = {
 					33C620921D2FE7E60022A9F0 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = J2ATXHKPAQ;
+						DevelopmentTeam = 294BADX983;
 					};
 				};
 			};
@@ -890,7 +890,7 @@
 				331D90401D6084D400C69699 /* GTZoneDataManager.m in Sources */,
 				337663C91D49F04C003AA73C /* GTRoutesListViewController.m in Sources */,
 				33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */,
-				3321FA6B1D33BA3C00D3850E /* GTLoginManager.m in Sources */,
+				3321FA6B1D33BA3C00D3850E /* GTWXLoginManager.m in Sources */,
 				33B578B01D5F02AC00A1401B /* NSString+GTCommon.m in Sources */,
 				335380881D445FE100041BD9 /* UIColor+DisplayExtension.m in Sources */,
 				3352A61F1D39D90600EED5C0 /* GestureViewController.m in Sources */,
@@ -1019,7 +1019,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Guangtuo Information Technology Co., Ltd. (J2ATXHKPAQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GTGlobalPrefixHeader.h;
@@ -1031,7 +1031,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.securityApp;
 				PRODUCT_NAME = "广拓云警";
-				PROVISIONING_PROFILE = "dfb928e7-02ad-4bc6-89dd-160657d7e0e7";
+				PROVISIONING_PROFILE = "c1ee6365-ee61-4e17-a969-4471b6eb3c3e";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1043,7 +1043,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Guangtuo Information Technology Co., Ltd. (J2ATXHKPAQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GTGlobalPrefixHeader.h;
@@ -1055,7 +1055,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.securityApp;
 				PRODUCT_NAME = "广拓云警";
-				PROVISIONING_PROFILE = "dfb928e7-02ad-4bc6-89dd-160657d7e0e7";
+				PROVISIONING_PROFILE = "c1ee6365-ee61-4e17-a969-4471b6eb3c3e";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

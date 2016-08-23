@@ -7,7 +7,7 @@
 //
 
 #import "GTLoginMenuViewController.h"
-#import "GTLoginManager.h"
+#import "GTWXLoginManager.h"
 #import "GTHttpManager.h"
 #import "GTGestureManager.h"
 @interface GTLoginMenuViewController()
@@ -23,7 +23,7 @@
 {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin) name:kDidLoginNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin) name:kDidLoginSuccessNotification object:nil];
     
 
     
@@ -34,7 +34,7 @@
 {
     [super viewDidDisappear:animated];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidLoginNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidLoginSuccessNotification object:nil];
 }
 
 - (void)configUI
@@ -56,7 +56,7 @@
 
 - (IBAction)clickWeChatLogin:(id)sender {
     
-    [[GTLoginManager sharedManager] sendAuthRequest];
+    [[GTWXLoginManager sharedManager] sendAuthRequest];
     
 }
 
