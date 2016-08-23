@@ -21,6 +21,10 @@
 
 + (void)showText:(NSString *)text inView:(UIView *)view withTime:(NSTimeInterval)time;
 {
+    if([MBProgressHUD HUDForView:view]){
+        [MBProgressHUD hideHUDForView:view animated:YES];
+    }
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     
     hud.mode = MBProgressHUDModeText;

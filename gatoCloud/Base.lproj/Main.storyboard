@@ -870,7 +870,7 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="GTLogo" translatesAutoresizingMaskIntoConstraints="NO" id="wws-Rd-9Yx">
                                 <rect key="frame" x="102" y="80" width="117" height="74"/>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWZ-sx-eIc">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWZ-sx-eIc">
                                 <rect key="frame" x="91" y="470" width="143" height="34"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.57254901960000004" blue="0.24313725489999999" alpha="0.80386929900000004" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="快捷进入"/>

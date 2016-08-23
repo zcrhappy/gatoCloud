@@ -24,6 +24,11 @@
 @property (nonatomic, copy  ) NSString *zonephone;
 @property (nonatomic, copy  ) NSString *zoneLoc;
 
+- (NSString *)getIstateString;
+
+- (NSString *)getDateStrWithFormat:(NSString *)format;
+
+- (NSString *)getWarningTypeStr;
 @end
 
 

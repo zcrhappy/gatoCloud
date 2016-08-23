@@ -196,7 +196,7 @@
                   moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTHttpManager.m"
-                  timestampString = "493611162.996541"
+                  timestampString = "493624356.245502"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "722"
@@ -211,7 +211,7 @@
                   moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTHttpManager.m"
-                  timestampString = "493611162.996649"
+                  timestampString = "493624356.245596"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "724"
@@ -234,22 +234,6 @@
             startingLineNumber = "139"
             endingLineNumber = "139"
             landmarkName = "-canEdit"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "gatoCloud/Login/GTWXLoginManager.m"
-            timestampString = "493610194.133909"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "-onResp:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

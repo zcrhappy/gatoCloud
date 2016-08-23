@@ -100,9 +100,14 @@ NSString *kStateString = @"1q2w3e4r5t6y7u8i9o0p";
     [manager GET:GetAccessTokenBaseURL parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject) {
             NSDictionary *resDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            authToken = [resDic objectForKey:@"access_token"];
-            authOpenID = [resDic objectForKey:@"openid"];
-            [self getUserInfo];
+            if([resDic objectForKey:@"errcode"]) {
+                [MBProgressHUD showText:@"获取调用凭证失败" inView:[UIView gt_keyWindow]];
+            }
+            else {
+                authToken = [resDic objectForKey:@"access_token"];
+                authOpenID = [resDic objectForKey:@"openid"];
+                [self getUserInfo];
+            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD showText:@"授权失败" inView:[UIView gt_keyWindow]];
@@ -120,9 +125,14 @@ NSString *kStateString = @"1q2w3e4r5t6y7u8i9o0p";
     
     [manager GET:GetUserInfoBaseURL parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *resDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        [GTUserUtils saveUserInfoViaWX:resDic];
-        [MBProgressHUD hideHUDForView:[UIView gt_keyWindow] animated:YES];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kDidLoginSuccessNotification object:nil];
+        if([resDic objectForKey:@"errcode"]) {
+            [MBProgressHUD showText:@"获取用户信息失败" inView:[UIView gt_keyWindow]];
+        }
+        else {
+            [GTUserUtils saveUserInfoViaWX:resDic];
+            [MBProgressHUD showText:@"登录成功" inView:[UIView gt_keyWindow]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDidLoginSuccessNotification object:nil];
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD showText:@"授权失败" inView:[UIView gt_keyWindow]];
     }];

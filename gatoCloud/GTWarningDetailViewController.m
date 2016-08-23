@@ -13,7 +13,7 @@
 #import "GTWarningDetailCommentCell.h"
 #import "GTWarningDetailDoneCell.h"
 #import "GTShareActionSheet.h"
-
+#import "GTShareManager.h"
 #define GTWarningDetailCommonCellIdentifier @"GTWarningDetailCommonCellIdentifier"
 #define GTWarningDetailStateCellIdentifier @"GTWarningDetailStateCellIdentifier"
 #define GTWarningDetailCommentCellIdentifier @"GTWarningDetailCommentCellIdentifier"
@@ -177,6 +177,18 @@ NSString *done = @"确定";
 - (IBAction)clickShare:(id)sender
 {
     GTShareActionSheet *actionSheet = [[GTShareActionSheet alloc] initWithShareDestination:nil parentViewController:self];
+    __weak __typeof(self)weakSelf = self;
+    [actionSheet setShareToWXFriend:^{
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        
+        NSString *firstLine = [NSString stringWithFormat:@"%@报警",strongSelf.model.zonename];
+        NSString *secondLine = [NSString stringWithFormat:@"\n类型:%@ 状态:%@",[strongSelf.model getWarningTypeStr], [strongSelf.model getIstateString]];
+        NSString *thirdLine = [NSString stringWithFormat:@"\n报警时间:%@",[strongSelf.model getDateStrWithFormat:@"yyyy-MM-dd HH:mm"]];
+        NSString *content = [[firstLine stringByAppendingString:secondLine] stringByAppendingString:thirdLine];
+        
+        [GTShareManager ShareToWXFrindWithText:content];
+    }];
+    
     [actionSheet show];
 }
 

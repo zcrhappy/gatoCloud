@@ -80,6 +80,7 @@ NSString *kPushStatus = @"kPushStatus";
 {
     if(dic) {
         GTUserModel *userModel = [MTLJSONAdapter modelOfClass:[GTUserModel class] fromJSONDictionary:dic error:nil];
+        [GTUserUtils sharedInstance].userModel = userModel;
         [[TMCache sharedCache] setObject:userModel forKey:kUserInfoKey];
         [GTUserUtils loginSuccess];
     }

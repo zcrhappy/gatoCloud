@@ -52,6 +52,7 @@
 		332BA24E1D3F502600B0C635 /* GTWarningRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA24D1D3F502600B0C635 /* GTWarningRecordsViewController.m */; };
 		332BA2511D3FADB500B0C635 /* GTWarningRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA2501D3FADB500B0C635 /* GTWarningRecordCell.m */; };
 		332BA2541D3FAF1200B0C635 /* GTWarningRecordDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 332BA2531D3FAF1200B0C635 /* GTWarningRecordDataManager.m */; };
+		333725951D6C24560094621E /* GTShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 333725941D6C24560094621E /* GTShareManager.m */; };
 		334FBDF61D695C1C0076346E /* GTAddDeviceNoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 334FBDF51D695C1C0076346E /* GTAddDeviceNoCell.m */; };
 		3352A60E1D39CEEB00EED5C0 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A6091D39CEEB00EED5C0 /* PCCircle.m */; };
 		3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3352A60B1D39CEEB00EED5C0 /* PCCircleView.m */; };
@@ -190,6 +191,8 @@
 		332BA2501D3FADB500B0C635 /* GTWarningRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningRecordCell.m; sourceTree = "<group>"; };
 		332BA2521D3FAF1200B0C635 /* GTWarningRecordDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWarningRecordDataManager.h; sourceTree = "<group>"; };
 		332BA2531D3FAF1200B0C635 /* GTWarningRecordDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWarningRecordDataManager.m; sourceTree = "<group>"; };
+		333725931D6C24560094621E /* GTShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTShareManager.h; sourceTree = "<group>"; };
+		333725941D6C24560094621E /* GTShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTShareManager.m; sourceTree = "<group>"; };
 		334FBDF41D695C1C0076346E /* GTAddDeviceNoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTAddDeviceNoCell.h; sourceTree = "<group>"; };
 		334FBDF51D695C1C0076346E /* GTAddDeviceNoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTAddDeviceNoCell.m; sourceTree = "<group>"; };
 		3352A6081D39CEEB00EED5C0 /* PCCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircle.h; sourceTree = "<group>"; };
@@ -515,6 +518,8 @@
 				33B0FF7A1D66E7AE00F9429A /* GTBottomSelectionView.h */,
 				33B0FF7B1D66E7AE00F9429A /* GTBottomSelectionView.m */,
 				33B0FF7D1D66E7E800F9429A /* GTBottomSelectionView.xib */,
+				333725931D6C24560094621E /* GTShareManager.h */,
+				333725941D6C24560094621E /* GTShareManager.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -850,6 +855,7 @@
 				337663B51D45E1D0003AA73C /* GTShareActionSheet.m in Sources */,
 				3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */,
 				3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */,
+				333725951D6C24560094621E /* GTShareManager.m in Sources */,
 				3326A0371D3E6470000697DC /* GTFeedbackViewController.m in Sources */,
 				337663B81D46097A003AA73C /* GTDeviceManagerAuthorization.m in Sources */,
 				3313FED41D4F8CE8001B27C6 /* GTBaseNavigationController.m in Sources */,

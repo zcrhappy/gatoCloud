@@ -29,4 +29,39 @@
              };
 }
 
+- (NSString *)getIstateString;
+{
+    NSArray *arr = @[@"未处理",@"已处理",@"误报"];
+    
+    if(arr.count > self.ISTATE.integerValue)
+        return [arr objectAtIndex:self.ISTATE.integerValue];
+    else
+        return @"未知";
+}
+
+- (NSString *)getDateStrWithFormat:(NSString *)format;
+{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSDate *date = [fmt dateFromString:self.WARNDATE];
+    
+    NSDateFormatter *customFormat = [[NSDateFormatter alloc] init];
+    customFormat.dateFormat = @"yyyy-MM-dd HH:mm";
+    NSString *customDateStr = [customFormat stringFromDate:date];
+    return customDateStr;
+}
+
+- (NSString *)getWarningTypeStr
+{
+    NSDictionary *dic = @{@"dev":@"主机报警", @"net":@"通讯报警", @"fence":@"入侵报警"};
+    if(self.WARNTYPE == nil)
+        return @"报警类型";
+    
+    NSString *str = [dic objectForKey:self.WARNTYPE];
+    if(str == nil)
+        return @"报警类型";
+    else
+        return str;
+}
+
 @end

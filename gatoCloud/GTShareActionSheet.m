@@ -228,6 +228,8 @@ static NSString* const Share_Message     = @"短信";
     UIButton* btn = (UIButton*)obj;
     NSString* btnTitle = [btn titleForState:UIControlStateNormal];
     if ([btnTitle isEqualToString:Share_Wechat]) { //分享到微信好友
+        if(self.shareToWXFriend)
+            self.shareToWXFriend();
 //        NSMutableDictionary *shareDic = [QYPPCircleFeedMTLModel makeShareDictionaryWithFeedModel:feedModel];
 //        [QIYIPaopaoShareActionSheet shareToPaopaoWithDict:shareDic ViewController:parentVc];
         [self hideView];
