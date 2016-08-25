@@ -11,5 +11,5 @@
 @interface NSString (GTCommon)
 
 - (CGFloat)getWidthWithFont:(UIFont *)font;
-
+- (CGFloat)getHeightWithFont:(UIFont *)font;
 @end

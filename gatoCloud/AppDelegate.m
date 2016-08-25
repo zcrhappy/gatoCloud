@@ -14,7 +14,7 @@
 #import "OHPathHelpers.h"
 #import "IQKeyboardManager.h"
 #import "MiPushSDK.h"
-#define enableStubHTTP
+//#define enableStubHTTP
 
 @interface AppDelegate ()<WXApiDelegate, MiPushSDKDelegate>
 

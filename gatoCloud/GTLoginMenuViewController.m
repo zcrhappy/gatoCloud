@@ -7,14 +7,15 @@
 //
 
 #import "GTLoginMenuViewController.h"
+#import "GTMainViewController.h"
 #import "GTWXLoginManager.h"
-#import "GTHttpManager.h"
 #import "GTGestureManager.h"
 @interface GTLoginMenuViewController()
 
 @property (weak, nonatomic) IBOutlet UIButton *phoneLoginButton;
 @property (weak, nonatomic) IBOutlet UIButton *weChatLoginButton;
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;
+@property (weak, nonatomic) IBOutlet UIButton *quickLogin;
 
 @end
 @implementation GTLoginMenuViewController
@@ -24,8 +25,6 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin) name:kDidLoginSuccessNotification object:nil];
-    
-
     
     [self configUI];
 }
@@ -46,6 +45,11 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickLogin)];
     [_loginLabel addGestureRecognizer:tap];
+    
+    _quickLogin.hidden = YES;
+#if DEBUG
+    _quickLogin.hidden = NO;
+#endif
 }
 
 - (void)clickLogin
@@ -67,7 +71,9 @@
         if(error == nil){
             NSLog(@"success");
             
-            [self performSegueWithIdentifier:@"EnterMainViewSegue" sender:self];
+            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UIViewController *mainViewController = [storyBoard instantiateViewControllerWithIdentifier:@"GTMainViewControllerIdentifier"];
+            [self presentViewController:mainViewController animated:YES completion:nil];
             
             if([GTGestureManager isFirstLoad])
                 [[GTGestureManager sharedInstance] showSettingGestureView];

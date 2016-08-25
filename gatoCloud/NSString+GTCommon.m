@@ -31,4 +31,25 @@
     return stringWidth;
 }
 
+- (CGFloat)getHeightWithFont:(UIFont *)font
+{
+    CGFloat stringHeight = 0;
+    CGSize size = CGSizeMake(MAXFLOAT, MAXFLOAT);
+    if (self.length > 0) {
+#if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+        stringHeight =[self
+                      boundingRectWithSize:size
+                      options:NSStringDrawingUsesLineFragmentOrigin
+                      attributes:@{NSFontAttributeName:font}
+                      context:nil].size.height;
+#else
+        
+        stringHeight = [self sizeWithFont:font
+                       constrainedToSize:size
+                           lineBreakMode:NSLineBreakByCharWrapping].height;
+#endif
+    }
+    return stringHeight;
+}
+
 @end

@@ -245,14 +245,14 @@ NSInteger const APIErrorCode = 138102;
 }
 
 - (void)GTDeviceAddWithDeviceNo:(NSString *)deviceNo
-                 deviceUserName:(NSString *)deviceUserName
+                 deviceUserType:(NSString *)userType
                       devicePwd:(NSString *)devicePwd
                     finishBlock:(GTResultBlock)finishBlk;
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     
     [dic safeSetObject:deviceNo forKey:@"deviceNo"];
-    [dic safeSetObject:deviceUserName forKey:@"deviceUserName"];
+    [dic safeSetObject:userType forKey:@"userType"];
     [dic safeSetObject:devicePwd forKey:@"devicePwd"];
     
     [self POST:@"/service/bindDevice.do" parameters:dic progress:^(NSProgress *downloadProgress) {
@@ -866,7 +866,7 @@ NSInteger const APIErrorCode = 138102;
     }
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [parameters safeSetObject:kReleaseVersion forKey:@"releaseVersion"];
+    [parameters safeSetObject:kAppVersion forKey:@"appVersion"];
     [parameters safeSetObject:kAppType forKey:@"appType"];
     [parameters safeSetObject:userId forKey:@"userId"];
     [parameters safeSetObject:token forKey:@"token"];
@@ -874,11 +874,9 @@ NSInteger const APIErrorCode = 138102;
     
     NSString *urlString = [_baseUrl stringByAppendingString:URLString];
     
-    
-    NSLog(@"发起POST请求：%@",urlString);
-    NSLog(@"参数：%@",parameters);
-    
     void(^successBlock)(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) = ^void(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
+        NSLog(@"发起POST请求：%@",urlString);
+        NSLog(@"参数：%@",parameters);
         NSLog(@"返回的数据内容为：%@",responseObject);
         if([responseObject isNeedLogin]){
             NSLog(@"需要重新登录");
@@ -891,6 +889,8 @@ NSInteger const APIErrorCode = 138102;
     };
     
     void (^failureBlock)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) = ^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"发起POST请求：%@",urlString);
+        NSLog(@"参数：%@",parameters);
         NSLog(@"出错了，返回的数据内容为：%@", error);
         failure(task, error);
     };

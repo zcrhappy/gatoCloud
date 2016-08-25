@@ -102,7 +102,7 @@
                         <color key="separatorColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="0.80386929900000004" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.96078431369999995" green="0.57254901960000004" blue="0.24313725489999999" alpha="0.80386929900000004" colorSpace="calibratedRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="PfR-cy-yta">
-                            <rect key="frame" x="0.0" y="230.5" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="285.5" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cg-Cc-S3O">
@@ -210,6 +210,41 @@
                                 <connections>
                                     <outlet property="icon" destination="fFu-JK-sUx" id="dY3-bX-lOt"/>
                                     <outlet property="textField" destination="5b0-OB-koT" id="XCJ-i7-84l"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GTAddDeviceUserTypeCellIdentifier" id="Dig-Yb-H1A" customClass="GTAddDeviceUserTypeCell">
+                                <rect key="frame" x="0.0" y="212.5" width="320" height="55"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dig-Yb-H1A" id="lEG-ZU-vfP">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户角色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="os6-57-4vQ">
+                                            <rect key="frame" x="15" y="17" width="68" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="4z2-KV-cL1"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Yf5-xl-k7F"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="点击选择该设备的用户角色" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bvE-fw-9kM">
+                                            <rect key="frame" x="88" y="17" width="208" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bvE-fw-9kM" firstAttribute="leading" secondItem="os6-57-4vQ" secondAttribute="trailing" constant="5" id="HJM-eC-LJ6"/>
+                                        <constraint firstItem="os6-57-4vQ" firstAttribute="centerY" secondItem="lEG-ZU-vfP" secondAttribute="centerY" id="YFG-lJ-u06"/>
+                                        <constraint firstItem="bvE-fw-9kM" firstAttribute="centerY" secondItem="lEG-ZU-vfP" secondAttribute="centerY" id="mLb-TX-2h0"/>
+                                        <constraint firstItem="os6-57-4vQ" firstAttribute="leading" secondItem="lEG-ZU-vfP" secondAttribute="leading" constant="15" id="nzF-2A-F8n"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="userTypeLabel" destination="bvE-fw-9kM" id="5Tf-gk-BYD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -988,6 +1023,7 @@
                     <connections>
                         <outlet property="loginLabel" destination="d4e-cv-wtc" id="B6e-p7-80C"/>
                         <outlet property="phoneLoginButton" destination="JhY-Ij-yVa" id="sJX-at-5o1"/>
+                        <outlet property="quickLogin" destination="IWZ-sx-eIc" id="jTy-pb-U7i"/>
                         <outlet property="weChatLoginButton" destination="8Zw-lV-Hpo" id="y1T-a9-HvB"/>
                         <segue destination="AvF-08-fHn" kind="modal" identifier="EnterMainViewSegue" id="AwR-qC-aX1"/>
                         <segue destination="kOH-we-ArX" kind="modal" identifier="EnterLoginSegue" id="X95-P5-Hwr"/>
@@ -1672,7 +1708,7 @@
         <!--Main View Controller-->
         <scene sceneID="hF8-RE-l2n">
             <objects>
-                <viewController id="AvF-08-fHn" customClass="GTMainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GTMainViewControllerIdentifier" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AvF-08-fHn" customClass="GTMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JRd-yz-tzs"/>
                         <viewControllerLayoutGuide type="bottom" id="Kmy-29-u5F"/>

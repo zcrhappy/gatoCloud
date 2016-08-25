@@ -91,12 +91,12 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
  *  @brief 添加设备
  *
  *  @param deviceNo       设备标号
- *  @param deviceUserName 用户名
+ *  @param deviceUserType 用户类型0管理员  1操作员
  *  @param devicePwd      用户密码
  *  @param finishBlk      返回结果
  */
 - (void)GTDeviceAddWithDeviceNo:(NSString *)deviceNo
-                 deviceUserName:(NSString *)deviceUserName
+                 deviceUserType:(NSString *)userType
                       devicePwd:(NSString *)devicePwd
                     finishBlock:(GTResultBlock)finishBlk;
 /*!

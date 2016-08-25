@@ -12,7 +12,7 @@
 
 @property (nonatomic, copy) NSString *appversion;
 @property (nonatomic, strong) NSArray *banners;
-@property (nonatomic, strong) NSNumber *bverison;
+@property (nonatomic, copy) NSString *bverison;
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *url;
