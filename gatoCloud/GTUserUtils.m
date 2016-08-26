@@ -93,6 +93,7 @@ NSString *kPushStatus = @"kPushStatus";
 {
     if(token) {
         [GTUserUtils sharedInstance].userModel.token = token;
+        [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
     }
 }
 
@@ -100,6 +101,7 @@ NSString *kPushStatus = @"kPushStatus";
 {
     if(userId) {
         [GTUserUtils sharedInstance].userModel.userId = userId;
+        [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
     }
 }
 

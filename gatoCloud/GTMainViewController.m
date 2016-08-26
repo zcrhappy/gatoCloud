@@ -18,6 +18,7 @@
 #import "UIViewController+GTAlertController.h"
 //test
 #import "GTRoutesListViewController.h"
+#import <Crashlytics/Crashlytics.h>
 @interface GTMainViewController()
 
 @property (weak, nonatomic) IBOutlet SDCycleScrollView *carouselView;
@@ -143,8 +144,8 @@
 
 - (void)clickHeadImg
 {
-//    [self performSegueWithIdentifier:@"modalToMeSegue" sender:self];
-    [self fetchPwdList];
+//    [[Crashlytics sharedInstance] crash];
+    [self performSegueWithIdentifier:@"modalToMeSegue" sender:self];
 }
 
 - (IBAction)reCheckVersion:(id)sender {

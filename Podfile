@@ -15,3 +15,5 @@ target “gatoCloud”
     pod 'CustomIOSAlertView'
     pod 'SDCycleScrollView'
     pod 'LCActionSheet'
+    pod 'Fabric'
+    pod 'Crashlytics'

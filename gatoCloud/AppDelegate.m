@@ -14,6 +14,8 @@
 #import "OHPathHelpers.h"
 #import "IQKeyboardManager.h"
 #import "MiPushSDK.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 //#define enableStubHTTP
 
 @interface AppDelegate ()<WXApiDelegate, MiPushSDKDelegate>
@@ -25,6 +27,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //开启日志收集
+    [Fabric with:@[[Crashlytics class]]];
     
     //向微信注册
     [WXApi registerApp:@"wx91186ee878bacc62" withDescription:@"Gato Security"];

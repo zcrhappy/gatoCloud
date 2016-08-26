@@ -14,7 +14,10 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Crashlytics (3.7.1):
+    - Fabric (~> 1.6.3)
   - CustomIOSAlertView (0.9.3)
+  - Fabric (1.6.7)
   - FLEX (2.1.1)
   - IQKeyboardManager (3.3.7)
   - LCActionSheet (1.2.3)
@@ -47,7 +50,9 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Crashlytics
   - CustomIOSAlertView
+  - Fabric
   - FLEX (~> 2.0)
   - IQKeyboardManager
   - LCActionSheet
@@ -63,7 +68,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Crashlytics: 3cdd4c9655be68032a0cf0379e0fb5ef6af22cad
   CustomIOSAlertView: 94d2401e34fcfb0ac0134679d6947f5e251b0446
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   FLEX: 27b768fcae23a313a1eb115076d429180ca9b472
   IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
   LCActionSheet: 690882cd8b9a6713f1b2881c3bb2c7f11954d034
@@ -77,6 +84,6 @@ SPEC CHECKSUMS:
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
 
-PODFILE CHECKSUM: 303155bb32149a905f0d5b0a6fa019bddfa1b3f4
+PODFILE CHECKSUM: 9896e6c8cd9a7eaa97597d2ff443e1372d0d53cf
 
 COCOAPODS: 1.0.1

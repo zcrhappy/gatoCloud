@@ -148,12 +148,12 @@
                   moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTHttpManager.m"
-                  timestampString = "493889504.799576"
+                  timestampString = "493898696.985885"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "747"
                   endingLineNumber = "747"
-                  offsetFromSymbolStart = "389">
+                  offsetFromSymbolStart = "448">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -163,12 +163,12 @@
                   moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTHttpManager.m"
-                  timestampString = "493889504.799674"
+                  timestampString = "493898696.985977"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "749"
                   endingLineNumber = "749"
-                  offsetFromSymbolStart = "52">
+                  offsetFromSymbolStart = "56">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -234,6 +234,38 @@
             startingLineNumber = "328"
             endingLineNumber = "328"
             landmarkName = "-modelFromJSONDictionary:error:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gatoCloud/GTHttpManager.m"
+            timestampString = "493898482.459815"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "887"
+            endingLineNumber = "887"
+            landmarkName = "-POST:parameters:formData:progress:success:failure:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gatoCloud/GTHttpManager.m"
+            timestampString = "493898483.950927"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "890"
+            endingLineNumber = "890"
+            landmarkName = "-POST:parameters:formData:progress:success:failure:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
