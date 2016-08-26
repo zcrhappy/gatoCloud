@@ -42,12 +42,12 @@
     
     [self configTableView];
     
-#ifdef kGlobalTest
+//#ifdef kGlobalTest
     _testDic = @{
                  @"deviceId":@"200753a88f5e1240",
                  @"userPwd" :@"111111"
                  };
-#endif
+//#endif
 }
 
 - (void)configTableView
@@ -74,8 +74,8 @@
 
     NSString *rowName = _rowsArray[index];
     
-//    _userPwd = _testDic[@"userPwd"];
-//    _deviceId = _testDic[@"deviceId"];
+    _userPwd = _testDic[@"userPwd"];
+    _deviceId = _testDic[@"deviceId"];
     
     if([rowName isEqualToString:kDeviceRow]) {
         cell = (GTAddDeviceNoCell *)[tableView dequeueReusableCellWithIdentifier:@"GTAddDeviceNoCellIdentifier" forIndexPath:indexPath];

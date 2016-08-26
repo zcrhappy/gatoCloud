@@ -119,6 +119,7 @@
         newModel.zoneType = oldModel.ZONETYPE;
         newModel.zoneVmp = oldModel.ZONEVMP;
         newModel.zoneStrain = oldModel.ZONESTRAIN;
+        newModel.userType = oldModel.useType.stringValue;
         
         [newArr addObject:newModel];
     }

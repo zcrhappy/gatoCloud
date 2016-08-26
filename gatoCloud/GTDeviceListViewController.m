@@ -300,6 +300,7 @@
     [[GTHttpManager shareManager] GTDeviceDeleteWithDeviceNo:model.deviceNo finishBlock:^(id response, NSError *error) {
         if(error == nil) {
             [MBProgressHUD showText:@"删除设备成功" inView:[UIView gt_keyWindow]];
+            [_deviceArray removeObject:model];
             [_deviceTable reloadData];
         }
     }];
