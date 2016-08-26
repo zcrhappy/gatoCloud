@@ -45,7 +45,7 @@ NSString *done = @"确定";
     
     _detailTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    _rowArray = [NSArray arrayWithObjects:warnType, zoneName, contact, telephone, zoneLoc, warnState, comment, done, nil];
+    _rowArray = [NSArray arrayWithObjects:warnType, zoneName, contact, telephone, zoneLoc, comment, warnState,nil];
     
 }
 
@@ -100,6 +100,7 @@ NSString *done = @"确定";
         [cell setClickBtnBlock:^(NSNumber *state) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             strongSelf.istate = state;
+            [strongSelf clickDone];
         }];
         return cell;
     }
