@@ -12,12 +12,17 @@
 #import "GTEditDeviceViewController.h"
 #import "GTRoutesListViewController.h"
 #import "GTNoDeviceView.h"
+#import "UIViewController+GTAlertController.h"
+#import "GTCheckPwdModel.h"
+
 #define kDeviceListCellIdentifier @"kDeviceListCellIdentifier"
 @interface GTDeviceListViewController()<UITableViewDelegate, UITableViewDataSource, GRDeviceCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *deviceTable;
 @property (nonatomic, strong) UIView *noDeviceView;
 @property (nonatomic, strong) NSMutableArray *deviceArray;
+
+@property (nonatomic, strong) NSMutableArray <GTCheckPwdModel *> *checkPwdList;
 
 @end
 
@@ -70,7 +75,53 @@
         
         [strongSelf.deviceTable reloadData];
     }];
+    
+    [self fetchPwdList];
 }
+
+- (void)fetchPwdList
+{
+    [[GTHttpManager shareManager] GTDeviceQueryCheckPwdDeviceWithFinishBlock:^(id response, NSError *error) {
+        if(error == nil) {
+            NSArray *array = [MTLJSONAdapter modelsOfClass:GTCheckPwdModel.class fromJSONArray:[response objectForKey:@"list"] error:nil];
+            _checkPwdList = [NSMutableArray arrayWithArray:array];
+        }
+    }];
+}
+
+- (BOOL)shouldShowPwdCheckWithDeviceModel:(GTDeviceModel *)model
+{
+    __block BOOL shouldShow = NO;
+    //sync
+    [_checkPwdList enumerateObjectsUsingBlock:^(GTCheckPwdModel * _Nonnull pwdModel, NSUInteger idx, BOOL * _Nonnull stop) {
+        if([model.deviceNo isEqualToString:pwdModel.deviceNo]) {
+            [self showCheckPwdWithPwdModel:pwdModel];
+            shouldShow = YES;
+            *stop = YES;
+        }
+    }];
+    
+    return shouldShow;
+}
+
+- (void)showCheckPwdWithPwdModel:(GTCheckPwdModel *)pwdModel
+{
+    __weak __typeof(self)weakSelf = self;
+    [self gt_showTypingControllerWithTitle:@"验证设备密码" placeholder:[NSString stringWithFormat:@"请输入%@的密码",pwdModel.deviceName] finishBlock:^(NSString *content) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf addDeviceWithModel:pwdModel newPwd:content finishBlock:^(id response, NSError *error) {
+            [weakSelf.checkPwdList removeObject:pwdModel];
+        }];
+    }];
+
+}
+
+- (void)addDeviceWithModel:(GTCheckPwdModel *)model newPwd:(NSString *)newPwd finishBlock:(GTResultBlock)finishBlock
+{
+    [[GTHttpManager shareManager] GTDeviceAddWithDeviceNo:model.deviceNo deviceUserType:model.userType.stringValue devicePwd:newPwd finishBlock:finishBlock];
+}
+
+
 
 #pragma mark - TableView Delegate
 
@@ -100,10 +151,16 @@
 {
     GTDeviceListCell *cell = (GTDeviceListCell *)[tableView cellForRowAtIndexPath:indexPath];
     GTDeviceModel *model = [self modelAtIndexPath:indexPath];
-    model.expanded = !model.expanded;
-    [cell setupWithModel:model];
-   
-    [_deviceTable reloadData];
+    
+    if([self shouldShowPwdCheckWithDeviceModel:model]) {
+        
+    }
+    else {
+        model.expanded = !model.expanded;
+        [cell setupWithModel:model];
+        
+        [_deviceTable reloadData];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -149,8 +206,8 @@
 
     if(index.integerValue == 0)
     { //一键布防
-        [self checkPwdWithFinishBlk:^(NSString *pwd) {
-            [[GTHttpManager shareManager] GTOneKeyDealingGuardWithDeviceNo:model.deviceNo istate:@2 pwd:pwd finishBlock:^(id response, NSError *error) {
+        [self gt_showTypingControllerWithTitle:@"验证密码" placeholder:@"请输入设备密码" finishBlock:^(NSString *content) {
+            [[GTHttpManager shareManager] GTOneKeyDealingGuardWithDeviceNo:model.deviceNo istate:@2 pwd:content finishBlock:^(id response, NSError *error) {
                 if(!error) {
                     [MBProgressHUD showText:@"布防成功" inView:self.view];
                 }
@@ -159,8 +216,8 @@
     }
     else if(index.integerValue == 1)
     { //一键撤防
-        [self checkPwdWithFinishBlk:^(NSString *pwd) {
-            [[GTHttpManager shareManager] GTOneKeyDealingGuardWithDeviceNo:model.deviceNo istate:@1 pwd:pwd finishBlock:^(id response, NSError *error) {
+        [self gt_showTypingControllerWithTitle:@"验证密码" placeholder:@"请输入设备密码" finishBlock:^(NSString *content) {
+            [[GTHttpManager shareManager] GTOneKeyDealingGuardWithDeviceNo:model.deviceNo istate:@1 pwd:content finishBlock:^(id response, NSError *error) {
                 if(!error) {
                     [MBProgressHUD showText:@"撤防成功" inView:self.view];
                 }

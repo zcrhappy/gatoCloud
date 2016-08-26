@@ -218,6 +218,31 @@ NSInteger const APIErrorCode = 138102;
 }
 #pragma mark - Device
 
+/*!
+ *  @brief 获取需要验证密码的设备列表.在两处地方调用,进首页和在设备列表里面点击设备时候。
+ *
+ *  @param finishBlk
+ */
+- (void)GTDeviceQueryCheckPwdDeviceWithFinishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [self POST:@"/queryCheckPwdDevices.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
+
 - (void)GTDeviceFetchListWithFinishBlock:(GTResultBlock)finishBlk;
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];

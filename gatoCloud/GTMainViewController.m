@@ -9,11 +9,13 @@
 #import "GTMainViewController.h"
 #import "SDCycleScrollView.h"
 #import "GTStartModel.h"
+#import "GTCheckPwdModel.h"
 #import "GTMainViewInfoModel.h"
 #import "GTShareActionSheet.h"
 #import "GTRoutesListViewController.h"
 #import "GTBaseNavigationController.h"
 #import "GTWarningRecordsViewController.h"
+#import "UIViewController+GTAlertController.h"
 //test
 #import "GTRoutesListViewController.h"
 @interface GTMainViewController()
@@ -25,6 +27,7 @@
 //dataSource
 @property (nonatomic, strong) GTStartModel *startModel;
 @property (nonatomic, strong) GTMainViewInfoModel *infoModel;
+@property (nonatomic, strong) NSMutableArray <GTCheckPwdModel *>*checkPwdList;
 @end
 
 @implementation GTMainViewController
@@ -38,6 +41,7 @@
     [self configUI];
     [self checkVersion];
     [self fetchMainViewInfo];
+    [self fetchPwdList];
 }
 
 - (void)dealloc
@@ -73,6 +77,38 @@
     }];
 }
 
+- (void)fetchPwdList
+{
+    [[GTHttpManager shareManager] GTDeviceQueryCheckPwdDeviceWithFinishBlock:^(id response, NSError *error) {
+        if(error == nil) {
+            NSArray *array = [MTLJSONAdapter modelsOfClass:GTCheckPwdModel.class fromJSONArray:[response objectForKey:@"list"] error:nil];
+            _checkPwdList = [NSMutableArray arrayWithArray:array];
+            [self showCheckPwd];
+        }
+    }];
+}
+
+- (void)showCheckPwd
+{
+    if(_checkPwdList.count > 0) {
+        GTCheckPwdModel *model = [self.checkPwdList firstObject];
+        __weak __typeof(self)weakSelf = self;
+        [self gt_showTypingControllerWithTitle:@"验证设备密码" placeholder:[NSString stringWithFormat:@"请输入%@的密码",model.deviceName] finishBlock:^(NSString *content) {
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            [strongSelf addDeviceWithModel:model newPwd:content finishBlock:^(id response, NSError *error) {
+                [weakSelf.checkPwdList removeObjectAtIndex:0];
+                [weakSelf showCheckPwd];
+            }];
+        }];
+    }
+}
+
+- (void)addDeviceWithModel:(GTCheckPwdModel *)model newPwd:(NSString *)newPwd finishBlock:(GTResultBlock)finishBlock
+{
+    [[GTHttpManager shareManager] GTDeviceAddWithDeviceNo:model.deviceNo deviceUserType:model.userType.stringValue devicePwd:newPwd finishBlock:finishBlock];
+}
+
+
 - (void)fetchMainViewInfo
 {
     [[GTHttpManager shareManager] GTQueryMainViewInfoWithFinishBlock:^(id response, NSError *error) {
@@ -107,7 +143,8 @@
 
 - (void)clickHeadImg
 {
-    [self performSegueWithIdentifier:@"modalToMeSegue" sender:self];
+//    [self performSegueWithIdentifier:@"modalToMeSegue" sender:self];
+    [self fetchPwdList];
 }
 
 - (IBAction)reCheckVersion:(id)sender {

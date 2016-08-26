@@ -86,6 +86,15 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
 - (void)GTQueryMainViewInfoWithFinishBlock:(GTResultBlock)finishBlk;
 
 #pragma mark - Device
+
+/*!
+ *  @brief 获取需要验证密码的设备列表.在两处地方调用,进首页和在设备列表里面点击设备时候。
+ *
+ *  @param finishBlk
+ */
+- (void)GTDeviceQueryCheckPwdDeviceWithFinishBlock:(GTResultBlock)finishBlk;
+
+
 - (void)GTDeviceFetchListWithFinishBlock:(GTResultBlock)finishBlk;
 /*!
  *  @brief 添加设备
