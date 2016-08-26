@@ -111,6 +111,7 @@
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         [strongSelf addDeviceWithModel:pwdModel newPwd:content finishBlock:^(id response, NSError *error) {
             [weakSelf.checkPwdList removeObject:pwdModel];
+            [MBProgressHUD showText:@"验证密码成功" inView:[UIView gt_keyWindow]];
         }];
     }];
 

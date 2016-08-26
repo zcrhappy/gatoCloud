@@ -136,7 +136,6 @@
 
 - (BOOL)canEdit;//管理员才可编辑
 {
-    NSLog(@"%@",self.userType);
     if([self.userType isEqualToString:@"0"])
         return YES;
     else
