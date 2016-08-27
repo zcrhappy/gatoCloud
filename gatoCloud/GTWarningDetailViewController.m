@@ -106,6 +106,7 @@ NSString *done = @"确定";
     }
     else if([rowName isEqualToString:comment]) {
         GTWarningDetailCommentCell *cell = (GTWarningDetailCommentCell *)[tableView dequeueReusableCellWithIdentifier:GTWarningDetailCommentCellIdentifier forIndexPath:indexPath];
+        [cell setupWithMemo:_model.memo];
         __weak __typeof(self)weakSelf = self;
         [cell setMemoDidChangeBlock:^(NSString *text) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;

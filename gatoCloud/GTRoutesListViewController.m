@@ -406,7 +406,7 @@
                 if(!error) {
                     [MBProgressHUD showText:@"批量布防成功" inView:strongSelf.view];
                 }
-                [strongSelf hideButtonSelection];
+                [strongSelf clickCancelSelection:nil];
                 [strongSelf.routesTable reloadData];
             }];
         }];
@@ -422,7 +422,7 @@
                 if(!error) {
                     [MBProgressHUD showText:@"批量撤防成功" inView:strongSelf.view];
                 }
-                [strongSelf hideButtonSelection];
+                [strongSelf clickCancelSelection:nil];
                 [strongSelf.routesTable reloadData];
             }];
         }];

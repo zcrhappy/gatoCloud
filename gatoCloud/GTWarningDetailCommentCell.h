@@ -12,4 +12,6 @@
 
 @property (nonatomic, copy) void (^memoDidChangeBlock)(NSString *text);
 
+- (void)setupWithMemo:(NSString *)memo;
+
 @end

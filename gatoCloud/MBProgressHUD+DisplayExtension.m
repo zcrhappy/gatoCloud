@@ -28,7 +28,8 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     
     hud.mode = MBProgressHUDModeText;
-    hud.labelText = text;
+    hud.detailsLabelText = text;
+    hud.detailsLabelFont = [UIFont systemFontOfSize:16];
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
     hud.userInteractionEnabled = NO;

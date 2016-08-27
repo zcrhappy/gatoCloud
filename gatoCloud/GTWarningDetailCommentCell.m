@@ -37,4 +37,12 @@
         self.memoDidChangeBlock(_textView.text);
 }
 
+- (void)setupWithMemo:(NSString *)memo;
+{
+    if(memo != nil && ![memo isEmptyString]) {
+        _textView.text = memo;
+        _placeholderTextView.hidden = YES;
+    }
+}
+
 @end
