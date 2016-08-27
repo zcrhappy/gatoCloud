@@ -22,6 +22,7 @@
 #import "UIView+DisplayExtention.h"
 #import "UIImage+DisplayExtension.h"
 #import "UIColor+DisplayExtension.h"
+#import "UIViewController+GTExtionsion.h"
 
 //custom
 #import "GTMacroFunctionHeader.h"

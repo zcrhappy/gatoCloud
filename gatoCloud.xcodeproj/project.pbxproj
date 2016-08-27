@@ -99,6 +99,7 @@
 		33C620A61D2FE7E60022A9F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C620A41D2FE7E60022A9F0 /* LaunchScreen.storyboard */; };
 		33C620B01D30096E0022A9F0 /* GTAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620AF1D30096E0022A9F0 /* GTAddDeviceViewController.m */; };
 		33C620B31D300D750022A9F0 /* GTAddDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C620B21D300D750022A9F0 /* GTAddDeviceCell.m */; };
+		33DF4D881D71AC9900707324 /* UIViewController+GTExtionsion.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4D871D71AC9900707324 /* UIViewController+GTExtionsion.m */; };
 		33FEDBB41D562371009A3D06 /* GTZoneEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */; };
 		33FEDBCD1D58B775009A3D06 /* GTEditOneRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */; };
 		33FEDBD01D58BF27009A3D06 /* GTEditOneRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBCF1D58BF27009A3D06 /* GTEditOneRowCell.m */; };
@@ -287,6 +288,8 @@
 		33C620B41D300EBE0022A9F0 /* GTGlobalPrefixHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTGlobalPrefixHeader.h; sourceTree = "<group>"; };
 		33C620B51D30FD9D0022A9F0 /* GTMacroFunctionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMacroFunctionHeader.h; sourceTree = "<group>"; };
 		33C620B61D3107120022A9F0 /* GTMacroConstantHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMacroConstantHeader.h; sourceTree = "<group>"; };
+		33DF4D861D71AC9900707324 /* UIViewController+GTExtionsion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GTExtionsion.h"; sourceTree = "<group>"; };
+		33DF4D871D71AC9900707324 /* UIViewController+GTExtionsion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GTExtionsion.m"; sourceTree = "<group>"; };
 		33FEDBB21D562371009A3D06 /* GTZoneEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneEditViewController.h; sourceTree = "<group>"; };
 		33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneEditViewController.m; sourceTree = "<group>"; };
 		33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTEditOneRowCell.xib; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 				33B578AF1D5F02AC00A1401B /* NSString+GTCommon.m */,
 				3382FABD1D6FDF9C003E4EE0 /* UIViewController+GTAlertController.h */,
 				3382FABE1D6FDF9C003E4EE0 /* UIViewController+GTAlertController.m */,
+				33DF4D861D71AC9900707324 /* UIViewController+GTExtionsion.h */,
+				33DF4D871D71AC9900707324 /* UIViewController+GTExtionsion.m */,
 			);
 			name = Catagory;
 			sourceTree = "<group>";
@@ -887,6 +892,7 @@
 				33651FD51D53302900F5CA9F /* GTSearchActionSheet.m in Sources */,
 				3352A6221D39D96700EED5C0 /* CALayer+Anim.m in Sources */,
 				33FF6D3D1D437B83009C730E /* UIImage+DisplayExtension.m in Sources */,
+				33DF4D881D71AC9900707324 /* UIViewController+GTExtionsion.m in Sources */,
 				3321FA901D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.m in Sources */,
 				3321FAC31D39291C00D3850E /* GTPhoneRegisterViewController.m in Sources */,
 				332BA2541D3FAF1200B0C635 /* GTWarningRecordDataManager.m in Sources */,

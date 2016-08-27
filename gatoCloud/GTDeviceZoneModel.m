@@ -68,7 +68,7 @@
     return NO;
 #endif
     
-    if(self.zoneStyle.integerValue <= 3)
+    if(self.zoneStyle.integerValue <= 3 && self.zoneStyle.integerValue > 0)
         return YES;
     else
         return NO;
@@ -76,7 +76,7 @@
 
 - (NSString *)twentyFourHourZoneStateString
 {
-    if([self.zoneState isEqualToString:@"1"]) {
+    if([self.zoneState isEqualToString:@"4"]) {
         return @"布防";
     }
     else

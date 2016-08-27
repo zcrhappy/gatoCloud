@@ -195,8 +195,7 @@
 
 - (void)editActionWithIndexPath:(NSIndexPath *)indexPath {
     
-    [self performSegueWithIdentifier:@"PushToEidtDeviceSegue" sender:indexPath];
-
+    [self gt_pushViewControllerWithStoryBoardIdentifier:@"GTEditDeviceViewControllerID"];
 }
 
 #pragma mark - Cell Delega
