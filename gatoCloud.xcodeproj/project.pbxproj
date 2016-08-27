@@ -102,6 +102,8 @@
 		33DF4D881D71AC9900707324 /* UIViewController+GTExtionsion.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4D871D71AC9900707324 /* UIViewController+GTExtionsion.m */; };
 		33DF4D8A1D71B0E500707324 /* GTZoneStrainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DF4D891D71B0E500707324 /* GTZoneStrainView.xib */; };
 		33DF4D8D1D71B2A300707324 /* GTZoneStrainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4D8C1D71B2A300707324 /* GTZoneStrainView.m */; };
+		33DF4D8F1D71C6BF00707324 /* GTZoneInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DF4D8E1D71C6BF00707324 /* GTZoneInfoView.xib */; };
+		33DF4D921D71CA6E00707324 /* GTZoneInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4D911D71CA6E00707324 /* GTZoneInfoView.m */; };
 		33FEDBB41D562371009A3D06 /* GTZoneEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */; };
 		33FEDBCD1D58B775009A3D06 /* GTEditOneRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */; };
 		33FEDBD01D58BF27009A3D06 /* GTEditOneRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBCF1D58BF27009A3D06 /* GTEditOneRowCell.m */; };
@@ -295,6 +297,9 @@
 		33DF4D891D71B0E500707324 /* GTZoneStrainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTZoneStrainView.xib; sourceTree = "<group>"; };
 		33DF4D8B1D71B2A300707324 /* GTZoneStrainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneStrainView.h; sourceTree = "<group>"; };
 		33DF4D8C1D71B2A300707324 /* GTZoneStrainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneStrainView.m; sourceTree = "<group>"; };
+		33DF4D8E1D71C6BF00707324 /* GTZoneInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTZoneInfoView.xib; sourceTree = "<group>"; };
+		33DF4D901D71CA6E00707324 /* GTZoneInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneInfoView.h; sourceTree = "<group>"; };
+		33DF4D911D71CA6E00707324 /* GTZoneInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneInfoView.m; sourceTree = "<group>"; };
 		33FEDBB21D562371009A3D06 /* GTZoneEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneEditViewController.h; sourceTree = "<group>"; };
 		33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneEditViewController.m; sourceTree = "<group>"; };
 		33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTEditOneRowCell.xib; sourceTree = "<group>"; };
@@ -493,8 +498,6 @@
 				337663C81D49F04C003AA73C /* GTRoutesListViewController.m */,
 				33FEDBB21D562371009A3D06 /* GTZoneEditViewController.h */,
 				33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */,
-				337663CA1D49FC88003AA73C /* GTDeviceZoneCell.h */,
-				337663CB1D49FC88003AA73C /* GTDeviceZoneCell.m */,
 			);
 			name = Routes;
 			sourceTree = "<group>";
@@ -669,9 +672,14 @@
 				33FEDBD11D58C1BF009A3D06 /* GTEditTwoRowCell.h */,
 				33FEDBD21D58C1BF009A3D06 /* GTEditTwoRowCell.m */,
 				33FEDBD31D58C1BF009A3D06 /* GTEditTwoRowCell.xib */,
-				33DF4D891D71B0E500707324 /* GTZoneStrainView.xib */,
 				33DF4D8B1D71B2A300707324 /* GTZoneStrainView.h */,
 				33DF4D8C1D71B2A300707324 /* GTZoneStrainView.m */,
+				33DF4D891D71B0E500707324 /* GTZoneStrainView.xib */,
+				33DF4D901D71CA6E00707324 /* GTZoneInfoView.h */,
+				33DF4D911D71CA6E00707324 /* GTZoneInfoView.m */,
+				33DF4D8E1D71C6BF00707324 /* GTZoneInfoView.xib */,
+				337663CA1D49FC88003AA73C /* GTDeviceZoneCell.h */,
+				337663CB1D49FC88003AA73C /* GTDeviceZoneCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -817,6 +825,7 @@
 				335380931D44C75700041BD9 /* start.json in Resources */,
 				33B0FF7E1D66E7E800F9429A /* GTBottomSelectionView.xib in Resources */,
 				33C620A11D2FE7E60022A9F0 /* Main.storyboard in Resources */,
+				33DF4D8F1D71C6BF00707324 /* GTZoneInfoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,6 +974,7 @@
 				3352A61C1D39D8E100EED5C0 /* PCLockLabel.m in Sources */,
 				3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */,
 				3353808E1D44620C00041BD9 /* GTWarningDetailDoneCell.m in Sources */,
+				33DF4D921D71CA6E00707324 /* GTZoneInfoView.m in Sources */,
 				3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */,
 				334FBDF61D695C1C0076346E /* GTAddDeviceNoCell.m in Sources */,
 				33C620981D2FE7E60022A9F0 /* main.m in Sources */,

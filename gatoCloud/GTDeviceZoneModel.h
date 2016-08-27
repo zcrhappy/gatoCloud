@@ -52,6 +52,7 @@ typedef NS_ENUM(NSInteger, kZoneState)
 - (NSString *)zoneStateString;
 //24小时防区状态
 - (BOOL)isTwentyFourHourZone;
+- (BOOL)isStainZone;
 - (NSString *)twentyFourHourZoneStateString;
 - (BOOL)zoneOnlineBoolValue;
 - (BOOL)zoneStateForSwithButton;
@@ -59,5 +60,5 @@ typedef NS_ENUM(NSInteger, kZoneState)
 - (BOOL)canEdit;//管理员才可编辑
 
 + (NSArray <GTDeviceZoneModel *>*)transformFromArray:(NSArray <GTDeviceZoneModel2 *>*)array;
-
+- (NSArray <NSArray *>*)fetchStainArray;//补充第一行和第一列为空
 @end

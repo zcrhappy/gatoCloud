@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GTZoneInfoView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="Ukr-ER-385">
+                    <rect key="frame" x="10" y="10" width="580" height="231"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obH-Gi-iAG">
+                            <rect key="frame" x="505" y="0.0" width="75" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="ckh-CT-eMz"/>
+                                <constraint firstAttribute="width" constant="75" id="nhG-cz-K2q"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="10"/>
+                            <state key="normal" title="编辑">
+                                <color key="titleColor" red="0.1058823529" green="0.73725490199999999" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickEdit:" destination="iN0-l3-epB" eventType="touchUpInside" id="SFe-Hy-N5X"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="防区信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0W-m2-abz">
+                            <rect key="frame" x="8" y="10" width="68" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="bTZ-YN-Fvz"/>
+                                <constraint firstAttribute="width" constant="68" id="oGJ-i8-0U6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.1058823529" green="0.73725490199999999" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="273" placeholderIntrinsicHeight="41" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRf-HO-ZGV">
+                            <rect key="frame" x="8" y="70" width="273" height="41"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Iqx-FM-vjh"/>
+                            </constraints>
+                            <string key="text">紧急联系人：
+啊发发</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.52941176470588236" green="0.58039215686274503" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="273" placeholderIntrinsicHeight="41" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOj-AH-TaX">
+                            <rect key="frame" x="299" y="70" width="273" height="41"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Qr0-RS-pE5"/>
+                            </constraints>
+                            <string key="text">防区电话：
+199999999999</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.52941176469999995" green="0.58039215690000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="564" placeholderIntrinsicHeight="102" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZZ-zF-Sdw">
+                            <rect key="frame" x="8" y="119" width="564" height="102"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="CZP-Xb-1gt"/>
+                                <constraint firstAttribute="height" constant="41" id="S1h-Qv-Kcu"/>
+                            </constraints>
+                            <string key="text">防区地理位置信息：
+测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.52941176469999995" green="0.58039215690000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="S1h-Qv-Kcu"/>
+                                </mask>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="564" placeholderIntrinsicHeight="21" text="所属设备：测试啦啦啦啦啦" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10P-xC-klL">
+                            <rect key="frame" x="8" y="39" width="564" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="66g-5J-NgU"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.52941176470588236" green="0.58039215686274503" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="vOj-AH-TaX" firstAttribute="width" secondItem="zRf-HO-ZGV" secondAttribute="width" id="DmW-3i-cI5"/>
+                        <constraint firstItem="zRf-HO-ZGV" firstAttribute="top" secondItem="10P-xC-klL" secondAttribute="bottom" constant="10" id="Dp5-QD-Wlj"/>
+                        <constraint firstItem="10P-xC-klL" firstAttribute="top" secondItem="q0W-m2-abz" secondAttribute="bottom" constant="8" id="GCp-tq-ClE"/>
+                        <constraint firstItem="KZZ-zF-Sdw" firstAttribute="leading" secondItem="Ukr-ER-385" secondAttribute="leading" constant="8" id="GmQ-nj-LGt"/>
+                        <constraint firstItem="obH-Gi-iAG" firstAttribute="leading" secondItem="10P-xC-klL" secondAttribute="trailing" constant="8" id="IVK-I7-Q4b"/>
+                        <constraint firstItem="obH-Gi-iAG" firstAttribute="top" secondItem="Ukr-ER-385" secondAttribute="top" id="LJS-zt-ImN"/>
+                        <constraint firstAttribute="trailing" secondItem="vOj-AH-TaX" secondAttribute="trailing" constant="8" id="NuR-dW-vge"/>
+                        <constraint firstAttribute="bottom" secondItem="KZZ-zF-Sdw" secondAttribute="bottom" constant="10" id="OR2-tP-Aba"/>
+                        <constraint firstItem="q0W-m2-abz" firstAttribute="top" secondItem="Ukr-ER-385" secondAttribute="top" constant="10" id="OsK-UO-Xyq"/>
+                        <constraint firstAttribute="trailing" secondItem="10P-xC-klL" secondAttribute="trailing" constant="8" id="SGk-yc-guH"/>
+                        <constraint firstItem="zRf-HO-ZGV" firstAttribute="width" secondItem="Ukr-ER-385" secondAttribute="width" multiplier="0.47" id="aIP-lR-gSC"/>
+                        <constraint firstAttribute="bottom" secondItem="KZZ-zF-Sdw" secondAttribute="bottom" constant="10" id="eph-yh-FBS"/>
+                        <constraint firstAttribute="trailing" secondItem="KZZ-zF-Sdw" secondAttribute="trailing" constant="8" id="gGM-EI-xDx"/>
+                        <constraint firstItem="10P-xC-klL" firstAttribute="leading" secondItem="Ukr-ER-385" secondAttribute="leading" constant="8" id="gPY-Um-pfG"/>
+                        <constraint firstItem="vOj-AH-TaX" firstAttribute="top" secondItem="zRf-HO-ZGV" secondAttribute="top" id="jgI-ut-m4u"/>
+                        <constraint firstAttribute="trailing" secondItem="obH-Gi-iAG" secondAttribute="trailing" id="mna-er-J9a"/>
+                        <constraint firstItem="q0W-m2-abz" firstAttribute="leading" secondItem="Ukr-ER-385" secondAttribute="leading" constant="8" id="rJq-Af-Jf7"/>
+                        <constraint firstItem="KZZ-zF-Sdw" firstAttribute="top" secondItem="zRf-HO-ZGV" secondAttribute="bottom" constant="8" id="ut6-F5-e5H"/>
+                        <constraint firstItem="zRf-HO-ZGV" firstAttribute="leading" secondItem="Ukr-ER-385" secondAttribute="leading" constant="8" id="weX-ya-bqc"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="OR2-tP-Aba"/>
+                            <exclude reference="IVK-I7-Q4b"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Ukr-ER-385" secondAttribute="bottom" constant="10" id="DHP-TZ-RAH"/>
+                <constraint firstItem="Ukr-ER-385" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Knm-ac-UpF"/>
+                <constraint firstItem="Ukr-ER-385" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="tiv-Gj-NgV"/>
+                <constraint firstAttribute="trailing" secondItem="Ukr-ER-385" secondAttribute="trailing" constant="10" id="yLC-Dk-J2z"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="DHP-TZ-RAH"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="contactLabel" destination="zRf-HO-ZGV" id="c2F-GB-zSo"/>
+                <outlet property="contactPhoneLabel" destination="vOj-AH-TaX" id="mnQ-KJ-b5I"/>
+                <outlet property="containerView" destination="Ukr-ER-385" id="eNu-2T-XGr"/>
+                <outlet property="deviceLabel" destination="10P-xC-klL" id="ySV-GC-doW"/>
+                <outlet property="editButton" destination="obH-Gi-iAG" id="Dop-Jr-sd5"/>
+                <outlet property="locLabel" destination="KZZ-zF-Sdw" id="he4-mz-Xt6"/>
+            </connections>
+            <point key="canvasLocation" x="-188" y="28"/>
+        </view>
+    </objects>
+</document>

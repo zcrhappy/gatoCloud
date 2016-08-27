@@ -142,4 +142,31 @@
         return NO;
 }
 
+//补充第一行和第一列为空
+- (NSArray <NSArray *>*)fetchStainArray
+{
+    NSMutableArray *allDataArray = [NSMutableArray array];
+    
+    NSString *originStain = self.zoneStrain;
+    NSArray *allRowArray = [originStain componentsSeparatedByString:@";"];
+    [allRowArray enumerateObjectsUsingBlock:^(NSString *oneRowString, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSArray *oneRowArray = [oneRowString componentsSeparatedByString:@","];
+        NSMutableArray *mutbleOneRowArray = [NSMutableArray arrayWithObject:@"placeholder"];
+        [mutbleOneRowArray addObjectsFromArray:oneRowArray];
+        [allDataArray addObject:mutbleOneRowArray];
+    }];
+    
+    [allDataArray insertObject:[NSArray array] atIndex:0];
+    
+    return allDataArray;
+}
+
+- (BOOL)isStainZone;
+{
+    if([self.zoneType isEqualToString:@"3"])
+        return YES;
+    else
+        return NO;
+}
+
 @end

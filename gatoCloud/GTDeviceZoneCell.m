@@ -8,6 +8,8 @@
 
 #import "GTDeviceZoneCell.h"
 #import "GTDeviceZoneModel.h"
+#import "GTZoneStrainView.h"
+#import "GTZoneInfoView.h"
 #define bottomBackgroundColor [UIColor colorWithString:@"f5f5f5"]
 @interface GTDeviceZoneCell()
 @property (strong, nonatomic) UIView *upContainer;
@@ -23,10 +25,8 @@
 @property (nonatomic, strong) UISwitch *guardSwitch;
 
 //bottom
-@property (nonatomic, strong) UIButton *editButton;
-@property (nonatomic, strong) UILabel *contactLabel;
-@property (nonatomic, strong) UILabel *zonePhoneLabel;
-@property (nonatomic, strong) UILabel *zoneLocLabel;
+@property (nonatomic, strong) GTZoneStrainView *stainView;
+@property (nonatomic, strong) GTZoneInfoView *infoView;
 
 @property (nonatomic, strong) GTDeviceZoneModel *model;
 
@@ -34,7 +34,7 @@
 @end
 
 @implementation GTDeviceZoneCell
-@synthesize upContainer,horSerparatorLine,bottomContainer,expandConstaint,unExpandConstraint,zoneNameLabel,zoneTypeLabel,guardSwitch,contactLabel,zonePhoneLabel,zoneLocLabel,editButton,zoneStateLabel;
+@synthesize upContainer,horSerparatorLine,bottomContainer,expandConstaint,unExpandConstraint,zoneNameLabel,zoneTypeLabel,guardSwitch,zoneStateLabel;
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self configUI];
@@ -111,85 +111,36 @@
     bottomContainer = macroCreateView(CGRectZero, bottomBackgroundColor);
     [self.contentView addSubview:bottomContainer];
     
-    UILabel *label1 = macroCreateLabel(CGRectZero, bottomBackgroundColor, 16, [UIColor colorWithString:@"1bbc9b"]);
-    label1.text = @"防区参数";
-    [bottomContainer addSubview:label1];
-    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@10);
-        make.left.equalTo(@16);
-        make.height.equalTo(@18);
+    _stainView = [[NSBundle mainBundle] loadNibNamed:@"GTZoneStrainView" owner:self options:Nil][0];
+    [bottomContainer addSubview:_stainView];
+    [_stainView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(@0);
+        make.width.equalTo(@(SCREEN_WIDTH));
+        make.height.equalTo(@(_stainView.viewHeight));
+    }];
+    __weak __typeof(self)weakSelf = self;
+    
+    
+    
+    _infoView = [[NSBundle mainBundle] loadNibNamed:@"GTZoneInfoView" owner:self options:nil][0];
+    [bottomContainer addSubview:_infoView];
+    [_infoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_stainView.mas_bottom);
+        make.left.equalTo(@0);
+        make.width.equalTo(@(SCREEN_WIDTH));
+    }];
+    [_infoView setClickEditBlock:^{
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf clickEdit];
     }];
     
-    editButton = macroCreateButton(CGRectZero, bottomBackgroundColor);
-    editButton.titleLabel.font = [UIFont systemFontOfSize:16];
-    [editButton setTitle:@"编辑" forState:UIControlStateNormal];
-    [editButton setTitleColor:[UIColor colorWithString:@"1bbc9b"] forState:UIControlStateNormal];
-    [editButton addTarget:self action:@selector(clickEdit:) forControlEvents:UIControlEventTouchUpInside];
-    [bottomContainer addSubview:editButton];
-    [editButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(label1);
-        make.right.equalTo(bottomContainer).offset(-10);
-        make.width.equalTo(@40);
-        make.top.equalTo(@20);
-        make.height.equalTo(@40);
-    }];
-    
-    UILabel *label2 = macroCreateLabel(CGRectZero, bottomBackgroundColor, 14, [UIColor colorWithString:@"212121"]);
-    label2.text = @"紧急联系人";
-    [bottomContainer addSubview:label2];
-    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(label1.mas_bottom).offset(16);
-        make.left.equalTo(label1);
-    }];
-    
-    contactLabel = macroCreateLabel(CGRectZero, bottomBackgroundColor, 14, [UIColor colorWithString:@"212121"]);
-    [bottomContainer addSubview:contactLabel];
-    contactLabel.numberOfLines = 0;
-    [contactLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(label2.mas_bottom).offset(3);
-        make.left.equalTo(label2);
-        make.width.lessThanOrEqualTo(@(SCREEN_WIDTH/2.0 - 40));
-    }];
-    
-    UILabel *label3 = macroCreateLabel(CGRectZero, bottomBackgroundColor, 14, [UIColor colorWithString:@"212121"]);
-    label3.text = @"防区电话";
-    [bottomContainer addSubview:label3];
-    [label3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(label2);
-        make.left.equalTo(@(SCREEN_WIDTH/2.0));
-    }];
-    
-    zonePhoneLabel = macroCreateLabel(CGRectZero, bottomBackgroundColor, 14, [UIColor colorWithString:@"212121"]);
-    [bottomContainer addSubview:zonePhoneLabel];
-    zonePhoneLabel.numberOfLines = 0;
-    [zonePhoneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(label3.mas_bottom).offset(3);
-        make.left.equalTo(label3);
-        make.right.lessThanOrEqualTo(bottomContainer).offset(-10);
-    }];
-    
-    UILabel *label4 = macroCreateLabel(CGRectZero, bottomBackgroundColor, 14, [UIColor colorWithString:@"212121"]);
-    label4.text = @"防区地理位置信息";
-    [bottomContainer addSubview:label4];
-    [label4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(contactLabel.mas_bottom).offset(30);
-        make.left.equalTo(label2);
-    }];
-    
-    zoneLocLabel = macroCreateLabel(CGRectZero, bottomBackgroundColor, 14, [UIColor colorWithString:@"212121"]);
-    zoneLocLabel.numberOfLines = 0;
-    [bottomContainer addSubview:zoneLocLabel];
-    [zoneLocLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(label4.mas_bottom).offset(3);
-        make.left.equalTo(label4);
-        make.right.lessThanOrEqualTo(bottomContainer).offset(-10);
-    }];
-    
+    UIView *lastView = _infoView;
+    //用来计算下半部分的高度
     UIView *placeholderView = macroCreateView(CGRectZero, [UIColor clearColor]);
     [bottomContainer addSubview:placeholderView];
     [placeholderView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@0);
-        make.bottom.equalTo(zoneLocLabel.mas_bottom).offset(14);;
+        make.bottom.equalTo(lastView.mas_bottom);
     }];
     
     [bottomContainer mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -212,20 +163,15 @@
     guardSwitch.on = model.zoneStateForSwithButton;
     zoneTypeLabel.text = [NSString stringWithFormat:@"防区类型:%@",[model zoneTypeStringWithSuffix:YES]];
     
-    if(!model.zoneContactor || [model.zoneContactor isEmptyString])
-        contactLabel.text = @"--";
-    else
-        contactLabel.text = model.zoneContactor;
+    [_infoView setupWithModel:model];
     
-    if(!model.zonePhone || [model.zonePhone isEmptyString])
-        zonePhoneLabel.text = @"--";
-    else
-        zonePhoneLabel.text = model.zonePhone;
-    
-    if(!model.zoneLoc || [model.zoneLoc isEmptyString])
-        zoneLocLabel.text = @"--";
-    else
-        zoneLocLabel.text = model.zoneLoc;
+    if(model.isStainZone){
+        [_stainView setupWithModel:model];
+        _stainView.hidden = NO;
+    }
+    else {
+        _stainView.hidden = YES;
+    }
     
     if(model.isTwentyFourHourZone){
         zoneStateLabel.text = [NSString stringWithFormat:@"24小时防区 %@",[model twentyFourHourZoneStateString]];
@@ -235,15 +181,6 @@
     else {
         guardSwitch.hidden = NO;
         [_stateLabelRightConstaint install];
-    }
-    
-    if(model.canEdit) {
-        [editButton setTitle:@"编辑" forState:UIControlStateNormal];
-        editButton.userInteractionEnabled = YES;
-    }
-    else {
-        [editButton setTitle:@"" forState:UIControlStateNormal];
-        editButton.userInteractionEnabled = NO;
     }
 
     [self setupWithExpanded:model.isExpand];
@@ -305,7 +242,7 @@
     }
 }
 
-- (void)clickEdit:(id)sender
+- (void)clickEdit
 {
     if(_delegate && [_delegate respondsToSelector:@selector(clickEditWithModel:)]) {
         [_delegate performSelector:@selector(clickEditWithModel:) withObject:_model];

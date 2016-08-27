@@ -1,5 +1,5 @@
 //
-//  GTZoneStrainView.h
+//  GTZoneInfoView.h
 //  gatoCloud
 //
 //  Created by 曾超然 on 16/8/27.
@@ -8,16 +8,10 @@
 
 #import <UIKit/UIKit.h>
 @class GTDeviceZoneModel;
-@interface GTZoneStrainView : UIView
+@interface GTZoneInfoView : UIView
 
 - (void)setupWithModel:(GTDeviceZoneModel *)model;
-- (CGFloat)viewHeight;
 
-@end
-
-
-@interface GTZoneStrainCollectionCell : UICollectionViewCell
-
-- (void)setupContent:(NSString *)text;
+@property (nonatomic, copy) void (^clickEditBlock)(void);
 
 @end

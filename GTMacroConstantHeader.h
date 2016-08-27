@@ -32,6 +32,9 @@
 #define kUserDidLogout @"kUserDidLogout"
 
 
+//color
+#define kBorderColor @"e0e0e0"
+#define kLightBackground @"f7f7f7"
 
 /** 自动定义 NSString **/
 #define NSSTRING_COPY  @property (nonatomic, copy) NSString

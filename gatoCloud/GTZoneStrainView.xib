@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvm-95-46s">
-                    <rect key="frame" x="10" y="10" width="580" height="580"/>
+                    <rect key="frame" x="10" y="10" width="580" height="590"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="防区参数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWA-Uy-itj">
                             <rect key="frame" x="8" y="10" width="68" height="21"/>
@@ -20,27 +20,12 @@
                                 <constraint firstAttribute="width" constant="68" id="DQp-bL-gPP"/>
                                 <constraint firstAttribute="height" constant="21" id="IDG-kz-rpc"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.10588235294117647" green="0.73725490196078436" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jf9-kR-6ot">
-                            <rect key="frame" x="505" y="0.0" width="75" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="75" id="9xg-mb-iO8"/>
-                                <constraint firstAttribute="height" constant="50" id="Rtf-vw-mcc"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
-                            <state key="normal" title="编辑">
-                                <color key="titleColor" red="0.1647058824" green="0.74117647060000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="clickEdit:" destination="iN0-l3-epB" eventType="touchUpInside" id="kwM-Ma-0cS"/>
-                            </connections>
-                        </button>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NrE-bz-2DG">
-                            <rect key="frame" x="8" y="41" width="564" height="530"/>
+                            <rect key="frame" x="8" y="41" width="564" height="540"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="QbX-kQ-xjb">
                                 <size key="itemSize" width="50" height="50"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -48,6 +33,21 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jf9-kR-6ot">
+                            <rect key="frame" x="505" y="0.0" width="75" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="9xg-mb-iO8"/>
+                                <constraint firstAttribute="height" constant="50" id="Rtf-vw-mcc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="10"/>
+                            <state key="normal" title="配置">
+                                <color key="titleColor" red="0.1058823529" green="0.73725490199999999" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickEdit:" destination="iN0-l3-epB" eventType="touchUpInside" id="kwM-Ma-0cS"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -72,11 +72,16 @@
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="hvm-95-46s" secondAttribute="bottom" constant="10" id="9L3-1m-FCh"/>
+                <constraint firstAttribute="bottom" secondItem="hvm-95-46s" secondAttribute="bottom" id="9L3-1m-FCh"/>
                 <constraint firstAttribute="trailing" secondItem="hvm-95-46s" secondAttribute="trailing" constant="10" id="Nxz-vr-Oq6"/>
                 <constraint firstItem="hvm-95-46s" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="d06-bZ-xq7"/>
                 <constraint firstItem="hvm-95-46s" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="f4r-2V-oL1"/>
             </constraints>
+            <connections>
+                <outlet property="collectionView" destination="NrE-bz-2DG" id="ck9-AT-lj1"/>
+                <outlet property="containerView" destination="hvm-95-46s" id="juD-oj-GqG"/>
+            </connections>
+            <point key="canvasLocation" x="158" y="406"/>
         </view>
     </objects>
 </document>

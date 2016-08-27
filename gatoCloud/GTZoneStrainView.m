@@ -7,16 +7,143 @@
 //
 
 #import "GTZoneStrainView.h"
+#import "GTDeviceZoneModel.h"
+#define kCellHeight 27
+#define kColumns 4
+#define kLines 7
+@interface GTZoneStrainView()<UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (nonatomic, strong) NSArray <NSArray *>*stainArray;
+
+@end
 
 @implementation GTZoneStrainView
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.frame = CGRectMake(0, 0, SCREEN_WIDTH, 120);
+    [self configUI];
+}
+
+- (void)configUI
+{
+    self.backgroundColor = [UIColor colorWithString:kLightBackground];
+    
+    _containerView.layer.borderColor = [UIColor colorWithString:kBorderColor].CGColor;
+    _containerView.layer.borderWidth = SINGLE_LINE_WIDTH;
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
+    flowLayout.sectionInset = UIEdgeInsetsZero;
+    flowLayout.minimumLineSpacing = SINGLE_LINE_WIDTH;
+    flowLayout.minimumInteritemSpacing = SINGLE_LINE_WIDTH;
+    
+    _collectionView.collectionViewLayout = flowLayout;
+    _collectionView.scrollEnabled = NO;
+    _collectionView.backgroundColor = [UIColor colorWithString:kBorderColor];
+    _collectionView.layer.borderColor = [UIColor colorWithString:kBorderColor].CGColor;
+    _collectionView.layer.borderWidth = SINGLE_LINE_WIDTH;
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
+    [_collectionView registerClass:[GTZoneStrainCollectionCell class] forCellWithReuseIdentifier:@"cell"];
+}
+
+- (void)setupWithModel:(GTDeviceZoneModel *)model
+{
+    _stainArray = [model fetchStainArray];
+    [_collectionView reloadData];
+}
+
+#pragma mark - Delegate
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView;
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section;
+{
+    return kColumns * kLines;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+{
+    GTZoneStrainCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+
+    NSInteger index = [indexPath row];
+    NSArray *firstRow = @[@"",@"松弛",@"静态",@"拉紧"];
+    if(index < kColumns) {
+        [cell setupContent:firstRow[index]];
+    }
+    else if(index % kColumns == 0) {
+        [cell setupContent:@(index/kColumns).stringValue];
+    }
+    else {
+        NSInteger row = index / kColumns;
+        NSInteger column = index % kColumns;
+        NSArray *rowArray = [_stainArray objectAtIndex:row];
+        NSString *data = [rowArray objectAtIndex:column];
+        [cell setupContent:data];
+    }
+    
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+{
+    CGFloat cellWidth = (collectionView.width - 4*SINGLE_LINE_WIDTH)/4.0;
+    return CGSizeMake(cellWidth, kCellHeight);
+}
+
+- (CGFloat)viewHeight;
+{
+    return kLines * kCellHeight + (kLines - 1) * SINGLE_LINE_WIDTH + 60;
 }
 
 - (IBAction)clickEdit:(UIButton *)sender {
+
 }
 
 @end
+
+#pragma mark -
+
+@interface GTZoneStrainCollectionCell()
+
+@property (nonatomic, strong) UILabel *label;
+
+@end
+
+@implementation GTZoneStrainCollectionCell
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if(self = [super initWithFrame:frame]) {
+        [self configCellUI];
+    }
+    return self;
+}
+
+- (void)configCellUI
+{
+    self.backgroundColor = [UIColor whiteColor];
+    
+    _label = macroCreateLabel(CGRectZero, [UIColor whiteColor], 14, [UIColor colorWithString:@"87949a"]);
+    _label.textAlignment = NSTextAlignmentCenter;
+    _label.text = @"999";
+    [self addSubview:_label];
+    [_label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.mas_centerX);
+        make.centerY.equalTo(self.mas_centerY);
+    }];
+}
+
+- (void)setupContent:(NSString *)text
+{
+    _label.text = text;
+}
+
+@end
+
+
+
