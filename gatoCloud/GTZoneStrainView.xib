@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GTZoneStrainView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvm-95-46s">
+                    <rect key="frame" x="10" y="10" width="580" height="580"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="防区参数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWA-Uy-itj">
+                            <rect key="frame" x="8" y="10" width="68" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="68" id="DQp-bL-gPP"/>
+                                <constraint firstAttribute="height" constant="21" id="IDG-kz-rpc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jf9-kR-6ot">
+                            <rect key="frame" x="505" y="0.0" width="75" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="9xg-mb-iO8"/>
+                                <constraint firstAttribute="height" constant="50" id="Rtf-vw-mcc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
+                            <state key="normal" title="编辑">
+                                <color key="titleColor" red="0.1647058824" green="0.74117647060000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickEdit:" destination="iN0-l3-epB" eventType="touchUpInside" id="kwM-Ma-0cS"/>
+                            </connections>
+                        </button>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NrE-bz-2DG">
+                            <rect key="frame" x="8" y="41" width="564" height="530"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="QbX-kQ-xjb">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="jf9-kR-6ot" secondAttribute="trailing" id="07B-9n-5ZH"/>
+                        <constraint firstItem="NrE-bz-2DG" firstAttribute="leading" secondItem="hvm-95-46s" secondAttribute="leading" constant="8" id="8lC-QK-xWf"/>
+                        <constraint firstItem="rWA-Uy-itj" firstAttribute="top" secondItem="hvm-95-46s" secondAttribute="top" constant="10" id="Krs-4R-pmi"/>
+                        <constraint firstItem="jf9-kR-6ot" firstAttribute="top" secondItem="hvm-95-46s" secondAttribute="top" id="Z50-v5-m40"/>
+                        <constraint firstItem="NrE-bz-2DG" firstAttribute="top" secondItem="rWA-Uy-itj" secondAttribute="bottom" constant="10" id="gmx-x5-RpN"/>
+                        <constraint firstAttribute="bottom" secondItem="NrE-bz-2DG" secondAttribute="bottom" constant="9" id="sSD-XX-llX"/>
+                        <constraint firstAttribute="trailing" secondItem="NrE-bz-2DG" secondAttribute="trailing" constant="8" id="uAG-Do-9Pe"/>
+                        <constraint firstItem="rWA-Uy-itj" firstAttribute="leading" secondItem="hvm-95-46s" secondAttribute="leading" constant="8" id="ukI-uJ-FCD"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="hvm-95-46s" secondAttribute="bottom" constant="10" id="9L3-1m-FCh"/>
+                <constraint firstAttribute="trailing" secondItem="hvm-95-46s" secondAttribute="trailing" constant="10" id="Nxz-vr-Oq6"/>
+                <constraint firstItem="hvm-95-46s" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="d06-bZ-xq7"/>
+                <constraint firstItem="hvm-95-46s" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="f4r-2V-oL1"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

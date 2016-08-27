@@ -144,7 +144,6 @@
 
 - (void)clickHeadImg
 {
-//    [[Crashlytics sharedInstance] crash];
     [self performSegueWithIdentifier:@"modalToMeSegue" sender:self];
 }
 
