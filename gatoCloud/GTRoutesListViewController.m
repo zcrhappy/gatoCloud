@@ -13,6 +13,7 @@
 #import "GTSearchActionSheet.h"
 #import "GTSearchBar.h"
 #import "GTZoneEditViewController.h"
+#import "GTZoneStainEditViewController.h"
 #import "GTBottomSelectionView.h"
 #define kGTDeviceZoneCellIdentifier @"GTDeviceZoneCellIdentifier"
 #define kSearchViaZoneName @"按防区搜索"
@@ -171,17 +172,20 @@
     GTDeviceZoneCell *cell = (GTDeviceZoneCell *)[tableView dequeueReusableCellWithIdentifier:kGTDeviceZoneCellIdentifier forIndexPath:indexPath];
     cell.delegate = self;
     
+    if(!tableView.isEditing)
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
-#ifdef kGlobalTest
-    NSInteger row = [indexPath row];
-    model.userType = @"1";
-    if(row%2 == 0){
-        model.zoneStyle = @"2";
-    }
-    if(row%4 == 0){
-        model.zoneState = @"1";
-    }
-#endif
+//#ifdef kGlobalTest
+//    NSInteger row = [indexPath row];
+//    model.userType = @"1";
+//    if(row%2 == 0){
+//        model.zoneStyle = @"2";
+//    }
+//    if(row%4 == 0){
+//        model.zoneState = @"1";
+//    }
+//#endif
     
     if(_listType == kListTypeViaDeviceNo) {
         model.userType = self.userType;
@@ -217,7 +221,6 @@
         
         model.isExpand = !model.isExpand;
         [cell setupWithZoneModel:model];
-        NSLog(@"防区列表点击userType:%@",model.userType);
         [_routesTable reloadData];
     }
     else {
@@ -240,6 +243,13 @@
 {
     NSInteger row = [_dataManager.zoneModelsArray indexOfObject:model];
     return [NSIndexPath indexPathForRow:row inSection:0];
+}
+
+- (void)unfoldAllCell
+{
+    [_dataManager.zoneModelsArray enumerateObjectsUsingBlock:^(GTDeviceZoneModel * _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
+        model.isExpand = NO;
+    }];
 }
 
 #pragma mark - Nav Item
@@ -328,9 +338,11 @@
 }
 
 #pragma mark - Selection
-
+//点击右上角全选按钮：所有cell折叠，变更cell选中样式
 - (void)clickSelection:(id)sender
 {
+    [self unfoldAllCell];
+    [_routesTable reloadData];
     [self configSelectArray];
     
     if (_selectArray.count == 0) {
@@ -352,7 +364,17 @@
         [self showBottomSelection];
     }
 }
-
+//点击右上角取消按钮
+- (void)clickCancelSelection:(id)sender
+{
+    [self configSelectionItem];
+    //停止编辑状态
+    [_routesTable setEditing:NO animated:YES];
+    _selectArray = [NSArray array];
+    
+    [self hideButtonSelection];
+    [_routesTable reloadData];
+}
 - (void)configSelectArray
 {
     //获取可以选中的indexPath
@@ -375,14 +397,6 @@
     _selectArray = [NSArray arrayWithArray:array];
 }
 
-- (void)clickCancelSelection:(id)sender
-{
-    [self configSelectionItem];
-    //停止编辑状态
-    [_routesTable setEditing:NO animated:YES];
-    _selectArray = [NSArray array];
-    [self hideButtonSelection];
-}
 //底部显示布防撤防按钮
 - (void)showBottomSelection
 {
@@ -407,7 +421,6 @@
                     [MBProgressHUD showText:@"批量布防成功" inView:strongSelf.view];
                 }
                 [strongSelf clickCancelSelection:nil];
-                [strongSelf.routesTable reloadData];
             }];
         }];
     }];
@@ -423,7 +436,6 @@
                     [MBProgressHUD showText:@"批量撤防成功" inView:strongSelf.view];
                 }
                 [strongSelf clickCancelSelection:nil];
-                [strongSelf.routesTable reloadData];
             }];
         }];
 
@@ -624,6 +636,17 @@
         //刷新界面
         [_routesTable reloadData];
     }
+}
+
+- (void)clickStainEditWithModel:(GTDeviceZoneModel *)model
+{
+    GTZoneStainEditViewController *controller = [[GTZoneStainEditViewController alloc] initWithModel:model];
+    [self.navigationController pushViewController:controller animated:YES];
+    __weak __typeof(self)weakSelf = self;
+    [controller setDidSuccessBlock:^{
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf pullDownToRefresh];
+    }];
 }
 
 

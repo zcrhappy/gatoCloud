@@ -104,6 +104,9 @@
 		33DF4D8D1D71B2A300707324 /* GTZoneStrainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4D8C1D71B2A300707324 /* GTZoneStrainView.m */; };
 		33DF4D8F1D71C6BF00707324 /* GTZoneInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DF4D8E1D71C6BF00707324 /* GTZoneInfoView.xib */; };
 		33DF4D921D71CA6E00707324 /* GTZoneInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4D911D71CA6E00707324 /* GTZoneInfoView.m */; };
+		33DF4D981D72857D00707324 /* GTZoneStainEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4D971D72857D00707324 /* GTZoneStainEditViewController.m */; };
+		33DF4D9C1D72886500707324 /* GTDoneButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DF4D9B1D72886500707324 /* GTDoneButtonCell.xib */; };
+		33DF4DA21D72897600707324 /* GTDoneButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4DA11D72897600707324 /* GTDoneButtonCell.m */; };
 		33FEDBB41D562371009A3D06 /* GTZoneEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */; };
 		33FEDBCD1D58B775009A3D06 /* GTEditOneRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */; };
 		33FEDBD01D58BF27009A3D06 /* GTEditOneRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBCF1D58BF27009A3D06 /* GTEditOneRowCell.m */; };
@@ -300,6 +303,11 @@
 		33DF4D8E1D71C6BF00707324 /* GTZoneInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTZoneInfoView.xib; sourceTree = "<group>"; };
 		33DF4D901D71CA6E00707324 /* GTZoneInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneInfoView.h; sourceTree = "<group>"; };
 		33DF4D911D71CA6E00707324 /* GTZoneInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneInfoView.m; sourceTree = "<group>"; };
+		33DF4D961D72857D00707324 /* GTZoneStainEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneStainEditViewController.h; sourceTree = "<group>"; };
+		33DF4D971D72857D00707324 /* GTZoneStainEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneStainEditViewController.m; sourceTree = "<group>"; };
+		33DF4D9B1D72886500707324 /* GTDoneButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTDoneButtonCell.xib; sourceTree = "<group>"; };
+		33DF4DA01D72897600707324 /* GTDoneButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDoneButtonCell.h; sourceTree = "<group>"; };
+		33DF4DA11D72897600707324 /* GTDoneButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDoneButtonCell.m; sourceTree = "<group>"; };
 		33FEDBB21D562371009A3D06 /* GTZoneEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneEditViewController.h; sourceTree = "<group>"; };
 		33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneEditViewController.m; sourceTree = "<group>"; };
 		33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTEditOneRowCell.xib; sourceTree = "<group>"; };
@@ -498,6 +506,8 @@
 				337663C81D49F04C003AA73C /* GTRoutesListViewController.m */,
 				33FEDBB21D562371009A3D06 /* GTZoneEditViewController.h */,
 				33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */,
+				33DF4D961D72857D00707324 /* GTZoneStainEditViewController.h */,
+				33DF4D971D72857D00707324 /* GTZoneStainEditViewController.m */,
 			);
 			name = Routes;
 			sourceTree = "<group>";
@@ -666,6 +676,8 @@
 		33FEDBD61D58C2A2009A3D06 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				337663CA1D49FC88003AA73C /* GTDeviceZoneCell.h */,
+				337663CB1D49FC88003AA73C /* GTDeviceZoneCell.m */,
 				33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */,
 				33FEDBCE1D58BF27009A3D06 /* GTEditOneRowCell.h */,
 				33FEDBCF1D58BF27009A3D06 /* GTEditOneRowCell.m */,
@@ -678,8 +690,9 @@
 				33DF4D901D71CA6E00707324 /* GTZoneInfoView.h */,
 				33DF4D911D71CA6E00707324 /* GTZoneInfoView.m */,
 				33DF4D8E1D71C6BF00707324 /* GTZoneInfoView.xib */,
-				337663CA1D49FC88003AA73C /* GTDeviceZoneCell.h */,
-				337663CB1D49FC88003AA73C /* GTDeviceZoneCell.m */,
+				33DF4D9B1D72886500707324 /* GTDoneButtonCell.xib */,
+				33DF4DA01D72897600707324 /* GTDoneButtonCell.h */,
+				33DF4DA11D72897600707324 /* GTDoneButtonCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -815,6 +828,7 @@
 			files = (
 				33FEDBD51D58C1BF009A3D06 /* GTEditTwoRowCell.xib in Resources */,
 				33FEDBCD1D58B775009A3D06 /* GTEditOneRowCell.xib in Resources */,
+				33DF4D9C1D72886500707324 /* GTDoneButtonCell.xib in Resources */,
 				33B578A71D5CC2D200A1401B /* GTWarningRecordCell.xib in Resources */,
 				33B0FF791D65DC1400F9429A /* GTQuitCell.xib in Resources */,
 				33620C911D4128C800209AE7 /* page.json in Resources */,
@@ -925,6 +939,7 @@
 				3326A0371D3E6470000697DC /* GTFeedbackViewController.m in Sources */,
 				337663B81D46097A003AA73C /* GTDeviceManagerAuthorization.m in Sources */,
 				3313FED41D4F8CE8001B27C6 /* GTBaseNavigationController.m in Sources */,
+				33DF4D981D72857D00707324 /* GTZoneStainEditViewController.m in Sources */,
 				33FF6D2F1D4370FE009C730E /* GTWarningDetailViewController.m in Sources */,
 				33FEDBB41D562371009A3D06 /* GTZoneEditViewController.m in Sources */,
 				3352A6161D39D03B00EED5C0 /* GTGestureUnlockViewController.m in Sources */,
@@ -958,6 +973,7 @@
 				3352A6101D39CEEB00EED5C0 /* PCCircleViewConst.m in Sources */,
 				33B0FF7C1D66E7AE00F9429A /* GTBottomSelectionView.m in Sources */,
 				331FC0D31D655DD90038C7B6 /* GTNoDeviceView.m in Sources */,
+				33DF4DA21D72897600707324 /* GTDoneButtonCell.m in Sources */,
 				33FF6D341D4375D0009C730E /* GTWarningDetailCommonCell.m in Sources */,
 				33FF6D3A1D43770F009C730E /* GTWarningDetailStateCell.m in Sources */,
 				330E31371D51F40D00B94695 /* GTLoginViewController.m in Sources */,

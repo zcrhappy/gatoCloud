@@ -50,14 +50,14 @@
     NSLog(@"进入防区信息页面");
 }
 
-static NSString *kOneRowIdentifier = @"kOneRowIdentifier";
+static NSString *GTEditOneRowCellID = @"GTEditOneRowCellID";
 static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
 
 - (void)configUI
 {
     self.navigationItem.title = @"防区信息";
     _editTable = [[UITableView alloc] initWithFrame:self.view.frame];
-    [_editTable registerNib:[UINib nibWithNibName:@"GTEditOneRowCell" bundle:nil] forCellReuseIdentifier:kOneRowIdentifier];
+    [_editTable registerNib:[UINib nibWithNibName:@"GTEditOneRowCell" bundle:nil] forCellReuseIdentifier:GTEditOneRowCellID];
     [_editTable registerNib:[UINib nibWithNibName:@"GTEditTwoRowCell" bundle:nil] forCellReuseIdentifier:kTwoRowIdentifier];
     _editTable.tableFooterView = [[UIView alloc] init];
     
@@ -115,7 +115,7 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView sectionName:(NSString *)name EditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if([name isEqualToString:kZoneName]) {
-        GTEditOneRowCell *cell = [tableView dequeueReusableCellWithIdentifier:kOneRowIdentifier forIndexPath:indexPath];
+        GTEditOneRowCell *cell = [tableView dequeueReusableCellWithIdentifier:GTEditOneRowCellID forIndexPath:indexPath];
         __weak __typeof(self)weakSelf = self;
         [cell setTextDidChangeBlk:^(NSString *text) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
@@ -125,7 +125,7 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
         return [cell setupWithTitle:@"防区名称：" placeholder:@"请输入防区名称(必填)" content:_model.zoneName showLine:YES];
     }
     else if([name isEqualToString:kContact]) {
-        GTEditOneRowCell *cell = [tableView dequeueReusableCellWithIdentifier:kOneRowIdentifier forIndexPath:indexPath];
+        GTEditOneRowCell *cell = [tableView dequeueReusableCellWithIdentifier:GTEditOneRowCellID forIndexPath:indexPath];
         __weak __typeof(self)weakSelf = self;
         [cell setTextDidChangeBlk:^(NSString *text) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
@@ -135,7 +135,7 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
         return [cell setupWithTitle:@"紧急联系人：" placeholder:@"请输入紧急联系人名称" content:_model.zoneContactor showLine:YES];
     }
     else if([name isEqualToString:kPhone]) {
-        GTEditOneRowCell *cell = [tableView dequeueReusableCellWithIdentifier:kOneRowIdentifier forIndexPath:indexPath];
+        GTEditOneRowCell *cell = [tableView dequeueReusableCellWithIdentifier:GTEditOneRowCellID forIndexPath:indexPath];
         __weak __typeof(self)weakSelf = self;
         [cell setTextDidChangeBlk:^(NSString *text) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;

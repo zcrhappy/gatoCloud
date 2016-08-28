@@ -101,7 +101,8 @@
 }
 
 - (IBAction)clickEdit:(UIButton *)sender {
-
+    if(_clickStainEditBlock)
+        _clickStainEditBlock();
 }
 
 @end

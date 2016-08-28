@@ -43,8 +43,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.selectionStyle = UITableViewCellSelectionStyleBlue;
-        self.selectedBackgroundView = macroCreateView(CGRectZero, [UIColor clearColor]);
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         [self configUI];
     }
@@ -119,7 +118,10 @@
         make.height.equalTo(@(_stainView.viewHeight));
     }];
     __weak __typeof(self)weakSelf = self;
-    
+    [_stainView setClickStainEditBlock:^{
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf clickStainEdit];
+    }];
     
     
     _infoView = [[NSBundle mainBundle] loadNibNamed:@"GTZoneInfoView" owner:self options:nil][0];
@@ -167,10 +169,14 @@
     
     if(model.isStainZone){
         [_stainView setupWithModel:model];
-        _stainView.hidden = NO;
+        [_stainView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(_stainView.viewHeight));
+        }];
     }
     else {
-        _stainView.hidden = YES;
+        [_stainView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@0);
+        }];
     }
     
     if(model.isTwentyFourHourZone){
@@ -246,6 +252,13 @@
 {
     if(_delegate && [_delegate respondsToSelector:@selector(clickEditWithModel:)]) {
         [_delegate performSelector:@selector(clickEditWithModel:) withObject:_model];
+    }
+}
+
+- (void)clickStainEdit
+{
+    if(_delegate && [_delegate respondsToSelector:@selector(clickStainEditWithModel:)]) {
+        [_delegate performSelector:@selector(clickStainEditWithModel:) withObject:_model];
     }
 }
 

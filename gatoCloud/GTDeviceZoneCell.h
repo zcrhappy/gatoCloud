@@ -24,6 +24,10 @@ typedef NS_ENUM(NSInteger, kSwitchState) {
  */
 - (void)switchButtonWithDic:(NSDictionary *)infoDic;
 
+@optional
+
+- (void)clickStainEditWithModel:(id)model;
+
 @end
 
 

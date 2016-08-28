@@ -12,6 +12,7 @@
 
 - (void)setupWithModel:(GTDeviceZoneModel *)model;
 - (CGFloat)viewHeight;
+@property (nonatomic, copy) void(^clickStainEditBlock)(void);
 
 @end
 

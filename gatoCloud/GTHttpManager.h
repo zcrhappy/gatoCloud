@@ -297,6 +297,16 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
 - (void)GTDeviceZoneQueryWithZoneNo:(NSString *)zoneNo
                         finishBlock:(GTResultBlock)finishBlk;
 
+/*!
+ *  @brief 修改防区张力阈值
+ *
+ *  @param zoneNo        防区编号
+ *  @param zoneStrainVpt 阈值范围(10,99) 中间用英文逗号分割前面 松弛阈值 后面 拉紧阈值
+ *  @param finishBlk     返回值
+ */
+- (void)GTEditZoneStrainWithZoneNo:(NSString *)zoneNo
+                      zoneStrainVpt:(NSString *)zoneStrainVpt
+                        finishBlock:(GTResultBlock)finishBlk;
 
 #pragma mark - UserInfo
 /*!
