@@ -1309,6 +1309,25 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fy1-2t-916">
+                                        <rect key="frame" x="180" y="2" width="70" height="30"/>
+                                        <color key="backgroundColor" red="0.1647058824" green="0.74117647060000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="HRc-8d-E8a"/>
+                                        </constraints>
+                                        <state key="normal" title="忘记密码">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clickFetchVerifyCode:" destination="aPc-Wg-OGd" eventType="touchUpInside" id="dqM-LC-bKg"/>
+                                            <segue destination="aPc-Wg-OGd" kind="modal" identifier="forgetPwdSegue" id="Z2f-ko-olG"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1317,9 +1336,11 @@
                                     <constraint firstItem="GNl-3a-Z0A" firstAttribute="centerY" secondItem="R0Z-6G-tD2" secondAttribute="centerY" id="J5w-M3-Y1p"/>
                                     <constraint firstAttribute="trailing" secondItem="Ynv-ix-s8T" secondAttribute="trailing" id="NCy-r6-VcB"/>
                                     <constraint firstAttribute="bottom" secondItem="Ynv-ix-s8T" secondAttribute="bottom" id="gja-BZ-YYT"/>
+                                    <constraint firstAttribute="trailing" secondItem="fy1-2t-916" secondAttribute="trailing" id="hRY-6l-aLx"/>
                                     <constraint firstItem="GNl-3a-Z0A" firstAttribute="leading" secondItem="R0Z-6G-tD2" secondAttribute="leading" constant="10" id="hdN-cl-PJV"/>
                                     <constraint firstItem="XA8-iL-uX2" firstAttribute="leading" secondItem="GNl-3a-Z0A" secondAttribute="trailing" constant="13" id="jTU-x3-KWX"/>
                                     <constraint firstAttribute="trailing" secondItem="XA8-iL-uX2" secondAttribute="trailing" id="luQ-tP-H9Q"/>
+                                    <constraint firstItem="fy1-2t-916" firstAttribute="centerY" secondItem="R0Z-6G-tD2" secondAttribute="centerY" id="o7S-Ok-X4D"/>
                                     <constraint firstAttribute="bottom" secondItem="XA8-iL-uX2" secondAttribute="bottom" id="pIe-Gy-LQo"/>
                                     <constraint firstItem="Ynv-ix-s8T" firstAttribute="leading" secondItem="R0Z-6G-tD2" secondAttribute="leading" constant="36" id="zfN-WP-Xeg"/>
                                 </constraints>
@@ -1375,7 +1396,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVm-JJ-Gp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3Ng-WB-fsY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-736" y="971"/>
+            <point key="canvasLocation" x="-723" y="982"/>
         </scene>
         <!--用户反馈-->
         <scene sceneID="CKP-sI-m3J">
@@ -2108,6 +2129,7 @@
         <image name="yesIcon" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zVk-fu-kg3"/>
+        <segue reference="cSE-a8-0D8"/>
+        <segue reference="QTv-PV-BPx"/>
     </inferredMetricsTieBreakers>
 </document>

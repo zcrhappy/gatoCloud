@@ -7,6 +7,7 @@
 //
 
 #import "GTLoginMenuViewController.h"
+#import "GTPhoneRegisterViewController.h"
 #import "GTMainViewController.h"
 #import "GTWXLoginManager.h"
 #import "GTGestureManager.h"
@@ -92,10 +93,13 @@
     }
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"EnterPhoneRegisterSegue"]) {
+        GTPhoneRegisterViewController *controller = segue.destinationViewController;
+        controller.enterType = kTypeRegister;
+    }
+}
 
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 //{

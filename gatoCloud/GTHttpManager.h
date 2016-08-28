@@ -75,6 +75,18 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
                         password:(NSString *)password
                      finishBlock:(GTResultBlock)finishBlk;
 
+/*!
+ *  @brief 手机注册接口
+ *
+ *  @param mobileNo  手机号
+ *  @param password  密码
+ *  @param code      验证码
+ *  @param finishBlk 返回结果
+ */
+- (void)GTLoginForgetPwdWithMobileNo:(NSString *)mobileNo
+                            password:(NSString *)password
+                          verifyCode:(NSString *)verifyCode
+                         finishBlock:(GTResultBlock)finishBlk;
 
 #pragma mark - Main
 

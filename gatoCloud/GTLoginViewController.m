@@ -8,6 +8,7 @@
 
 #import "GTLoginViewController.h"
 #import "GTGestureManager.h"
+#import "GTPhoneRegisterViewController.h"
 @interface GTLoginViewController ()
 
 @property (nonatomic, weak) IBOutlet UITextField *nameLabel;
@@ -58,5 +59,12 @@
     [self performSegueWithIdentifier:@"BackToLoginMenuSegue" sender:self];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"forgetPwdSegue"]) {
+        GTPhoneRegisterViewController *controller = segue.destinationViewController;
+        controller.enterType = kTypeForgetPwd;
+    }
+}
 
 @end

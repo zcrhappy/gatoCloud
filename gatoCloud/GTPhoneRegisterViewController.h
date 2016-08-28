@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, kType){
+    kTypeRegister,
+    kTypeForgetPwd,
+};
+
 @interface GTPhoneRegisterViewController : UIViewController
+
+@property (nonatomic, assign) kType enterType;
 
 @end

@@ -56,7 +56,10 @@
     
     [_phoneTextField resignFirstResponder];
     [_pwdTextField resignFirstResponder];
-    [[GTHttpManager shareManager] GTPhoneFetchVerifyCodeWithMobileNo:_phoneTextField.text type:GTPhoneLoginTypeRegister finishBlock:^(id response, NSError *error) {
+    
+    GTPhoneLoginType loginType = _enterType == kTypeRegister ? GTPhoneLoginTypeRegister : GTPhoneLoginTypeForgetPwd;
+
+    [[GTHttpManager shareManager] GTPhoneFetchVerifyCodeWithMobileNo:_phoneTextField.text type:loginType finishBlock:^(id response, NSError *error) {
         if(error == nil) {
             [MBProgressHUD showText:@"发送验证码成功" inView:self.view];
             [self fireTimer];
@@ -66,20 +69,34 @@
 
 - (IBAction)clickRegister:(UIButton *)sender {
     
-    [[GTHttpManager shareManager] GTPhoneRegisterWithMobileNo:_phoneTextField.text password:_pwdTextField.text verifyCode:_pinTextField.text finishBlock:^(id response, NSError *error) {
-        if(error == nil) {
-            [MBProgressHUD showText:@"注册成功" inView:[UIView gt_keyWindow]];
+    if(_enterType == kTypeRegister) {
+        [[GTHttpManager shareManager] GTPhoneRegisterWithMobileNo:_phoneTextField.text password:_pwdTextField.text verifyCode:_pinTextField.text finishBlock:^(id response, NSError *error) {
+            if(error == nil) {
+                [MBProgressHUD showText:@"注册成功" inView:[UIView gt_keyWindow]];
+                [self didSuccessRegisterWithDic:response];
+            }
+        }];
+    }
+    else if(_enterType == kTypeForgetPwd){
+        [[GTHttpManager shareManager] GTLoginForgetPwdWithMobileNo:_phoneTextField.text password:_pwdTextField.text verifyCode:_pinTextField.text finishBlock:^(id response, NSError *error) {
+            if(error == nil) {
+                [MBProgressHUD showText:@"登录成功" inView:[UIView gt_keyWindow]];
+                [self didSuccessRegisterWithDic:response];
+            }
+        }];
+    }
+}
+
+- (void)didSuccessRegisterWithDic:(id)response
+{
+    [GTUserUtils saveUserInfoViaRegister:response];
     
-            [GTUserUtils saveUserInfoViaRegister:response];
-            
-            [self performSegueWithIdentifier:@"EnterMainViewSegue" sender:self];
-            
-            if([GTGestureManager isFirstLoad])
-                [[GTGestureManager sharedInstance] showSettingGestureView];
-            else
-                [[GTGestureManager sharedInstance] showLoginGestureView];
-        }
-    }];
+    [self performSegueWithIdentifier:@"EnterMainViewSegue" sender:self];
+    
+    if([GTGestureManager isFirstLoad])
+        [[GTGestureManager sharedInstance] showSettingGestureView];
+    else
+        [[GTGestureManager sharedInstance] showLoginGestureView];
 }
 
 - (IBAction)clickBack:(id)sender

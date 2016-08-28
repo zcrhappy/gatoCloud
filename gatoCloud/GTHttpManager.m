@@ -185,6 +185,47 @@ NSInteger const APIErrorCode = 138102;
         finishBlk(nil, error);
     }];
 }
+
+
+/*!
+ *  @brief 手机注册接口
+ *
+ *  @param mobileNo  手机号
+ *  @param password  密码
+ *  @param code      验证码
+ *  @param finishBlk 返回结果
+ */
+- (void)GTLoginForgetPwdWithMobileNo:(NSString *)mobileNo
+                            password:(NSString *)password
+                          verifyCode:(NSString *)verifyCode
+                         finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:mobileNo forKey:@"mobileNo"];
+    [dic safeSetObject:password forKey:@"password"];
+    [dic safeSetObject:verifyCode forKey:@"yzm"];
+    [dic safeSetObject:[GTUserUtils regId] forKey:@"xmAppid"];
+    
+    [self POST:@"/user/forgeSetPwd.do" parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if ([responseObject isVaildResponse]) {
+            
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        finishBlk(nil, error);
+    }];
+}
 #pragma mark - Main
 
 /*!
