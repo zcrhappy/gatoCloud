@@ -458,11 +458,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9d-bH-Tce">
-                                                    <rect key="frame" x="20" y="17" width="36" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最长支持六字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9d-bH-Tce">
+                                                    <rect key="frame" x="20" y="17" width="110" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" id="R8F-LJ-87b"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" id="UDQ-Fv-rPO"/>
+                                                        <constraint firstAttribute="width" constant="110" id="eXw-lt-JDB"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
@@ -475,10 +476,9 @@
                                                         <constraint firstAttribute="height" constant="1" id="w4C-Ac-t3e"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaN-PL-5zI">
-                                                    <rect key="frame" x="271" y="17" width="34" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaN-PL-5zI">
+                                                    <rect key="frame" x="140" y="17" width="165" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" id="GUZ-mY-zBJ"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" id="ioA-6c-8ye"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -492,6 +492,7 @@
                                                 <constraint firstItem="GaN-PL-5zI" firstAttribute="centerY" secondItem="Js0-as-SSc" secondAttribute="centerY" id="IDB-x5-fhM"/>
                                                 <constraint firstItem="T9d-bH-Tce" firstAttribute="centerY" secondItem="Js0-as-SSc" secondAttribute="centerY" id="JAn-jq-Fgq"/>
                                                 <constraint firstAttribute="bottom" secondItem="Kwm-mj-Kip" secondAttribute="bottom" id="OQa-rm-HB7"/>
+                                                <constraint firstItem="GaN-PL-5zI" firstAttribute="leading" secondItem="T9d-bH-Tce" secondAttribute="trailing" constant="10" id="UeB-Ii-xDo"/>
                                                 <constraint firstItem="T9d-bH-Tce" firstAttribute="leading" secondItem="Js0-as-SSc" secondAttribute="leading" constant="20" id="dZQ-NC-LgF"/>
                                                 <constraint firstAttribute="trailing" secondItem="Kwm-mj-Kip" secondAttribute="trailing" id="kYH-Av-1nu"/>
                                             </constraints>
