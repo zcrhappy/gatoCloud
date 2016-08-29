@@ -10,4 +10,5 @@
 
 @interface UIViewController (GTAlertController)
 - (void)gt_showTypingControllerWithTitle:(NSString *)title placeholder:(NSString *)placeholder finishBlock:(void (^)(NSString *content))finishBlk;
+- (void)gt_showMsgControllerWithTitle:(NSString *)title msg:(NSString *)msg finishBlock:(void (^)(void))finishBlk;
 @end

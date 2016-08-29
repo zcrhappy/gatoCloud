@@ -15,6 +15,7 @@
 #import "GTZoneEditViewController.h"
 #import "GTZoneStainEditViewController.h"
 #import "GTBottomSelectionView.h"
+#import "UIViewController+GTAlertController.h"
 #define kGTDeviceZoneCellIdentifier @"GTDeviceZoneCellIdentifier"
 #define kSearchViaZoneName @"按防区搜索"
 #define kSearchViaDeviceName @"按设备搜索"
@@ -418,7 +419,7 @@
             [[GTHttpManager shareManager] GTDeviceZoneBatchGuardWithDeviceNo:strongSelf.searchKeyword istate:@2 pwd:pwd zoneNos:strongSelf.zoneNos finishBlock:^(id response, NSError *error) {
                 [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
                 if(!error) {
-                    [MBProgressHUD showText:@"批量布防成功" inView:strongSelf.view];
+                    [strongSelf gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您批量布防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:nil];
                 }
                 [strongSelf clickCancelSelection:nil];
             }];
@@ -433,7 +434,7 @@
             [[GTHttpManager shareManager] GTDeviceZoneBatchGuardWithDeviceNo:strongSelf.searchKeyword istate:@1 pwd:pwd zoneNos:strongSelf.zoneNos finishBlock:^(id response, NSError *error) {
                 [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
                 if(!error) {
-                    [MBProgressHUD showText:@"批量撤防成功" inView:strongSelf.view];
+                    [strongSelf gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您批量撤防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:nil];
                 }
                 [strongSelf clickCancelSelection:nil];
             }];

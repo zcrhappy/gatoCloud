@@ -41,4 +41,20 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (void)gt_showMsgControllerWithTitle:(NSString *)title msg:(NSString *)msg finishBlock:(void (^)(void))finishBlk
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
+    
+    //创建按钮
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"确认按钮block");
+    }];
+    
+    //将按钮添加到UIAlertController对象上
+    [alertController addAction:sureAction];
+    
+    //显示弹窗视图控制器
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 @end
