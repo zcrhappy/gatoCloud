@@ -514,13 +514,6 @@
     else
         iState = @"1";
     
-#ifdef kGlobalTest
-    _loopCount = 5;
-    _timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(timerFired:) userInfo:infoDic repeats:YES];
-    [_timer fire];
-    [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
-    return;
-#endif
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[GTHttpManager shareManager] GTDeviceZoneChangeDefenceWithState:iState zoneNo:model.zoneNo finishBlock:^(id response, NSError *error) {
         if(error == nil) {
@@ -538,7 +531,7 @@
 
 - (void)timerFired:(NSTimer *)timer
 {
-    if(_loopCount <= 0)
+    if(_loopCount < 0)
         return;
     else
         _loopCount--;
@@ -557,85 +550,54 @@
     
     __block BOOL querySuccess = NO;
     
-    switch (_listType) {
-        case kListTypeAllZone:
-        {
-            [[GTHttpManager shareManager] GTDeviceZoneQueryWithZoneNo:changedModel.zoneNo finishBlock:^(id response, NSError *error) {
-                if(error == nil) {
-//                    GTDeviceZoneModel *model = [response ]
-                }
-            }];
-            //TODO: page number
-//            [[GTHttpManager shareManager] GTDeviceZoneListWithPn:@"1" finishBlock:^(id response, NSError *error)
-//             {
-//                 if(error == nil)
-//                 {
-//                     NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
-//                     NSArray *curModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];
-//                     for (GTDeviceZoneModel2 *curModel in curModelArr)
-//                     {
-//                         if([curModel.zoneNo isEqualToString:model.zoneNo])
-//                         {
-//                             if((iState.integerValue == kSwitchStateGuarded && curModel.zoneState.integerValue == kZoneStateGuarded)||
-//                                (iState.integerValue == kSwitchStateDisguarded && curModel.zoneState.integerValue == kZoneStateDisguarded))
-//                             {
-//                                 querySuccess = YES;
-//                                 break;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }];
-            break;
-        }
-        case kListTypeViaDeviceNo:
-        {
-//            [[GTHttpManager shareManager] GTDeviceZoneWithDeviceNo:_deviceNo finishBlock:^(id response, NSError *error)
-//             {
-//                 if(error == nil)
-//                 {
-//                     NSArray *resData = [response objectForKey:@"list"];
-//                     NSArray *array = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:resData error:nil];
-//                     _dataManager.zoneModelsArray = [NSMutableArray arrayWithArray:array];
-//                     
-//                     for (GTDeviceZoneModel *curModel in _dataManager.zoneModelsArray)
-//                     {
-//                         if([curModel.zoneNo isEqualToString:model.zoneNo])
-//                         {
-//                             if((iState.integerValue == kSwitchStateGuarded && curModel.zoneState.integerValue == kZoneStateGuarded)||
-//                                (iState.integerValue == kSwitchStateDisguarded && curModel.zoneState.integerValue == kZoneStateDisguarded))
-//                             {
-//                                 querySuccess = YES;
-//                                 break;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }];
-            break;
-        }
-        default:
-            break;
-    }
     
-    
-    if(querySuccess) {
-        [_timer invalidate];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if(iState.integerValue == kSwitchStateDisguarded) {//撤防成功
-            [MBProgressHUD showText:@"撤防成功" inView:self.view];
-            //改变model状态。
-            changedModel.zoneState = @"3";
+    [[GTHttpManager shareManager] GTDeviceZoneQueryWithZoneNo:changedModel.zoneNo finishBlock:^(id response, NSError *error) {
+        if(error == nil) {
+            NSArray <GTDeviceZoneModel *>* curModelArray= [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:[response objectForKey:@"list"] error:nil];
+            GTDeviceZoneModel *curModel = [curModelArray firstObject];
             
+            if([curModel.zoneNo isEqualToString:changedModel.zoneNo])
+             {
+                 if((iState.integerValue == kSwitchStateGuarded && curModel.zoneState.integerValue == kZoneStateGuarded)||
+                    (iState.integerValue == kSwitchStateDisguarded && curModel.zoneState.integerValue == kZoneStateDisguarded))
+                 {
+                     querySuccess = YES;
+                 }
+                 else {
+                     querySuccess = NO;
+                 }
+             }
+
+            if(querySuccess) {
+                [_timer invalidate];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                if(iState.integerValue == kSwitchStateDisguarded) {//撤防成功
+                    [MBProgressHUD showText:@"撤防成功" inView:self.view];
+                    //改变model状态。
+                    changedModel.zoneState = @"3";
+                    
+                }
+                else {//布防成功
+                    [MBProgressHUD showText:@"布防成功" inView:self.view];
+                    //改变model状态。
+                    changedModel.zoneState = @"4";
+                }
+                //刷新界面
+                [_routesTable reloadData];
+            }
+            else if(_loopCount == 0){
+                [_timer invalidate];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                
+                if(iState.integerValue == kSwitchStateDisguarded) {//撤防成功
+                    [MBProgressHUD showText:@"撤防失败" inView:self.view];
+                }
+                else {
+                    [MBProgressHUD showText:@"布防失败" inView:self.view];
+                }
+            }
         }
-        else {//布防成功
-            [MBProgressHUD showText:@"布防成功" inView:self.view];
-            //改变model状态。
-            changedModel.zoneState = @"4";
-        }
-        //刷新界面
-        [_routesTable reloadData];
-    }
+    }];
 }
 
 - (void)clickStainEditWithModel:(GTDeviceZoneModel *)model

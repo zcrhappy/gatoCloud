@@ -219,6 +219,7 @@
 
 - (void)clickSwitch:(UISwitch *)btn
 {
+    BOOL isOn = btn.isOn;
     [btn setOn:NO animated:YES];//状态由服务器确定。因此这里不进行修改
     
     NSString *warningString = nil;
@@ -232,15 +233,11 @@
         warningString = @"正在布防中，不能操作!";
     }
 
-#ifndef kGlobalTest
     if(warningString) {
         [MBProgressHUD showText:warningString inView:[UIView gt_keyWindow]];
         return;
     }
-    
-#endif
-    BOOL isOn = btn.isOn;
-    
+
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:_model, @"model", @(isOn), @"isOn", nil];
     
     if(_delegate && [_delegate respondsToSelector:@selector(switchButtonWithDic:)]) {

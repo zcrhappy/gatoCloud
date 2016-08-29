@@ -50,9 +50,9 @@
 #endif
     
     //注册APNS
-//    [MiPushSDK registerMiPush:self];
+    [MiPushSDK registerMiPush:self];
     // 同时启用APNs跟应用内长连接
-    [self setupPushService];
+//    [self setupPushService];
     
     return YES;
 }
@@ -188,16 +188,6 @@
 - (void)setupPushService
 {
     [MiPushSDK registerMiPush:self type:0 connect:YES];
-//    if(![GTUserUtils notDisturbStatus]) {
-//        [GTUserUtils setNotDisturbStatus:2];//
-//        [MiPushSDK registerMiPush:self type:0 connect:YES];
-//    }
-//    else if ([GTUserUtils notDisturbStatus].integerValue == 0) {
-//        [MiPushSDK unregisterMiPush];
-//    }
-//    else if ([GTUserUtils notDisturbStatus].integerValue == 2) {
-//        [MiPushSDK registerMiPush:self type:0 connect:YES];
-//    }
 }
 
 @end

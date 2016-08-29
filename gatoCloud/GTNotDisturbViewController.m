@@ -38,13 +38,13 @@
         if(error == nil) {
             NSNumber *itype = [response objectForKey:@"itype"];
             if(itype.integerValue == 0) {
-                _selectedIndex = 2;
+                _selectedIndex = 0;
             }
             else if (itype.integerValue == 1) {
                 _selectedIndex = 1;
             }
             else if (itype.integerValue == 2) {
-                _selectedIndex = 0;
+                _selectedIndex = 2;
             }
             [_NotDisturbTable reloadData];
         }
@@ -82,14 +82,14 @@
     
     NSString *name = [_disturbArray objectAtIndex:index];
     NSString *pushItype;
-    if([name isEqualToString:kPushOpen]) {
-        pushItype = @"2";
-    }
-    else if( [name isEqualToString:kPushClose]) {
+    if([name isEqualToString:kPushClose]) {
         pushItype = @"0";
     }
-    else if ( [name isEqualToString:kPushOpenAtDay]) {
+    else if( [name isEqualToString:kPushOpenAtDay]) {
         pushItype = @"1";
+    }
+    else if ( [name isEqualToString:kPushOpen]) {
+        pushItype = @"2";
     }
     
     [[GTHttpManager shareManager] GTPushConfigWithType:pushItype finishBlock:^(id response, NSError *error) {
@@ -98,11 +98,6 @@
             [_NotDisturbTable reloadData];
         }
     }];
-    
-//    [GTUserUtils setNotDisturbStatus:index];
-//    
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kPushStatusDidChange object:nil];
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

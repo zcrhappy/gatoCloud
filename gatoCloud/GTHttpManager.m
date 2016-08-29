@@ -813,8 +813,9 @@ NSInteger const APIErrorCode = 138102;
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     
     [dic safeSetObject:zoneNo forKey:@"zoneNo"];
+//    [dic safeSetObject:@"1" forKey:@"pn"];
     
-    [self POST:@"/queryZones.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+    [self POST:@"/queryZone.do" parameters:dic progress:^(NSProgress *downloadProgress) {
         
     } success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isVaildResponse]) {
