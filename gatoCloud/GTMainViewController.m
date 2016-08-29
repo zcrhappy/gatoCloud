@@ -11,7 +11,7 @@
 #import "GTStartModel.h"
 #import "GTCheckPwdModel.h"
 #import "GTMainViewInfoModel.h"
-#import "GTShareActionSheet.h"
+//#import "GTShareActionSheet.h"
 #import "GTRoutesListViewController.h"
 #import "GTBaseNavigationController.h"
 #import "GTWarningRecordsViewController.h"
@@ -37,8 +37,8 @@
 {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didAddDeviceSuccess:) name:kAddDeviceSuccessNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangedDevice:) name:kDeviceChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangedHeadImg:) name:kHeadImgChangedNotification object:nil];
     [self configUI];
     [self checkVersion];
     [self fetchMainViewInfo];
@@ -47,7 +47,8 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kAddDeviceSuccessNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kDeviceChangedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kHeadImgChangedNotification object:nil];
 }
 
 - (void)configUI
@@ -171,7 +172,6 @@
     controller.navigationItem.title = @"报警记录";
     GTBaseNavigationController *navigationController = [[GTBaseNavigationController alloc] initWithRootViewController:controller];
     [self presentViewController:navigationController animated:YES completion:nil];
-    
 }
 
 //设备管理
@@ -203,8 +203,14 @@
 }
 
 //添加设备后需要增加
-- (void)didAddDeviceSuccess:(NSNotification *)notification
+- (void)didChangedDevice:(NSNotification *)notification
 {
     [self fetchMainViewInfo];
 }
+
+- (void)didChangedHeadImg:(NSNotification *)notification
+{
+    [_headImgView sd_setImageWithURL:[NSURL URLWithString:_infoModel.headImg] placeholderImage:nil completed:nil];
+}
+
 @end

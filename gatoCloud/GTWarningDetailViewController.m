@@ -35,6 +35,7 @@ NSString *done = @"确定";
 
 @property (nonatomic, strong) NSNumber *istate;
 @property (nonatomic, copy) NSString *memo;
+@property (nonatomic, strong) GTShareActionSheet *shareActionSheet;
 @end
 
 @implementation GTWarningDetailViewController
@@ -178,9 +179,12 @@ NSString *done = @"确定";
 
 - (IBAction)clickShare:(id)sender
 {
-    GTShareActionSheet *actionSheet = [[GTShareActionSheet alloc] initWithShareDestination:nil parentViewController:self];
+    if(!_shareActionSheet){
+        _shareActionSheet = [[GTShareActionSheet alloc] initWithShareDestination:nil parentViewController:self];
+    }
+    
     __weak __typeof(self)weakSelf = self;
-    [actionSheet setShareToWXFriend:^{
+    [_shareActionSheet setShareToWXFriend:^{
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         
         NSString *firstLine = [NSString stringWithFormat:@"%@报警",strongSelf.model.zonename];
@@ -191,7 +195,7 @@ NSString *done = @"确定";
         [[GTShareManager shareInstance] shareToWXFrindWithText:content];
     }];
     
-    [actionSheet setShareViaMessage:^{
+    [_shareActionSheet setShareViaMessage:^{
         
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         
@@ -203,7 +207,7 @@ NSString *done = @"确定";
         [[GTShareManager shareInstance] shareViaMessageWithText:content];
     }];
     
-    [actionSheet show];
+    [_shareActionSheet show];
 }
 
 

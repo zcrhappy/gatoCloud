@@ -285,6 +285,7 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
                     NSString *head = [response objectForKey:@"headImg"];
                     [GTUserUtils saveHeadImgURLString:head];
                     [_listTable reloadData];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kHeadImgChangedNotification object:nil];
                 }
             }];
             

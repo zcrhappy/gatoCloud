@@ -300,6 +300,7 @@
     [[GTHttpManager shareManager] GTDeviceDeleteWithDeviceNo:model.deviceNo finishBlock:^(id response, NSError *error) {
         if(error == nil) {
             [MBProgressHUD showText:@"删除设备成功" inView:[UIView gt_keyWindow]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDeviceChangedNotification object:nil];
             [_deviceArray removeObject:model];
             [_deviceTable reloadData];
         }
@@ -330,7 +331,7 @@
     //添加成功后，从加入页回来需要刷新，并且发送noti
     if([unwindSegue.identifier isEqualToString:@"BackToListSegue"]) {
         [self pullDownToRefresh];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kAddDeviceSuccessNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDeviceChangedNotification object:nil];
     }
 }
 

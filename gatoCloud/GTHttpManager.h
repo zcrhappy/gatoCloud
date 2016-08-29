@@ -320,6 +320,22 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
                       zoneStrainVpt:(NSString *)zoneStrainVpt
                         finishBlock:(GTResultBlock)finishBlk;
 
+#pragma mark - Push Notification
+/*!
+ *  @brief 查询推送设置
+ *
+ *  @param finishBlk 返回结果
+ */
+- (void)GTQueryPushConfigWithFinishBlock:(GTResultBlock)finishBlk;
+
+/*!
+ *  @brief 推送设置
+ *
+ *  @param itype 0不推送   1只在白天推送   2所有时间段均推送
+ */
+- (void)GTPushConfigWithType:(NSString *)itype
+                 finishBlock:(GTResultBlock)finishBlk;
+
 #pragma mark - UserInfo
 /*!
  *  @brief 用户反馈

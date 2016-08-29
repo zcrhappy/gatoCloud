@@ -9,6 +9,11 @@
 #import "GTNotDisturbViewController.h"
 #import "GTNotDisturbCell.h"
 #import "MiPushSDK.h"
+
+#define kPushClose @"开启"
+#define kPushOpen @"关闭"
+#define kPushOpenAtDay @"只在夜间开启"
+
 @interface GTNotDisturbViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *NotDisturbTable;
@@ -23,12 +28,28 @@
 {
     [super awakeFromNib];
 
-    _disturbArray = @[@"开启", @"只在夜间开启", @"关闭"];
-    _selectedIndex = [GTUserUtils notDisturbStatus].integerValue;
+    _disturbArray = @[kPushClose, kPushOpenAtDay, kPushOpen];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[GTHttpManager shareManager] GTQueryPushConfigWithFinishBlock:^(id response, NSError *error) {
+        if(error == nil) {
+            NSNumber *itype = [response objectForKey:@"itype"];
+            if(itype.integerValue == 0) {
+                _selectedIndex = 2;
+            }
+            else if (itype.integerValue == 1) {
+                _selectedIndex = 1;
+            }
+            else if (itype.integerValue == 2) {
+                _selectedIndex = 0;
+            }
+            [_NotDisturbTable reloadData];
+        }
+    }];
+    
 }
 
 #pragma mark - Delegate
@@ -59,11 +80,29 @@
     NSInteger index = indexPath.row;
     _selectedIndex = index;
     
-    [GTUserUtils setNotDisturbStatus:index];
+    NSString *name = [_disturbArray objectAtIndex:index];
+    NSString *pushItype;
+    if([name isEqualToString:kPushOpen]) {
+        pushItype = @"2";
+    }
+    else if( [name isEqualToString:kPushClose]) {
+        pushItype = @"0";
+    }
+    else if ( [name isEqualToString:kPushOpenAtDay]) {
+        pushItype = @"1";
+    }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kPushStatusDidChange object:nil];
+    [[GTHttpManager shareManager] GTPushConfigWithType:pushItype finishBlock:^(id response, NSError *error) {
+        if(error == nil) {
+            [MBProgressHUD showText:@"设置成功!" inView:self.view];
+            [_NotDisturbTable reloadData];
+        }
+    }];
     
-    [_NotDisturbTable reloadData];
+//    [GTUserUtils setNotDisturbStatus:index];
+//    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kPushStatusDidChange object:nil];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

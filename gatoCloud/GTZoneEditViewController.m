@@ -221,7 +221,7 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
             if(_editSuccessBlock)
                 _editSuccessBlock(_model);
             
-            [self.navigationController popViewControllerAnimated:self];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }];
 }
