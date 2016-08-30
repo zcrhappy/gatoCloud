@@ -89,7 +89,7 @@
 
 - (void)didSuccessRegisterWithDic:(id)response
 {
-    [GTUserUtils saveUserInfoViaRegister:response];
+    [GTUserUtils saveUserInfoViaPhoneRegister:response];
     
     [self performSegueWithIdentifier:@"EnterMainViewSegue" sender:self];
     

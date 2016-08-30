@@ -37,19 +37,9 @@
         [[GTHttpManager shareManager] GTPhoneLoginEithMobileNo:_nameLabel.text password:_pwdLabel.text finishBlock:^(id response, NSError *error) {
             if(error == nil) {
                 [MBProgressHUD showText:@"恭喜您登录成功" inView:[UIView gt_keyWindow]];
-            
-                [GTUserUtils unRegisterUserInfo];
-                [GTUserUtils saveUserInfoViaRegister:response];
+                [GTUserUtils saveUserInfoViaPhoneLogin:response];
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:kDidLoginSuccessNotification object:nil];
-//                [self dismissViewControllerAnimated:NO completion:nil];
-//                [self performSegueWithIdentifier:@"kEnterMainViewSegue" sender:self];
-                
-//                
-//                if([GTGestureManager isFirstLoad])
-//                    [[GTGestureManager sharedInstance] showSettingGestureView];
-//                else
-//                    [[GTGestureManager sharedInstance] showLoginGestureView];
             }
         }];
     }

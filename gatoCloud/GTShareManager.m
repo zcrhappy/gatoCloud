@@ -37,7 +37,7 @@
 
 - (void)shareViaMessageWithText:(NSString *)text;
 {
-    UIViewController *currentViewController = [GTUserUtils appTopViewController];
+    UIViewController *currentViewController = [UIViewController gt_topViewController];
     
     Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
     if(messageClass != nil) {
@@ -61,7 +61,7 @@
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result;
 {
-    UIViewController *currentViewController = [GTUserUtils appTopViewController];
+    UIViewController *currentViewController = [UIViewController gt_topViewController];
     [currentViewController dismissViewControllerAnimated:YES completion:nil];
     
     switch (result) {

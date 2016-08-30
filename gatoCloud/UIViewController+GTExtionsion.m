@@ -24,11 +24,20 @@
     [self.navigationController pushViewController:target animated:YES];
 }
 
-+ (void)gt_backToRootViewController
++ (UIViewController *)gt_rootViewController
+{
+    return [UIApplication sharedApplication].keyWindow.rootViewController;
+}
+
++ (void)gt_backToRootViewControllerWithCompletion:(void (^ __nullable)(void))completion
 {
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    
-    [rootViewController dismissViewControllerAnimated:YES completion:nil];
+    if(rootViewController == [UIViewController gt_topViewController]) {
+        completion();
+    }
+    else {
+        [rootViewController dismissViewControllerAnimated:YES completion:completion];
+    }
 }
 
 //获取当前屏幕显示的viewcontroller
@@ -44,7 +53,7 @@
 
 + (BOOL)isViewControllerPresent
 {
-    UIViewController *topVC = [GTUserUtils appTopViewController];
+    UIViewController *topVC = [UIViewController gt_topViewController];
     NSArray *viewcontrollers = topVC.navigationController.viewControllers;
     
     if (viewcontrollers.count > 1) {

@@ -79,7 +79,7 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
         [quitCell.quitButton setTitle:@"退出当前账号" forState:UIControlStateNormal];
         [quitCell setClickQuitButton:^{
             [GTUserUtils unRegisterUserInfo];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kUserDidLogout object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDidLogoutNotification object:nil];
         }];
         
         return quitCell;

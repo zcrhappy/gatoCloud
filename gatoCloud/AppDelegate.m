@@ -13,6 +13,7 @@
 #import "OHHTTPStubs.h"
 #import "OHPathHelpers.h"
 #import "IQKeyboardManager.h"
+#import "GTGestureManager.h"
 #import "MiPushSDK.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
@@ -36,6 +37,10 @@
     
     //初始化界面
     [self showRootViewController];
+    if([GTUserUtils isLogin])
+    {
+        [self didLoginSuccess:nil];
+    }
     
     //配置键盘管理器
     [IQKeyboardManager sharedManager].enable = YES;
@@ -43,8 +48,8 @@
     
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needsLoginAction:) name:kNeedsLoginNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushStatusDidChange:) name:kPushStatusDidChange object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogout:) name:kUserDidLogout object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogout:) name:kDidLogoutNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoginSuccess:) name:kDidLoginSuccessNotification object:nil];
 #ifdef enableStubHTTP
     [self stubHTTP];
 #endif
@@ -82,7 +87,7 @@
     {
         GestureViewController *gestureUnlockViewController = [[GestureViewController alloc] init];
         gestureUnlockViewController.type = GestureViewControllerTypeLogin;
-        [[GTUserUtils appTopViewController] presentViewController:gestureUnlockViewController animated:YES completion:nil];
+        [[UIViewController gt_topViewController] presentViewController:gestureUnlockViewController animated:YES completion:nil];
     }
 }
 
@@ -99,7 +104,7 @@
     UIAlertController *controler = [UIAlertController alertControllerWithTitle:@"会话过期" message:@"需要重新登录" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         //初始化界面
-        [UIViewController gt_backToRootViewController];
+        [UIViewController gt_backToRootViewControllerWithCompletion:nil];
     }];
     [controler addAction:doneAction];
     
@@ -108,7 +113,20 @@
 
 - (void)didLogout:(NSNotification *)noti
 {
-    [UIViewController gt_backToRootViewController];
+    [UIViewController gt_backToRootViewControllerWithCompletion:nil ];
+}
+
+- (void)didLoginSuccess:(NSNotification *)noti
+{
+    NSLog(@"success");
+    [UIViewController gt_backToRootViewControllerWithCompletion:^{
+        [[UIViewController gt_rootViewController] gt_presentViewControllerWithStoryBoardIdentifier:@"GTMainViewControllerID"];
+        
+        if([GTGestureManager isFirstLoad])
+            [[GTGestureManager sharedInstance] showSettingGestureView];
+        else
+            [[GTGestureManager sharedInstance] showLoginGestureView];
+    }];
 }
 
 - (void)showRootViewController

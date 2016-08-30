@@ -10,7 +10,6 @@
 #import "GTPhoneRegisterViewController.h"
 #import "GTMainViewController.h"
 #import "GTWXLoginManager.h"
-#import "GTGestureManager.h"
 @interface GTLoginMenuViewController()
 
 @property (weak, nonatomic) IBOutlet UIButton *phoneLoginButton;
@@ -24,10 +23,6 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin) name:kDidLoginSuccessNotification object:nil];
-    });
 }
 
 - (void)viewDidLoad
@@ -40,11 +35,6 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-}
-
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidLoginSuccessNotification object:nil];
 }
 
 - (void)configUI
@@ -74,19 +64,6 @@
     [[GTWXLoginManager sharedManager] sendAuthRequest];
     
 }
-
-- (void)didLogin
-{
-    NSLog(@"success");
-    [UIViewController gt_backToRootViewController];
-    [self gt_presentViewControllerWithStoryBoardIdentifier:@"GTMainViewControllerID"];
-    
-    if([GTGestureManager isFirstLoad])
-        [[GTGestureManager sharedInstance] showSettingGestureView];
-    else
-        [[GTGestureManager sharedInstance] showLoginGestureView];
-}
-
 
 - (IBAction)unwindToLoginController:(UIStoryboardSegue *)unwindSegue
 {

@@ -11,6 +11,7 @@
 
 //notificationName
 #define kDidLoginSuccessNotification @"kDidLoginSuccessNotification"
+#define kDidLogoutNotification @"kDidLogoutNotification"
 #define kNeedsLoginNotification @"kNeedsLoginNotification"
 #define kDeviceChangedNotification @"kDeviceChangedNotification"
 #define kHeadImgChangedNotification @"kHeadImgChangedNotification"
@@ -28,8 +29,7 @@
 
 #define kUserDefaultKeyForDeviceCellMenuShow @"kUserDefaultKeyForDeviceCellMenuShow"
 
-#define kPushStatusDidChange @"kPushStatusDidChange"
-#define kUserDidLogout @"kUserDidLogout"
+
 
 
 //color

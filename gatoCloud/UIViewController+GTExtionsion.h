@@ -14,5 +14,6 @@
 - (void)gt_pushViewControllerWithStoryBoardIdentifier:(NSString *)identifier;
 
 + (UIViewController *)gt_topViewController;
-+ (void)gt_backToRootViewController;
++ (UIViewController *)gt_rootViewController;
++ (void)gt_backToRootViewControllerWithCompletion:(void (^ __nullable)(void))completion;
 @end

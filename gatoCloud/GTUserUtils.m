@@ -12,8 +12,6 @@
 NSString *kUserInfoKey = @"kUserInfoKey";
 NSString *kBannerKey = @"kBannerKey";
 NSString *kRegIdKey = @"kRegIdKey";
-NSString *kPushStatus = @"kPushStatus";
-//NSString *kImgBaseURL = @"http://115.159.44.248:8085/";
 
 @interface GTUserUtils()
 @property (nonatomic, assign) BOOL isLogin;
@@ -28,24 +26,49 @@ NSString *kPushStatus = @"kPushStatus";
     dispatch_once(&onceToken, ^{
         sharedInstance = [[GTUserUtils alloc] init];
         sharedInstance.userModel = [[TMCache sharedCache] objectForKey:kUserInfoKey];
+
+        if(sharedInstance.userModel == nil || [sharedInstance.userModel isEqual:[NSNull null]])
+            sharedInstance.isLogin = NO;
+        else
+            sharedInstance.isLogin = YES;
     });
     return sharedInstance;
 }
 
-#pragma mark - InfoViaWeChat
+//保存信息前重置
++ (void)refreshUserInfo;
+{
+     [GTUserUtils sharedInstance].userModel = [[GTUserModel alloc] init];
+}
+//保存通过微信登录信息
 + (void)saveUserInfoViaWX:(NSDictionary *)dic;
 {
+    [GTUserUtils refreshUserInfo];
+    
     if(dic) {
         GTUserModel *userModel = [MTLJSONAdapter modelOfClass:[GTUserModel class] fromJSONDictionary:dic error:nil];
         [GTUserUtils sharedInstance].userModel = userModel;//内存
-        [[TMCache sharedCache] setObject:userModel forKey:kUserInfoKey];//数据库
         [GTUserUtils loginSuccess];
     }
 }
-
 //保存通过手机注册返回的信息
-+ (void)saveUserInfoViaRegister:(NSDictionary *)dic;
++ (void)saveUserInfoViaPhoneRegister:(NSDictionary *)dic;
 {
+    [GTUserUtils refreshUserInfo];
+    
+    NSString *token = [dic objectForKey:@"token"];
+    NSString *userId = [dic objectForKey:@"userId"];
+    
+    if(token != nil && userId != nil) {
+        [GTUserUtils saveToken:token userId:userId];
+        [GTUserUtils loginSuccess];
+    }
+}
+//保存通过手机登录返回的信息
++ (void)saveUserInfoViaPhoneLogin:(NSDictionary *)dic
+{
+    [GTUserUtils refreshUserInfo];
+    
     NSString *token = [dic objectForKey:@"token"];
     NSString *userId = [dic objectForKey:@"userId"];
     
@@ -66,8 +89,6 @@ NSString *kPushStatus = @"kPushStatus";
     if(userId) {
         [GTUserUtils sharedInstance].userModel.userId = userId;//内存
     }
-    
-    [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];//数据库
 }
 
 + (void)unRegisterUserInfo;
@@ -95,36 +116,11 @@ NSString *kPushStatus = @"kPushStatus";
 
 + (void)loginSuccess;
 {
+    NSLog(@"loginSuccess");
     [GTUserUtils sharedInstance].isLogin = YES;
+    [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];//数据库
 }
 
-#pragma mark - other
-//获取当前屏幕显示的viewcontroller
-+ (UIViewController *)appTopViewController
-{
-    UIViewController *appRootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
-    UIViewController *topVC = appRootVC;
-    while (topVC.presentedViewController) {
-        topVC = topVC.presentedViewController;
-    }
-    return topVC;
-}
-
-+ (BOOL)isViewControllerPresent
-{
-    UIViewController *topVC = [GTUserUtils appTopViewController];
-    NSArray *viewcontrollers = topVC.navigationController.viewControllers;
-    
-    if (viewcontrollers.count > 1) {
-        if ([viewcontrollers objectAtIndex:viewcontrollers.count-1]==self) {
-            //push方式
-            return NO;
-        }
-    }
-    
-    //present方式
-    return YES;
-}
 //推送相关
 + (void)saveRegId:(NSString *)regId
 {
@@ -135,16 +131,6 @@ NSString *kPushStatus = @"kPushStatus";
 + (NSString *)regId
 {
     return [[NSUserDefaults standardUserDefaults] objectForKey:kRegIdKey];
-}
-
-+ (void)setNotDisturbStatus:(NSInteger)status
-{
-     [[NSUserDefaults standardUserDefaults] setObject:@(status) forKey:kPushStatus];
-}
-
-+ (NSNumber *)notDisturbStatus
-{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:kPushStatus];
 }
 
 @end

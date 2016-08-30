@@ -26,21 +26,21 @@
 + (void)loginSuccess;
 + (void)unRegisterUserInfo;//注销当前用户的信息。
 
+
++ (void)saveToken:(NSString *)token userId:(NSString *)userId;
+
+
+#pragma mark - 登录后调用
 //保存通过微信登录信息
 + (void)saveUserInfoViaWX:(NSDictionary *)dic;
-+ (void)saveToken:(NSString *)token userId:(NSString *)userId;
 //保存通过手机注册返回的信息
-+ (void)saveUserInfoViaRegister:(NSDictionary *)dic;
++ (void)saveUserInfoViaPhoneRegister:(NSDictionary *)dic;
+//保存通过手机登录返回的信息
++ (void)saveUserInfoViaPhoneLogin:(NSDictionary *)dic;
 
 + (void)saveBanners:(NSArray *)banners;
 
 //推送相关
 + (void)saveRegId:(NSString *)regId;
 + (NSString *)regId;
-//+ (void)setNotDisturbStatus:(NSInteger)status;//免打扰0开启，1只在夜间开启，2关闭
-//+ (NSNumber *)notDisturbStatus;//免打扰0开启，1只在夜间开启，2关闭
-
-//视图相关工具类
-+ (UIViewController *)appTopViewController;
-+ (BOOL)isViewControllerPresent;
 @end
