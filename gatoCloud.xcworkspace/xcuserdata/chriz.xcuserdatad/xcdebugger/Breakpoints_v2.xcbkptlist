@@ -211,13 +211,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "gatoCloud/GTLoginMenuViewController.m"
-            timestampString = "494150343.916876"
+            filePath = "gatoCloud/GTUserInfoViewController.m"
+            timestampString = "494160252.135146"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "-didLogin"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gatoCloud/GTMainViewController.m"
+            timestampString = "494169712.86934"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "-didChangedHeadImg:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -228,45 +244,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "gatoCloud/GTLoginMenuViewController.m"
-            timestampString = "494150343.916876"
+            timestampString = "494214999.804629"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "-didLogin"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[GTLoginMenuViewController didLogin]"
-                  moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTLoginMenuViewController.m"
-                  timestampString = "494150345.057193"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__37-[GTLoginMenuViewController didLogin]_block_invoke"
-                  moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTLoginMenuViewController.m"
-                  timestampString = "494150345.057314"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "80">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -275,13 +259,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "gatoCloud/Login/GTWXLoginManager.m"
-            timestampString = "494150275.523263"
+            filePath = "gatoCloud/GTGestureManager.m"
+            timestampString = "494216168.966693"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "-getUserInfo"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-showSettingGestureView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -291,13 +275,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "gatoCloud/Login/GTWXLoginManager.m"
-            timestampString = "494150284.99169"
+            filePath = "gatoCloud/GTGestureManager.m"
+            timestampString = "494216169.782749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "-getUserInfo"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-showLoginGestureView"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gatoCloud/GTUserModel.m"
+            timestampString = "494216458.241535"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "-setAvatarUrlString:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gatoCloud/GTUserModel.m"
+            timestampString = "494216458.826804"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "-avatarUrlString"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

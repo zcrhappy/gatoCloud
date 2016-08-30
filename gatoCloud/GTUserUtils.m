@@ -16,9 +16,6 @@ NSString *kPushStatus = @"kPushStatus";
 //NSString *kImgBaseURL = @"http://115.159.44.248:8085/";
 
 @interface GTUserUtils()
-
-@property (nonatomic, strong) GTUserModel *userModel;
-
 @property (nonatomic, assign) BOOL isLogin;
 @end
 
@@ -30,6 +27,7 @@ NSString *kPushStatus = @"kPushStatus";
     static GTUserUtils *sharedInstance;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[GTUserUtils alloc] init];
+        sharedInstance.userModel = [[TMCache sharedCache] objectForKey:kUserInfoKey];
     });
     return sharedInstance;
 }
@@ -37,103 +35,53 @@ NSString *kPushStatus = @"kPushStatus";
 #pragma mark - InfoViaWeChat
 + (void)saveUserInfoViaWX:(NSDictionary *)dic;
 {
-    [GTUserUtils saveUserInfo:dic];
-}
-+ (void)saveTokenViaWX:(NSString *)token;
-{
-    [GTUserUtils saveToken:token];
-}
-+ (void)saveUserIdViaWX:(NSString *)userId;
-{
-    [GTUserUtils saveUserId:userId];
+    if(dic) {
+        GTUserModel *userModel = [MTLJSONAdapter modelOfClass:[GTUserModel class] fromJSONDictionary:dic error:nil];
+        [GTUserUtils sharedInstance].userModel = userModel;//内存
+        [[TMCache sharedCache] setObject:userModel forKey:kUserInfoKey];//数据库
+        [GTUserUtils loginSuccess];
+    }
 }
 
 //保存通过手机注册返回的信息
 + (void)saveUserInfoViaRegister:(NSDictionary *)dic;
 {
-    [GTUserUtils sharedInstance].userModel = [[GTUserModel alloc] init];
-    
     NSString *token = [dic objectForKey:@"token"];
     NSString *userId = [dic objectForKey:@"userId"];
     
     if(token != nil && userId != nil) {
-        [GTUserUtils saveToken:token];
-        [GTUserUtils saveUserId:userId];
-        [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
+        [GTUserUtils saveToken:token userId:userId];
         [GTUserUtils loginSuccess];
+    }
+}
+
++ (void)saveToken:(NSString *)token userId:(NSString *)userId;
+{
+    if(![GTUserUtils sharedInstance].userModel)
+        [GTUserUtils sharedInstance].userModel = [[GTUserModel alloc] init];
+    
+    if(token) {
+        [GTUserUtils sharedInstance].userModel.token = token;//内存
+    }
+    if(userId) {
+        [GTUserUtils sharedInstance].userModel.userId = userId;//内存
     }
     
-}
-
-
-+ (void)saveTokenViaRegister:(NSString *)token;
-{
-    [GTUserUtils saveToken:token];
-}
-+ (void)saveUserIdViaRegister:(NSString *)userId;
-{
-    [GTUserUtils saveUserId:userId];
-}
-#pragma mark - Save Info
-
-+ (void)saveUserInfo:(NSDictionary *)dic;
-{
-    if(dic) {
-        GTUserModel *userModel = [MTLJSONAdapter modelOfClass:[GTUserModel class] fromJSONDictionary:dic error:nil];
-        [GTUserUtils sharedInstance].userModel = userModel;
-        [[TMCache sharedCache] setObject:userModel forKey:kUserInfoKey];
-        [GTUserUtils loginSuccess];
-    }
-    else {
-        [GTUserUtils sharedInstance].userModel = nil;//清内存数据
-    }
-}
-
-+ (void)saveToken:(NSString *)token
-{
-    if(token) {
-        [GTUserUtils sharedInstance].userModel.token = token;
-        [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
-    }
-}
-
-+ (void)saveUserId:(NSString *)userId
-{
-    if(userId) {
-        [GTUserUtils sharedInstance].userModel.userId = userId;
-        [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];
-    }
+    [[TMCache sharedCache] setObject:[GTUserUtils sharedInstance].userModel forKey:kUserInfoKey];//数据库
 }
 
 + (void)unRegisterUserInfo;
 {
     [GTUserUtils sharedInstance].isLogin = NO;
-    [GTUserUtils saveUserInfo:nil];
-    [[TMCache sharedCache] removeObjectForKey:kUserInfoKey];
+    [GTUserUtils sharedInstance].userModel = [[GTUserModel alloc] init];//清内存数据
+    [[TMCache sharedCache] removeObjectForKey:kUserInfoKey];//数据库
 }
-
-/*!
- *  @brief 先从内存取，没有的话从缓存，再没有返回nil
- */
-+ (GTUserModel *)userInfo;
-{
-    if([GTUserUtils sharedInstance].userModel) {
-        return [GTUserUtils sharedInstance].userModel;
-    }
-    else if([[TMCache sharedCache] objectForKey:kUserInfoKey]) {
-        [GTUserUtils sharedInstance].userModel = [[TMCache sharedCache] objectForKey:kUserInfoKey];
-        return [GTUserUtils sharedInstance].userModel;
-    }
-    else
-        return nil;
-}
-
-
 
 + (void)saveBanners:(NSArray *)banners
 {
     [[TMCache sharedCache] setObject:banners forKey:kBannerKey];
 }
+
 #pragma mark -getter
 + (NSArray *)banners
 {
@@ -148,21 +96,6 @@ NSString *kPushStatus = @"kPushStatus";
 + (void)loginSuccess;
 {
     [GTUserUtils sharedInstance].isLogin = YES;
-}
-
-+ (NSString *)userHeadImgURLString
-{
-    NSString *fileName = [GTUserUtils sharedInstance].userModel.customHeadImgUrlString;
-    if(fileName == nil || [fileName isEmptyString])
-        return @"";
-
-    return fileName;
-}
-+ (void)saveHeadImgURLString:(NSString *)urlStr;
-{
-    //因为头像有缓存，但是一个用户的头像url是一样的，所以每次修改完头像，都需要清除缓存。
-    [[SDImageCache sharedImageCache] removeImageForKey:urlStr fromDisk:YES];
-    [GTUserUtils sharedInstance].userModel.customHeadImgUrlString = urlStr;
 }
 
 #pragma mark - other

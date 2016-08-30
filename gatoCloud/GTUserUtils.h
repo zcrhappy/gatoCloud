@@ -11,13 +11,15 @@
 
 @interface GTUserUtils : NSObject
 
+@property (nonatomic, copy) NSString *avatarUrlString;
+@property (nonatomic, strong) GTUserModel *userModel;
 
++ (instancetype)sharedInstance;
 
-+ (GTUserModel *)userInfo;
 + (NSArray *)banners;
 
-+ (NSString *)userHeadImgURLString;
-+ (void)saveHeadImgURLString:(NSString *)urlStr;
+//+ (NSString *)avatarURLString;
+//+ (void)setAvatarURLString:(NSString *)urlStr;
 
 //登录相关
 + (BOOL)isLogin;
@@ -26,8 +28,7 @@
 
 //保存通过微信登录信息
 + (void)saveUserInfoViaWX:(NSDictionary *)dic;
-+ (void)saveTokenViaWX:(NSString *)token;
-+ (void)saveUserIdViaWX:(NSString *)userId;
++ (void)saveToken:(NSString *)token userId:(NSString *)userId;
 //保存通过手机注册返回的信息
 + (void)saveUserInfoViaRegister:(NSDictionary *)dic;
 

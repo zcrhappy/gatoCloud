@@ -144,7 +144,7 @@
     imageView.layer.borderWidth = 0.5;
     imageView.layer.masksToBounds = YES;
     imageView.center = CGPointMake(kScreenW/2, 120);
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils userHeadImgURLString]] placeholderImage:nil];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString] placeholderImage:nil];
     [self.view addSubview:imageView];
     
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -167,7 +167,7 @@
     imageView.layer.borderWidth = 0.5;
     imageView.layer.masksToBounds = YES;
     imageView.center = CGPointMake(kScreenW/2, kScreenH/5);
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils userHeadImgURLString]] placeholderImage:nil];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString] placeholderImage:nil];
     [self.view addSubview:imageView];
     
     UILabel *tipLabel = [[UILabel alloc] init];

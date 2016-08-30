@@ -23,6 +23,6 @@
 @property (nonatomic, copy) NSString *userId;
 
 
-@property (nonatomic, copy) NSString *customHeadImgUrlString;
+@property (nonatomic, copy) NSString *avatarUrlString;
 
 @end

@@ -36,14 +36,14 @@
 {
     GestureViewController *gestureUnlockViewController = [[GestureViewController alloc] init];
     gestureUnlockViewController.type = GestureViewControllerTypeSetting;
-    [[GTUserUtils appTopViewController] presentViewController:gestureUnlockViewController animated:YES completion:nil];
+    [[UIViewController gt_topViewController] presentViewController:gestureUnlockViewController animated:YES completion:nil];
 }
 
 - (void)showLoginGestureView
 {
     GestureViewController *gestureUnlockViewController = [[GestureViewController alloc] init];
     gestureUnlockViewController.type = GestureViewControllerTypeLogin;
-    [[GTUserUtils appTopViewController] presentViewController:gestureUnlockViewController animated:YES completion:nil];
+    [[UIViewController gt_topViewController] presentViewController:gestureUnlockViewController animated:YES completion:nil];
 }
 
 + (BOOL)isFirstLoad

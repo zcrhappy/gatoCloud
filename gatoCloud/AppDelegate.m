@@ -99,26 +99,24 @@
     UIAlertController *controler = [UIAlertController alertControllerWithTitle:@"会话过期" message:@"需要重新登录" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         //初始化界面
-        if([GTUserUtils isViewControllerPresent])
-            [[GTUserUtils appTopViewController] dismissViewControllerAnimated:NO completion:nil];
-        
-        [self showRootViewController];
+        [UIViewController gt_backToRootViewController];
     }];
     [controler addAction:doneAction];
     
-    [[GTUserUtils appTopViewController] presentViewController:controler animated:YES completion:nil];
+    [[UIViewController gt_topViewController] presentViewController:controler animated:YES completion:nil];
 }
 
 - (void)didLogout:(NSNotification *)noti
 {
-    [self showRootViewController];
+    [UIViewController gt_backToRootViewController];
 }
 
 - (void)showRootViewController
 {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *rootViewController = [storyBoard instantiateInitialViewController];
-    self.window = [[GTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIViewController *rootViewController = [storyBoard instantiateViewControllerWithIdentifier:@"LoginMenuViewControllerID"];
+    if(self.window == nil)
+        self.window = [[GTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:rootViewController];
     [self.window makeKeyAndVisible];
 }

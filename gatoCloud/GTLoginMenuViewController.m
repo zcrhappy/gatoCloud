@@ -21,11 +21,18 @@
 @end
 @implementation GTLoginMenuViewController
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin) name:kDidLoginSuccessNotification object:nil];
+    });
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin) name:kDidLoginSuccessNotification object:nil];
     
     [self configUI];
 }
@@ -70,22 +77,14 @@
 
 - (void)didLogin
 {
-    [[GTHttpManager shareManager] GTWxLoginWithFinishBlock:^(NSDictionary * _Nullable response, NSError * _Nullable error){
-       
-        if(error == nil){
-            NSLog(@"success");
-            
-            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UIViewController *mainViewController = [storyBoard instantiateViewControllerWithIdentifier:@"GTMainViewControllerIdentifier"];
-            [self presentViewController:mainViewController animated:YES completion:nil];
-            
-            if([GTGestureManager isFirstLoad])
-                [[GTGestureManager sharedInstance] showSettingGestureView];
-            else
-                [[GTGestureManager sharedInstance] showLoginGestureView];
-        }
-            
-    }];
+    NSLog(@"success");
+    [UIViewController gt_backToRootViewController];
+    [self gt_presentViewControllerWithStoryBoardIdentifier:@"GTMainViewControllerID"];
+    
+    if([GTGestureManager isFirstLoad])
+        [[GTGestureManager sharedInstance] showSettingGestureView];
+    else
+        [[GTGestureManager sharedInstance] showLoginGestureView];
 }
 
 

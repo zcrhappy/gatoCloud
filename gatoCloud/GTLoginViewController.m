@@ -42,14 +42,14 @@
                 [GTUserUtils saveUserInfoViaRegister:response];
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:kDidLoginSuccessNotification object:nil];
+//                [self dismissViewControllerAnimated:NO completion:nil];
+//                [self performSegueWithIdentifier:@"kEnterMainViewSegue" sender:self];
                 
-                [self performSegueWithIdentifier:@"kEnterMainViewSegue" sender:self];
-                
-                
-                if([GTGestureManager isFirstLoad])
-                    [[GTGestureManager sharedInstance] showSettingGestureView];
-                else
-                    [[GTGestureManager sharedInstance] showLoginGestureView];
+//                
+//                if([GTGestureManager isFirstLoad])
+//                    [[GTGestureManager sharedInstance] showSettingGestureView];
+//                else
+//                    [[GTGestureManager sharedInstance] showLoginGestureView];
             }
         }];
     }

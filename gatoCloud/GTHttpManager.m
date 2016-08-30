@@ -64,10 +64,10 @@ NSInteger const APIErrorCode = 138102;
 
 - (void)GTWxLoginWithFinishBlock:(GTResultBlock)finishBlk
 {
-    NSString *openId = [GTUserUtils userInfo].openid;
-    NSString *headimgurl = [GTUserUtils userInfo].headimgurl;
-    NSString *nickname = [GTUserUtils userInfo].nickname;
-    NSString *unionid = [GTUserUtils userInfo].unionid;
+    NSString *openId = [GTUserUtils sharedInstance].userModel.openid;
+    NSString *headimgurl = [GTUserUtils sharedInstance].userModel.headimgurl;
+    NSString *nickname = [GTUserUtils sharedInstance].userModel.nickname;
+    NSString *unionid = [GTUserUtils sharedInstance].userModel.unionid;
     NSString *xmAppid = [GTUserUtils regId];
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -86,8 +86,7 @@ NSInteger const APIErrorCode = 138102;
             token = [dic objectForKey:@"token"];
             userId = [dic objectForKey:@"userId"];
             
-            [GTUserUtils saveTokenViaWX:token];
-            [GTUserUtils saveUserIdViaWX:userId];
+            [GTUserUtils saveToken:token userId:userId];
             [GTUserUtils loginSuccess];
         }
         finishBlk(dic, nil);
@@ -1011,10 +1010,10 @@ NSInteger const APIErrorCode = 138102;
     uuid = [[NSUUID UUID] UUIDString];
     
     if(token == nil || [token isEmptyString]) {
-        token = [GTUserUtils userInfo].token;
+        token = [GTUserUtils sharedInstance].userModel.token;
     }
     if(userId == nil || [userId isEmptyString]) {
-        userId = [GTUserUtils userInfo].userId;
+        userId = [GTUserUtils sharedInstance].userModel.userId;
     }
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -1063,8 +1062,8 @@ NSInteger const APIErrorCode = 138102;
 
 - (void)didLogin
 {
-    token = [GTUserUtils userInfo].token;
-    userId = [GTUserUtils userInfo].userId;
+    token = [GTUserUtils sharedInstance].userModel.token;
+    userId = [GTUserUtils sharedInstance].userModel.userId;
 }
 
 - (void)dealloc

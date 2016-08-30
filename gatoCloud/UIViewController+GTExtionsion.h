@@ -12,4 +12,7 @@
 
 - (void)gt_presentViewControllerWithStoryBoardIdentifier:(NSString *)identifier;
 - (void)gt_pushViewControllerWithStoryBoardIdentifier:(NSString *)identifier;
+
++ (UIViewController *)gt_topViewController;
++ (void)gt_backToRootViewController;
 @end

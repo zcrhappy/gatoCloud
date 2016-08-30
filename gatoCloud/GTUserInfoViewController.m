@@ -89,7 +89,7 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     GTUserInfoCell *cell = (GTUserInfoCell *)[tableView dequeueReusableCellWithIdentifier:@"GTUserInfoCellIdentifier" forIndexPath:indexPath];
     
     if([title isEqualToString:kAvatar]) {
-        NSString *avatarStr = [GTUserUtils userHeadImgURLString];
+        NSString *avatarStr = [GTUserUtils sharedInstance].userModel.avatarUrlString;
         [cell setupCellWithType:GTUserInfoCellTypeAvatar title:title subTitle:nil avatarStr:avatarStr];
     }
     else {
@@ -282,8 +282,8 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
                 if(error == nil) {
                     [MBProgressHUD showText:@"修改头像成功" inView:self.view];
                     
-                    NSString *head = [response objectForKey:@"headImg"];
-                    [GTUserUtils saveHeadImgURLString:head];
+                    NSString *headImgURL = [response objectForKey:@"headImg"];
+                    [GTUserUtils sharedInstance].userModel.avatarUrlString = headImgURL;
                     [_listTable reloadData];
                     [[NSNotificationCenter defaultCenter] postNotificationName:kHeadImgChangedNotification object:nil];
                 }

@@ -122,8 +122,9 @@ NSString *kStateString = @"1q2w3e4r5t6y7u8i9o0p";
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
+    __weak __typeof(self)weakSelf = self;
     [manager GET:GetUserInfoBaseURL parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
         NSDictionary *resDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         if([resDic objectForKey:@"errcode"]) {
             [MBProgressHUD showText:@"获取用户信息失败" inView:[UIView gt_keyWindow]];
@@ -131,10 +132,20 @@ NSString *kStateString = @"1q2w3e4r5t6y7u8i9o0p";
         else {
             [GTUserUtils saveUserInfoViaWX:resDic];
             [MBProgressHUD showText:@"登录成功" inView:[UIView gt_keyWindow]];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kDidLoginSuccessNotification object:nil];
+            [strongSelf performLoginViaWX];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD showText:@"授权失败" inView:[UIView gt_keyWindow]];
+    }];
+}
+
+- (void)performLoginViaWX
+{
+    [[GTHttpManager shareManager] GTWxLoginWithFinishBlock:^(NSDictionary * _Nullable response, NSError * _Nullable error){
+        
+        if(error == nil){
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDidLoginSuccessNotification object:nil];
+        }
     }];
 }
 
