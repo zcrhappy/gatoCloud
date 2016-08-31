@@ -48,7 +48,8 @@
     //创建按钮
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"确认按钮block");
-        finishBlk();
+        if(finishBlk)
+            finishBlk();
     }];
     
     //将按钮添加到UIAlertController对象上

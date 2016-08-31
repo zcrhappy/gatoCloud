@@ -209,7 +209,7 @@
         [self gt_showTypingControllerWithTitle:@"验证密码" placeholder:@"请输入设备密码" finishBlock:^(NSString *content) {
             [[GTHttpManager shareManager] GTOneKeyDealingGuardWithDeviceNo:model.deviceNo istate:@2 pwd:content finishBlock:^(id response, NSError *error) {
                 if(!error) {
-                    [MBProgressHUD showText:@"布防成功" inView:self.view];
+                    [self gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您布防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:nil];
                 }
             }];
         }];
@@ -219,7 +219,7 @@
         [self gt_showTypingControllerWithTitle:@"验证密码" placeholder:@"请输入设备密码" finishBlock:^(NSString *content) {
             [[GTHttpManager shareManager] GTOneKeyDealingGuardWithDeviceNo:model.deviceNo istate:@1 pwd:content finishBlock:^(id response, NSError *error) {
                 if(!error) {
-                    [MBProgressHUD showText:@"撤防成功" inView:self.view];
+                    [self gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您撤防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:nil];
                 }
             }];
         }];
