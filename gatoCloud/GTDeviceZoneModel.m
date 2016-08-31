@@ -126,9 +126,9 @@
     return newArr;
 }
 
-- (BOOL)canZoneDealWithOneKey;//能够一键布防撤防
+- (BOOL)canBatchDefendZone;//能够批量布防撤防
 {
-    if(self.zoneStyle.integerValue >= 3)
+    if(self.zoneStyle.integerValue > 3)
         return YES;
     else
         return NO;    

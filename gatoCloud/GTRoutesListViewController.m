@@ -230,7 +230,7 @@
     }
     else {
         GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
-        if(!(model.canZoneDealWithOneKey)){//model.canZoneDealWithOneKey
+        if(!(model.canBatchDefendZone)){//model.canZoneDealWithOneKey
             [MBProgressHUD showText:@"当前防区不可布防撤防" inView:self.view];
         }
     }
@@ -389,7 +389,7 @@
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
         GTDeviceZoneCell *cell = (GTDeviceZoneCell *)[_routesTable cellForRowAtIndexPath:indexPath];
        
-        if (model.canZoneDealWithOneKey) {//model.canZoneDealWithOneKey
+        if (model.canBatchDefendZone) {//model.canZoneDealWithOneKey
             cell.selectionStyle = UITableViewCellSelectionStyleDefault;
             [array addObject:indexPath];
         }

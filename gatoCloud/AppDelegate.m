@@ -55,7 +55,9 @@
 #endif
     
     //注册APNS
-    [MiPushSDK registerMiPush:self];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];//角标清除
+//    [MiPushSDK registerMiPush:self];
+    [MiPushSDK registerMiPush:self type:0 connect:YES];
     // 同时启用APNs跟应用内长连接
 //    [self setupPushService];
     
@@ -82,7 +84,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];//角标清除
     if([GTUserUtils isLogin])
     {
         GestureViewController *gestureUnlockViewController = [[GestureViewController alloc] init];

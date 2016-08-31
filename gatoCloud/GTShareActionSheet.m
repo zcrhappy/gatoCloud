@@ -53,7 +53,7 @@ static NSString* const Share_Message     = @"短信";
 {
     if(self = [super init]) {
         parentVc = parentViewController;
-        [parentViewController.view addSubview:self];
+        [[UIApplication sharedApplication].keyWindow addSubview:self];
         
         btnArr = [NSMutableArray array];
         labelArr = [NSMutableArray array];
