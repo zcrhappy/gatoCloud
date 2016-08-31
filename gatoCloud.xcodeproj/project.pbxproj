@@ -351,6 +351,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331AF79C1D757388002D1997 /* ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				337663B31D45E1D0003AA73C /* GTShareActionSheet.h */,
+				337663B41D45E1D0003AA73C /* GTShareActionSheet.m */,
+				33651FD31D53302900F5CA9F /* GTSearchActionSheet.h */,
+				33651FD41D53302900F5CA9F /* GTSearchActionSheet.m */,
+				331D90351D5F2ECF00C69699 /* GTDatePickActionSheet.h */,
+				331D90361D5F2ECF00C69699 /* GTDatePickActionSheet.m */,
+				3356AA671D6EDD0E00F4F4EF /* CRBaseActionSheet.h */,
+				3356AA681D6EDD0E00F4F4EF /* CRBaseActionSheet.m */,
+				3356AA6A1D6EE49100F4F4EF /* CRSelectActionSheet.h */,
+				3356AA6B1D6EE49100F4F4EF /* CRSelectActionSheet.m */,
+			);
+			name = ActionSheet;
+			sourceTree = "<group>";
+		};
 		331FC0BD1D635AE60038C7B6 /* PushServiceSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,7 +443,7 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
-		3321FA8A1D33E85E00D3850E /* UserInfo */ = {
+		3321FA8A1D33E85E00D3850E /* UtilityData */ = {
 			isa = PBXGroup;
 			children = (
 				3321FA871D33E40000D3850E /* GTUserUtils.h */,
@@ -434,7 +451,7 @@
 				3321FA8B1D33E87B00D3850E /* GTUserModel.h */,
 				3321FA8C1D33E87B00D3850E /* GTUserModel.m */,
 			);
-			name = UserInfo;
+			name = UtilityData;
 			sourceTree = "<group>";
 		};
 		3321FA9E1D36730000D3850E /* DeviceList */ = {
@@ -454,7 +471,7 @@
 			name = DeviceList;
 			sourceTree = "<group>";
 		};
-		3321FAC41D393B3D00D3850E /* ME */ = {
+		3321FAC41D393B3D00D3850E /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
 				3321FAC51D393B5F00D3850E /* GTUserInfoViewController.h */,
@@ -471,7 +488,7 @@
 				33B0FF761D65DC1400F9429A /* GTQuitCell.m */,
 				33B0FF771D65DC1400F9429A /* GTQuitCell.xib */,
 			);
-			name = ME;
+			name = UserInfo;
 			sourceTree = "<group>";
 		};
 		33265B911D752CCA00DBEEF7 /* Cells */ = {
@@ -544,9 +561,9 @@
 		332BA2481D3F45B900B0C635 /* WarningRecords */ = {
 			isa = PBXGroup;
 			children = (
-				33620C921D4216E400209AE7 /* GTWarningRecordHeader.h */,
-				33FF6D301D43715F009C730E /* WarningRecords */,
 				33FF6D311D437576009C730E /* WarningDetail */,
+				33FF6D301D43715F009C730E /* WarningRecords */,
+				33620C921D4216E400209AE7 /* GTWarningRecordHeader.h */,
 			);
 			name = WarningRecords;
 			sourceTree = "<group>";
@@ -602,15 +619,10 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
-		337663B21D45E197003AA73C /* Utility */ = {
+		337663B21D45E197003AA73C /* UtilityUI */ = {
 			isa = PBXGroup;
 			children = (
-				337663B31D45E1D0003AA73C /* GTShareActionSheet.h */,
-				337663B41D45E1D0003AA73C /* GTShareActionSheet.m */,
-				33651FD31D53302900F5CA9F /* GTSearchActionSheet.h */,
-				33651FD41D53302900F5CA9F /* GTSearchActionSheet.m */,
-				331D90351D5F2ECF00C69699 /* GTDatePickActionSheet.h */,
-				331D90361D5F2ECF00C69699 /* GTDatePickActionSheet.m */,
+				331AF79C1D757388002D1997 /* ActionSheet */,
 				33651FDC1D53801E00F5CA9F /* GTSearchBar.h */,
 				33651FDD1D53801E00F5CA9F /* GTSearchBar.m */,
 				33B0FF7A1D66E7AE00F9429A /* GTBottomSelectionView.h */,
@@ -618,12 +630,8 @@
 				33B0FF7D1D66E7E800F9429A /* GTBottomSelectionView.xib */,
 				333725931D6C24560094621E /* GTShareManager.h */,
 				333725941D6C24560094621E /* GTShareManager.m */,
-				3356AA671D6EDD0E00F4F4EF /* CRBaseActionSheet.h */,
-				3356AA681D6EDD0E00F4F4EF /* CRBaseActionSheet.m */,
-				3356AA6A1D6EE49100F4F4EF /* CRSelectActionSheet.h */,
-				3356AA6B1D6EE49100F4F4EF /* CRSelectActionSheet.m */,
 			);
-			name = Utility;
+			name = UtilityUI;
 			sourceTree = "<group>";
 		};
 		337663BC1D4773DF003AA73C /* Gesture */ = {
@@ -674,11 +682,11 @@
 				33265B921D752CF600DBEEF7 /* CommonUI */,
 				331FC0BD1D635AE60038C7B6 /* PushServiceSDK */,
 				337663BD1D4899EB003AA73C /* Zones */,
-				337663B21D45E197003AA73C /* Utility */,
+				337663B21D45E197003AA73C /* UtilityUI */,
 				335380941D44C7D000041BD9 /* Main */,
 				332BA2481D3F45B900B0C635 /* WarningRecords */,
-				3321FAC41D393B3D00D3850E /* ME */,
-				3321FA8A1D33E85E00D3850E /* UserInfo */,
+				3321FAC41D393B3D00D3850E /* UserInfo */,
+				3321FA8A1D33E85E00D3850E /* UtilityData */,
 				3321FA651D33B95100D3850E /* Login */,
 				3321FA501D32490500D3850E /* Headers */,
 				33C620AD1D30090F0022A9F0 /* Devices */,

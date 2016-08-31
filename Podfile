@@ -12,7 +12,6 @@ target “gatoCloud”
     pod 'SDWebImage'
     pod 'OHHTTPStubs'
     pod 'IQKeyboardManager'
-    pod 'CustomIOSAlertView'
     pod 'SDCycleScrollView'
     pod 'LCActionSheet'
     pod 'Fabric'

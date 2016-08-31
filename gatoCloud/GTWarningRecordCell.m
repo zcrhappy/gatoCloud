@@ -24,6 +24,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    _status.userInteractionEnabled = NO;
 }
 
 - (void)setupWithModel:(GTWarningRecordCompleteModel *)completeModel indexPath:(NSIndexPath *)indexPath

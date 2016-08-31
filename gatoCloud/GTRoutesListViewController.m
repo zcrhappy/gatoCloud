@@ -140,6 +140,11 @@
     [_routesTable.mj_header setHidden:NO];
     [_routesTable.mj_footer resetNoMoreData];
     
+    [self refreshData];
+}
+
+- (void)refreshData
+{
     __weak __typeof(self)weakSelf = self;
     [_dataManager refreshDataWithFinishBlock:^(id response, NSError *error) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
@@ -154,7 +159,6 @@
         [strongSelf.routesTable reloadData];
     }];
 }
-
 
 #pragma mark - tableview delegate
 
@@ -419,7 +423,14 @@
             [[GTHttpManager shareManager] GTDeviceZoneBatchGuardWithDeviceNo:strongSelf.searchKeyword istate:@2 pwd:pwd zoneNos:strongSelf.zoneNos finishBlock:^(id response, NSError *error) {
                 [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
                 if(!error) {
-                    [strongSelf gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您批量布防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:nil];
+                    [strongSelf gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您批量布防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:^{
+                        __strong __typeof(weakSelf)strongSelf = weakSelf;
+                        [MBProgressHUD showHUDAddedTo:strongSelf.view animated:YES];
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
+                            [strongSelf refreshData];
+                        });
+                    }];
                 }
                 [strongSelf clickCancelSelection:nil];
             }];
@@ -434,7 +445,14 @@
             [[GTHttpManager shareManager] GTDeviceZoneBatchGuardWithDeviceNo:strongSelf.searchKeyword istate:@1 pwd:pwd zoneNos:strongSelf.zoneNos finishBlock:^(id response, NSError *error) {
                 [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
                 if(!error) {
-                    [strongSelf gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您批量撤防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:nil];
+                    [strongSelf gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您批量撤防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:^{
+                        __strong __typeof(weakSelf)strongSelf = weakSelf;
+                        [MBProgressHUD showHUDAddedTo:strongSelf.view animated:YES];
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
+                            [strongSelf refreshData];
+                        });
+                    }];
                 }
                 [strongSelf clickCancelSelection:nil];
             }];

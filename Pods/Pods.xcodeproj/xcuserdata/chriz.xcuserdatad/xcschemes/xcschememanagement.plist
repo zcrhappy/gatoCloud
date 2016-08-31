@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CustomIOSAlertView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FLEX.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,22 +77,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>157F7065375CF088209B0CAA78BDBFAB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>35560C5E8F4B06D2DCEB4C4783B9594C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>426BC4549A625B5E1E4200D5261A98BF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>43BB4AC2C54BF017500BD2940FFD029F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>44D700ECA67F0D189407BCCBC1EFE2DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,11 +102,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6A3E7C3A4E39D33477AFD6798025CE5C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>70BC44266C6FFE30D2C57129458E070B</key>
 		<dict>
 			<key>primary</key>
@@ -127,7 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ACBDD6DB2F4A1A215D59A41AAEBB603F</key>
+		<key>AEEE17CD0CD3AFAA836BA9215DFE8F20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF6AC4E574903960DAD7FAD056C45853</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B35417A91B2F2336F0D4EE503D394960</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,12 +137,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4C9311EC15F5257E858551B2DFD2C50</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CB5E249712CE9AD91FBDA0FAB95D5A29</key>
+		<key>DEA82C77C0C5C76366C00AACFFDF90D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
