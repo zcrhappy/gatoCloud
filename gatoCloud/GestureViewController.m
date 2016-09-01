@@ -28,6 +28,8 @@
  */
 @property (nonatomic, strong) PCCircleInfoView *infoView;
 
+@property (nonatomic, strong) UIImageView *headImg;
+
 @end
 
 @implementation GestureViewController
@@ -53,9 +55,15 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kHeadImgChangedNotification object:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangedHeadImg:) name:kHeadImgChangedNotification object:nil];
+    // Do any additional setup after loading the view.\
     
     [self.view setBackgroundColor:CircleViewBackgroundColor];
     
@@ -144,6 +152,7 @@
     imageView.layer.borderWidth = 0.5;
     imageView.layer.masksToBounds = YES;
     imageView.center = CGPointMake(kScreenW/2, 120);
+
     [imageView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString] placeholderImage:nil];
     [self.view addSubview:imageView];
     
@@ -152,6 +161,8 @@
         make.centerX.equalTo(self.view);
         make.height.width.equalTo(@65);
     }];
+    
+    _headImg = imageView;
 }
 
 #pragma mark - 登陆手势密码界面
@@ -181,6 +192,7 @@
         make.centerX.equalTo(self.view);
     }];
     
+    _headImg = imageView;
 //    // 管理手势密码
 //    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [self creatButton:leftBtn frame:CGRectMake(CircleViewEdgeMargin + 20, kScreenH - 60, kScreenW/2, 20) title:@"管理手势密码" alignment:UIControlContentHorizontalAlignmentLeft tag:buttonTagManager];
@@ -326,6 +338,11 @@
             
         }
     }
+}
+
+- (void)didChangedHeadImg:(NSNotification *)notification
+{
+    [_headImg sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString]];
 }
 
 #pragma mark - infoView展示方法

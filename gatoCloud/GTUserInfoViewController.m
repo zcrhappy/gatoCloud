@@ -283,9 +283,11 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
                     [MBProgressHUD showText:@"修改头像成功" inView:self.view];
                     
                     NSString *headImgURL = [response objectForKey:@"headImg"];
-                    [GTUserUtils sharedInstance].userModel.avatarUrlString = headImgURL;
-                    [_listTable reloadData];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kHeadImgChangedNotification object:nil];
+                    [[GTUserUtils sharedInstance].userModel setAvatarUrlString:headImgURL completion:^{
+                        [_listTable reloadData];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kHeadImgChangedNotification object:nil];
+                    }];
+                    
                 }
             }];
             

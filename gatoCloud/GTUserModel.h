@@ -23,6 +23,6 @@
 @property (nonatomic, copy) NSString *userId;
 
 
-@property (nonatomic, copy) NSString *avatarUrlString;
-
+- (void)setAvatarUrlString:(NSString *)newAvatarUrlString completion:(void (^)(void))completion;
+- (NSString *)avatarUrlString;
 @end

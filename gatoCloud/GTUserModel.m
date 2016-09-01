@@ -8,18 +8,26 @@
 
 #import "GTUserModel.h"
 
+@interface GTUserModel()
+{
+    NSString *avatarUrlString;
+}
+
+@end
+
 @implementation GTUserModel
-@synthesize avatarUrlString;
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return [NSDictionary mtl_identityPropertyMapWithModel:self];
 }
 
-- (void)setAvatarUrlString:(NSString *)newAvatarUrlString
+- (void)setAvatarUrlString:(NSString *)newAvatarUrlString completion:(void (^)(void))completion
 {
-    [[SDImageCache sharedImageCache] removeImageForKey:newAvatarUrlString fromDisk:YES];
-    avatarUrlString = newAvatarUrlString;
+    [[SDImageCache sharedImageCache] removeImageForKey:newAvatarUrlString fromDisk:YES withCompletion:^{
+        avatarUrlString = newAvatarUrlString;
+        completion();
+    }];
 }
 
 - (NSString *)avatarUrlString

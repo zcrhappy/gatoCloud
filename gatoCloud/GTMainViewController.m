@@ -116,8 +116,9 @@
         if(error == nil) {
             _infoModel = [MTLJSONAdapter modelOfClass:GTMainViewInfoModel.class fromJSONDictionary:response error:nil];
             //headImg
-            [GTUserUtils sharedInstance].userModel.avatarUrlString = _infoModel.headImg;
-            [_headImgView sd_setImageWithURL:[NSURL URLWithString:_infoModel.headImg]];
+            [[GTUserUtils sharedInstance].userModel setAvatarUrlString:_infoModel.headImg completion:^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:kHeadImgChangedNotification object:nil];
+            }];
             //number
             _deviceCountLabel.text = _infoModel.deviceCount;
             _zoneCountLabel.text = _infoModel.zoneCount;
@@ -209,7 +210,7 @@
 
 - (void)didChangedHeadImg:(NSNotification *)notification
 {
-    [_headImgView sd_setImageWithURL:[NSURL URLWithString:_infoModel.headImg]];
+    [_headImgView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString]];
 }
 
 @end

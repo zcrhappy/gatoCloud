@@ -10,6 +10,13 @@
 
 @implementation UIViewController (GTExtionsion)
 
+- (void)gt_presentViewControllerWithStoryBoardIdentifier:(NSString *)identifier animated:(BOOL)animated completion:(void (^ __nullable)(void))completion
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *target = [storyBoard instantiateViewControllerWithIdentifier:identifier];
+    [self presentViewController:target animated:animated completion:completion];
+}
+
 - (void)gt_presentViewControllerWithStoryBoardIdentifier:(NSString *)identifier
 {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

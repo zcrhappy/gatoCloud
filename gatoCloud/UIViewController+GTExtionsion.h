@@ -10,10 +10,11 @@
 
 @interface UIViewController (GTExtionsion)
 
-- (void)gt_presentViewControllerWithStoryBoardIdentifier:(NSString *)identifier;
-- (void)gt_pushViewControllerWithStoryBoardIdentifier:(NSString *)identifier;
+- (void)gt_presentViewControllerWithStoryBoardIdentifier:( NSString * _Nonnull )identifier;
+- (void)gt_presentViewControllerWithStoryBoardIdentifier:( NSString * _Nonnull )identifier animated:(BOOL)animated completion:(void (^ __nullable)(void))completion;
+- (void)gt_pushViewControllerWithStoryBoardIdentifier:( NSString * _Nonnull )identifier;
 
-+ (UIViewController *)gt_topViewController;
-+ (UIViewController *)gt_rootViewController;
++ (UIViewController * _Nonnull )gt_topViewController;
++ (UIViewController * _Nonnull )gt_rootViewController;
 + (void)gt_backToRootViewControllerWithCompletion:(void (^ __nullable)(void))completion;
 @end

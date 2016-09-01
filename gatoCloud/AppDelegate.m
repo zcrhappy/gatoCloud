@@ -89,7 +89,7 @@
     {
         GestureViewController *gestureUnlockViewController = [[GestureViewController alloc] init];
         gestureUnlockViewController.type = GestureViewControllerTypeLogin;
-        [[UIViewController gt_topViewController] presentViewController:gestureUnlockViewController animated:YES completion:nil];
+        [[UIViewController gt_topViewController] presentViewController:gestureUnlockViewController animated:NO completion:nil];
     }
 }
 
@@ -122,12 +122,12 @@
 {
     NSLog(@"success");
     [UIViewController gt_backToRootViewControllerWithCompletion:^{
-        [[UIViewController gt_rootViewController] gt_presentViewControllerWithStoryBoardIdentifier:@"GTMainViewControllerID"];
-        
-        if([GTGestureManager isFirstLoad])
-            [[GTGestureManager sharedInstance] showSettingGestureView];
-        else
-            [[GTGestureManager sharedInstance] showLoginGestureView];
+        [[UIViewController gt_rootViewController] gt_presentViewControllerWithStoryBoardIdentifier:@"GTMainViewControllerID" animated:NO completion:^{
+            if([GTGestureManager isFirstLoad])
+                [[GTGestureManager sharedInstance] showSettingGestureView];
+            else
+                [[GTGestureManager sharedInstance] showLoginGestureView];
+        }];
     }];
 }
 
