@@ -57,7 +57,7 @@
     //注册APNS
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];//角标清除
 //    [MiPushSDK registerMiPush:self];
-    [MiPushSDK registerMiPush:self type:0 connect:YES];
+    [MiPushSDK registerMiPush:self type:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge connect:YES];
     // 同时启用APNs跟应用内长连接
 //    [self setupPushService];
     
@@ -89,7 +89,8 @@
     {
         GestureViewController *gestureUnlockViewController = [[GestureViewController alloc] init];
         gestureUnlockViewController.type = GestureViewControllerTypeLogin;
-        [[UIViewController gt_topViewController] presentViewController:gestureUnlockViewController animated:NO completion:nil];
+        if(![[UIViewController gt_topViewController] isKindOfClass:GestureViewController.class])
+            [[UIViewController gt_topViewController] presentViewController:gestureUnlockViewController animated:NO completion:nil];
     }
 }
 

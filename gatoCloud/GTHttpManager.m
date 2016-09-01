@@ -55,6 +55,7 @@ NSInteger const APIErrorCode = 138102;
         userId = @"";
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin) name:kDidLoginSuccessNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogout) name:kDidLogoutNotification object:nil];
     }
     
     return self;
@@ -1033,6 +1034,7 @@ NSInteger const APIErrorCode = 138102;
             NSLog(@"需要重新登录");
             [GTUserUtils unRegisterUserInfo];
             [[NSNotificationCenter defaultCenter] postNotificationName:kNeedsLoginNotification object:nil];
+            [self didLogout];
         }
         else {
             success(task,responseObject);
@@ -1064,6 +1066,12 @@ NSInteger const APIErrorCode = 138102;
 {
     token = [GTUserUtils sharedInstance].userModel.token;
     userId = [GTUserUtils sharedInstance].userModel.userId;
+}
+
+- (void)didLogout
+{
+    token = @"";
+    userId = @"";
 }
 
 - (void)dealloc
