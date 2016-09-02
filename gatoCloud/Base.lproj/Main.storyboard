@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="42.666666666666664" y="268.85333333333335"/>
         </scene>
-        <!--设备中心管理-->
+        <!--中心设备管理-->
         <scene sceneID="hMF-hZ-g2V">
             <objects>
                 <viewController id="pUW-gZ-EWV" customClass="GTDeviceListViewController" sceneMemberID="viewController">
@@ -68,7 +68,7 @@
                             <constraint firstItem="khD-Ms-kae" firstAttribute="leading" secondItem="lF4-uS-Eve" secondAttribute="leading" id="yog-P0-sv5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="设备中心管理" id="Yf0-OG-ey9">
+                    <navigationItem key="navigationItem" title="中心设备管理" id="Yf0-OG-ey9">
                         <barButtonItem key="leftBarButtonItem" image="GTBackBtn" id="Bzu-wS-bbJ">
                             <connections>
                                 <action selector="clickBack:" destination="pUW-gZ-EWV" id="6Dh-i1-9l7"/>
@@ -1877,7 +1877,7 @@
                                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Main_Device" translatesAutoresizingMaskIntoConstraints="NO" id="5Gi-w8-ngF">
                                                                 <rect key="frame" x="30" y="17" width="46" height="46"/>
                                                             </imageView>
-                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设备管理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lr-jd-Je7">
+                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中心设备" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lr-jd-Je7">
                                                                 <rect key="frame" x="23" y="74" width="60" height="18"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" id="2X5-4P-REw"/>

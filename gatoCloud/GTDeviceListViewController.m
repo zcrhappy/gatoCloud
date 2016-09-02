@@ -207,21 +207,33 @@
     if(index.integerValue == 0)
     { //一键布防
         [self gt_showTypingControllerWithTitle:@"验证密码" placeholder:@"请输入设备密码" finishBlock:^(NSString *content) {
-            [[GTHttpManager shareManager] GTOneKeyDealingGuardWithDeviceNo:model.deviceNo istate:@2 pwd:content finishBlock:^(id response, NSError *error) {
-                if(!error) {
-                    [self gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您布防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:nil];
-                }
-            }];
+            
+            if([content isEmptyString] || content == nil) {
+                [MBProgressHUD showText:@"请输入设备密码再进行操作" inView:[UIView gt_keyWindow]];
+            }
+            else {
+                [[GTHttpManager shareManager] GTOneKeyDealingGuardWithDeviceNo:model.deviceNo istate:@2 pwd:content finishBlock:^(id response, NSError *error) {
+                    if(!error) {
+                        [self gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您布防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:nil];
+                    }
+                }];
+            }
         }];
     }
     else if(index.integerValue == 1)
     { //一键撤防
         [self gt_showTypingControllerWithTitle:@"验证密码" placeholder:@"请输入设备密码" finishBlock:^(NSString *content) {
-            [[GTHttpManager shareManager] GTOneKeyDealingGuardWithDeviceNo:model.deviceNo istate:@1 pwd:content finishBlock:^(id response, NSError *error) {
-                if(!error) {
-                    [self gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您撤防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:nil];
-                }
-            }];
+            
+            if([content isEmptyString] || content == nil) {
+                [MBProgressHUD showText:@"请输入设备密码再进行操作" inView:[UIView gt_keyWindow]];
+            }
+            else {
+                [[GTHttpManager shareManager] GTOneKeyDealingGuardWithDeviceNo:model.deviceNo istate:@1 pwd:content finishBlock:^(id response, NSError *error) {
+                    if(!error) {
+                        [self gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您撤防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:nil];
+                    }
+                }];
+            }
         }];
     }
     else if(index.integerValue == 2)
@@ -238,7 +250,7 @@
         controller.searchKeyword = model.deviceNo;
         controller.userType = model.userType;
         NSLog(@"设备列表传入userType:%@",model.userType);
-        controller.navigationItem.title = @"通道列表";
+        controller.navigationItem.title = @"防区列表";
         [self.navigationController pushViewController:controller animated:YES];
     }
     
