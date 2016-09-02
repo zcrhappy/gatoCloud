@@ -1175,7 +1175,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.securityApp;
 				PRODUCT_NAME = "广拓云警";
-				PROVISIONING_PROFILE = "059ead9d-3048-4f71-be80-78cdc04140b4";
+				PROVISIONING_PROFILE = "ffc6b13f-2b72-4411-a6d2-605a4945ed3f";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1199,7 +1199,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.securityApp;
 				PRODUCT_NAME = "广拓云警";
-				PROVISIONING_PROFILE = "059ead9d-3048-4f71-be80-78cdc04140b4";
+				PROVISIONING_PROFILE = "ffc6b13f-2b72-4411-a6d2-605a4945ed3f";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
