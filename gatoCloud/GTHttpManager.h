@@ -210,6 +210,14 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
                                      pwd:(NSString *)pwd
                              finishBlock:(GTResultBlock)finishBlk;
 
+
+/*!
+ *  @brief 消除所有报警接口
+ *
+ *  @param finishBlk 返回结果
+ */
+- (void)GTHandleAllWarningsWithFinishBlock:(GTResultBlock)finishBlk;
+
 #pragma mark - Zone
 /*!
  *  @brief 设备对应防区列表

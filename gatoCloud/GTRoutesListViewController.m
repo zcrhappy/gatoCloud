@@ -430,46 +430,54 @@
     //批量布防
     [_bottomSelection setClickGuardBlock:^{
         __strong __typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf checkPwdWithFinishBlk:^(NSString *pwd) {
-            [MBProgressHUD showHUDAddedTo:strongSelf.view animated:YES];
-            [[GTHttpManager shareManager] GTDeviceZoneBatchGuardWithDeviceNo:strongSelf.searchKeyword istate:@2 pwd:pwd zoneNos:strongSelf.zoneNos finishBlock:^(id response, NSError *error) {
-                [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
-                if(!error) {
-                    [strongSelf gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您批量布防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:^{
-                        __strong __typeof(weakSelf)strongSelf = weakSelf;
-                        [MBProgressHUD showHUDAddedTo:strongSelf.view animated:YES];
-                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                            [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
-                            [strongSelf refreshData];
-                        });
-                    }];
-                }
-                [strongSelf clickCancelSelection:nil];
-            }];
+        [strongSelf gt_showTypingControllerWithTitle:@"验证密码" placeholder:@"请输入验证密码" finishBlock:^(NSString *content) {
+            if([content isEmptyString] || content == nil) {
+                [MBProgressHUD showText:@"请输入密码再进行操作" inView:[UIView gt_keyWindow]];
+            }
+            else {
+                [[GTHttpManager shareManager] GTDeviceZoneBatchGuardWithDeviceNo:strongSelf.searchKeyword istate:@2 pwd:content zoneNos:strongSelf.zoneNos finishBlock:^(id response, NSError *error) {
+                    [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
+                    if(!error) {
+                        [strongSelf gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您批量布防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:^{
+                            __strong __typeof(weakSelf)strongSelf = weakSelf;
+                            [MBProgressHUD showHUDAddedTo:strongSelf.view animated:YES];
+                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
+                                [strongSelf refreshData];
+                            });
+                        }];
+                    }
+                    [strongSelf clickCancelSelection:nil];
+                }];
+            }
         }];
     }];
     
     //批量撤防
     [_bottomSelection setClickDisguardBlock:^{
         __strong __typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf checkPwdWithFinishBlk:^(NSString *pwd) {
-            [MBProgressHUD showHUDAddedTo:strongSelf.view animated:YES];
-            [[GTHttpManager shareManager] GTDeviceZoneBatchGuardWithDeviceNo:strongSelf.searchKeyword istate:@1 pwd:pwd zoneNos:strongSelf.zoneNos finishBlock:^(id response, NSError *error) {
-                [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
-                if(!error) {
-                    [strongSelf gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您批量撤防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:^{
-                        __strong __typeof(weakSelf)strongSelf = weakSelf;
-                        [MBProgressHUD showHUDAddedTo:strongSelf.view animated:YES];
-                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                            [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
-                            [strongSelf refreshData];
-                        });
-                    }];
-                }
-                [strongSelf clickCancelSelection:nil];
-            }];
+        [strongSelf gt_showTypingControllerWithTitle:@"验证密码" placeholder:@"请输入验证密码" finishBlock:^(NSString *content) {
+            if([content isEmptyString] || content == nil) {
+                [MBProgressHUD showText:@"请输入密码再进行操作" inView:[UIView gt_keyWindow]];
+            }
+            else {
+                [MBProgressHUD showHUDAddedTo:strongSelf.view animated:YES];
+                [[GTHttpManager shareManager] GTDeviceZoneBatchGuardWithDeviceNo:strongSelf.searchKeyword istate:@1 pwd:content zoneNos:strongSelf.zoneNos finishBlock:^(id response, NSError *error) {
+                    [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
+                    if(!error) {
+                        [strongSelf gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您批量撤防成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:^{
+                            __strong __typeof(weakSelf)strongSelf = weakSelf;
+                            [MBProgressHUD showHUDAddedTo:strongSelf.view animated:YES];
+                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
+                                [strongSelf refreshData];
+                            });
+                        }];
+                    }
+                    [strongSelf clickCancelSelection:nil];
+                }];
+            }
         }];
-
     }];
 }
 

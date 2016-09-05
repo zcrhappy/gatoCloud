@@ -197,10 +197,17 @@
 
 //消除报警
 - (IBAction)tapDisguard:(id)sender {
-    GTWarningRecordsViewController *controller = [[GTWarningRecordsViewController alloc] initViaType:@"未处理报警"];
-    controller.navigationItem.title = @"报警处理";
-    GTBaseNavigationController *navigationController = [[GTBaseNavigationController alloc] initWithRootViewController:controller];
-    [self presentViewController:navigationController animated:YES completion:nil];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[GTHttpManager shareManager] GTHandleAllWarningsWithFinishBlock:^(id response, NSError *error) {
+        if(error == nil) {
+            [MBProgressHUD showText:@"消除报警成功!" inView:self.view];
+        }
+    }];
+    
+//    GTWarningRecordsViewController *controller = [[GTWarningRecordsViewController alloc] initViaType:@"未处理报警"];
+//    controller.navigationItem.title = @"报警处理";
+//    GTBaseNavigationController *navigationController = [[GTBaseNavigationController alloc] initWithRootViewController:controller];
+//    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 //添加设备后需要增加

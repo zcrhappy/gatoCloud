@@ -561,6 +561,33 @@ NSInteger const APIErrorCode = 138102;
     }];
 }
 
+
+/*!
+ *  @brief 消除所有报警接口
+ *
+ *  @param finishBlk 返回结果
+ */
+- (void)GTHandleAllWarningsWithFinishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [self POST:@"/service/HandleAllWaring.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+
+}
+
 #pragma mark - Zone
 /*!
  *  @brief 设备对应防区列表
