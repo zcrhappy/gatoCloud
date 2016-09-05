@@ -169,4 +169,12 @@
         return NO;
 }
 
+- (BOOL)shouldSetLoadingState;//
+{
+    if(_loopCount != 0)
+        return YES;
+    else
+        return NO;
+}
+
 @end

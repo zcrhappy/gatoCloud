@@ -34,6 +34,5 @@ typedef NS_ENUM(NSInteger, kSwitchState) {
 @interface GTDeviceZoneCell : UITableViewCell
 
 @property (nonatomic, weak) id<GTDeviceZoneCellDelegate> delegate;
-- (void)setupWithZoneModel:(id)model;
-
+- (void)updateWithModel:(id)model;
 @end

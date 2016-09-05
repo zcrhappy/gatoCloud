@@ -16,6 +16,7 @@
 #import "GTZoneStainEditViewController.h"
 #import "GTBottomSelectionView.h"
 #import "UIViewController+GTAlertController.h"
+#import "GTTimerQueue.h"
 #define kGTDeviceZoneCellIdentifier @"GTDeviceZoneCellIdentifier"
 #define kSearchViaZoneName @"按防区搜索"
 #define kSearchViaDeviceName @"按设备搜索"
@@ -24,12 +25,13 @@
 @property (nonatomic, strong) UITableView *routesTable;
 @property (nonatomic, assign) kListType listType;
 @property (nonatomic, strong) GTZoneDataManager *dataManager;
-@property (nonatomic, strong) NSTimer *timer;
+//@property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) NSInteger loopCount;
 @property (nonatomic, strong) GTSearchBar *searchBar;
 @property (nonatomic, assign) BOOL autoRefresh;
 @property (nonatomic, strong) NSArray <NSIndexPath *>*selectArray;//能够被选择的列表
 @property (nonatomic, strong) GTBottomSelectionView *bottomSelection;
+@property (nonatomic, strong) GTTimerQueue *queue;
 @end
 
 @implementation GTRoutesListViewController
@@ -48,7 +50,17 @@
     if(self = [super init]) {
         [self enableSearchBar:YES];
         _listType = kListTypeAllZone;
+        _queue = [[GTTimerQueue alloc] init];
         
+        __weak __typeof(self)weakSelf = self;
+        [_queue setUpdateCellBlock:^(NSIndexPath *indexPath) {
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            if(strongSelf.routesTable) {
+                GTDeviceZoneCell *cell = [strongSelf.routesTable cellForRowAtIndexPath:indexPath];
+                GTDeviceZoneModel *model = [strongSelf modelAtIndexPath:indexPath];
+                [cell updateWithModel:model];
+            }
+        }];
     }
     return self;
 }
@@ -74,9 +86,9 @@
 
 - (void)dealloc
 {
-    [_timer invalidate];
+//    [_timer invalidate];
     [_searchBar removeFromSuperview];
-    _timer = nil;
+//    _timer = nil;
 }
 
 - (void)configTable
@@ -196,7 +208,7 @@
         model.userType = self.userType;
     }
     
-    [cell setupWithZoneModel:model];
+    [cell updateWithModel:model];
     
     return cell;
 }
@@ -211,7 +223,7 @@
     });
     
     GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
-    [templateCell setupWithZoneModel:model];
+    [templateCell updateWithModel:model];
     
     CGFloat heigit = [templateCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
     
@@ -225,7 +237,7 @@
         GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
         
         model.isExpand = !model.isExpand;
-        [cell setupWithZoneModel:model];
+        [cell updateWithModel:model];
         [_routesTable reloadData];
     }
     else {
@@ -525,98 +537,10 @@
 
 - (void)switchButtonWithDic:(NSDictionary *)infoDic
 {
-    __block GTDeviceZoneModel *model = [infoDic objectForKey:@"model"];
-    NSNumber *isOn = [infoDic objectForKey:@"isOn"];
-    NSString *iState;
-    if(isOn.boolValue == YES)
-        iState = @"2";
-    else
-        iState = @"1";
+    GTDeviceZoneModel *model = [infoDic objectForKey:@"model"];
+    NSIndexPath *indexPath = [self indexPathOfModel:model];
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [[GTHttpManager shareManager] GTDeviceZoneChangeDefenceWithState:iState zoneNo:model.zoneNo finishBlock:^(id response, NSError *error) {
-        if(error == nil) {
-            _loopCount = 5;
-            _timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(timerFired:) userInfo:infoDic repeats:YES];
-            [_timer fire];
-            [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
-        }
-        else {
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        }
-    }];
-    
-}
-
-- (void)timerFired:(NSTimer *)timer
-{
-    if(_loopCount < 0)
-        return;
-    else
-        _loopCount--;
-    
-    NSDictionary *infoDic = timer.userInfo;
-    
-    __block GTDeviceZoneModel *changedModel = [infoDic objectForKey:@"model"];
-    NSNumber *isOn = [infoDic objectForKey:@"isOn"];
-    NSString *iState;
-    if(isOn.boolValue == YES)
-        iState = @"2";
-    else
-        iState = @"1";
-    
-    NSLog(@"开始轮询");
-    
-    __block BOOL querySuccess = NO;
-    
-    
-    [[GTHttpManager shareManager] GTDeviceZoneQueryWithZoneNo:changedModel.zoneNo finishBlock:^(id response, NSError *error) {
-        if(error == nil) {
-            NSArray <GTDeviceZoneModel *>* curModelArray= [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:[response objectForKey:@"list"] error:nil];
-            GTDeviceZoneModel *curModel = [curModelArray firstObject];
-            
-            if([curModel.zoneNo isEqualToString:changedModel.zoneNo])
-             {
-                 if((iState.integerValue == kSwitchStateGuarded && curModel.zoneState.integerValue == kZoneStateGuarded)||
-                    (iState.integerValue == kSwitchStateDisguarded && curModel.zoneState.integerValue == kZoneStateDisguarded))
-                 {
-                     querySuccess = YES;
-                 }
-                 else {
-                     querySuccess = NO;
-                 }
-             }
-
-            if(querySuccess) {
-                [_timer invalidate];
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-                if(iState.integerValue == kSwitchStateDisguarded) {//撤防成功
-                    [MBProgressHUD showText:@"撤防成功" inView:self.view];
-                    //改变model状态。
-                    changedModel.zoneState = @"3";
-                    
-                }
-                else {//布防成功
-                    [MBProgressHUD showText:@"布防成功" inView:self.view];
-                    //改变model状态。
-                    changedModel.zoneState = @"4";
-                }
-                //刷新界面
-                [_routesTable reloadData];
-            }
-            else if(_loopCount == 0){
-                [_timer invalidate];
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-                
-                if(iState.integerValue == kSwitchStateDisguarded) {//撤防成功
-                    [MBProgressHUD showText:@"撤防失败" inView:self.view];
-                }
-                else {
-                    [MBProgressHUD showText:@"布防失败" inView:self.view];
-                }
-            }
-        }
-    }];
+    [_queue createObjWithIndexPath:indexPath model:model];
 }
 
 - (void)clickStainEditWithModel:(GTDeviceZoneModel *)model

@@ -48,6 +48,9 @@ typedef NS_ENUM(NSInteger, kZoneState)
 
 @property (nonatomic, assign) BOOL isExpand;
 
+@property (nonatomic, assign) NSInteger loopCount;//布防撤防用，循环次数
+@property (nonatomic, assign) BOOL isOn;//布防撤防用，目标状态
+
 - (NSString *)zoneTypeStringWithSuffix:(BOOL)needsSuffix;
 - (NSString *)zoneStateString;
 //24小时防区状态
@@ -58,6 +61,7 @@ typedef NS_ENUM(NSInteger, kZoneState)
 - (BOOL)zoneStateForSwithButton;
 - (BOOL)canBatchDefendZone;//能够批量布防撤防
 - (BOOL)canEdit;//管理员才可编辑
+- (BOOL)shouldSetLoadingState;//
 
 + (NSArray <GTDeviceZoneModel *>*)transformFromArray:(NSArray <GTDeviceZoneModel2 *>*)array;
 - (NSArray <NSArray *>*)fetchStainArray;//补充第一行和第一列为空

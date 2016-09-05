@@ -10,8 +10,10 @@
 #import "GTDeviceZoneModel.h"
 #import "GTZoneStrainView.h"
 #import "GTZoneInfoView.h"
+//#import "GTZoneCellTimer.h"
 #define bottomBackgroundColor [UIColor colorWithString:@"f5f5f5"]
 @interface GTDeviceZoneCell()
+//@property (strong, nonatomic) GTZoneCellTimer *timerObj;
 @property (strong, nonatomic) UIView *upContainer;
 @property (strong, nonatomic) UIView *horSerparatorLine;
 @property (strong, nonatomic) UIView *bottomContainer;
@@ -23,6 +25,7 @@
 @property (nonatomic, strong) UILabel *zoneTypeLabel;
 @property (nonatomic, strong) UILabel *zoneStateLabel;
 @property (nonatomic, strong) UISwitch *guardSwitch;
+@property (nonatomic, strong) UIActivityIndicatorView *indicator;
 
 //bottom
 @property (nonatomic, strong) GTZoneStrainView *stainView;
@@ -38,6 +41,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self configUI];
+}
+
+- (void)dealloc
+{
+
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -99,6 +107,14 @@
         make.centerY.equalTo(guardSwitch);
     }];
     
+    _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _indicator.hidden = YES;
+    [upContainer addSubview:_indicator];
+    [_indicator mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(zoneNameLabel);
+        make.right.equalTo(upContainer).offset(-30);
+    }];
+    
     horSerparatorLine = macroCreateView(CGRectZero, [UIColor colorWithString:@"e0e0e0"]);
     [self.contentView addSubview:horSerparatorLine];
     [horSerparatorLine mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -157,7 +173,7 @@
 }
 
 
-- (void)setupWithZoneModel:(GTDeviceZoneModel *)model
+- (void)updateWithModel:(GTDeviceZoneModel *)model
 {
     _model = model;
     zoneNameLabel.text = model.zoneName;
@@ -166,6 +182,12 @@
     zoneTypeLabel.text = [NSString stringWithFormat:@"防区类型:%@",[model zoneTypeStringWithSuffix:YES]];
     
     [_infoView setupWithModel:model];
+    if(model.shouldSetLoadingState) {
+        [self setLoadingState:YES];
+    }
+    else {
+        [self setLoadingState:NO];
+    }
     
     if(model.isStainZone){
         [_stainView setupWithModel:model];
@@ -210,6 +232,7 @@
     else {
         [expandConstaint install];
         [unExpandConstraint uninstall];
+    
         for (UIView *view in bottomContainer.subviews) {
             view.hidden = YES;
         }
@@ -238,7 +261,8 @@
         return;
     }
 
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:_model, @"model", @(isOn), @"isOn", nil];
+    _model.isOn = isOn;
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:_model, @"model",nil];
     
     if(_delegate && [_delegate respondsToSelector:@selector(switchButtonWithDic:)]) {
         [_delegate performSelector:@selector(switchButtonWithDic:) withObject:dic];
@@ -256,6 +280,29 @@
 {
     if(_delegate && [_delegate respondsToSelector:@selector(clickStainEditWithModel:)]) {
         [_delegate performSelector:@selector(clickStainEditWithModel:) withObject:_model];
+    }
+}
+
+- (void)setLoadingState:(BOOL)setOn
+{
+    if(setOn) {
+        [_indicator startAnimating];
+        _indicator.hidden = NO;
+        
+        [guardSwitch mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(upContainer).offset(51);//移除屏幕。。
+        }];
+
+        zoneStateLabel.hidden = YES;
+    }
+    else {
+        _indicator.hidden = YES;
+        [_indicator endEditing:NO];
+
+        [guardSwitch mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(upContainer).offset(-18);
+        }];
+        zoneStateLabel.hidden = NO;
     }
 }
 
