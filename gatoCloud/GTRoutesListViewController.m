@@ -146,6 +146,8 @@
 
 - (void)pullDownToRefresh
 {
+    [_queue clearQueue];
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [_routesTable.mj_header setHidden:NO];
     [_routesTable.mj_footer resetNoMoreData];
