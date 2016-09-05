@@ -86,6 +86,7 @@
 		3382FAC21D700EB1003E4EE0 /* GTCheckPwdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3382FAC11D700EB1003E4EE0 /* GTCheckPwdModel.m */; };
 		33A0FC861D3D1C6A00C731DF /* GTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */; };
 		33A0FC891D3D1FBB00C731DF /* GTUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC881D3D1FBB00C731DF /* GTUserInfoCell.m */; };
+		33B093411D7D40B900C6E8A0 /* GTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B093401D7D40B900C6E8A0 /* GTWebViewController.m */; };
 		33B0FF781D65DC1400F9429A /* GTQuitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B0FF761D65DC1400F9429A /* GTQuitCell.m */; };
 		33B0FF791D65DC1400F9429A /* GTQuitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B0FF771D65DC1400F9429A /* GTQuitCell.xib */; };
 		33B0FF7C1D66E7AE00F9429A /* GTBottomSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B0FF7B1D66E7AE00F9429A /* GTBottomSelectionView.m */; };
@@ -273,6 +274,8 @@
 		33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMainViewController.m; sourceTree = "<group>"; };
 		33A0FC871D3D1FBB00C731DF /* GTUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserInfoCell.h; sourceTree = "<group>"; };
 		33A0FC881D3D1FBB00C731DF /* GTUserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTUserInfoCell.m; sourceTree = "<group>"; };
+		33B0933F1D7D40B900C6E8A0 /* GTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTWebViewController.h; sourceTree = "<group>"; };
+		33B093401D7D40B900C6E8A0 /* GTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTWebViewController.m; sourceTree = "<group>"; };
 		33B0FF751D65DC1400F9429A /* GTQuitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTQuitCell.h; sourceTree = "<group>"; };
 		33B0FF761D65DC1400F9429A /* GTQuitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTQuitCell.m; sourceTree = "<group>"; };
 		33B0FF771D65DC1400F9429A /* GTQuitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTQuitCell.xib; sourceTree = "<group>"; };
@@ -636,6 +639,8 @@
 				33B0FF7D1D66E7E800F9429A /* GTBottomSelectionView.xib */,
 				333725931D6C24560094621E /* GTShareManager.h */,
 				333725941D6C24560094621E /* GTShareManager.m */,
+				33B0933F1D7D40B900C6E8A0 /* GTWebViewController.h */,
+				33B093401D7D40B900C6E8A0 /* GTWebViewController.m */,
 			);
 			name = UtilityUI;
 			sourceTree = "<group>";
@@ -986,6 +991,7 @@
 				3321FA901D33F4CA00D3850E /* NSMutableDictionary+HTTPExtension.m in Sources */,
 				3321FAC31D39291C00D3850E /* GTPhoneRegisterViewController.m in Sources */,
 				33DF4D8D1D71B2A300707324 /* GTZoneStrainView.m in Sources */,
+				33B093411D7D40B900C6E8A0 /* GTWebViewController.m in Sources */,
 				332BA2541D3FAF1200B0C635 /* GTWarningRecordDataManager.m in Sources */,
 				3321FA5A1D32A82E00D3850E /* GTHttpManager.m in Sources */,
 				3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */,

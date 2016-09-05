@@ -86,9 +86,7 @@
 
 - (void)dealloc
 {
-//    [_timer invalidate];
     [_searchBar removeFromSuperview];
-//    _timer = nil;
 }
 
 - (void)configTable
@@ -507,38 +505,6 @@
         str = [str substringToIndex:str.length-1];
     
     return str;
-}
-
-#pragma mark - utils
-
-- (void)checkPwdWithFinishBlk:(void (^)(NSString *pwd))finishBlk
-{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"验证密码" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    
-    //创建按钮
-    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"确认按钮block");
-        //取出输入框文字
-        NSString *pwd = alertController.textFields.firstObject.text;
-        finishBlk(pwd);
-    }];
-    //取消按钮（只能创建一个）
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"取消按钮block");
-    }];
-    
-    //将按钮添加到UIAlertController对象上
-    [alertController addAction:sureAction];
-    [alertController addAction:cancelAction];
-    
-    //添加文本框（只能在UIAlertController的UIAlertControllerStyleAlert样式下添加）
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"请输入设备密码";
-        textField.secureTextEntry = YES;
-    }];
-    
-    //显示弹窗视图控制器
-    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - Cell Delegate

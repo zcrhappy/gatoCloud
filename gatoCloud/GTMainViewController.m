@@ -15,10 +15,11 @@
 #import "GTBaseNavigationController.h"
 #import "GTWarningRecordsViewController.h"
 #import "UIViewController+GTAlertController.h"
+#import "GTWebViewController.h"
 //test
 #import "GTRoutesListViewController.h"
 #import <Crashlytics/Crashlytics.h>
-@interface GTMainViewController()
+@interface GTMainViewController()<SDCycleScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet SDCycleScrollView *carouselView;
 @property (nonatomic, weak) IBOutlet UIImageView *headImgView;
@@ -61,6 +62,8 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickHeadImg)];
     [_headImgView addGestureRecognizer:tap];
+    
+    _carouselView.delegate = self;
 }
 
 - (void)checkVersion
@@ -203,11 +206,6 @@
             [MBProgressHUD showText:@"消除报警成功!" inView:self.view];
         }
     }];
-    
-//    GTWarningRecordsViewController *controller = [[GTWarningRecordsViewController alloc] initViaType:@"未处理报警"];
-//    controller.navigationItem.title = @"报警处理";
-//    GTBaseNavigationController *navigationController = [[GTBaseNavigationController alloc] initWithRootViewController:controller];
-//    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 //添加设备后需要增加
@@ -219,6 +217,25 @@
 - (void)didChangedHeadImg:(NSNotification *)notification
 {
     [_headImgView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString]];
+}
+
+
+
+/** 点击图片回调 */
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index;
+{
+    NSArray <GTBannerModel *>* bannerModels = _startModel.banners;
+    __block NSString *url;
+    
+    [bannerModels enumerateObjectsUsingBlock:^(GTBannerModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(idx == index) {
+            url = obj.url;
+            *stop = YES;
+        }
+    }];
+    
+    GTWebViewController *webViewController = [[GTWebViewController alloc] initWithUrl:url];
+    [self gt_presentViewController:webViewController animated:YES completion:nil];
 }
 
 @end

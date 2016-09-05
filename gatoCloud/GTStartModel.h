@@ -7,11 +7,11 @@
 //
 
 #import <Mantle/Mantle.h>
-
+@class GTBannerModel;
 @interface GTStartModel : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, copy) NSString *appversion;
-@property (nonatomic, strong) NSArray *banners;
+@property (nonatomic, strong) NSArray <GTBannerModel *>*banners;
 @property (nonatomic, copy) NSString *bverison;
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *type;

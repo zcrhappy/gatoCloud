@@ -7,8 +7,14 @@
 //
 
 #import "UIViewController+GTExtionsion.h"
-
+#import "GTBaseNavigationController.h"
 @implementation UIViewController (GTExtionsion)
+
+- (void)gt_presentViewController:(UIViewController *)controller animated:(BOOL)animated completion:(void (^ __nullable)(void))completion
+{
+    GTBaseNavigationController *navigationController = [[GTBaseNavigationController alloc] initWithRootViewController:controller];
+    [self presentViewController:navigationController animated:animated completion:completion];
+}
 
 - (void)gt_presentViewControllerWithStoryBoardIdentifier:(NSString *)identifier animated:(BOOL)animated completion:(void (^ __nullable)(void))completion
 {
