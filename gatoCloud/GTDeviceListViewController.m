@@ -204,6 +204,11 @@
     NSNumber *index = [dic objectForKey:@"index"];
     GTDeviceModel *model = [dic objectForKey:@"model"];
 
+    if(!model.isOnline) {
+        [MBProgressHUD showText:@"该设备已经离线,不能操作!" inView:self.view];
+        return;
+    }
+    
     if(index.integerValue == 0)
     { //一键布防
         [self gt_showTypingControllerWithTitle:@"验证密码" placeholder:@"请输入设备密码" finishBlock:^(NSString *content) {

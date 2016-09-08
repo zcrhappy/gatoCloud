@@ -27,4 +27,12 @@
         return self.onlineState;
 }
 
+- (BOOL)isOnline
+{
+    if([self.onlineState isEqualToString:@"上线"]) {
+        return YES;
+    }
+    else
+        return NO;
+}
 @end

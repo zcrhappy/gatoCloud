@@ -1036,6 +1036,8 @@ NSInteger const APIErrorCode = 138102;
     
     static NSString *uuid = nil;
     uuid = [[NSUUID UUID] UUIDString];
+    static NSString *appVersion = nil;
+    appVersion = [GTUserUtils version];
     
     if(token == nil || [token isEmptyString]) {
         token = [GTUserUtils sharedInstance].userModel.token;
@@ -1045,7 +1047,7 @@ NSInteger const APIErrorCode = 138102;
     }
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [parameters safeSetObject:kAppVersion forKey:@"appVersion"];
+    [parameters safeSetObject:appVersion forKey:@"appVersion"];
     [parameters safeSetObject:kAppType forKey:@"appType"];
     [parameters safeSetObject:userId forKey:@"userId"];
     [parameters safeSetObject:token forKey:@"token"];

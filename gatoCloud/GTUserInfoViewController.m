@@ -131,12 +131,15 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     else if ([title isEqualToString:kCheckVersion]) {
         [[GTHttpManager shareManager] GTAppCheckUpdateWithFinishBlock:^(id response, NSError *error) {
             GTStartModel *startModel = [MTLJSONAdapter modelOfClass:GTStartModel.class fromJSONDictionary:response error:nil];
+            NSString *version = [GTUserUtils version];
+            NSString *checkVersion;
             if([startModel.code isEqualToString:@"0"]) {
-                [MBProgressHUD showText:@"您已经是最新版本" inView:self.view];
+                checkVersion = @"您已经是最新版本";
             }
             else {
-                [MBProgressHUD showText:@"有新版本，请前往App Store下载" inView:self.view];
+                checkVersion = @"有新版本，请前往App Store下载";
             }
+            [MBProgressHUD showText:[NSString stringWithFormat:@"当前版本:%@,%@",version,checkVersion] inView:self.view];
         }];
     }
     else if ([title isEqualToString:kModifyGestureCode]) {

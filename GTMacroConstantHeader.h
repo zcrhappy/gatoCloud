@@ -19,7 +19,6 @@
 #define kAuthScope      @"snsapi_userinfo"
 #define kAppId          @"wx91186ee878bacc62"
 #define kAppSectet      @"5989fd8c7000f1f95af783e97c5239b9"
-#define kAppVersion @"1.0.0"
 #define kAppType @"1"
 //#define kGlobalTest
 

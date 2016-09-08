@@ -64,7 +64,7 @@ typedef NS_ENUM(NSInteger, kSwitchState) {
 
 - (void)action
 {
-    NSLog(@"开始第%ld次轮询,%@",5 - _changedModel.loopCount ,_changedModel);
+    NSLog(@"开始第%d轮询,%@",5 - (int)_changedModel.loopCount ,_changedModel);
     
     __block BOOL querySuccess = NO;
     

@@ -43,4 +43,6 @@
 //推送相关
 + (void)saveRegId:(NSString *)regId;
 + (NSString *)regId;
+
++ (NSString *)version;
 @end

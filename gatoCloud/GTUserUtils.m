@@ -133,4 +133,9 @@ NSString *kRegIdKey = @"kRegIdKey";
     return [[NSUserDefaults standardUserDefaults] objectForKey:kRegIdKey];
 }
 
++ (NSString *)version
+{
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+}
+
 @end
