@@ -195,7 +195,14 @@
 
 - (void)editActionWithIndexPath:(NSIndexPath *)indexPath {
     
-    [self gt_pushViewControllerWithStoryBoardIdentifier:@"GTEditDeviceViewControllerID"];
+    NSInteger row = [indexPath row];
+    GTDeviceModel *model = _deviceArray[row];
+
+    __weak __typeof(GTDeviceModel *)weakModel = model;
+    [self gt_pushViewControllerWithStoryBoardIdentifier:@"GTEditDeviceViewControllerID" viewControllerParamBlock:^(UIViewController *viewController) {
+        ((GTEditDeviceViewController *)viewController).deviceNo = weakModel.deviceNo;
+        ((GTEditDeviceViewController *)viewController).currentDeviceName = weakModel.deviceName;
+    }];
 }
 
 #pragma mark - Cell Delega

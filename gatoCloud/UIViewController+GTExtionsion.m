@@ -30,6 +30,16 @@
     [self presentViewController:target animated:YES completion:nil];
 }
 
+- (void)gt_pushViewControllerWithStoryBoardIdentifier:(NSString *)identifier viewControllerParamBlock:(void (^)(UIViewController *))controllerBlock
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *target = [storyBoard instantiateViewControllerWithIdentifier:identifier];
+    if(controllerBlock)
+        controllerBlock(target);
+    [self.navigationController pushViewController:target animated:YES];
+}
+
+
 - (void)gt_pushViewControllerWithStoryBoardIdentifier:(NSString *)identifier;
 {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
