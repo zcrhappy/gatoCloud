@@ -23,6 +23,7 @@
 @property (nonatomic, copy  ) NSString *zonecontactor;
 @property (nonatomic, copy  ) NSString *zonephone;
 @property (nonatomic, copy  ) NSString *zoneLoc;
+@property (nonatomic, copy) NSString *deviceNo;
 
 - (NSString *)getIstateString;
 

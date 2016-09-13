@@ -9,16 +9,13 @@
 #import "GTMainViewController.h"
 #import "SDCycleScrollView.h"
 #import "GTStartModel.h"
-#import "GTCheckPwdModel.h"
 #import "GTMainViewInfoModel.h"
 #import "GTRoutesListViewController.h"
 #import "GTBaseNavigationController.h"
 #import "GTWarningRecordsViewController.h"
-#import "UIViewController+GTAlertController.h"
 #import "GTWebViewController.h"
-//test
 #import "GTRoutesListViewController.h"
-#import <Crashlytics/Crashlytics.h>
+#import "GTCheckPwdManager.h"
 @interface GTMainViewController()<SDCycleScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet SDCycleScrollView *carouselView;
@@ -28,7 +25,7 @@
 //dataSource
 @property (nonatomic, strong) GTStartModel *startModel;
 @property (nonatomic, strong) GTMainViewInfoModel *infoModel;
-@property (nonatomic, strong) NSMutableArray <GTCheckPwdModel *>*checkPwdList;
+@property (nonatomic, strong) GTCheckPwdManager *checkPwdManager;
 @property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
 @end
 
@@ -38,6 +35,7 @@
 {
     [super viewDidLoad];
     
+    self.checkPwdManager = [[GTCheckPwdManager alloc] initWithViewController:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangedDevice:) name:kDeviceChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangedHeadImg:) name:kHeadImgChangedNotification object:nil];
     [self configUI];
@@ -48,7 +46,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self fetchPwdList];
+    [_checkPwdManager checkAllDevicePwd];
 }
 
 - (void)dealloc
@@ -86,41 +84,6 @@
         }
     }];
 }
-
-- (void)fetchPwdList
-{
-    [[GTHttpManager shareManager] GTDeviceQueryCheckPwdDeviceWithFinishBlock:^(id response, NSError *error) {
-        if(error == nil) {
-            NSArray *array = [MTLJSONAdapter modelsOfClass:GTCheckPwdModel.class fromJSONArray:[response objectForKey:@"list"] error:nil];
-            _checkPwdList = [NSMutableArray arrayWithArray:array];
-            [self showCheckPwd];
-        }
-    }];
-}
-
-- (void)showCheckPwd
-{
-    if(_checkPwdList.count > 0) {
-        GTCheckPwdModel *model = [self.checkPwdList firstObject];
-        __weak __typeof(self)weakSelf = self;
-        [self gt_showTypingControllerWithTitle:@"验证设备密码" placeholder:[NSString stringWithFormat:@"请输入%@的密码",model.deviceName] finishBlock:^(NSString *content) {
-            __strong __typeof(weakSelf)strongSelf = weakSelf;
-            [strongSelf addDeviceWithModel:model newPwd:content finishBlock:^(id response, NSError *error) {
-                if(!error){
-                    [MBProgressHUD showText:@"密码验证成功" inView:self.view];
-                }
-                [weakSelf.checkPwdList removeObjectAtIndex:0];
-                [weakSelf showCheckPwd];
-            }];
-        }];
-    }
-}
-
-- (void)addDeviceWithModel:(GTCheckPwdModel *)model newPwd:(NSString *)newPwd finishBlock:(GTResultBlock)finishBlock
-{
-    [[GTHttpManager shareManager] GTDeviceAddWithDeviceNo:model.deviceNo deviceUserType:model.userType.stringValue devicePwd:newPwd finishBlock:finishBlock];
-}
-
 
 - (void)fetchMainViewInfo
 {

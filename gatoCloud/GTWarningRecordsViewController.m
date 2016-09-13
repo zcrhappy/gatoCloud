@@ -16,6 +16,7 @@
 #import "GTSelectionPanel.h"
 #import "GTDatePickPanel.h"
 #import "GTDatePickActionSheet.h"
+#import "GTCheckPwdManager.h"
 #define GTWarningRecordCellIdentifier @"GTWarningRecordCellIdentifier"
 
 static NSString *kSearchViaUnhandled   = @"未处理报警";
@@ -36,6 +37,8 @@ static NSString *kSearchViaZone        = @"按防区搜索";
 //search keyword
 @property (nonatomic, strong) NSMutableDictionary *searchKeywordDict;//和dataManager约定好的数据Dic；
 
+@property (nonatomic, strong) GTCheckPwdManager *checkPwdManager;
+
 @end
 
 @implementation GTWarningRecordsViewController
@@ -43,7 +46,7 @@ static NSString *kSearchViaZone        = @"按防区搜索";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    
+    self.checkPwdManager = [[GTCheckPwdManager alloc] initWithViewController:self];
     [self configTableView];
     [self configSearchBar];
     
@@ -338,11 +341,15 @@ static NSString *kSearchViaZone        = @"按防区搜索";
     
     _currentModel = [_dataManager.dataSource.resultList objectAtIndex:row];
     
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    GTWarningDetailViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"GTWarningDetailViewController"];
-    detailViewController.model = _currentModel;
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    if([_checkPwdManager shouldShowPwdCheckWithDeviceNo:_currentModel.deviceNo]){
+        
+    }
+    else {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        GTWarningDetailViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"GTWarningDetailViewController"];
+        detailViewController.model = _currentModel;
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }
 }
 
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

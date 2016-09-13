@@ -15,7 +15,6 @@
 #import "GTZoneEditViewController.h"
 #import "GTZoneStainEditViewController.h"
 #import "GTBottomSelectionView.h"
-#import "UIViewController+GTAlertController.h"
 #import "GTTimerQueue.h"
 #define kGTDeviceZoneCellIdentifier @"GTDeviceZoneCellIdentifier"
 #define kSearchViaZoneName @"按防区搜索"

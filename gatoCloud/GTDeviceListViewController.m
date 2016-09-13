@@ -12,8 +12,7 @@
 #import "GTRenameViewController.h"
 #import "GTRoutesListViewController.h"
 #import "GTNoDeviceView.h"
-#import "UIViewController+GTAlertController.h"
-#import "GTCheckPwdModel.h"
+#import "GTCheckPwdManager.h"
 
 #define kDeviceListCellIdentifier @"kDeviceListCellIdentifier"
 @interface GTDeviceListViewController()<UITableViewDelegate, UITableViewDataSource, GRDeviceCellDelegate>
@@ -22,7 +21,7 @@
 @property (nonatomic, strong) UIView *noDeviceView;
 @property (nonatomic, strong) NSMutableArray *deviceArray;
 
-@property (nonatomic, strong) NSMutableArray <GTCheckPwdModel *> *checkPwdList;
+@property (nonatomic, strong) GTCheckPwdManager *checkPwdManager;
 
 @end
 
@@ -37,6 +36,7 @@
     _deviceArray = [NSMutableArray array];
     _noDeviceView = [[GTNoDeviceView alloc] initWithFrame:self.view.bounds];
     _noDeviceView.hidden = YES;
+    _checkPwdManager = [[GTCheckPwdManager alloc] initWithViewController:self];
     [self.view addSubview:_noDeviceView];
     [self configTableView];
     
@@ -75,56 +75,7 @@
         
         [strongSelf.deviceTable reloadData];
     }];
-    
-    [self fetchPwdList];
 }
-
-- (void)fetchPwdList
-{
-    [[GTHttpManager shareManager] GTDeviceQueryCheckPwdDeviceWithFinishBlock:^(id response, NSError *error) {
-        if(error == nil) {
-            NSArray *array = [MTLJSONAdapter modelsOfClass:GTCheckPwdModel.class fromJSONArray:[response objectForKey:@"list"] error:nil];
-            _checkPwdList = [NSMutableArray arrayWithArray:array];
-        }
-    }];
-}
-
-- (BOOL)shouldShowPwdCheckWithDeviceModel:(GTDeviceModel *)model
-{
-    __block BOOL shouldShow = NO;
-    //sync
-    [_checkPwdList enumerateObjectsUsingBlock:^(GTCheckPwdModel * _Nonnull pwdModel, NSUInteger idx, BOOL * _Nonnull stop) {
-        if([model.deviceNo isEqualToString:pwdModel.deviceNo]) {
-            [self showCheckPwdWithPwdModel:pwdModel];
-            shouldShow = YES;
-            *stop = YES;
-        }
-    }];
-    
-    return shouldShow;
-}
-
-- (void)showCheckPwdWithPwdModel:(GTCheckPwdModel *)pwdModel
-{
-    __weak __typeof(self)weakSelf = self;
-    [self gt_showTypingControllerWithTitle:@"验证设备密码" placeholder:[NSString stringWithFormat:@"请输入%@的密码",pwdModel.deviceName] finishBlock:^(NSString *content) {
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf addDeviceWithModel:pwdModel newPwd:content finishBlock:^(id response, NSError *error) {
-            if(!error){
-                [weakSelf.checkPwdList removeObject:pwdModel];
-                [MBProgressHUD showText:@"验证密码成功" inView:[UIView gt_keyWindow]];
-            }
-        }];
-    }];
-
-}
-
-- (void)addDeviceWithModel:(GTCheckPwdModel *)model newPwd:(NSString *)newPwd finishBlock:(GTResultBlock)finishBlock
-{
-    [[GTHttpManager shareManager] GTDeviceAddWithDeviceNo:model.deviceNo deviceUserType:model.userType.stringValue devicePwd:newPwd finishBlock:finishBlock];
-}
-
-
 
 #pragma mark - TableView Delegate
 
@@ -155,7 +106,7 @@
     GTDeviceListCell *cell = (GTDeviceListCell *)[tableView cellForRowAtIndexPath:indexPath];
     GTDeviceModel *model = [self modelAtIndexPath:indexPath];
     
-    if([self shouldShowPwdCheckWithDeviceModel:model]) {
+    if([_checkPwdManager shouldShowPwdCheckWithDeviceNo:model.deviceNo]) {
         
     }
     else {
@@ -210,7 +161,7 @@
     NSNumber *index = [dic objectForKey:@"index"];
     GTDeviceModel *model = [dic objectForKey:@"model"];
     
-    if([self shouldShowPwdCheckWithDeviceModel:model]) {
+    if([_checkPwdManager shouldShowPwdCheckWithDeviceNo:model.deviceNo]) {
         return;
     }
 

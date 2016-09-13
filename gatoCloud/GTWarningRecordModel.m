@@ -25,7 +25,8 @@
              @"zonecontactor":@"zonecontactor",
              @"zonephone":@"zonephone",
              @"zoneLoc":@"zoneLoc",
-             @"devicename":@"devicename"
+             @"devicename":@"devicename",
+             @"deviceNo":@"deviceNo"
              };
 }
 

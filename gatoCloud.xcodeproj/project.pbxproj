@@ -84,6 +84,7 @@
 		337663CC1D49FC88003AA73C /* GTDeviceZoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 337663CB1D49FC88003AA73C /* GTDeviceZoneCell.m */; };
 		3382FABF1D6FDF9C003E4EE0 /* UIViewController+GTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3382FABE1D6FDF9C003E4EE0 /* UIViewController+GTAlertController.m */; };
 		3382FAC21D700EB1003E4EE0 /* GTCheckPwdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3382FAC11D700EB1003E4EE0 /* GTCheckPwdModel.m */; };
+		338F4D321D881B22009F081F /* GTCheckPwdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 338F4D311D881B22009F081F /* GTCheckPwdManager.m */; };
 		33A0FC861D3D1C6A00C731DF /* GTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */; };
 		33A0FC891D3D1FBB00C731DF /* GTUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A0FC881D3D1FBB00C731DF /* GTUserInfoCell.m */; };
 		33B093411D7D40B900C6E8A0 /* GTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B093401D7D40B900C6E8A0 /* GTWebViewController.m */; };
@@ -270,6 +271,8 @@
 		3382FABE1D6FDF9C003E4EE0 /* UIViewController+GTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GTAlertController.m"; sourceTree = "<group>"; };
 		3382FAC01D700EB1003E4EE0 /* GTCheckPwdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTCheckPwdModel.h; sourceTree = "<group>"; };
 		3382FAC11D700EB1003E4EE0 /* GTCheckPwdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTCheckPwdModel.m; sourceTree = "<group>"; };
+		338F4D301D881B22009F081F /* GTCheckPwdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTCheckPwdManager.h; sourceTree = "<group>"; };
+		338F4D311D881B22009F081F /* GTCheckPwdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTCheckPwdManager.m; sourceTree = "<group>"; };
 		33A0FC841D3D1C6A00C731DF /* GTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMainViewController.h; sourceTree = "<group>"; };
 		33A0FC851D3D1C6A00C731DF /* GTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMainViewController.m; sourceTree = "<group>"; };
 		33A0FC871D3D1FBB00C731DF /* GTUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTUserInfoCell.h; sourceTree = "<group>"; };
@@ -624,6 +627,8 @@
 				3313FED31D4F8CE8001B27C6 /* GTBaseNavigationController.m */,
 				3382FAC01D700EB1003E4EE0 /* GTCheckPwdModel.h */,
 				3382FAC11D700EB1003E4EE0 /* GTCheckPwdModel.m */,
+				338F4D301D881B22009F081F /* GTCheckPwdManager.h */,
+				338F4D311D881B22009F081F /* GTCheckPwdManager.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -1043,6 +1048,7 @@
 				33FF6D3A1D43770F009C730E /* GTWarningDetailStateCell.m in Sources */,
 				330E31371D51F40D00B94695 /* GTLoginViewController.m in Sources */,
 				335380971D44C80D00041BD9 /* GTStartModel.m in Sources */,
+				338F4D321D881B22009F081F /* GTCheckPwdManager.m in Sources */,
 				331D90401D6084D400C69699 /* GTZoneDataManager.m in Sources */,
 				337663C91D49F04C003AA73C /* GTRoutesListViewController.m in Sources */,
 				33C6209B1D2FE7E60022A9F0 /* AppDelegate.m in Sources */,
