@@ -2091,6 +2091,7 @@
                     <connections>
                         <outlet property="carouselView" destination="N7t-VN-J5j" id="8FM-Pq-OdV"/>
                         <outlet property="deviceCountLabel" destination="7Vf-ss-X9L" id="Sbh-Mv-iyo"/>
+                        <outlet property="deviceLabel" destination="7lr-jd-Je7" id="5t4-LY-UmO"/>
                         <outlet property="headImgView" destination="uKG-a5-wg2" id="J7s-Wl-AmK"/>
                         <outlet property="zoneCountLabel" destination="JQd-3y-c46" id="UhP-mK-gEK"/>
                         <segue destination="FUu-vm-FMt" kind="modal" identifier="modalToMeSegue" id="bll-9c-Z6A"/>

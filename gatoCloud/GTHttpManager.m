@@ -1087,9 +1087,10 @@ NSInteger const APIErrorCode = 138102;
     NSString *urlString = [_baseUrl stringByAppendingString:URLString];
     
     void(^successBlock)(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) = ^void(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
-        NSLog(@"发起POST请求：%@",urlString);
-        NSLog(@"参数：%@",parameters);
-        NSLog(@"返回的数据内容为：%@",responseObject);
+        long index = random();
+        NSLog(@"[%ld]发起POST请求：%@",index, urlString);
+        NSLog(@"[%ld]参数：%@",index, parameters);
+        NSLog(@"[%ld]返回的数据内容为：%@",index, responseObject);
         if([responseObject isNeedLogin]){
             NSLog(@"需要重新登录");
             [GTUserUtils unRegisterUserInfo];
@@ -1102,9 +1103,10 @@ NSInteger const APIErrorCode = 138102;
     };
     
     void (^failureBlock)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) = ^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"发起POST请求：%@",urlString);
-        NSLog(@"参数：%@",parameters);
-        NSLog(@"出错了，返回的数据内容为：%@", error);
+        long index = random();
+        NSLog(@"[%ld]发起POST请求：%@",index, urlString);
+        NSLog(@"[%ld]参数：%@",index, parameters);
+        NSLog(@"[%ld]出错了，返回的数据内容为：%@",index, error);
         failure(task, error);
     };
     

@@ -14,4 +14,5 @@
 @property (nonatomic, copy) NSString *zoneCount;
 @property (nonatomic, copy) NSString *headImg;
 @property (nonatomic, copy) NSString *nickName;
+@property (nonatomic, copy) NSString *allDeviceCount;
 @end

@@ -29,6 +29,7 @@
 @property (nonatomic, strong) GTStartModel *startModel;
 @property (nonatomic, strong) GTMainViewInfoModel *infoModel;
 @property (nonatomic, strong) NSMutableArray <GTCheckPwdModel *>*checkPwdList;
+@property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
 @end
 
 @implementation GTMainViewController
@@ -130,6 +131,7 @@
             //number
             _deviceCountLabel.text = _infoModel.deviceCount;
             _zoneCountLabel.text = _infoModel.zoneCount;
+            _deviceLabel.text = _infoModel.allDeviceCount.integerValue == 0 ? @"添加设备" : @"中心设备";
             [[GTUserUtils sharedInstance].userModel setDisplayName:_infoModel.nickName];
         }
     }];
