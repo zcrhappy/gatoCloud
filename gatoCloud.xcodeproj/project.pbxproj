@@ -44,7 +44,7 @@
 		3321FAA11D36743200D3850E /* GTDeviceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAA01D36743200D3850E /* GTDeviceListCell.m */; };
 		3321FAA41D36782500D3850E /* GTDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAA31D36782500D3850E /* GTDeviceModel.m */; };
 		3321FAB21D36924100D3850E /* UIView+GTCornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB11D36924100D3850E /* UIView+GTCornerRadius.m */; };
-		3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */; };
+		3321FAB51D3692FF00D3850E /* GTRenameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAB41D3692FF00D3850E /* GTRenameViewController.m */; };
 		3321FABD1D37CAB500D3850E /* UIView+DisplayExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */; };
 		3321FAC31D39291C00D3850E /* GTPhoneRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC21D39291C00D3850E /* GTPhoneRegisterViewController.m */; };
 		3321FAC71D393B5F00D3850E /* GTUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321FAC61D393B5F00D3850E /* GTUserInfoViewController.m */; };
@@ -191,8 +191,8 @@
 		3321FAA31D36782500D3850E /* GTDeviceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDeviceModel.m; sourceTree = "<group>"; };
 		3321FAB01D36924100D3850E /* UIView+GTCornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GTCornerRadius.h"; sourceTree = "<group>"; };
 		3321FAB11D36924100D3850E /* UIView+GTCornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GTCornerRadius.m"; sourceTree = "<group>"; };
-		3321FAB31D3692FF00D3850E /* GTEditDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTEditDeviceViewController.h; sourceTree = "<group>"; };
-		3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTEditDeviceViewController.m; sourceTree = "<group>"; };
+		3321FAB31D3692FF00D3850E /* GTRenameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTRenameViewController.h; sourceTree = "<group>"; };
+		3321FAB41D3692FF00D3850E /* GTRenameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTRenameViewController.m; sourceTree = "<group>"; };
 		3321FABB1D37CAB500D3850E /* UIView+DisplayExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DisplayExtention.h"; sourceTree = "<group>"; };
 		3321FABC1D37CAB500D3850E /* UIView+DisplayExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DisplayExtention.m"; sourceTree = "<group>"; };
 		3321FAC11D39291C00D3850E /* GTPhoneRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPhoneRegisterViewController.h; sourceTree = "<group>"; };
@@ -741,8 +741,8 @@
 			children = (
 				3321FA9E1D36730000D3850E /* DeviceList */,
 				334FBDF31D695BCC0076346E /* AddDevice */,
-				3321FAB31D3692FF00D3850E /* GTEditDeviceViewController.h */,
-				3321FAB41D3692FF00D3850E /* GTEditDeviceViewController.m */,
+				3321FAB31D3692FF00D3850E /* GTRenameViewController.h */,
+				3321FAB41D3692FF00D3850E /* GTRenameViewController.m */,
 			);
 			name = Devices;
 			sourceTree = "<group>";
@@ -997,7 +997,7 @@
 				3352A60F1D39CEEB00EED5C0 /* PCCircleView.m in Sources */,
 				3313FED11D4F8892001B27C6 /* GTGestureManager.m in Sources */,
 				337663B51D45E1D0003AA73C /* GTShareActionSheet.m in Sources */,
-				3321FAB51D3692FF00D3850E /* GTEditDeviceViewController.m in Sources */,
+				3321FAB51D3692FF00D3850E /* GTRenameViewController.m in Sources */,
 				3321FA4E1D3240FD00D3850E /* GTWindow.m in Sources */,
 				333725951D6C24560094621E /* GTShareManager.m in Sources */,
 				3326A0371D3E6470000697DC /* GTFeedbackViewController.m in Sources */,

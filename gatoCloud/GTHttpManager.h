@@ -372,6 +372,15 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
  */
 - (void)GTAppCheckUpdateWithFinishBlock:(GTResultBlock)finishBlk;
 
+/*!
+ *  @brief 设置用户昵称
+ *
+ *  @param nickName  用户昵称
+ *  @param finishBlk 返回结果
+ */
+- (void)GTEditDisplayName:(NSString *)nickName
+              finishBlock:(GTResultBlock)finishBlk;
+
 @end
 
 #pragma clang diagnostic pop

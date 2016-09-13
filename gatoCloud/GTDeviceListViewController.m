@@ -9,7 +9,7 @@
 #import "GTDeviceListViewController.h"
 #import "GTDeviceListCell.h"
 #import "GTDeviceModel.h"
-#import "GTEditDeviceViewController.h"
+#import "GTRenameViewController.h"
 #import "GTRoutesListViewController.h"
 #import "GTNoDeviceView.h"
 #import "UIViewController+GTAlertController.h"
@@ -199,9 +199,10 @@
     GTDeviceModel *model = _deviceArray[row];
 
     __weak __typeof(GTDeviceModel *)weakModel = model;
-    [self gt_pushViewControllerWithStoryBoardIdentifier:@"GTEditDeviceViewControllerID" viewControllerParamBlock:^(UIViewController *viewController) {
-        ((GTEditDeviceViewController *)viewController).deviceNo = weakModel.deviceNo;
-        ((GTEditDeviceViewController *)viewController).currentDeviceName = weakModel.deviceName;
+    [self gt_pushViewControllerWithStoryBoardIdentifier:@"GTRenameViewControllerID" viewControllerParamBlock:^(UIViewController *viewController) {
+        ((GTRenameViewController *)viewController).renameType = GTRenameTypeDeviceName;
+        ((GTRenameViewController *)viewController).deviceNo = weakModel.deviceNo;
+        ((GTRenameViewController *)viewController).currentDeviceName = weakModel.deviceName;
     }];
 }
 
@@ -342,7 +343,7 @@
             NSInteger row = [indexPath row];
             GTDeviceModel *model = _deviceArray[row];
             
-            GTEditDeviceViewController *destVC = segue.destinationViewController;
+            GTRenameViewController *destVC = segue.destinationViewController;
             
             destVC.currentDeviceName = model.deviceName;
             destVC.deviceNo = model.deviceNo;

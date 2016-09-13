@@ -1002,6 +1002,37 @@ NSInteger const APIErrorCode = 138102;
     }];
 }
 
+/*!
+ *  @brief 设置用户昵称
+ *
+ *  @param nickName  用户昵称
+ *  @param finishBlk 返回结果
+ */
+- (void)GTEditDisplayName:(NSString *)nickName
+              finishBlock:(GTResultBlock)finishBlk;
+
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:nickName forKey:@"nickName"];
+    
+    [self POST:@"/user/setNickName.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+
+}
+
 - (void)showErrorMsgWithResponse:(NSDictionary *)dic
 {
     NSString *msg = [dic objectForKey:@"desc"];

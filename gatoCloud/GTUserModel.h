@@ -21,7 +21,7 @@
 @property (nonatomic, copy) NSString *unionid;
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, copy) NSString *userId;
-
+@property (nonatomic, copy) NSString *displayName;
 
 - (void)setAvatarUrlString:(NSString *)newAvatarUrlString completion:(void (^)(void))completion;
 - (NSString *)avatarUrlString;

@@ -13,10 +13,12 @@
 #import "GestureViewController.h"
 #import "PCCircleView.h"
 #import "GTDeviceManagerAuthorization.h"
+#import "GTRenameViewController.h"
 #import "GTQuitCell.h"
 #import <AVFoundation/AVFoundation.h>
 
 NSString *kAvatar = @"头像";
+NSString *kNickName = @"昵称";
 NSString *kNoDisturb = @"功能消息免打扰";
 NSString *kModifyGestureCode = @"修改手势密码";
 NSString *kCheckVersion = @"版本检测";
@@ -44,11 +46,13 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     [super viewDidLoad];
     [self configSource];
     [self configUI];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeDisplayName) name:kUserInfoDisplayNameDidChangedNotification object:nil];
 }
 
 - (void)configSource
 {
-    _rowArray = @[kAvatar, kNoDisturb, kModifyGestureCode, kCheckVersion, kContactUs, kFeedback, kQuitAccount];
+    _rowArray = @[kAvatar, kNickName, kNoDisturb, kModifyGestureCode, kCheckVersion, kContactUs, kFeedback, kQuitAccount];
     
 }
 
@@ -91,6 +95,9 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     if([title isEqualToString:kAvatar]) {
         NSString *avatarStr = [GTUserUtils sharedInstance].userModel.avatarUrlString;
         [cell setupCellWithType:GTUserInfoCellTypeAvatar title:title subTitle:nil avatarStr:avatarStr];
+    }
+    else if([title isEqualToString:kNickName]) {
+        [cell setupCellWithType:GTUserInfoCellTypeArrow title:title subTitle:[GTUserUtils sharedInstance].userModel.displayName avatarStr:nil];
     }
     else {
         [cell setupCellWithType:GTUserInfoCellTypeArrow title:title subTitle:nil avatarStr:nil];
@@ -150,6 +157,12 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     else if ([title isEqualToString:kNoDisturb]) {
         [self performSegueWithIdentifier:@"pushToNotDisturbSegue" sender:self];
     }
+    else if ([title isEqualToString:kNickName]) {
+        [self gt_pushViewControllerWithStoryBoardIdentifier:@"GTRenameViewControllerID" viewControllerParamBlock:^(UIViewController *viewController) {
+            ((GTRenameViewController *)viewController).renameType = GTRenameTypeDisplayName;
+            ((GTRenameViewController *)viewController).displayName = [GTUserUtils sharedInstance].userModel.displayName;
+        }];
+    }
 }
 
 
@@ -182,6 +195,11 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
 //    [self performSegueWithIdentifier:@"backToMainViewSegue" sender:self];
 }
 
+
+- (void)didChangeDisplayName
+{
+    [_listTable reloadData];
+}
 
 #pragma mark - 相册相关 UIImage Picker Delegate
 - (void)pickPhotoWithButtonAtIndex:(GTPickPhotoVia)viaIndex

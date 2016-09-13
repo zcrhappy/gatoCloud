@@ -15,6 +15,7 @@
 #define kNeedsLoginNotification @"kNeedsLoginNotification"
 #define kDeviceChangedNotification @"kDeviceChangedNotification"
 #define kHeadImgChangedNotification @"kHeadImgChangedNotification"
+#define kUserInfoDisplayNameDidChangedNotification @"kUserInfoDisplayNameDidChangedNotification"
 
 #define kAuthScope      @"snsapi_userinfo"
 #define kAppId          @"wx91186ee878bacc62"

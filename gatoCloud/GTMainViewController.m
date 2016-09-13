@@ -130,6 +130,7 @@
             //number
             _deviceCountLabel.text = _infoModel.deviceCount;
             _zoneCountLabel.text = _infoModel.zoneCount;
+            [[GTUserUtils sharedInstance].userModel setDisplayName:_infoModel.nickName];
         }
     }];
 }
