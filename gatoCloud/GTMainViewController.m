@@ -42,6 +42,11 @@
     [self configUI];
     [self checkVersion];
     [self fetchMainViewInfo];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self fetchPwdList];
 }
 
