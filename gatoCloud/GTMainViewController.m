@@ -106,6 +106,9 @@
         [self gt_showTypingControllerWithTitle:@"验证设备密码" placeholder:[NSString stringWithFormat:@"请输入%@的密码",model.deviceName] finishBlock:^(NSString *content) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             [strongSelf addDeviceWithModel:model newPwd:content finishBlock:^(id response, NSError *error) {
+                if(!error){
+                    [MBProgressHUD showText:@"密码验证成功" inView:self.view];
+                }
                 [weakSelf.checkPwdList removeObjectAtIndex:0];
                 [weakSelf showCheckPwd];
             }];

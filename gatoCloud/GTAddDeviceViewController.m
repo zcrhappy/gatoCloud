@@ -44,7 +44,7 @@
     
 //#ifdef kGlobalTest
 //    _testDic = @{
-//                 @"deviceId":@"200753a88f5e1240",
+//                 @"deviceId":@"2006c574edfa9240",
 //                 @"userPwd" :@"111111"
 //                 };
 //    _userPwd = _testDic[@"userPwd"];

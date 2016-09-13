@@ -110,8 +110,10 @@
     [self gt_showTypingControllerWithTitle:@"验证设备密码" placeholder:[NSString stringWithFormat:@"请输入%@的密码",pwdModel.deviceName] finishBlock:^(NSString *content) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         [strongSelf addDeviceWithModel:pwdModel newPwd:content finishBlock:^(id response, NSError *error) {
-            [weakSelf.checkPwdList removeObject:pwdModel];
-            [MBProgressHUD showText:@"验证密码成功" inView:[UIView gt_keyWindow]];
+            if(!error){
+                [weakSelf.checkPwdList removeObject:pwdModel];
+                [MBProgressHUD showText:@"验证密码成功" inView:[UIView gt_keyWindow]];
+            }
         }];
     }];
 
@@ -185,10 +187,6 @@
     NSInteger row = [indexPath row];
     GTDeviceModel *model = _deviceArray[row];
     
-#ifdef kGlobalTest
-    if(row %2 ==0 )
-        model.userType = @"1";
-#endif
     return model;
 }
 
@@ -211,6 +209,10 @@
 {
     NSNumber *index = [dic objectForKey:@"index"];
     GTDeviceModel *model = [dic objectForKey:@"model"];
+    
+    if([self shouldShowPwdCheckWithDeviceModel:model]) {
+        return;
+    }
 
     if(!model.isOnline) {
         [MBProgressHUD showText:@"该设备已经离线,不能操作!" inView:self.view];
