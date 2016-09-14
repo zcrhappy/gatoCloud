@@ -190,10 +190,8 @@
 
 - (void)didChangedHeadImg:(NSNotification *)notification
 {
-    [_headImgView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString]];
+    [_headImgView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString] placeholderImage:[UIImage imageNamed:@"GTDefaultAvatar"]];
 }
-
-
 
 /** 点击图片回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index;

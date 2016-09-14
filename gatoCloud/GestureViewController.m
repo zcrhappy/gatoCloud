@@ -153,7 +153,7 @@
     imageView.layer.masksToBounds = YES;
     imageView.center = CGPointMake(kScreenW/2, 120);
 
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString] placeholderImage:nil];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString] placeholderImage:[UIImage imageNamed:@"GTDefaultAvatar"]];
     [self.view addSubview:imageView];
     
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -178,7 +178,7 @@
     imageView.layer.borderWidth = 0.5;
     imageView.layer.masksToBounds = YES;
     imageView.center = CGPointMake(kScreenW/2, kScreenH/5);
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString] placeholderImage:nil];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString] placeholderImage:[UIImage imageNamed:@"GTDefaultAvatar"]];
     [self.view addSubview:imageView];
     
     UILabel *tipLabel = [[UILabel alloc] init];
@@ -342,7 +342,7 @@
 
 - (void)didChangedHeadImg:(NSNotification *)notification
 {
-    [_headImg sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString]];
+    [_headImg sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString] placeholderImage:[UIImage imageNamed:@"GTDefaultAvatar"]];
 }
 
 #pragma mark - infoView展示方法
