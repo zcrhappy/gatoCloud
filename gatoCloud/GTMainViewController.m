@@ -38,6 +38,7 @@
     self.checkPwdManager = [[GTCheckPwdManager alloc] initWithViewController:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangedDevice:) name:kDeviceChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangedHeadImg:) name:kHeadImgChangedNotification object:nil];
+    [self.view layoutIfNeeded];
     [self configUI];
     [self checkVersion];
     [self fetchMainViewInfo];

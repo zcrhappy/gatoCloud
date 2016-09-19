@@ -19,7 +19,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    
+    [self layoutIfNeeded];
     _avatar.layer.cornerRadius = _avatar.height/2.0;
     _avatar.layer.masksToBounds = YES;
 }
