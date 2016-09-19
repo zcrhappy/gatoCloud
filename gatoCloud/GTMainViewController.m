@@ -63,7 +63,8 @@
     _headImgView.layer.borderColor = [UIColor colorWithString:@"fcfcfc"].CGColor;
     _headImgView.backgroundColor = [UIColor whiteColor];
     _headImgView.userInteractionEnabled = YES;
-    
+    [self.view bringSubviewToFront:_headImgView];
+    [_headImgView sd_setImageWithURL:[NSURL URLWithString:[GTUserUtils sharedInstance].userModel.avatarUrlString] placeholderImage:[UIImage imageNamed:@"GTDefaultAvatar"]];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickHeadImg)];
     [_headImgView addGestureRecognizer:tap];
     

@@ -1101,6 +1101,10 @@ NSInteger const APIErrorCode = 138102;
     
     void (^failureBlock)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) = ^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"\n【发起POST请求】：%@\n%@\n【出错了，返回的数据内容为】：%@",urlString, parameters, error);
+        if(error.code == NSURLErrorNotConnectedToInternet)
+        {
+            [MBProgressHUD showText:@"您的网络未连接,请检查网络设置后重试" inView:[UIView gt_keyWindow]];
+        }
         failure(task, error);
     };
     

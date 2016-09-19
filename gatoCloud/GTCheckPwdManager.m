@@ -21,15 +21,7 @@
     if(self = [super init])
     {
         _parentViewController = viewController;
-    }
-    return self;
-}
-
-- (instancetype)init
-{
-    UIViewController *topViewController = [UIViewController gt_topViewController];
-    if(self = [self initWithViewController:topViewController])
-    {
+        
         [[GTHttpManager shareManager] GTDeviceQueryCheckPwdDeviceWithFinishBlock:^(id response, NSError *error) {
             if(error == nil) {
                 NSArray *array = [MTLJSONAdapter modelsOfClass:GTCheckPwdModel.class fromJSONArray:[response objectForKey:@"list"] error:nil];
@@ -38,6 +30,12 @@
         }];
     }
     return self;
+}
+
+- (instancetype)init
+{
+    UIViewController *topViewController = [UIViewController gt_topViewController];
+    return [self initWithViewController:topViewController];
 }
 
 #pragma mark - 检查所有

@@ -61,6 +61,7 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     _listTable.tableFooterView = [UIView new];
     
     [_listTable registerNib:[UINib nibWithNibName:@"GTQuitCell" bundle:nil] forCellReuseIdentifier:@"quitCell"];
+    [_listTable reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -137,16 +138,18 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     }
     else if ([title isEqualToString:kCheckVersion]) {
         [[GTHttpManager shareManager] GTAppCheckUpdateWithFinishBlock:^(id response, NSError *error) {
-            GTStartModel *startModel = [MTLJSONAdapter modelOfClass:GTStartModel.class fromJSONDictionary:response error:nil];
-            NSString *version = [GTUserUtils version];
-            NSString *checkVersion;
-            if([startModel.code isEqualToString:@"0"]) {
-                checkVersion = @"您已经是最新版本";
+            if(!error) {
+                GTStartModel *startModel = [MTLJSONAdapter modelOfClass:GTStartModel.class fromJSONDictionary:response error:nil];
+                NSString *version = [GTUserUtils version];
+                NSString *checkVersion;
+                if([startModel.code isEqualToString:@"0"]) {
+                    checkVersion = @"您已经是最新版本";
+                }
+                else {
+                    checkVersion = @"有新版本，请前往App Store下载";
+                }
+                [MBProgressHUD showText:[NSString stringWithFormat:@"当前版本:%@,%@",version,checkVersion] inView:self.view];
             }
-            else {
-                checkVersion = @"有新版本，请前往App Store下载";
-            }
-            [MBProgressHUD showText:[NSString stringWithFormat:@"当前版本:%@,%@",version,checkVersion] inView:self.view];
         }];
     }
     else if ([title isEqualToString:kModifyGestureCode]) {

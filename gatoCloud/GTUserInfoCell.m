@@ -45,7 +45,7 @@
         {
             _avatar.hidden = NO;
             _subTitle.hidden = _arrow.hidden = YES;
-            [_avatar sd_setImageWithURL:[NSURL URLWithString:avatarStr?:@""] placeholderImage:nil];
+            [_avatar sd_setImageWithURL:[NSURL URLWithString:avatarStr?:@""] placeholderImage:[UIImage imageNamed:@"GTDefaultAvatar"]];
             break;
         }
     }

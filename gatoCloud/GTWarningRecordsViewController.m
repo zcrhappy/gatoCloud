@@ -238,11 +238,12 @@ static NSString *kSearchViaZone        = @"按防区搜索";
     [_dataManager refreshDataWithFinishBlock:^(id response, NSError *error) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
-        if(!strongSelf.dataManager.hasMore)
-            [strongSelf.warningTable.mj_footer endRefreshingWithNoMoreData];
-        if(strongSelf.dataManager.isEmpty)
-            [MBProgressHUD showText:@"未搜索到报警记录" inView:strongSelf.view];
-        
+        if(!error) {
+            if(!strongSelf.dataManager.hasMore)
+                [strongSelf.warningTable.mj_footer endRefreshingWithNoMoreData];
+            if(strongSelf.dataManager.isEmpty)
+                [MBProgressHUD showText:@"未搜索到报警记录" inView:strongSelf.view];
+        }
         [strongSelf.warningTable.mj_header endRefreshing];
         [strongSelf.warningTable.mj_footer setHidden:NO];
         [strongSelf.warningTable reloadData];
