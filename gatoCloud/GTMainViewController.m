@@ -177,9 +177,12 @@
 //消除报警
 - (IBAction)tapDisguard:(id)sender {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    __weak __typeof(self)weakSelf = self;
     [[GTHttpManager shareManager] GTHandleAllWarningsWithFinishBlock:^(id response, NSError *error) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
         if(error == nil) {
-            [MBProgressHUD showText:@"消除报警成功!" inView:self.view];
+            [MBProgressHUD showText:@"消除报警成功!" inView:strongSelf.view];
         }
     }];
 }

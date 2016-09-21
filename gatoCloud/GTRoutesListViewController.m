@@ -160,14 +160,16 @@
     [_dataManager refreshDataWithFinishBlock:^(id response, NSError *error) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         [MBProgressHUD hideHUDForView:strongSelf.view animated:YES];
-        if(!strongSelf.dataManager.hasMore)
-            [strongSelf.routesTable.mj_footer endRefreshingWithNoMoreData];
-        if(strongSelf.dataManager.isEmpty)
-            [MBProgressHUD showText:@"未搜索到防区" inView:strongSelf.view];
         
+        if(!error) {
+            if(!strongSelf.dataManager.hasMore)
+                [strongSelf.routesTable.mj_footer endRefreshingWithNoMoreData];
+            if(strongSelf.dataManager.isEmpty)
+                [MBProgressHUD showText:@"未搜索到防区" inView:strongSelf.view];
+            [strongSelf.routesTable.mj_footer setHidden:NO];
+            [strongSelf.routesTable reloadData];
+        }
         [strongSelf.routesTable.mj_header endRefreshing];
-        [strongSelf.routesTable.mj_footer setHidden:NO];
-        [strongSelf.routesTable reloadData];
     }];
 }
 

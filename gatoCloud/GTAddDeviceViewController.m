@@ -43,12 +43,12 @@
     [self configTableView];
     
 //#ifdef kGlobalTest
-//    _testDic = @{
-//                 @"deviceId":@"2006c574edfa9240",
-//                 @"userPwd" :@"111111"
-//                 };
-//    _userPwd = _testDic[@"userPwd"];
-//    _deviceId = _testDic[@"deviceId"];
+    _testDic = @{
+                 @"deviceId":@"2006c574edfa9240",
+                 @"userPwd" :@"111111"
+                 };
+    _userPwd = _testDic[@"userPwd"];
+    _deviceId = _testDic[@"deviceId"];
 //#endif
 }
 

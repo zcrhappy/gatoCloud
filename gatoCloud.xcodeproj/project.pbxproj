@@ -862,13 +862,13 @@
 		33C6208B1D2FE7E60022A9F0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Gato;
 				TargetAttributes = {
 					33C620921D2FE7E60022A9F0 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = J2ATXHKPAQ;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1107,8 +1107,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Guangtuo Information Technology Co., Ltd. (J2ATXHKPAQ)";
@@ -1154,8 +1156,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Guangtuo Information Technology Co., Ltd. (J2ATXHKPAQ)";
@@ -1202,8 +1206,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.securityApp;
 				PRODUCT_NAME = "广拓云警";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "dc16c91e-04c6-4195-b58f-0af118131672";
+				PROVISIONING_PROFILE_SPECIFIER = "gatoDev2016-09-19";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1229,8 +1233,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.securityApp;
 				PRODUCT_NAME = "广拓云警";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "dc16c91e-04c6-4195-b58f-0af118131672";
+				PROVISIONING_PROFILE_SPECIFIER = "gatoDev2016-09-19";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -20,6 +20,7 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChanged:) name:UITextFieldTextDidChangeNotification object:nil];
     _textField.secureTextEntry = YES;
