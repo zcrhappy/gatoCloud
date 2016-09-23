@@ -1086,6 +1086,8 @@ NSInteger const APIErrorCode = 138102;
     
     NSString *urlString = [_baseUrl stringByAppendingString:URLString];
     
+    [GTHttpManager PrintGETRequestWithBaseURL:urlString paramaters:parameters];
+    
     void(^successBlock)(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) = ^void(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
         NSLog(@"\n【发起POST请求】：%@\n%@\n【返回的数据内容为】：%@",urlString, parameters, responseObject);
         if([responseObject isNeedLogin]){
@@ -1137,6 +1139,19 @@ NSInteger const APIErrorCode = 138102;
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidLoginSuccessNotification object:nil];
+}
+
++ (void)PrintGETRequestWithBaseURL:(NSString *)url paramaters:(NSDictionary *)paramDic
+{
+    __block NSString *paramString = @"?";
+    [paramDic enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL * _Nonnull stop) {
+        NSString *str = [NSString stringWithFormat:@"%@=%@&",key, value];
+        paramString = [paramString stringByAppendingString:str];
+    }];
+    
+    paramString = [paramString substringToIndex:paramString.length-1];
+    NSString *GETUrl = [url stringByAppendingString:paramString];
+    NSLog(@"对应GET请求为：%@",GETUrl);
 }
 
 

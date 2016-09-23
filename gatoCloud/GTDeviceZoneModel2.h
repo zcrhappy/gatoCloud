@@ -28,4 +28,5 @@
 @property (nonatomic, copy) NSString *devicename;
 @property (nonatomic, copy) NSString *zoneStyle;
 @property (nonatomic, strong) NSNumber *useType;
+@property (nonatomic, copy) NSString *zoneParam;
 @end

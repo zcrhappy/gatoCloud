@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GTElectricZoneInfoView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="Ubk-FV-ysc">
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFh-OK-i7x">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="92e-iw-0BI"/>
+                                <constraint firstAttribute="width" constant="75" id="9ib-82-VhB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="10"/>
+                            <state key="normal" title="编辑">
+                                <color key="titleColor" red="0.1058823529" green="0.73725490199999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="防区参数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gua-lp-7lh">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="tB2-HC-bqZ"/>
+                                <constraint firstAttribute="width" constant="68" id="zLF-yC-8l1"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.1058823529" green="0.73725490199999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="564" placeholderIntrinsicHeight="21" text="工作模式：测试工作模式测试工作模式测试工作模式" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBz-Sm-RBc">
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="x1G-zL-n9N"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.52941176469999995" green="0.58039215690000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="564" placeholderIntrinsicHeight="21" text="电压：测试电压测试电压" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEL-JF-eDs">
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="9rw-1W-l6q"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.52941176469999995" green="0.58039215690000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="564" placeholderIntrinsicHeight="21" text="灵敏度：测试灵敏度" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gid-mc-LSG">
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="PhO-c9-jWP"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.52941176469999995" green="0.58039215690000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="DEL-JF-eDs" secondAttribute="trailing" constant="8" id="51O-u8-gqr"/>
+                        <constraint firstAttribute="bottom" secondItem="Gid-mc-LSG" secondAttribute="bottom" constant="10" id="7Ml-pY-8iQ"/>
+                        <constraint firstAttribute="trailing" secondItem="Gid-mc-LSG" secondAttribute="trailing" constant="8" id="BDb-8P-2xf"/>
+                        <constraint firstItem="gua-lp-7lh" firstAttribute="leading" secondItem="Ubk-FV-ysc" secondAttribute="leading" constant="8" id="H19-9s-dHr"/>
+                        <constraint firstItem="DEL-JF-eDs" firstAttribute="leading" secondItem="Ubk-FV-ysc" secondAttribute="leading" constant="8" id="Lov-p0-o9q"/>
+                        <constraint firstItem="gua-lp-7lh" firstAttribute="top" secondItem="Ubk-FV-ysc" secondAttribute="top" constant="10" id="S0M-x7-Kxg"/>
+                        <constraint firstItem="DFh-OK-i7x" firstAttribute="top" secondItem="Ubk-FV-ysc" secondAttribute="top" id="d7B-IG-Kdk"/>
+                        <constraint firstAttribute="trailing" secondItem="TBz-Sm-RBc" secondAttribute="trailing" constant="8" id="dLU-Av-XdF"/>
+                        <constraint firstItem="TBz-Sm-RBc" firstAttribute="top" secondItem="gua-lp-7lh" secondAttribute="bottom" constant="8" id="hnq-Zb-U0v"/>
+                        <constraint firstItem="DEL-JF-eDs" firstAttribute="top" secondItem="TBz-Sm-RBc" secondAttribute="bottom" constant="8" id="jkm-NB-3wW"/>
+                        <constraint firstItem="Gid-mc-LSG" firstAttribute="leading" secondItem="Ubk-FV-ysc" secondAttribute="leading" constant="8" id="osr-sW-MBz"/>
+                        <constraint firstAttribute="trailing" secondItem="DFh-OK-i7x" secondAttribute="trailing" id="qkm-Jy-WIu"/>
+                        <constraint firstItem="Gid-mc-LSG" firstAttribute="top" secondItem="DEL-JF-eDs" secondAttribute="bottom" constant="8" id="vP5-eY-yg1"/>
+                        <constraint firstItem="TBz-Sm-RBc" firstAttribute="leading" secondItem="Ubk-FV-ysc" secondAttribute="leading" constant="8" id="wi7-sR-azl"/>
+                        <constraint firstItem="DFh-OK-i7x" firstAttribute="leading" secondItem="TBz-Sm-RBc" secondAttribute="trailing" constant="8" id="xmv-nW-KMJ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="xmv-nW-KMJ"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ubk-FV-ysc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="32k-Gn-yNK"/>
+                <constraint firstItem="Ubk-FV-ysc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="8GR-hu-Ho2"/>
+                <constraint firstAttribute="trailing" secondItem="Ubk-FV-ysc" secondAttribute="trailing" constant="10" id="ZnG-zd-m5R"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

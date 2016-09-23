@@ -114,7 +114,7 @@
     }
     
     _carouselView.imageURLStringsGroup = urlArr;
-    _carouselView.autoScrollTimeInterval = 5;
+    _carouselView.autoScroll = NO;
 }
 
 - (IBAction)unwindToMainViewController:(UIStoryboardSegue *)unwindSegue
