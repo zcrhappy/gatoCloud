@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *locLabel;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintToTop;
+
+@property (nonatomic, assign) CGFloat height;
 
 @end
 
@@ -73,9 +76,27 @@
     _locLabel.preferredMaxLayoutWidth = (SCREEN_WIDTH - 20) - 16;
     
     CGSize size = [_containerView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    [self mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(size.height + 20));
-    }];
+    
+    _height = size.height;
+}
+
+- (CGFloat)viewHeight
+{
+    if(!self.shouldConstraintToTop) {
+        NSAssert(self, @"必须要制定此block");
+    }
+    
+    CGFloat topOffset;
+    if(self.shouldConstraintToTop()) {
+        [_constraintToTop setActive:YES];
+        topOffset = 10;
+    }
+    else {
+        [_constraintToTop setActive:NO];
+        topOffset = 20;
+    }
+
+    return _height + topOffset;
 }
 
 - (IBAction)clickEdit:(id)sender {

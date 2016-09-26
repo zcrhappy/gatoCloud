@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GTDeviceZoneModel.h"
 
+//脉冲，触网，触网脉冲的二级配置界面
 @interface GTElectricZoneInfoView : UIView
+
+- (void)setupWithModel:(GTDeviceZoneModel *)model;
+
+- (CGFloat)viewHeight;
 
 @end

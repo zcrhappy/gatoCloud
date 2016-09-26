@@ -11,12 +11,26 @@
 
 typedef NS_ENUM(NSInteger, kZoneState)
 {
-    kZoneStateUnderDisguarding = 1,
-    kZoneStateUnderGuarding = 2,
-    kZoneStateDisguarded = 3,
-    kZoneStateGuarded = 4
+    kZoneStateUnderDisguarding = 1,//撤防中
+    kZoneStateUnderGuarding = 2,//布防中
+    kZoneStateDisguarded = 3,//撤防
+    kZoneStateGuarded = 4//布防
 };
 
+typedef NS_ENUM(NSInteger, GTZoneType)
+{
+    GTZoneTypePulse = 1,//脉冲
+    GTZoneTypeNetPulse = 2,//触网脉冲
+    GTZoneTypeStrain = 3,//张力围栏
+    GTZoneTypeNet = -1,//触网
+};
+
+typedef NS_ENUM(NSInteger, GTNetPulseValue)
+{
+    GTNetPulseValueVoltage = 0,//电压
+    GTNetPulseValueSensitive = 1,//灵敏度
+    GTNetPulseValueMode = 2,//工作模式
+};
 
 @interface GTDeviceZoneModel : MTLModel<MTLJSONSerializing>
 
@@ -56,13 +70,16 @@ typedef NS_ENUM(NSInteger, kZoneState)
 - (NSString *)zoneStateString;
 
 - (BOOL)isTwentyFourHourZone;//24小时防区状态
-- (BOOL)isStainZone;//3 张力围栏
+- (BOOL)isZoneType:(GTZoneType)zonetype;
 - (NSString *)twentyFourHourZoneStateString;
 - (BOOL)zoneOnlineBoolValue;
 - (BOOL)zoneStateForSwithButton;
 - (BOOL)canBatchDefendZone;//能够批量布防撤防
 - (BOOL)canEdit;//管理员才可编辑
 - (BOOL)shouldSetLoadingState;//
+
+- (NSString *)getNetPulseValue:(GTNetPulseValue)type;
+
 
 + (NSArray <GTDeviceZoneModel *>*)transformFromArray:(NSArray <GTDeviceZoneModel2 *>*)array;
 - (NSArray <NSArray *>*)fetchStainArray;//补充第一行和第一列为空

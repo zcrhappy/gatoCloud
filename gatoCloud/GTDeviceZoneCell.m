@@ -9,14 +9,15 @@
 #import "GTDeviceZoneCell.h"
 #import "GTDeviceZoneModel.h"
 #import "GTZoneStrainView.h"
+#import "GTElectricZoneInfoView.h"
 #import "GTZoneInfoView.h"
 //#import "GTZoneCellTimer.h"
 #define bottomBackgroundColor [UIColor colorWithString:@"f5f5f5"]
 @interface GTDeviceZoneCell()
 //@property (strong, nonatomic) GTZoneCellTimer *timerObj;
-@property (strong, nonatomic) UIView *upContainer;
-@property (strong, nonatomic) UIView *horSerparatorLine;
-@property (strong, nonatomic) UIView *bottomContainer;
+@property (strong, nonatomic) GTUpContainer *upContainer;
+@property (strong, nonatomic) GTLine *horSerparatorLine;
+@property (strong, nonatomic) GTBottomContainer *bottomContainer;
 @property (nonatomic, strong) MASConstraint *expandConstaint;
 @property (nonatomic, strong) MASConstraint *unExpandConstraint;
 
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) UIActivityIndicatorView *indicator;
 
 //bottom
+@property (nonatomic, strong) GTElectricZoneInfoView *netPulseView;
 @property (nonatomic, strong) GTZoneStrainView *stainView;
 @property (nonatomic, strong) GTZoneInfoView *infoView;
 
@@ -67,7 +69,8 @@
 
 - (void)configUI
 {
-    upContainer = macroCreateView(CGRectZero, [UIColor whiteColor]);
+    upContainer = [[GTUpContainer alloc] initWithFrame:CGRectZero];
+    //macroCreateView(CGRectZero, [UIColor whiteColor]);
     [self.contentView addSubview:upContainer];
     [upContainer mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(@0);
@@ -115,7 +118,9 @@
         make.right.equalTo(upContainer).offset(-30);
     }];
     
-    horSerparatorLine = macroCreateView(CGRectZero, [UIColor colorWithString:@"e0e0e0"]);
+    horSerparatorLine = [[GTLine alloc] initWithFrame:CGRectZero];
+    horSerparatorLine.backgroundColor = [UIColor colorWithString:@"e0e0e0"];
+//    macroCreateView(CGRectZero, [UIColor colorWithString:@"e0e0e0"]);
     [self.contentView addSubview:horSerparatorLine];
     [horSerparatorLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(upContainer.mas_bottom);
@@ -123,7 +128,9 @@
         make.height.equalTo(@(SINGLE_LINE_WIDTH));
     }];
     
-    bottomContainer = macroCreateView(CGRectZero, bottomBackgroundColor);
+    bottomContainer = [[GTBottomContainer alloc] initWithFrame:CGRectZero];
+    bottomContainer.backgroundColor = bottomBackgroundColor;
+    //macroCreateView(CGRectZero, bottomBackgroundColor);
     [self.contentView addSubview:bottomContainer];
     
     _stainView = [[NSBundle mainBundle] loadNibNamed:@"GTZoneStrainView" owner:self options:Nil][0];
@@ -139,11 +146,20 @@
         [strongSelf clickStainEdit];
     }];
     
+    _netPulseView = [[NSBundle mainBundle] loadNibNamed:@"GTElectricZoneInfoView" owner:self options:nil][0];
+    [bottomContainer addSubview:_netPulseView];
+    [_netPulseView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(0);
+        make.left.mas_equalTo(0);
+        make.width.mas_equalTo(SCREEN_WIDTH);
+        //高度在得到model的时候update
+    }];
     
     _infoView = [[NSBundle mainBundle] loadNibNamed:@"GTZoneInfoView" owner:self options:nil][0];
     [bottomContainer addSubview:_infoView];
     [_infoView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_stainView.mas_bottom);
+        make.top.equalTo(@0);
+        //top在得到model的时候update
         make.left.equalTo(@0);
         make.width.equalTo(@(SCREEN_WIDTH));
     }];
@@ -154,11 +170,11 @@
     
     UIView *lastView = _infoView;
     //用来计算下半部分的高度
-    UIView *placeholderView = macroCreateView(CGRectZero, [UIColor clearColor]);
+    GTPlaceholderView *placeholderView = [[GTPlaceholderView alloc] initWithFrame:CGRectZero];
     [bottomContainer addSubview:placeholderView];
     [placeholderView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@0);
-        make.bottom.equalTo(lastView.mas_bottom);
+        make.bottom.equalTo(lastView.mas_bottom).priorityHigh();
     }];
     
     [bottomContainer mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -170,6 +186,8 @@
         make.bottom.equalTo(self.contentView.mas_bottom);
         [self expand:NO];
     }];
+    
+    [bottomContainer setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
 }
 
 
@@ -181,7 +199,6 @@
     guardSwitch.on = model.zoneStateForSwithButton;
     zoneTypeLabel.text = [NSString stringWithFormat:@"防区类型:%@",[model zoneTypeStringWithSuffix:YES]];
     
-    [_infoView setupWithModel:model];
     if(model.shouldSetLoadingState) {
         [self setLoadingState:YES];
     }
@@ -189,19 +206,11 @@
         [self setLoadingState:NO];
     }
     
-    if(model.isStainZone){
-        [_stainView setupWithModel:model];
-        [_stainView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@(_stainView.viewHeight));
-        }];
-    }
-    else {
-        [_stainView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@0);
-        }];
-    }
+    [_infoView setupWithModel:model];
     
-    if(model.isTwentyFourHourZone){
+    [self updateLayoutWithModel:model];
+    
+     if(model.isTwentyFourHourZone){
         zoneStateLabel.text = [NSString stringWithFormat:@"24小时防区 %@",[model twentyFourHourZoneStateString]];
         guardSwitch.hidden = YES;
         [_stateLabelRightConstaint uninstall];
@@ -212,6 +221,67 @@
     }
 
     [self setupWithExpanded:model.isExpand];
+}
+
+
+- (void)updateLayoutWithModel:(GTDeviceZoneModel *)model
+{
+    if([model isZoneType:GTZoneTypeStrain]) {
+        [_netPulseView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(0);
+        }];
+        [_stainView setupWithModel:model];
+        [_stainView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(_stainView.viewHeight);
+        }];
+        [_infoView setShouldConstraintToTop:^BOOL{
+            return YES;
+        }];
+        [_infoView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_stainView.mas_bottom);
+            make.left.equalTo(@0);
+            make.width.equalTo(@(SCREEN_WIDTH));
+            make.height.mas_equalTo(_infoView.viewHeight);
+        }];
+    }
+    else if ([model isZoneType:GTZoneTypeNetPulse] || [model isZoneType:GTZoneTypePulse]) {
+        [_stainView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(0);
+        }];
+        [_netPulseView setupWithModel:model];
+        [_netPulseView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(_netPulseView.viewHeight);
+        }];
+        [_infoView setShouldConstraintToTop:^BOOL{
+            return YES;
+        }];
+        [_infoView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_netPulseView.mas_bottom);
+            make.left.equalTo(@0);
+            make.width.equalTo(@(SCREEN_WIDTH));
+            make.height.mas_equalTo(_infoView.viewHeight);
+        }];
+    }
+    else
+    {
+        [_stainView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(0);
+        }];
+        [_netPulseView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(0);
+        }];
+        [_infoView setShouldConstraintToTop:^BOOL{
+            return NO;
+        }];
+        [_infoView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(0);
+            make.left.mas_equalTo(0);
+            make.width.mas_equalTo(SCREEN_WIDTH);
+            make.height.mas_equalTo(_infoView.viewHeight);
+        }];
+    }
+    
+
 }
 
 - (void)setupWithExpanded:(BOOL)expanded;
@@ -227,6 +297,15 @@
         
         for (UIView *view in bottomContainer.subviews) {
             view.hidden = NO;
+        }
+        
+        if([_model isZoneType:GTZoneTypeStrain]) {
+            _netPulseView.hidden = YES;
+            _stainView.hidden = NO;
+        }
+        else if ([_model isZoneType:GTZoneTypeNetPulse] || [_model isZoneType:GTZoneTypePulse]) {
+            _netPulseView.hidden = NO;
+            _stainView.hidden = YES;
         }
     }
     else {
@@ -306,4 +385,18 @@
     }
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+}
+
+@end
+
+@implementation GTPlaceholderView
+@end
+@implementation GTLine
+@end
+@implementation GTUpContainer
+@end
+@implementation GTBottomContainer
 @end

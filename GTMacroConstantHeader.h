@@ -30,7 +30,7 @@
 #define kUserDefaultKeyForDeviceCellMenuShow @"kUserDefaultKeyForDeviceCellMenuShow"
 
 
-
+#define kDefaultString @"--"
 
 //color
 #define kBorderColor @"e0e0e0"

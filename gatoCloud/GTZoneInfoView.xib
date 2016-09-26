@@ -120,9 +120,10 @@
             </subviews>
             <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Ukr-ER-385" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8fl-BF-30S"/>
                 <constraint firstAttribute="bottom" secondItem="Ukr-ER-385" secondAttribute="bottom" constant="10" id="DHP-TZ-RAH"/>
                 <constraint firstItem="Ukr-ER-385" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Knm-ac-UpF"/>
-                <constraint firstItem="Ukr-ER-385" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="tiv-Gj-NgV"/>
+                <constraint firstItem="Ukr-ER-385" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" priority="750" constant="10" id="tiv-Gj-NgV"/>
                 <constraint firstAttribute="trailing" secondItem="Ukr-ER-385" secondAttribute="trailing" constant="10" id="yLC-Dk-J2z"/>
             </constraints>
             <variation key="default">
@@ -131,6 +132,7 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="constraintToTop" destination="8fl-BF-30S" id="nmj-gT-nal"/>
                 <outlet property="contactLabel" destination="zRf-HO-ZGV" id="c2F-GB-zSo"/>
                 <outlet property="contactPhoneLabel" destination="vOj-AH-TaX" id="mnQ-KJ-b5I"/>
                 <outlet property="containerView" destination="Ukr-ER-385" id="eNu-2T-XGr"/>
@@ -138,7 +140,7 @@
                 <outlet property="editButton" destination="obH-Gi-iAG" id="Dop-Jr-sd5"/>
                 <outlet property="locLabel" destination="KZZ-zF-Sdw" id="he4-mz-Xt6"/>
             </connections>
-            <point key="canvasLocation" x="-188" y="28"/>
+            <point key="canvasLocation" x="-41" y="204"/>
         </view>
     </objects>
 </document>

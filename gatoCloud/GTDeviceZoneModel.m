@@ -161,12 +161,34 @@
     return allDataArray;
 }
 
-- (BOOL)isStainZone;
+- (NSString *)getNetPulseValue:(GTNetPulseValue)type;
 {
-    if([self.zoneType isEqualToString:@"3"])
-        return YES;
-    else
-        return NO;
+    NSArray *valueArray = [self.zoneParam componentsSeparatedByString:@","];
+    if(type > valueArray.count)
+        return kDefaultString;
+    NSString *value = valueArray[type];
+    
+    switch (type) {
+        case GTNetPulseValueVoltage:
+        case GTNetPulseValueSensitive:
+        {
+            NSArray *levelArray = @[kDefaultString, @"一级", @"二级", @"三级"];
+            if(value.integerValue > levelArray.count)
+                return kDefaultString;
+            
+            NSString *level = levelArray[value.integerValue];
+            return level;
+        }
+        case GTNetPulseValueMode:
+        {
+            NSArray *modeArray = @[ kDefaultString, @"脉冲", @"触网", @"脉冲&触网"];
+            if(value.integerValue > modeArray.count)
+                return kDefaultString;
+            NSString *mode = modeArray[value.integerValue];
+            return mode;
+        }
+    }
+    return kDefaultString;
 }
 
 - (BOOL)shouldSetLoadingState;//
@@ -177,4 +199,12 @@
         return NO;
 }
 
+#pragma mark - zone type
+- (BOOL)isZoneType:(GTZoneType)zonetype;
+{
+    if(self.zoneType.integerValue == zonetype)
+        return YES;
+    else
+        return NO;
+}
 @end

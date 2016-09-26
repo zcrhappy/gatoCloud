@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 @class GTDeviceZoneModel;
+
 @interface GTZoneInfoView : UIView
 
 - (void)setupWithModel:(GTDeviceZoneModel *)model;
+- (CGFloat)viewHeight;
 
 @property (nonatomic, copy) void (^clickEditBlock)(void);
-
+@property (nonatomic, copy) BOOL (^shouldConstraintToTop)(void);
 @end

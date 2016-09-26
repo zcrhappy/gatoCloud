@@ -36,3 +36,21 @@ typedef NS_ENUM(NSInteger, kSwitchState) {
 @property (nonatomic, weak) id<GTDeviceZoneCellDelegate> delegate;
 - (void)updateWithModel:(id)model;
 @end
+
+
+@interface GTPlaceholderView: UIView
+
+@end
+
+@interface GTLine:UIView
+
+@end
+
+@interface GTUpContainer:UIView
+
+@end
+
+@interface GTBottomContainer:UIView
+
+@end
+

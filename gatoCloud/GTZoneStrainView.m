@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (nonatomic, strong) NSArray <NSArray *>*stainArray;
 
+@property (nonatomic, assign) CGFloat height;
+
 @end
 
 @implementation GTZoneStrainView
@@ -47,6 +49,8 @@
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     [_collectionView registerClass:[GTZoneStrainCollectionCell class] forCellWithReuseIdentifier:@"cell"];
+    
+    _height = kLines * kCellHeight + (kLines - 1) * SINGLE_LINE_WIDTH + 40;
 }
 
 - (void)setupWithModel:(GTDeviceZoneModel *)model
@@ -97,7 +101,7 @@
 
 - (CGFloat)viewHeight;
 {
-    return kLines * kCellHeight + (kLines - 1) * SINGLE_LINE_WIDTH + 60;
+    return _height + 20;
 }
 
 - (IBAction)clickEdit:(UIButton *)sender {

@@ -226,7 +226,7 @@
     GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
     [templateCell updateWithModel:model];
     
-    CGFloat heigit = [templateCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
+    CGFloat heigit = [templateCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     
     return heigit;
 }
