@@ -154,6 +154,10 @@
         make.width.mas_equalTo(SCREEN_WIDTH);
         //高度在得到model的时候update
     }];
+    [_netPulseView setClickEditBlock:^{
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf clickNetPulseEdit];
+    }];
     
     _infoView = [[NSBundle mainBundle] loadNibNamed:@"GTZoneInfoView" owner:self options:nil][0];
     [bottomContainer addSubview:_infoView];
@@ -359,6 +363,13 @@
 {
     if(_delegate && [_delegate respondsToSelector:@selector(clickStainEditWithModel:)]) {
         [_delegate performSelector:@selector(clickStainEditWithModel:) withObject:_model];
+    }
+}
+
+- (void)clickNetPulseEdit
+{
+    if(_delegate && [_delegate respondsToSelector:@selector(clickNetPulseEditWithModel:)]) {
+        [_delegate performSelector:@selector(clickNetPulseEditWithModel:) withObject:_model];
     }
 }
 

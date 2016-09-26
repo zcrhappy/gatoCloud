@@ -14,6 +14,7 @@
 #import "GTSearchBar.h"
 #import "GTZoneEditViewController.h"
 #import "GTZoneStainEditViewController.h"
+#import "GTZoneNetPulseEditViewController.h"
 #import "GTBottomSelectionView.h"
 #import "GTTimerQueue.h"
 #define kGTDeviceZoneCellIdentifier @"GTDeviceZoneCellIdentifier"
@@ -531,6 +532,16 @@
     }];
 }
 
+- (void)clickNetPulseEditWithModel:(GTDeviceZoneModel *)model
+{
+    GTZoneNetPulseEditViewController *controller = [[GTZoneNetPulseEditViewController alloc] initWithModel:model];
+    [self.navigationController pushViewController:controller animated:YES];
+    __weak __typeof(self)weakSelf = self;
+    [controller setDidSuccessBlock:^{
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf pullDownToRefresh];
+    }];
+}
 
 - (void)clickEditWithModel:(GTDeviceZoneModel *)model
 {

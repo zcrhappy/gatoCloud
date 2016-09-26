@@ -24,6 +24,9 @@
                             <state key="normal" title="编辑">
                                 <color key="titleColor" red="0.1058823529" green="0.73725490199999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="clickEdit:" destination="iN0-l3-epB" eventType="touchUpInside" id="8PU-6S-D7l"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="防区参数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gua-lp-7lh">
                             <constraints>
@@ -98,6 +101,7 @@
             </constraints>
             <connections>
                 <outlet property="containerView" destination="Ubk-FV-ysc" id="AGC-VS-g6o"/>
+                <outlet property="editButton" destination="DFh-OK-i7x" id="K9A-1H-cRK"/>
                 <outlet property="firstLabel" destination="TBz-Sm-RBc" id="dvv-y3-ECm"/>
                 <outlet property="secondLabel" destination="DEL-JF-eDs" id="o61-Nz-AEm"/>
                 <outlet property="thirdLabel" destination="Gid-mc-LSG" id="Icf-3U-622"/>

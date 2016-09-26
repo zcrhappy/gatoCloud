@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, kSwitchState) {
 @optional
 
 - (void)clickStainEditWithModel:(id)model;
+- (void)clickNetPulseEditWithModel:(id)model;
 
 @end
 

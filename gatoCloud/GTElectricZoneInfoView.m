@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *twoLineConstaint;
 
 @property (nonatomic, assign) CGFloat height;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 @end
 
 @implementation GTElectricZoneInfoView
@@ -69,5 +70,9 @@
     return _height + 20;
 }
 
+- (IBAction)clickEdit:(id)sender {
+    if(_clickEditBlock)
+        _clickEditBlock();
+}
 
 @end

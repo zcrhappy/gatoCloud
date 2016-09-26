@@ -113,6 +113,7 @@
 		33DF4DA21D72897600707324 /* GTDoneButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4DA11D72897600707324 /* GTDoneButtonCell.m */; };
 		33E138A01D93D54A008525AD /* GTElectricZoneInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E1389F1D93D54A008525AD /* GTElectricZoneInfoView.m */; };
 		33E138A21D93D566008525AD /* GTElectricZoneInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E138A11D93D566008525AD /* GTElectricZoneInfoView.xib */; };
+		33E138A51D991F50008525AD /* GTZoneNetPulseEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E138A41D991F50008525AD /* GTZoneNetPulseEditViewController.m */; };
 		33FEDBB41D562371009A3D06 /* GTZoneEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */; };
 		33FEDBCD1D58B775009A3D06 /* GTEditOneRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */; };
 		33FEDBD01D58BF27009A3D06 /* GTEditOneRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBCF1D58BF27009A3D06 /* GTEditOneRowCell.m */; };
@@ -325,6 +326,8 @@
 		33E1389E1D93D54A008525AD /* GTElectricZoneInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTElectricZoneInfoView.h; sourceTree = "<group>"; };
 		33E1389F1D93D54A008525AD /* GTElectricZoneInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTElectricZoneInfoView.m; sourceTree = "<group>"; };
 		33E138A11D93D566008525AD /* GTElectricZoneInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTElectricZoneInfoView.xib; sourceTree = "<group>"; };
+		33E138A31D991F50008525AD /* GTZoneNetPulseEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneNetPulseEditViewController.h; sourceTree = "<group>"; };
+		33E138A41D991F50008525AD /* GTZoneNetPulseEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneNetPulseEditViewController.m; sourceTree = "<group>"; };
 		33FEDBB21D562371009A3D06 /* GTZoneEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneEditViewController.h; sourceTree = "<group>"; };
 		33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneEditViewController.m; sourceTree = "<group>"; };
 		33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTEditOneRowCell.xib; sourceTree = "<group>"; };
@@ -571,6 +574,8 @@
 				33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */,
 				33DF4D961D72857D00707324 /* GTZoneStainEditViewController.h */,
 				33DF4D971D72857D00707324 /* GTZoneStainEditViewController.m */,
+				33E138A31D991F50008525AD /* GTZoneNetPulseEditViewController.h */,
+				33E138A41D991F50008525AD /* GTZoneNetPulseEditViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -1052,6 +1057,7 @@
 				332BA2511D3FADB500B0C635 /* GTWarningRecordCell.m in Sources */,
 				3352A6101D39CEEB00EED5C0 /* PCCircleViewConst.m in Sources */,
 				33B0FF7C1D66E7AE00F9429A /* GTBottomSelectionView.m in Sources */,
+				33E138A51D991F50008525AD /* GTZoneNetPulseEditViewController.m in Sources */,
 				33C7B3581D7986470063075A /* GTZoneCellTimer.m in Sources */,
 				331FC0D31D655DD90038C7B6 /* GTNoDeviceView.m in Sources */,
 				33DF4DA21D72897600707324 /* GTDoneButtonCell.m in Sources */,

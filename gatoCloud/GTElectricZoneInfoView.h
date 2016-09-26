@@ -15,5 +15,5 @@
 - (void)setupWithModel:(GTDeviceZoneModel *)model;
 
 - (CGFloat)viewHeight;
-
+@property (nonatomic, copy) void (^clickEditBlock)(void);
 @end
