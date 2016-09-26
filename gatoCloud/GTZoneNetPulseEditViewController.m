@@ -10,6 +10,7 @@
 #import "GTDeviceZoneModel.h"
 #import "GTDoneButtonCell.h"
 #import "GTEditOneRowCell.h"
+#import "CRSelectActionSheet.h"
 @interface GTZoneNetPulseEditViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *editTable;
 @property (nonatomic, strong) GTDeviceZoneModel *model;
@@ -39,7 +40,6 @@
     [self.view addSubview:_editTable];
     
     [_editTable registerNib:[UINib nibWithNibName:@"GTEditOneRowCell" bundle:nil] forCellReuseIdentifier:@"GTEditOneRowCellID"];
-    [_editTable registerNib:[UINib nibWithNibName:@"GTDoneButtonCell" bundle:nil] forCellReuseIdentifier:@"GTDoneButtonCellID"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -59,6 +59,7 @@
     GTEditOneRowCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GTEditOneRowCellID" forIndexPath:indexPath];
     if(row == 0) {
         [cell setupWithTitle:@"工作模式" placeholder:@"请选择工作模式" content:[_model getNetPulseValue:GTNetPulseValueMode] showLine:YES];
+        [cell shouldEditTextField:NO];
         __weak __typeof(self)weakSelf = self;
 //        [cell setTextDidChangeBlk:^(NSString *content) {
 //            __strong __typeof(weakSelf)strongSelf = weakSelf;
@@ -67,6 +68,7 @@
     }
     else if (row == 1) {
         [cell setupWithTitle:@"电压" placeholder:@"请选择电压值" content:[_model getNetPulseValue:GTNetPulseValueVoltage] showLine:YES];
+        [cell shouldEditTextField:NO];
         __weak __typeof(self)weakSelf = self;
 //        [cell setTextDidChangeBlk:^(NSString *content) {
 //            __strong __typeof(weakSelf)strongSelf = weakSelf;
@@ -75,10 +77,36 @@
     }
     else if (row == 2) {
         [cell setupWithTitle:@"灵敏度" placeholder:@"请选择灵敏度" content:[_model getNetPulseValue:GTNetPulseValueSensitive] showLine:YES];
+        [cell shouldEditTextField:NO];
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger row = [indexPath row];
+    NSArray *selectionArr;
+    NSString *title;
+    GTEditOneRowCell *cell = (GTEditOneRowCell *)[tableView cellForRowAtIndexPath:indexPath];
+    __weak __typeof(cell)weakCell = cell;
+    if(row == 0) {
+        title = @"工作模式选择";
+        selectionArr = @[@"脉冲", @"触网", @"脉冲&触网"];
+    }
+    else if (row == 1) {
+        title = @"电压选择";
+        selectionArr = @[@"一级", @"二级", @"三级", @"四级"];
+    }
+    else if (row == 2) {
+        title = @"灵敏度选择";
+        selectionArr = @[@"一级", @"二级"];
+    }
     
+    [CRSelectActionSheet actionSheetWithTitle:title selectionArr:selectionArr buttonClicked:^(NSString *selectionTitle) {
+        __strong __typeof(weakCell)strongCell = weakCell;
+        [strongCell updateContent:selectionTitle];
+    }];
 }
 
 

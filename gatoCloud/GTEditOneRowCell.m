@@ -52,6 +52,16 @@
         _textDidChangeBlk([self contentString]);
 }
 
+- (void)updateContent:(NSString *)string
+{
+    _textField.text = string;
+}
+
+- (void)shouldEditTextField:(BOOL)shouldEdit
+{
+    _textField.enabled = shouldEdit;
+}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:UITextFieldTextDidChangeNotification];

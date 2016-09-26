@@ -13,7 +13,8 @@
 - (id)setupWithTitle:(NSString *)title placeholder:(NSString *)placeholder content:(NSString *)content showLine:(BOOL)shouldShowLine;
 
 - (NSString *)contentString;
-
+- (void)updateContent:(NSString *)string;
+- (void)shouldEditTextField:(BOOL)shouldEdit;
 @property (nonatomic, copy) void (^textDidChangeBlk)(NSString *text);
 
 @end
