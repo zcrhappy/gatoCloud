@@ -328,6 +328,18 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
                       zoneStrainVpt:(NSString *)zoneStrainVpt
                         finishBlock:(GTResultBlock)finishBlk;
 
+
+/*!
+ *  @brief 触网防区配置
+ *
+ *  @param zoneNo        防区编号
+ *  @param zoneParam     参数值 电压,灵敏度,工作模式  值之间以,分割   例如  1,1,0
+ *  @param finishBlk     返回值
+ */
+- (void)GTEditZoneNetPulseWithZoneNo:(NSString *)zoneNo
+                           zoneParam:(NSString *)zoneParam
+                         finishBlock:(GTResultBlock)finishBlk;
+
 #pragma mark - Push Notification
 /*!
  *  @brief 查询推送设置

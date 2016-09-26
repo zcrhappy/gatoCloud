@@ -890,6 +890,37 @@ NSInteger const APIErrorCode = 138102;
     }];
 }
 
+/*!
+ *  @brief 触网防区配置
+ *
+ *  @param zoneNo        防区编号
+ *  @param zoneParam     参数值 电压,灵敏度,工作模式  值之间以,分割   例如  1,1,0
+ *  @param finishBlk     返回值
+ */
+- (void)GTEditZoneNetPulseWithZoneNo:(NSString *)zoneNo
+                           zoneParam:(NSString *)zoneParam
+                         finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [dic safeSetObject:zoneNo forKey:@"zoneNo"];
+    [dic safeSetObject:zoneParam forKey:@"zoneParam"];
+    
+    [self POST:@"/service/editZoneParam.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            [self showErrorMsgWithResponse:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
 #pragma mark - Push Notification
 /*!
  *  @brief 查询推送设置

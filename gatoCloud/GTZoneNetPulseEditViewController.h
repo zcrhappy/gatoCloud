@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GTDeviceZoneModel.h"
 @interface GTZoneNetPulseEditViewController : UIViewController
 
 - (instancetype)initWithModel:(id)model;
 
-@property (nonatomic, copy) void (^didSuccessBlock)(void);
+@property (nonatomic, copy) void (^editSuccessBlock)(GTDeviceZoneModel *model);
 
 @end

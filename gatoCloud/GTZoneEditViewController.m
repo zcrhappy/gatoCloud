@@ -221,7 +221,11 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
             if(_editSuccessBlock)
                 _editSuccessBlock(_model);
             
-            [self.navigationController popViewControllerAnimated:YES];
+            __weak __typeof(self)weakSelf = self;
+            [self gt_showMsgControllerWithTitle:@"提示" msg:@"恭喜您设置成功!\n后台可能需要几分钟响应时间，请您稍后查看!" finishBlock:^{
+                __strong __typeof(weakSelf)strongSelf = weakSelf;
+                [strongSelf.navigationController popViewControllerAnimated:YES];
+            }];
         }
     }];
 }

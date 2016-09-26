@@ -534,12 +534,17 @@
 
 - (void)clickNetPulseEditWithModel:(GTDeviceZoneModel *)model
 {
+    NSIndexPath *indexPath = [self indexPathOfModel:model];
+    
     GTZoneNetPulseEditViewController *controller = [[GTZoneNetPulseEditViewController alloc] initWithModel:model];
     [self.navigationController pushViewController:controller animated:YES];
+    
     __weak __typeof(self)weakSelf = self;
-    [controller setDidSuccessBlock:^{
+    [controller setEditSuccessBlock:^(GTDeviceZoneModel *newModel) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf pullDownToRefresh];
+        NSInteger row = [indexPath row];
+        strongSelf.dataManager.zoneModelsArray[row] = newModel;
+        [strongSelf.routesTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }];
 }
 
