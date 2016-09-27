@@ -111,8 +111,8 @@
 		33DF4D981D72857D00707324 /* GTZoneStainEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4D971D72857D00707324 /* GTZoneStainEditViewController.m */; };
 		33DF4D9C1D72886500707324 /* GTDoneButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DF4D9B1D72886500707324 /* GTDoneButtonCell.xib */; };
 		33DF4DA21D72897600707324 /* GTDoneButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4DA11D72897600707324 /* GTDoneButtonCell.m */; };
-		33E138A01D93D54A008525AD /* GTElectricZoneInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E1389F1D93D54A008525AD /* GTElectricZoneInfoView.m */; };
-		33E138A21D93D566008525AD /* GTElectricZoneInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E138A11D93D566008525AD /* GTElectricZoneInfoView.xib */; };
+		33E138A01D93D54A008525AD /* GTNetPulseZoneInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E1389F1D93D54A008525AD /* GTNetPulseZoneInfoView.m */; };
+		33E138A21D93D566008525AD /* GTNetPulseZoneInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E138A11D93D566008525AD /* GTNetPulseZoneInfoView.xib */; };
 		33E138A51D991F50008525AD /* GTZoneNetPulseEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E138A41D991F50008525AD /* GTZoneNetPulseEditViewController.m */; };
 		33FEDBB41D562371009A3D06 /* GTZoneEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */; };
 		33FEDBCD1D58B775009A3D06 /* GTEditOneRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */; };
@@ -323,9 +323,9 @@
 		33DF4D9B1D72886500707324 /* GTDoneButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTDoneButtonCell.xib; sourceTree = "<group>"; };
 		33DF4DA01D72897600707324 /* GTDoneButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDoneButtonCell.h; sourceTree = "<group>"; };
 		33DF4DA11D72897600707324 /* GTDoneButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDoneButtonCell.m; sourceTree = "<group>"; };
-		33E1389E1D93D54A008525AD /* GTElectricZoneInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTElectricZoneInfoView.h; sourceTree = "<group>"; };
-		33E1389F1D93D54A008525AD /* GTElectricZoneInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTElectricZoneInfoView.m; sourceTree = "<group>"; };
-		33E138A11D93D566008525AD /* GTElectricZoneInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTElectricZoneInfoView.xib; sourceTree = "<group>"; };
+		33E1389E1D93D54A008525AD /* GTNetPulseZoneInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTNetPulseZoneInfoView.h; sourceTree = "<group>"; };
+		33E1389F1D93D54A008525AD /* GTNetPulseZoneInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTNetPulseZoneInfoView.m; sourceTree = "<group>"; };
+		33E138A11D93D566008525AD /* GTNetPulseZoneInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTNetPulseZoneInfoView.xib; sourceTree = "<group>"; };
 		33E138A31D991F50008525AD /* GTZoneNetPulseEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneNetPulseEditViewController.h; sourceTree = "<group>"; };
 		33E138A41D991F50008525AD /* GTZoneNetPulseEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneNetPulseEditViewController.m; sourceTree = "<group>"; };
 		33FEDBB21D562371009A3D06 /* GTZoneEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneEditViewController.h; sourceTree = "<group>"; };
@@ -771,9 +771,9 @@
 				33DF4D901D71CA6E00707324 /* GTZoneInfoView.h */,
 				33DF4D911D71CA6E00707324 /* GTZoneInfoView.m */,
 				33DF4D8E1D71C6BF00707324 /* GTZoneInfoView.xib */,
-				33E1389E1D93D54A008525AD /* GTElectricZoneInfoView.h */,
-				33E1389F1D93D54A008525AD /* GTElectricZoneInfoView.m */,
-				33E138A11D93D566008525AD /* GTElectricZoneInfoView.xib */,
+				33E1389E1D93D54A008525AD /* GTNetPulseZoneInfoView.h */,
+				33E1389F1D93D54A008525AD /* GTNetPulseZoneInfoView.m */,
+				33E138A11D93D566008525AD /* GTNetPulseZoneInfoView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -914,7 +914,7 @@
 				33B578A71D5CC2D200A1401B /* GTWarningRecordCell.xib in Resources */,
 				33B0FF791D65DC1400F9429A /* GTQuitCell.xib in Resources */,
 				33620C911D4128C800209AE7 /* page.json in Resources */,
-				33E138A21D93D566008525AD /* GTElectricZoneInfoView.xib in Resources */,
+				33E138A21D93D566008525AD /* GTNetPulseZoneInfoView.xib in Resources */,
 				33C620A61D2FE7E60022A9F0 /* LaunchScreen.storyboard in Resources */,
 				33C620A31D2FE7E60022A9F0 /* Assets.xcassets in Resources */,
 				3321FA621D3354FC00D3850E /* README.txt in Resources */,
@@ -1033,7 +1033,7 @@
 				337663C01D489A04003AA73C /* GTDeviceZoneModel.m in Sources */,
 				3353808B1D4461A900041BD9 /* GTWarningDetailCommentCell.m in Sources */,
 				33A0FC891D3D1FBB00C731DF /* GTUserInfoCell.m in Sources */,
-				33E138A01D93D54A008525AD /* GTElectricZoneInfoView.m in Sources */,
+				33E138A01D93D54A008525AD /* GTNetPulseZoneInfoView.m in Sources */,
 				330E313B1D52220900B94695 /* GTDeviceZoneModel2.m in Sources */,
 				331D90371D5F2ECF00C69699 /* GTDatePickActionSheet.m in Sources */,
 				3321FA8D1D33E87B00D3850E /* GTUserModel.m in Sources */,

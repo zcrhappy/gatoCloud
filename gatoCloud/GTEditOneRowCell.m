@@ -27,6 +27,13 @@
      object:nil];
 }
 
+- (id)setupWithTitle:(NSString *)title placeholder:(NSString *)placeholder content:(NSString *)content showLine:(BOOL)shouldShowLine shouldEditTextField:(BOOL)shouldEdit
+{
+    [self setupWithTitle:title placeholder:placeholder content:content showLine:shouldShowLine];
+    [self shouldEditTextField:shouldEdit];
+    return self;
+}
+
 - (id)setupWithTitle:(NSString *)title placeholder:(NSString *)placeholder content:(NSString *)content showLine:(BOOL)shouldShowLine
 {
     _titleLabel.text = title;

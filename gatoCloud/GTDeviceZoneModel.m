@@ -163,16 +163,24 @@
 
 - (NSString *)getNetPulseValue:(GTNetPulseValue)type;
 {
-    NSArray *valueArray = [self.zoneParam componentsSeparatedByString:@","];
-    if(type > valueArray.count)
+    NSArray *valueArray = [self.zoneParam componentsSeparatedByString:@","];//后台返回的均从1开始，
+    if(type > valueArray.count || valueArray == nil)
         return kDefaultString;
     NSString *value = valueArray[type];
-    
+    NSArray *levelArray;
     switch (type) {
-        case GTNetPulseValueVoltage:
+        case GTNetPulseValueVoltage:{
+            levelArray = [GTDeviceZoneModel netPulseZoneVoltageArray];
+            
+            if(value.integerValue > levelArray.count)
+                return kDefaultString;//防止数组越界
+            
+            NSString *level = levelArray[value.integerValue];
+            return level;
+        }
         case GTNetPulseValueSensitive:
         {
-            NSArray *levelArray = @[kDefaultString, @"一级", @"二级", @"三级"];
+            levelArray = [GTDeviceZoneModel netPulseZoneSensitiveArray];
             if(value.integerValue > levelArray.count)
                 return kDefaultString;
             
@@ -181,7 +189,7 @@
         }
         case GTNetPulseValueMode:
         {
-            NSArray *modeArray = @[ kDefaultString, @"脉冲", @"触网", @"脉冲&触网"];
+            NSArray *modeArray = [GTDeviceZoneModel netPulseZoneModeArray];
             if(value.integerValue > modeArray.count)
                 return kDefaultString;
             NSString *mode = modeArray[value.integerValue];
@@ -191,7 +199,7 @@
     return kDefaultString;
 }
 
-- (BOOL)shouldSetLoadingState;//
+- (BOOL)shouldSetLoadingState;
 {
     if(_loopCount != 0)
         return YES;
@@ -199,6 +207,31 @@
         return NO;
 }
 
+#pragma mark - Constant
+
++ (GTZoneType)zoneTypeOfStringType:(NSString *)type
+{
+    if([type isEqualToString:@"脉冲"])
+        return GTZoneTypePulse;
+    else if ([type isEqualToString:@"脉冲&触网"])
+        return GTZoneTypeNetPulse;
+    else if ([type isEqualToString:@"触网"])
+        return GTZoneTypeNet;
+    else
+        return 0;
+}
+
++ (NSArray *)netPulseZoneModeArray {
+    return @[@"", @"脉冲", @"触网", @"脉冲&触网"];
+}
+
++ (NSArray *)netPulseZoneVoltageArray {
+    return @[@"", @"一级", @"二级", @"三级", @"四级"];
+}
+
++ (NSArray *)netPulseZoneSensitiveArray {
+    return @[@"", @"一级", @"二级"];
+}
 #pragma mark - zone type
 - (BOOL)isZoneType:(GTZoneType)zonetype;
 {

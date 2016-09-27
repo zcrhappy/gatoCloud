@@ -83,4 +83,11 @@ typedef NS_ENUM(NSInteger, GTNetPulseValue)
 
 + (NSArray <GTDeviceZoneModel *>*)transformFromArray:(NSArray <GTDeviceZoneModel2 *>*)array;
 - (NSArray <NSArray *>*)fetchStainArray;//补充第一行和第一列为空
+
+#pragma mark - Constant
++ (GTZoneType)zoneTypeOfStringType:(NSString *)type;//将类型名转换为GTZoneType
++ (NSArray *)netPulseZoneModeArray;
++ (NSArray *)netPulseZoneVoltageArray;
++ (NSArray *)netPulseZoneSensitiveArray;
+
 @end

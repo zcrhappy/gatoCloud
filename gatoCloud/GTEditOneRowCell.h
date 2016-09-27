@@ -11,6 +11,7 @@
 @interface GTEditOneRowCell : UITableViewCell
 
 - (id)setupWithTitle:(NSString *)title placeholder:(NSString *)placeholder content:(NSString *)content showLine:(BOOL)shouldShowLine;
+- (id)setupWithTitle:(NSString *)title placeholder:(NSString *)placeholder content:(NSString *)content showLine:(BOOL)shouldShowLine shouldEditTextField:(BOOL)shouldEdit;
 
 - (NSString *)contentString;
 - (void)updateContent:(NSString *)string;

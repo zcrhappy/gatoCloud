@@ -9,7 +9,7 @@
 #import "GTDeviceZoneCell.h"
 #import "GTDeviceZoneModel.h"
 #import "GTZoneStrainView.h"
-#import "GTElectricZoneInfoView.h"
+#import "GTNetPulseZoneInfoView.h"
 #import "GTZoneInfoView.h"
 //#import "GTZoneCellTimer.h"
 #define bottomBackgroundColor [UIColor colorWithString:@"f5f5f5"]
@@ -29,7 +29,7 @@
 @property (nonatomic, strong) UIActivityIndicatorView *indicator;
 
 //bottom
-@property (nonatomic, strong) GTElectricZoneInfoView *netPulseView;
+@property (nonatomic, strong) GTNetPulseZoneInfoView *netPulseView;
 @property (nonatomic, strong) GTZoneStrainView *stainView;
 @property (nonatomic, strong) GTZoneInfoView *infoView;
 
@@ -146,7 +146,7 @@
         [strongSelf clickStainEdit];
     }];
     
-    _netPulseView = [[NSBundle mainBundle] loadNibNamed:@"GTElectricZoneInfoView" owner:self options:nil][0];
+    _netPulseView = [[NSBundle mainBundle] loadNibNamed:@"GTNetPulseZoneInfoView" owner:self options:nil][0];
     [bottomContainer addSubview:_netPulseView];
     [_netPulseView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(0);

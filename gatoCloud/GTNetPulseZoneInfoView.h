@@ -1,5 +1,5 @@
 //
-//  GTElectricZoneInfoView.h
+//  GTNetPulseZoneInfoView.h
 //  gatoCloud
 //
 //  Created by 曾超然 on 2016/9/22.
@@ -10,7 +10,7 @@
 #import "GTDeviceZoneModel.h"
 
 //脉冲，触网，触网脉冲的二级配置界面
-@interface GTElectricZoneInfoView : UIView
+@interface GTNetPulseZoneInfoView : UIView
 
 - (void)setupWithModel:(GTDeviceZoneModel *)model;
 

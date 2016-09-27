@@ -1,14 +1,14 @@
 //
-//  GTElectricZoneInfoView.m
+//  GTNetPulseZoneInfoView.m
 //  gatoCloud
 //
 //  Created by 曾超然 on 2016/9/22.
 //  Copyright © 2016年 Gato. All rights reserved.
 //
 
-#import "GTElectricZoneInfoView.h"
+#import "GTNetPulseZoneInfoView.h"
 
-@interface GTElectricZoneInfoView()
+@interface GTNetPulseZoneInfoView()
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UILabel *firstLabel;
@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @end
 
-@implementation GTElectricZoneInfoView
+@implementation GTNetPulseZoneInfoView
 @synthesize firstLabel, secondLabel, thirdLabel;
 - (void)awakeFromNib
 {
