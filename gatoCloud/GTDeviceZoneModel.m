@@ -164,9 +164,11 @@
 - (NSString *)getNetPulseValue:(GTNetPulseValue)type;
 {
     NSArray *valueArray = [self.zoneParam componentsSeparatedByString:@","];//后台返回的均从1开始，
-    if(type > valueArray.count || valueArray == nil)
+    if(type >= valueArray.count || valueArray == nil)
         return kDefaultString;
     NSString *value = valueArray[type];
+    if([value isEmptyString])
+        return kDefaultString;
     NSArray *levelArray;
     switch (type) {
         case GTNetPulseValueVoltage:{
