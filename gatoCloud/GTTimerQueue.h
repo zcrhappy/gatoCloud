@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) NSIndexPath *key;
 @property (nonatomic, strong) GTZoneCellTimer *timer;
-
+- (void)removeTimer;
 @end
 
 

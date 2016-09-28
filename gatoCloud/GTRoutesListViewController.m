@@ -41,6 +41,16 @@
 {
     if(self = [super init]) {
         _listType = listType;
+        _queue = [[GTTimerQueue alloc] init];
+        __weak __typeof(self)weakSelf = self;
+        [_queue setUpdateCellBlock:^(NSIndexPath *indexPath) {
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            if(strongSelf.routesTable) {
+                GTDeviceZoneCell *cell = [strongSelf.routesTable cellForRowAtIndexPath:indexPath];
+                GTDeviceZoneModel *model = [strongSelf modelAtIndexPath:indexPath];
+                [cell updateWithModel:model];
+            }
+        }];
     }
     return self;
 }

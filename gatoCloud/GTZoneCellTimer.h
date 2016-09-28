@@ -17,5 +17,5 @@
 - (void)setupWithModel:(GTDeviceZoneModel *)model;
 
 - (void)startTimer;
-//- (void)stopTimer;
+- (void)stopTimer;
 @end

@@ -48,9 +48,10 @@
         }
     }
     
-    if(target)
+    if(target) {
         [_queue removeObject:target];
-}
+        [target removeTimer];
+    }}
 
 - (GTTimerQueueObj *)createObjWithIndexPath:(NSIndexPath *)indexPath model:(GTDeviceZoneModel *)model;
 {
@@ -81,6 +82,9 @@
 
 - (void)clearQueue
 {
+    for (GTTimerQueueObj *obj in _queue) {
+        [obj removeTimer];
+    }
     [_queue removeAllObjects];
 }
 
@@ -114,6 +118,10 @@
     
 }
 
+- (void)removeTimer;
+{
+    [_timer stopTimer];
+}
 
 
 @end

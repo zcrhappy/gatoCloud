@@ -115,6 +115,12 @@ typedef NS_ENUM(NSInteger, kSwitchState) {
         _timerInvaildBlock();
 }
 
+- (void)stopTimer
+{
+    [_timer invalidate];
+    _timer = nil;
+}
+
 - (void)dealloc
 {
     [_timer invalidate];
