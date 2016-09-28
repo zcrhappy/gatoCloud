@@ -210,6 +210,15 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
         return;
     }
     
+    _model.zoneName = _zoneName;
+    _model.zonePhone = _zonePhone;
+    _model.zoneContactor = _zoneContactor;
+    _model.zoneLoc = _zoneLoc;
+    _model.zoneDesc = _zoneDesc;
+    
+    if(_editSuccessBlock)
+        _editSuccessBlock(_model);
+    
     [[GTHttpManager shareManager] GTDeviceZoneEditInfoWithZoneNo:_model.zoneNo zoneName:_zoneName zoneContactor:_zoneContactor zonePhone:_zonePhone zoneLoc:_zoneLoc zoneDesc:_zoneDesc finishBlock:^(id response, NSError *error) {
         if(!error) {
             _model.zoneName = _zoneName;

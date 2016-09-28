@@ -338,7 +338,7 @@
                   moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTZoneCellTimer.m"
-                  timestampString = "496741257.361993"
+                  timestampString = "496741784.334192"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "71"
@@ -353,7 +353,7 @@
                   moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTZoneCellTimer.m"
-                  timestampString = "496741257.363135"
+                  timestampString = "496741784.335371"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "72"
@@ -361,22 +361,6 @@
                   offsetFromSymbolStart = "80">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "gatoCloud/GTRoutesListViewController.m"
-            timestampString = "496741215.299199"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "564"
-            endingLineNumber = "564"
-            landmarkName = "-clickNetPulseEditWithModel:"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
