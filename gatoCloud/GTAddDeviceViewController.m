@@ -45,11 +45,11 @@
 
 //    _testDic = @{@"deviceId":@"2006c574edfa9240",
 //                 @"userPwd" :@"111222"};
-    _testDic = @{@"deviceId":@"20095b47d9972240",
-                 @"userPwd" :@"111111"};
-
-    _userPwd = _testDic[@"userPwd"];
-    _deviceId = _testDic[@"deviceId"];
+//    _testDic = @{@"deviceId":@"20095b47d9972240",
+//                 @"userPwd" :@"111111"};
+//
+//    _userPwd = _testDic[@"userPwd"];
+//    _deviceId = _testDic[@"deviceId"];
 }
 
 - (void)configTableView

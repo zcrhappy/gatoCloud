@@ -551,10 +551,19 @@
     
     __weak __typeof(self)weakSelf = self;
     [controller setEditSuccessBlock:^(GTDeviceZoneModel *newModel) {
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
-        NSInteger row = [indexPath row];
-        strongSelf.dataManager.zoneModelsArray[row] = newModel;
-        [strongSelf.routesTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            NSInteger row = [indexPath row];
+            [[GTHttpManager shareManager] GTDeviceZoneQueryWithZoneNo:newModel.zoneNo finishBlock:^(id response, NSError *error) {
+                [MBProgressHUD hideAllHUDsForView:strongSelf.view animated:YES];
+                NSArray <GTDeviceZoneModel *>* curModelArray= [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel.class fromJSONArray:[response objectForKey:@"list"] error:nil];
+                GTDeviceZoneModel *curModel = [curModelArray firstObject];
+                strongSelf.dataManager.zoneModelsArray[row] = curModel;
+                [strongSelf.routesTable reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }];
+        });
     }];
 }
 

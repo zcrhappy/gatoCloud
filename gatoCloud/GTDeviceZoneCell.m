@@ -326,7 +326,7 @@
 - (void)clickSwitch:(UISwitch *)btn
 {
     BOOL isOn = btn.isOn;
-    [btn setOn:NO animated:YES];//状态由服务器确定。因此这里不进行修改
+    [btn setOn:!isOn animated:YES];//状态由服务器确定。因此这里不进行修改
     
     NSString *warningString = nil;
     if(![_model zoneOnlineBoolValue]) {
