@@ -48,7 +48,7 @@
 
 + (BOOL)isFirstLoad
 {
-    NSString *finalGesture = [PCCircleViewConst getGestureWithKey:gestureFinalSaveKey];
+    NSString *finalGesture = [PCCircleViewConst getGestureWithKey:[PCCircleViewConst finalKey]];
     
     // 看是否存在第一个密码
     if ([finalGesture length]) {

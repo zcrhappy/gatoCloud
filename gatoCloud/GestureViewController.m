@@ -43,7 +43,7 @@
     }
     
     // 进来先清空存的第一个密码
-    [PCCircleViewConst saveGesture:nil Key:gestureOneSaveKey];
+    [PCCircleViewConst saveGesture:nil Key:[PCCircleViewConst firstKey]];
 }
 
 - (instancetype)init
@@ -229,7 +229,7 @@
     [self.msgLabel showNormalMsg:gestureTextBeforeSet];
     
     // 4.清除之前存储的密码
-    [PCCircleViewConst saveGesture:nil Key:gestureOneSaveKey];
+    [PCCircleViewConst saveGesture:nil Key:[PCCircleViewConst firstKey]];
 
 //    NSLog(@"%ld", (long)sender.tag);
 //    switch (sender.tag) {
@@ -246,7 +246,7 @@
 //            [self.msgLabel showNormalMsg:gestureTextBeforeSet];
 //            
 //            // 4.清除之前存储的密码
-//            [PCCircleViewConst saveGesture:nil Key:gestureOneSaveKey];
+//            [PCCircleViewConst saveGesture:nil Key:[PCCircleViewConst firstKey]];
 //        }
 //            break;
 //        case buttonTagManager:
@@ -268,7 +268,7 @@
 #pragma mark - circleView - delegate - setting
 - (void)circleView:(PCCircleView *)view type:(CircleViewType)type connectCirclesLessThanNeedWithGesture:(NSString *)gesture
 {
-    NSString *gestureOne = [PCCircleViewConst getGestureWithKey:gestureOneSaveKey];
+    NSString *gestureOne = [PCCircleViewConst getGestureWithKey:[PCCircleViewConst firstKey]];
 
     // 看是否存在第一个密码
     if ([gestureOne length]) {
@@ -298,7 +298,7 @@
         NSLog(@"两次手势匹配！可以进行本地化保存了");
         
         [self.msgLabel showWarnMsg:gestureTextSetSuccess];
-        [PCCircleViewConst saveGesture:gesture Key:gestureFinalSaveKey];
+        [PCCircleViewConst saveGesture:gesture Key:[PCCircleViewConst finalKey]];
         
         [MBProgressHUD showText:@"设置成功!" inView:self.view];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

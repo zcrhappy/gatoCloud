@@ -200,4 +200,7 @@
  */
 + (NSString *)getGestureWithKey:(NSString *)key;
 
++ (NSString *)firstKey;
+
++ (NSString *)finalKey;
 @end

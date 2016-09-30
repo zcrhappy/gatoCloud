@@ -58,6 +58,7 @@
 
 - (void)configUI
 {
+    _headImgView.frame = CGRectMake(0, 0, 50, 50);//不设置这个，头像在iOS9上就显示不出来
     _headImgView.layer.cornerRadius = _headImgView.width/2.0;
     _headImgView.layer.masksToBounds = YES;
     _headImgView.layer.borderWidth = 1.5;

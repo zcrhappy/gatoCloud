@@ -304,11 +304,11 @@
         
     } else {// 连接多于最少个数 （>=4个）
         
-        NSString *gestureOne = [PCCircleViewConst getGestureWithKey:gestureOneSaveKey];
+        NSString *gestureOne = [PCCircleViewConst getGestureWithKey:[PCCircleViewConst firstKey]];
         
         if ([gestureOne length] < CircleSetCountLeast) { // 接收并存储第一个密码
             // 记录第一次密码
-            [PCCircleViewConst saveGesture:gesture Key:gestureOneSaveKey];
+            [PCCircleViewConst saveGesture:gesture Key:[PCCircleViewConst firstKey]];
             
             // 通知代理
             if ([self.delegate respondsToSelector:@selector(circleView:type:didCompleteSetFirstGesture:)]) {
@@ -317,7 +317,7 @@
             
         } else { // 接受第二个密码并与第一个密码匹配，一致后存储起来
             
-            BOOL equal = [gesture isEqual:[PCCircleViewConst getGestureWithKey:gestureOneSaveKey]]; // 匹配两次手势
+            BOOL equal = [gesture isEqual:[PCCircleViewConst getGestureWithKey:[PCCircleViewConst firstKey]]]; // 匹配两次手势
             
             // 通知代理
             if ([self.delegate respondsToSelector:@selector(circleView:type:didCompleteSetSecondGesture:result:)]) {
@@ -328,7 +328,7 @@
             
             if (equal){
                 // 一致，存储密码
-                [PCCircleViewConst saveGesture:gesture Key:gestureFinalSaveKey];
+                [PCCircleViewConst saveGesture:gesture Key:[PCCircleViewConst finalKey]];
                 
             } else {
                 // 不一致，重绘回显
@@ -345,7 +345,7 @@
  */
 - (void)gestureEndByTypeLoginWithGesture:(NSString *)gesture length:(CGFloat)length
 {
-    NSString *password = [PCCircleViewConst getGestureWithKey:gestureFinalSaveKey];
+    NSString *password = [PCCircleViewConst getGestureWithKey:[PCCircleViewConst finalKey]];
     
     BOOL equal = [gesture isEqual:password];
     
@@ -364,7 +364,7 @@
 #pragma mark - 解锁类型：验证 手势路径的处理
 - (void)gestureEndByTypeVerifyWithGesture:(NSString *)gesture length:(CGFloat)length
 {
-    //    NSString *password = [CircleViewConst getGestureWithKey:gestureFinalSaveKey];
+    //    NSString *password = [CircleViewConst getGestureWithKey:[PCCircleViewConst finalKey]];
     //
     //    BOOL equal = [gesture isEqual:password];
     //

@@ -19,7 +19,7 @@
 #import <Crashlytics/Crashlytics.h>
 //#define enableStubHTTP
 
-@interface AppDelegate ()<WXApiDelegate, MiPushSDKDelegate>
+@interface AppDelegate ()<WXApiDelegate, MiPushSDKDelegate, UNUserNotificationCenterDelegate>
 
 @end
 
@@ -207,6 +207,25 @@
 - (void)setupPushService
 {
     [MiPushSDK registerMiPush:self type:0 connect:YES];
+}
+
+// iOS10新加入的回调方法
+// 应用在前台收到通知
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [MiPushSDK handleReceiveRemoteNotification:userInfo];
+    }
+    //    completionHandler(UNNotificationPresentationOptionAlert);
+}
+
+// 点击通知进入应用
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [MiPushSDK handleReceiveRemoteNotification:userInfo];
+    }
+    completionHandler();
 }
 
 @end

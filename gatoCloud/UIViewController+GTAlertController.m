@@ -28,8 +28,8 @@
     }];
     
     //将按钮添加到UIAlertController对象上
-    [alertController addAction:sureAction];
     [alertController addAction:cancelAction];
+    [alertController addAction:sureAction];
     
     //添加文本框（只能在UIAlertController的UIAlertControllerStyleAlert样式下添加）
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {

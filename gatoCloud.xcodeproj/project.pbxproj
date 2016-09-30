@@ -12,10 +12,11 @@
 		3313240C1D7BBA2500D4EFBB /* GTTimerQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313240B1D7BBA2500D4EFBB /* GTTimerQueue.m */; };
 		3313FED11D4F8892001B27C6 /* GTGestureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313FED01D4F8892001B27C6 /* GTGestureManager.m */; };
 		3313FED41D4F8CE8001B27C6 /* GTBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313FED31D4F8CE8001B27C6 /* GTBaseNavigationController.m */; };
+		331734F41D9E038F00A124D0 /* libMiPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 331734F11D9E036300A124D0 /* libMiPushSDK.a */; };
+		331734F61D9E067800A124D0 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331734F51D9E067800A124D0 /* UserNotifications.framework */; };
 		331D90341D5F24BA00C69699 /* GTDatePickPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 331D90331D5F24BA00C69699 /* GTDatePickPanel.m */; };
 		331D90371D5F2ECF00C69699 /* GTDatePickActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 331D90361D5F2ECF00C69699 /* GTDatePickActionSheet.m */; };
 		331D90401D6084D400C69699 /* GTZoneDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 331D903F1D6084D400C69699 /* GTZoneDataManager.m */; };
-		331FC0C01D635AF20038C7B6 /* libMiPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 331FC0BE1D635AF20038C7B6 /* libMiPushSDK.a */; };
 		331FC0C21D635BED0038C7B6 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 331FC0C11D635BED0038C7B6 /* libresolv.tbd */; };
 		331FC0C41D635BFD0038C7B6 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 331FC0C31D635BFD0038C7B6 /* libxml2.tbd */; };
 		331FC0C61D635C170038C7B6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331FC0C51D635C170038C7B6 /* MobileCoreServices.framework */; };
@@ -138,14 +139,16 @@
 		3313FED01D4F8892001B27C6 /* GTGestureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTGestureManager.m; sourceTree = "<group>"; };
 		3313FED21D4F8CE8001B27C6 /* GTBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTBaseNavigationController.h; sourceTree = "<group>"; };
 		3313FED31D4F8CE8001B27C6 /* GTBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTBaseNavigationController.m; sourceTree = "<group>"; };
+		331734F11D9E036300A124D0 /* libMiPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMiPushSDK.a; sourceTree = "<group>"; };
+		331734F21D9E036300A124D0 /* MiPushSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiPushSDK.h; sourceTree = "<group>"; };
+		331734F51D9E067800A124D0 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		331734F71D9E068200A124D0 /* 广拓云警.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "广拓云警.entitlements"; sourceTree = "<group>"; };
 		331D90321D5F24BA00C69699 /* GTDatePickPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDatePickPanel.h; sourceTree = "<group>"; };
 		331D90331D5F24BA00C69699 /* GTDatePickPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDatePickPanel.m; sourceTree = "<group>"; };
 		331D90351D5F2ECF00C69699 /* GTDatePickActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDatePickActionSheet.h; sourceTree = "<group>"; };
 		331D90361D5F2ECF00C69699 /* GTDatePickActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDatePickActionSheet.m; sourceTree = "<group>"; };
 		331D903E1D6084D400C69699 /* GTZoneDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneDataManager.h; sourceTree = "<group>"; };
 		331D903F1D6084D400C69699 /* GTZoneDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneDataManager.m; sourceTree = "<group>"; };
-		331FC0BE1D635AF20038C7B6 /* libMiPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMiPushSDK.a; sourceTree = "<group>"; };
-		331FC0BF1D635AF20038C7B6 /* MiPushSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiPushSDK.h; sourceTree = "<group>"; };
 		331FC0C11D635BED0038C7B6 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		331FC0C31D635BFD0038C7B6 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		331FC0C51D635C170038C7B6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -353,12 +356,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				331734F61D9E067800A124D0 /* UserNotifications.framework in Frameworks */,
+				331734F41D9E038F00A124D0 /* libMiPushSDK.a in Frameworks */,
 				3321FA791D33BED300D3850E /* CoreTelephony.framework in Frameworks */,
 				331FC0C61D635C170038C7B6 /* MobileCoreServices.framework in Frameworks */,
 				331FC0C41D635BFD0038C7B6 /* libxml2.tbd in Frameworks */,
 				331FC0C21D635BED0038C7B6 /* libresolv.tbd in Frameworks */,
 				3321FA771D33BE7B00D3850E /* libsqlite3.tbd in Frameworks */,
-				331FC0C01D635AF20038C7B6 /* libMiPushSDK.a in Frameworks */,
 				3321FA751D33BE2F00D3850E /* SystemConfiguration.framework in Frameworks */,
 				3321FA731D33BE2700D3850E /* libz.tbd in Frameworks */,
 				3321FA711D33BE1D00D3850E /* libc++.tbd in Frameworks */,
@@ -391,8 +395,8 @@
 		331FC0BD1D635AE60038C7B6 /* PushServiceSDK */ = {
 			isa = PBXGroup;
 			children = (
-				331FC0BE1D635AF20038C7B6 /* libMiPushSDK.a */,
-				331FC0BF1D635AF20038C7B6 /* MiPushSDK.h */,
+				331734F11D9E036300A124D0 /* libMiPushSDK.a */,
+				331734F21D9E036300A124D0 /* MiPushSDK.h */,
 			);
 			name = PushServiceSDK;
 			sourceTree = "<group>";
@@ -709,6 +713,7 @@
 		33C620951D2FE7E60022A9F0 /* gatoCloud */ = {
 			isa = PBXGroup;
 			children = (
+				331734F71D9E068200A124D0 /* 广拓云警.entitlements */,
 				33265B921D752CF600DBEEF7 /* CommonUI */,
 				331FC0BD1D635AE60038C7B6 /* PushServiceSDK */,
 				337663BD1D4899EB003AA73C /* Zones */,
@@ -829,6 +834,7 @@
 		86DBB2AF2FF9D675B4C6AB26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				331734F51D9E067800A124D0 /* UserNotifications.framework */,
 				331FC0C51D635C170038C7B6 /* MobileCoreServices.framework */,
 				331FC0C31D635BFD0038C7B6 /* libxml2.tbd */,
 				331FC0C11D635BED0038C7B6 /* libresolv.tbd */,
@@ -882,6 +888,11 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = J2ATXHKPAQ;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1207,8 +1218,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = NO;
+				CODE_SIGN_ENTITLEMENTS = "gatoCloud/广拓云警.entitlements";
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = J2ATXHKPAQ;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1222,8 +1234,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.securityApp;
 				PRODUCT_NAME = "广拓云警";
-				PROVISIONING_PROFILE = "dc16c91e-04c6-4195-b58f-0af118131672";
-				PROVISIONING_PROFILE_SPECIFIER = "gatoDev2016-09-19";
+				PROVISIONING_PROFILE = "19173a5b-7e1e-436b-bbc1-29c6cf8b8b4d";
+				PROVISIONING_PROFILE_SPECIFIER = "gatoAdHoc2016-09-19";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1234,8 +1246,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = NO;
+				CODE_SIGN_ENTITLEMENTS = "gatoCloud/广拓云警.entitlements";
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = J2ATXHKPAQ;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1249,8 +1262,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.securityApp;
 				PRODUCT_NAME = "广拓云警";
-				PROVISIONING_PROFILE = "dc16c91e-04c6-4195-b58f-0af118131672";
-				PROVISIONING_PROFILE_SPECIFIER = "gatoDev2016-09-19";
+				PROVISIONING_PROFILE = "19173a5b-7e1e-436b-bbc1-29c6cf8b8b4d";
+				PROVISIONING_PROFILE_SPECIFIER = "gatoAdHoc2016-09-19";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
