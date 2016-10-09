@@ -306,7 +306,7 @@
         
         NSString *gestureOne = [PCCircleViewConst getGestureWithKey:[PCCircleViewConst firstKey]];
         
-        if ([gestureOne length] < CircleSetCountLeast) { // 接收并存储第一个密码
+        if ([gestureOne length] < CircleSetCountLeast) { // 接收并存储第一个密码 gestureOne = nil
             // 记录第一次密码
             [PCCircleViewConst saveGesture:gesture Key:[PCCircleViewConst firstKey]];
             

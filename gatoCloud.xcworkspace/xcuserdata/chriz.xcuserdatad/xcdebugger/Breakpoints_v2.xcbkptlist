@@ -290,7 +290,7 @@
                   moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTZoneCellTimer.m"
-                  timestampString = "496909284.118985"
+                  timestampString = "497671752.664316"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "71"
@@ -305,7 +305,7 @@
                   moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTZoneCellTimer.m"
-                  timestampString = "496909284.120248"
+                  timestampString = "497671752.665463"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "72"
@@ -338,7 +338,7 @@
                   moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTCheckPwdManager.m"
-                  timestampString = "496909284.123115"
+                  timestampString = "497671752.667873"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "62"
@@ -353,7 +353,7 @@
                   moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTCheckPwdManager.m"
-                  timestampString = "496909284.124366"
+                  timestampString = "497671752.669039"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "63"
@@ -361,6 +361,22 @@
                   offsetFromSymbolStart = "75">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PCCircleView.m"
+            timestampString = "497671894.794059"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "309"
+            endingLineNumber = "309"
+            landmarkName = "-gestureEndByTypeSettingWithGesture:length:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

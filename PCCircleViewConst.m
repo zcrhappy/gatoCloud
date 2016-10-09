@@ -20,12 +20,18 @@
 
 + (NSString *)firstKey
 {
-    return [[GTUserUtils sharedInstance].userModel.userId stringByAppendingString:gestureOneSaveKey];
+    if([GTUserUtils sharedInstance].userModel.userId)
+        return [[GTUserUtils sharedInstance].userModel.userId stringByAppendingString:gestureOneSaveKey];
+    else
+        return gestureOneSaveKey;//未登录时候
 }
 
 + (NSString *)finalKey
 {
-    return [[GTUserUtils sharedInstance].userModel.userId stringByAppendingString:gestureFinalSaveKey];
+    if([GTUserUtils sharedInstance].userModel.userId)
+        return [[GTUserUtils sharedInstance].userModel.userId stringByAppendingString:gestureFinalSaveKey];
+    else
+        return gestureFinalSaveKey;
 }
 
 @end
