@@ -115,6 +115,7 @@
 		33E138A01D93D54A008525AD /* GTNetPulseZoneInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E1389F1D93D54A008525AD /* GTNetPulseZoneInfoView.m */; };
 		33E138A21D93D566008525AD /* GTNetPulseZoneInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33E138A11D93D566008525AD /* GTNetPulseZoneInfoView.xib */; };
 		33E138A51D991F50008525AD /* GTZoneNetPulseEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E138A41D991F50008525AD /* GTZoneNetPulseEditViewController.m */; };
+		33EE64C21DACE93C00FA9966 /* zones.json in Resources */ = {isa = PBXBuildFile; fileRef = 33EE64C11DACE93C00FA9966 /* zones.json */; };
 		33FEDBB41D562371009A3D06 /* GTZoneEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */; };
 		33FEDBCD1D58B775009A3D06 /* GTEditOneRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */; };
 		33FEDBD01D58BF27009A3D06 /* GTEditOneRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FEDBCF1D58BF27009A3D06 /* GTEditOneRowCell.m */; };
@@ -331,6 +332,7 @@
 		33E138A11D93D566008525AD /* GTNetPulseZoneInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTNetPulseZoneInfoView.xib; sourceTree = "<group>"; };
 		33E138A31D991F50008525AD /* GTZoneNetPulseEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneNetPulseEditViewController.h; sourceTree = "<group>"; };
 		33E138A41D991F50008525AD /* GTZoneNetPulseEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneNetPulseEditViewController.m; sourceTree = "<group>"; };
+		33EE64C11DACE93C00FA9966 /* zones.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zones.json; sourceTree = "<group>"; };
 		33FEDBB21D562371009A3D06 /* GTZoneEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTZoneEditViewController.h; sourceTree = "<group>"; };
 		33FEDBB31D562371009A3D06 /* GTZoneEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTZoneEditViewController.m; sourceTree = "<group>"; };
 		33FEDBCC1D58B775009A3D06 /* GTEditOneRowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTEditOneRowCell.xib; sourceTree = "<group>"; };
@@ -739,6 +741,7 @@
 		33C620961D2FE7E60022A9F0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				33EE64C11DACE93C00FA9966 /* zones.json */,
 				335380921D44C75700041BD9 /* start.json */,
 				33620C901D4128C800209AE7 /* page.json */,
 				33C620991D2FE7E60022A9F0 /* AppDelegate.h */,
@@ -920,6 +923,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33FEDBD51D58C1BF009A3D06 /* GTEditTwoRowCell.xib in Resources */,
+				33EE64C21DACE93C00FA9966 /* zones.json in Resources */,
 				33FEDBCD1D58B775009A3D06 /* GTEditOneRowCell.xib in Resources */,
 				33DF4D9C1D72886500707324 /* GTDoneButtonCell.xib in Resources */,
 				33B578A71D5CC2D200A1401B /* GTWarningRecordCell.xib in Resources */,
@@ -1219,7 +1223,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = NO;
 				CODE_SIGN_ENTITLEMENTS = "gatoCloud/广拓云警.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = J2ATXHKPAQ;
 				ENABLE_BITCODE = NO;
@@ -1247,7 +1251,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = NO;
 				CODE_SIGN_ENTITLEMENTS = "gatoCloud/广拓云警.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = J2ATXHKPAQ;
 				ENABLE_BITCODE = NO;

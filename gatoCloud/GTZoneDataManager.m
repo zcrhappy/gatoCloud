@@ -126,6 +126,7 @@
         if(error == nil) {
             NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
             self.currentPage = [[response objectForKey:@"page"] objectForKey:@"currentPage"];
+            self.totalPages = [[response objectForKey:@"page"] objectForKey:@"totalPages"];
             self.hasMore = [self checkDataHasMore];
             
             NSArray *oldModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];
@@ -158,6 +159,7 @@
         if(error == nil) {
             NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
             self.currentPage = [[response objectForKey:@"page"] objectForKey:@"currentPage"];
+            self.totalPages = [[response objectForKey:@"page"] objectForKey:@"totalPages"];
             self.hasMore = [self checkDataHasMore];
             
             NSArray *oldModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];
@@ -174,6 +176,7 @@
         if(error == nil) {
             NSArray *array = [[response objectForKey:@"page"] objectForKey:@"resultList"];
             self.currentPage = [[response objectForKey:@"page"] objectForKey:@"currentPage"];
+            self.totalPages = [[response objectForKey:@"page"] objectForKey:@"totalPages"];
             self.hasMore = [self checkDataHasMore];
             
             NSArray *oldModelArr = [MTLJSONAdapter modelsOfClass:GTDeviceZoneModel2.class fromJSONArray:array error:nil];

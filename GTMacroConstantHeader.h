@@ -29,7 +29,7 @@
 
 #define kUserDefaultKeyForDeviceCellMenuShow @"kUserDefaultKeyForDeviceCellMenuShow"
 
-
+#define kNotReachableToast @"您的网络未连接,请检查网络设置后重试"
 #define kDefaultString @"--"
 
 //color

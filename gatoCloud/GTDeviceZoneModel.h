@@ -86,7 +86,8 @@ typedef NS_ENUM(NSInteger, GTNetPulseValue)
 
 #pragma mark - Constant
 + (GTZoneType)zoneTypeOfStringType:(NSString *)type;//将类型名转换为GTZoneType
-+ (NSArray *)netPulseZoneModeArray;
++ (NSArray *)netPulseZoneModeArray;//对应实际的数据结构
++ (NSArray *)netPulseZoneModeVisableArray;//这个是在编辑下可以展现出来的
 + (NSArray *)netPulseZoneVoltageArray;
 + (NSArray *)netPulseZoneSensitiveArray;
 

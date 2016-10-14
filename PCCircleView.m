@@ -393,7 +393,6 @@
                 [circle setState:CircleStateLastOneError];
             }
         }
-
     }];
     
     [self setNeedsDisplay];

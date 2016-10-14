@@ -10,7 +10,7 @@
 #import "NSMutableDictionary+HTTPExtension.h"
 #import "NSDictionary+HTTPExtionsion.h"
 
-#define TESTURL
+//#define TESTURL
 
 NSString * const kBaseUrl = @"http://acloud.gato.com.cn:8088";
 NSString * const kTestBaseUrl = @"http://115.159.44.248:8090";
@@ -1136,7 +1136,7 @@ NSInteger const APIErrorCode = 138102;
         NSLog(@"\n【发起POST请求】：%@\n%@\n【出错了，返回的数据内容为】：%@",urlString, parameters, error);
         if(error.code == NSURLErrorNotConnectedToInternet)
         {
-            [MBProgressHUD showText:@"您的网络未连接,请检查网络设置后重试" inView:[UIView gt_keyWindow]];
+            [MBProgressHUD showText:kNotReachableToast inView:[UIView gt_keyWindow]];
         }
         failure(task, error);
     };

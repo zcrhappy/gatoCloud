@@ -42,12 +42,12 @@
     [self configUI];
     [self checkVersion];
     [self fetchMainViewInfo];
+    [_checkPwdManager checkAllDevicePwd];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [_checkPwdManager checkAllDevicePwd];
 }
 
 - (void)dealloc
@@ -58,7 +58,8 @@
 
 - (void)configUI
 {
-    _headImgView.frame = CGRectMake(0, 0, 50, 50);//不设置这个，头像在iOS9上就显示不出来
+    CGFloat width = 45 * (SCREEN_WIDTH)/375.0;
+    _headImgView.frame = CGRectMake(0, 0, width, width);//不设置这个，头像在iOS9上就显示不出来
     _headImgView.layer.cornerRadius = _headImgView.width/2.0;
     _headImgView.layer.masksToBounds = YES;
     _headImgView.layer.borderWidth = 1.5;
@@ -79,8 +80,24 @@
         
         if(error == nil) {
             _startModel = [MTLJSONAdapter modelOfClass:GTStartModel.class fromJSONDictionary:response error:nil];
-        
-            [GTUserUtils saveBanners:_startModel.banners];
+            //当没有轮播图的时候，用本地的
+            if(_startModel.banners.count == 0){
+                NSArray *imgArray = @[@"banner_1",@"banner_2"];
+                NSArray *urlArray = @[@"http://wap.gato.com.cn/NewsShow_58.html", @"http://wap.gato.com.cn/zproducts_t30.html"];
+                NSMutableArray *bannersArray = [NSMutableArray array];
+                
+                for (int i = 0; i < imgArray.count; i++) {
+                    GTBannerModel *banner = [[GTBannerModel alloc] init];
+                    banner.img = imgArray[i];
+                    banner.url = urlArray[i];
+                    [bannersArray addObject:banner];
+                }
+                if(_startModel == nil)
+                    _startModel = [[GTStartModel alloc] init];
+                _startModel.banners = bannersArray;
+            }
+            
+            [GTUserUtils saveBanners:_startModel.banners];//轮播图
         
             [self updateBanners];
             NSLog(@"");

@@ -42,20 +42,31 @@
 
 - (void)setupWithModel:(GTDeviceZoneModel *)model
 {
-    if([model isZoneType:GTZoneTypePulse]) {
-        firstLabel.text = [NSString stringWithFormat:@"工作模式：%@", [model getNetPulseValue:GTNetPulseValueMode]];
-        secondLabel.text = [NSString stringWithFormat:@"电压：%@",[model getNetPulseValue:GTNetPulseValueVoltage]];
-        thirdLabel.hidden = YES;
-        _twoLineConstaint.active = YES;
-        _threeLineConstraint.active = NO;
-    }
-    else if ([model isZoneType:GTZoneTypeNetPulse]) {
-        firstLabel.text = [NSString stringWithFormat:@"工作模式：%@", [model getNetPulseValue:GTNetPulseValueMode]];
+    //根据工作模式来展示
+    NSString *modeString = [model getNetPulseValue:GTNetPulseValueMode];
+    GTZoneType curZoneType = [GTDeviceZoneModel zoneTypeOfStringType:modeString];
+    
+    firstLabel.text = [NSString stringWithFormat:@"工作模式：%@", [model getNetPulseValue:GTNetPulseValueMode]];
+    
+    if(curZoneType == GTZoneTypeNetPulse) {
         secondLabel.text = [NSString stringWithFormat:@"电压：%@",[model getNetPulseValue:GTNetPulseValueVoltage]];
         thirdLabel.text = [NSString stringWithFormat:@"灵敏度：%@",[model getNetPulseValue:GTNetPulseValueSensitive]];
         thirdLabel.hidden = NO;
         _twoLineConstaint.active = NO;
         _threeLineConstraint.active = YES;
+        
+    }
+    else if (curZoneType == GTZoneTypeNet) {
+        thirdLabel.text = [NSString stringWithFormat:@"灵敏度：%@",[model getNetPulseValue:GTNetPulseValueSensitive]];
+        thirdLabel.hidden = YES;
+        _twoLineConstaint.active = YES;
+        _threeLineConstraint.active = NO;
+    }
+    else if (curZoneType == GTZoneTypePulse) {
+        secondLabel.text = [NSString stringWithFormat:@"电压：%@",[model getNetPulseValue:GTNetPulseValueVoltage]];
+        thirdLabel.hidden = YES;
+        _twoLineConstaint.active = YES;
+        _threeLineConstraint.active = NO;
     }
     
     firstLabel.preferredMaxLayoutWidth = (SCREEN_WIDTH - 20) - 16;

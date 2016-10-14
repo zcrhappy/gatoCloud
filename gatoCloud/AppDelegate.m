@@ -46,6 +46,7 @@
     [IQKeyboardManager sharedManager].enable = YES;
     [IQKeyboardManager sharedManager].toolbarDoneBarButtonItemText = @"完成";
     
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needsLoginAction:) name:kNeedsLoginNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogout:) name:kDidLogoutNotification object:nil];
@@ -146,7 +147,8 @@
 {
     //test
 //    NSDictionary *reqMap = @{@"queryWarningsPage.do": @"page.json"};
-    NSDictionary *reqMap = @{@"start.do":@"start.json"};
+//    NSDictionary *reqMap = @{@"start.do":@"start.json"};
+    NSDictionary *reqMap = @{@"queryZones.do":@"zones.json"};
     
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [reqMap.allKeys containsObject:request.URL.lastPathComponent];

@@ -33,6 +33,7 @@
 - (void)addObject:(GTTimerQueueObj *)obj;
 {
     if(obj) {
+        NSLog(@"轮询激活");
         [_queue addObject:obj];
         [self activateObj:obj];
     }
@@ -49,12 +50,14 @@
     }
     
     if(target) {
+        NSLog(@"轮询删除");
         [_queue removeObject:target];
         [target removeTimer];
     }}
 
 - (GTTimerQueueObj *)createObjWithIndexPath:(NSIndexPath *)indexPath model:(GTDeviceZoneModel *)model;
 {
+    NSLog(@"轮询创建");
     GTZoneCellTimer *timer = [[GTZoneCellTimer alloc] init];
     [timer setupWithModel:model];
     

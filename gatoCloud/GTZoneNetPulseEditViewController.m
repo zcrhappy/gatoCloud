@@ -32,7 +32,8 @@
 {
     if(self = [super init]) {
         _model = model;
-        _curZoneType = _model.zoneType.integerValue;
+        NSString *modeString = [model getNetPulseValue:GTNetPulseValueMode];
+        _curZoneType = [GTDeviceZoneModel zoneTypeOfStringType:modeString];
         self.navigationItem.title = @"防区配置";
     }
     return self;
@@ -111,7 +112,7 @@
         }
         else {
             title = @"工作模式选择";
-            NSArray *array = [GTDeviceZoneModel netPulseZoneModeArray];
+            NSArray *array = [GTDeviceZoneModel netPulseZoneModeVisableArray];
             selectionArr = [array subarrayWithRange:NSMakeRange(1, array.count - 1)];
         }
     }

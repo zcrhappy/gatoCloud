@@ -174,7 +174,7 @@
         case GTNetPulseValueVoltage:{
             levelArray = [GTDeviceZoneModel netPulseZoneVoltageArray];
             
-            if(value.integerValue > levelArray.count)
+            if(value.integerValue >= levelArray.count)
                 return kDefaultString;//防止数组越界
             
             NSString *level = levelArray[value.integerValue];
@@ -183,7 +183,7 @@
         case GTNetPulseValueSensitive:
         {
             levelArray = [GTDeviceZoneModel netPulseZoneSensitiveArray];
-            if(value.integerValue > levelArray.count)
+            if(value.integerValue >= levelArray.count)
                 return kDefaultString;
             
             NSString *level = levelArray[value.integerValue];
@@ -192,7 +192,7 @@
         case GTNetPulseValueMode:
         {
             NSArray *modeArray = [GTDeviceZoneModel netPulseZoneModeArray];
-            if(value.integerValue > modeArray.count)
+            if(value.integerValue >= modeArray.count)
                 return kDefaultString;
             NSString *mode = modeArray[value.integerValue];
             return mode;
@@ -221,6 +221,10 @@
         return GTZoneTypeNet;
     else
         return 0;
+}
+
++ (NSArray *)netPulseZoneModeVisableArray {
+    return @[@"", @"脉冲", @"脉冲&触网"];
 }
 
 + (NSArray *)netPulseZoneModeArray {

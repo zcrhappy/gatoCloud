@@ -36,6 +36,8 @@
 @property (nonatomic, strong) GTDeviceZoneModel *model;
 
 @property (nonatomic, strong) MASConstraint *stateLabelRightConstaint;
+
+@property (nonatomic, assign) BOOL switchPreviousValue;
 @end
 
 @implementation GTDeviceZoneCell
@@ -93,7 +95,7 @@
     }];
     
     guardSwitch = [[UISwitch alloc] init];
-    [guardSwitch addTarget:self action:@selector(clickSwitch:) forControlEvents:UIControlEventTouchUpInside];
+    [guardSwitch addTarget:self action:@selector(clickSwitch:) forControlEvents:UIControlEventValueChanged];
     [upContainer addSubview:guardSwitch];
     [guardSwitch mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(upContainer).offset(-18);
@@ -201,6 +203,7 @@
     zoneNameLabel.text = model.zoneName;
     zoneStateLabel.text = model.zoneStateString;
     guardSwitch.on = model.zoneStateForSwithButton;
+    _switchPreviousValue = model.zoneStateForSwithButton;
     zoneTypeLabel.text = [NSString stringWithFormat:@"防区类型:%@",[model zoneTypeStringWithSuffix:YES]];
     
     if(model.shouldSetLoadingState) {
@@ -322,11 +325,19 @@
     }
 }
 
-
 - (void)clickSwitch:(UISwitch *)btn
 {
+    if(btn.isOn == _switchPreviousValue)
+        return;
+    
+    NSLog(@"轮询操作触发");
     BOOL isOn = btn.isOn;
-    [btn setOn:!isOn animated:YES];//状态由服务器确定。因此这里不进行修改
+    [guardSwitch setOn:!isOn animated:YES];//状态由服务器确定。因此这里不进行修改
+    
+    if(![[AFNetworkReachabilityManager sharedManager] isReachable]) {
+        [MBProgressHUD showText:kNotReachableToast inView:[UIView gt_keyWindow]];
+        return;
+    }
     
     NSString *warningString = nil;
     if(![_model zoneOnlineBoolValue]) {
