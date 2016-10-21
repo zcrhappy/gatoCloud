@@ -10,7 +10,6 @@
 #import "GTDeviceZoneModel.h"
 #define kCellHeight 27
 #define kColumns 4
-#define kLines 7
 @interface GTZoneStrainView()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -49,8 +48,6 @@
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     [_collectionView registerClass:[GTZoneStrainCollectionCell class] forCellWithReuseIdentifier:@"cell"];
-    
-    _height = kLines * kCellHeight + (kLines - 1) * SINGLE_LINE_WIDTH + 40;
 }
 
 - (void)setupWithModel:(GTDeviceZoneModel *)model
@@ -67,7 +64,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section;
 {
-    return kColumns * kLines;
+    return kColumns * _stainArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -101,6 +98,7 @@
 
 - (CGFloat)viewHeight;
 {
+    _height =  _stainArray.count * kCellHeight + (_stainArray.count - 1) * SINGLE_LINE_WIDTH + 40;
     return _height + 20;
 }
 

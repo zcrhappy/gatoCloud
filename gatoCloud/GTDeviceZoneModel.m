@@ -153,7 +153,8 @@
         NSArray *oneRowArray = [oneRowString componentsSeparatedByString:@","];
         NSMutableArray *mutbleOneRowArray = [NSMutableArray arrayWithObject:@"placeholder"];
         [mutbleOneRowArray addObjectsFromArray:oneRowArray];
-        [allDataArray addObject:mutbleOneRowArray];
+        if(oneRowArray.count == 3)
+            [allDataArray addObject:mutbleOneRowArray];
     }];
     
     [allDataArray insertObject:[NSArray array] atIndex:0];
