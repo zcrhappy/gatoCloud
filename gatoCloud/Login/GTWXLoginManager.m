@@ -51,7 +51,7 @@ NSString *kStateString = @"1q2w3e4r5t6y7u8i9o0p";
     req.scope = kAuthScope;
     req.state = kStateString;//TODO:改成随机数
     //第三方向微信终端发送一个SendAuthReq消息结构
-    [WXApi sendReq:req];
+    [WXApi sendAuthReq:req viewController:[UIViewController gt_topViewController] delegate:self];
 }
 
 /*!

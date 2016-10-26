@@ -56,10 +56,15 @@
 {
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     if(rootViewController == [UIViewController gt_topViewController]) {
-        completion();
+        if(completion)
+            completion();
     }
     else {
-        [rootViewController dismissViewControllerAnimated:YES completion:completion];
+        [rootViewController dismissViewControllerAnimated:YES completion:nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if(completion)
+                completion();
+        });
     }
 }
 

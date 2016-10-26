@@ -242,7 +242,7 @@
             make.height.mas_equalTo(_stainView.viewHeight);
         }];
         [_infoView setShouldConstraintToTop:^BOOL{
-            return YES;
+            return NO;
         }];
         [_infoView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(_stainView.mas_bottom);

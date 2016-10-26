@@ -37,6 +37,7 @@
         case GTUserInfoCellTypeArrow:
         {
             _avatar.hidden = YES;
+            _arrow.hidden = NO;
             _subTitle.hidden = _arrow.hidden = NO;
             _subTitle.text = subTitle;
             break;
@@ -44,8 +45,17 @@
         case GTUserInfoCellTypeAvatar:
         {
             _avatar.hidden = NO;
+            _arrow.hidden = NO;
             _subTitle.hidden = _arrow.hidden = YES;
             [_avatar sd_setImageWithURL:[NSURL URLWithString:avatarStr?:@""] placeholderImage:[UIImage imageNamed:@"GTDefaultAvatar"]];
+            break;
+        }
+        case GTUserInfoCellTypePlain:
+        {
+            _avatar.hidden = YES;
+            _arrow.hidden = YES;
+            _subTitle.hidden = NO;
+            _subTitle.text = subTitle;
             break;
         }
     }

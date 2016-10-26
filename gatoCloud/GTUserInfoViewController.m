@@ -21,9 +21,9 @@ NSString *kAvatar = @"头像";
 NSString *kNickName = @"昵称";
 NSString *kNoDisturb = @"功能消息免打扰";
 NSString *kModifyGestureCode = @"修改手势密码";
-NSString *kCheckVersion = @"版本检测";
 NSString *kContactUs = @"联系我们";
 NSString *kFeedback = @"反馈";
+NSString *kCheckVersion = @"当前版本";
 NSString *kQuitAccount = @"退出当前账号";
 
 typedef NS_ENUM(NSInteger, GTPickPhotoVia)
@@ -52,7 +52,7 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
 
 - (void)configSource
 {
-    _rowArray = @[kAvatar, kNickName, kNoDisturb, kModifyGestureCode, kCheckVersion, kContactUs, kFeedback, kQuitAccount];
+    _rowArray = @[kAvatar, kNickName, kNoDisturb, kModifyGestureCode, kContactUs, kFeedback, kQuitAccount];
     
 }
 
@@ -62,6 +62,16 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     
     [_listTable registerNib:[UINib nibWithNibName:@"GTQuitCell" bundle:nil] forCellReuseIdentifier:@"quitCell"];
     [_listTable reloadData];
+    
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickTableViewTen:)];
+//    tap.numberOfTapsRequired = 10;
+//    [_listTable addGestureRecognizer:tap];
+    
+    //版本展示
+    UILabel *version = macroCreateLabel(CGRectMake(0 , SCREEN_HEIGHT - 64 - 30, SCREEN_WIDTH, 20), _listTable.backgroundColor, 14, [UIColor lightGrayColor]);
+    version.textAlignment = NSTextAlignmentCenter;
+    version.text = [NSString stringWithFormat:@"广拓云警 %@",[GTUserUtils version]];
+    [_listTable addSubview:version];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -100,6 +110,9 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     else if([title isEqualToString:kNickName]) {
         [cell setupCellWithType:GTUserInfoCellTypeArrow title:title subTitle:[GTUserUtils sharedInstance].userModel.displayName avatarStr:nil];
     }
+    else if ([title isEqualToString:kCheckVersion]) {
+        [cell setupCellWithType:GTUserInfoCellTypeArrow title:title subTitle:[GTUserUtils version] avatarStr:nil];
+    }
     else {
         [cell setupCellWithType:GTUserInfoCellTypeArrow title:title subTitle:nil avatarStr:nil];
     }
@@ -135,22 +148,6 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
         [controller addAction:call];
         
         [self.navigationController presentViewController:controller animated:YES completion:nil];
-    }
-    else if ([title isEqualToString:kCheckVersion]) {
-        [[GTHttpManager shareManager] GTAppCheckUpdateWithFinishBlock:^(id response, NSError *error) {
-            if(!error) {
-                GTStartModel *startModel = [MTLJSONAdapter modelOfClass:GTStartModel.class fromJSONDictionary:response error:nil];
-                NSString *version = [GTUserUtils version];
-                NSString *checkVersion;
-                if([startModel.code isEqualToString:@"0"]) {
-                    checkVersion = @"您已经是最新版本";
-                }
-                else {
-                    checkVersion = @"有新版本，请前往App Store下载";
-                }
-                [MBProgressHUD showText:[NSString stringWithFormat:@"当前版本:%@,%@",version,checkVersion] inView:self.view];
-            }
-        }];
     }
     else if ([title isEqualToString:kModifyGestureCode]) {
         GestureViewController *gestureUnlockViewController = [[GestureViewController alloc] init];
@@ -339,5 +336,13 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     [imageData writeToFile:fullPathToFile atomically:YES];
     return fullPathToFile;
 }
+
+#pragma mark - Show Tools
+//- (void)clickTableViewTen:(UIGestureRecognizer *)gesture
+//{
+//    if(gesture.state == UIGestureRecognizerStateBegan) {
+//        [[FLEXManager sharedManager] showExplorer];
+//    }
+//}
 
 @end

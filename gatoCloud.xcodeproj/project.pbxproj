@@ -1224,7 +1224,7 @@
 				CLANG_ANALYZER_NONNULL = NO;
 				CODE_SIGN_ENTITLEMENTS = "gatoCloud/广拓云警.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = J2ATXHKPAQ;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1238,8 +1238,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.securityApp;
 				PRODUCT_NAME = "广拓云警";
-				PROVISIONING_PROFILE = "dc16c91e-04c6-4195-b58f-0af118131672";
-				PROVISIONING_PROFILE_SPECIFIER = "gatoDev2016-09-19";
+				PROVISIONING_PROFILE = "26cf9a2e-ee72-4ab6-962a-b068762d28c0";
+				PROVISIONING_PROFILE_SPECIFIER = gatoDistribution;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1252,7 +1252,7 @@
 				CLANG_ANALYZER_NONNULL = NO;
 				CODE_SIGN_ENTITLEMENTS = "gatoCloud/广拓云警.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = J2ATXHKPAQ;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1266,8 +1266,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gato.securityApp;
 				PRODUCT_NAME = "广拓云警";
-				PROVISIONING_PROFILE = "dc16c91e-04c6-4195-b58f-0af118131672";
-				PROVISIONING_PROFILE_SPECIFIER = "gatoDev2016-09-19";
+				PROVISIONING_PROFILE = "26cf9a2e-ee72-4ab6-962a-b068762d28c0";
+				PROVISIONING_PROFILE_SPECIFIER = gatoDistribution;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

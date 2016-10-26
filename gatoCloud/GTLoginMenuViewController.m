@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *weChatLoginButton;
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;
 @property (weak, nonatomic) IBOutlet UIButton *quickLogin;
+@property (weak, nonatomic) IBOutlet UIView *weChatLoginContainer;
 
 @end
 @implementation GTLoginMenuViewController
