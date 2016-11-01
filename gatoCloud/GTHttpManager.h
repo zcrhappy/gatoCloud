@@ -393,6 +393,15 @@ typedef NS_ENUM(NSInteger, GTPhoneLoginType)
 - (void)GTEditDisplayName:(NSString *)nickName
               finishBlock:(GTResultBlock)finishBlk;
 
+
+/*!
+ *  @brief 更新小米推送id
+ *
+ *  @param xmAppId 推送Id
+ *  @param finishBlk 返回结果
+ */
+- (void)GTUpdateXmAppId:(NSString *)xmAppId
+            finishBlock:(GTResultBlock)finishBlk;
 @end
 
 #pragma clang diagnostic pop

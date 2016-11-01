@@ -182,6 +182,10 @@
     if ([selector isEqualToString:@"bindDeviceToken:"]) {
         [GTUserUtils saveRegId:data[@"regid"]];
         NSLog(@"regid = %@", data[@"regid"]);
+        
+        [[GTHttpManager shareManager] GTUpdateXmAppId:data[@"regid"] finishBlock:^(id response, NSError *error) {
+            
+        }];
     }
 }
 

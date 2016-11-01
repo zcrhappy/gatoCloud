@@ -974,6 +974,27 @@ NSInteger const APIErrorCode = 138102;
     }];
 }
 
+- (void)GTUpdateXmAppId:(NSString *)xmAppId
+            finishBlock:(GTResultBlock)finishBlk;
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic safeSetObject:xmAppId forKey:@"xmAppId"];
+    
+    [self POST:@"/user/updateXmAppId.do" parameters:dic progress:^(NSProgress *downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isVaildResponse]) {
+            finishBlk(responseObject, nil);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"返回参数非法" code:-200 userInfo:responseObject];
+            finishBlk(nil, error);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        finishBlk(nil, error);
+    }];
+}
+
 #pragma mark - UserInfo
 - (void)GTUserFeedbackWithContents:(NSString *)content
                            contact:(NSString *)contact
