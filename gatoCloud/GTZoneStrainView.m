@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray <NSArray *>*stainArray;
 
 @property (nonatomic, assign) CGFloat height;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 @end
 
@@ -52,6 +53,11 @@
 
 - (void)setupWithModel:(GTDeviceZoneModel *)model
 {
+    if([model canEdit])
+        _editButton.hidden = NO;
+    else
+        _editButton.hidden = YES;
+    
     _stainArray = [model fetchStainArray];
     [_collectionView reloadData];
 }

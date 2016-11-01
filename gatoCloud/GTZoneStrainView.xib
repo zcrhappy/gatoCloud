@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,9 +16,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hvm-95-46s">
-                    <frame key="frameInset" minX="10" minY="10" width="580" height="590"/>
+                    <rect key="frame" x="10" y="10" width="580" height="590"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="防区参数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWA-Uy-itj">
+                            <rect key="frame" x="8" y="10" width="68" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="68" id="DQp-bL-gPP"/>
                                 <constraint firstAttribute="height" constant="21" id="IDG-kz-rpc"/>
@@ -25,7 +29,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NrE-bz-2DG">
-                            <frame key="frameInset" minX="8" minY="41" width="564" height="540"/>
+                            <rect key="frame" x="8" y="41" width="564" height="540"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="QbX-kQ-xjb">
                                 <size key="itemSize" width="50" height="50"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -34,7 +38,7 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jf9-kR-6ot">
-                            <frame key="frameInset" minX="505" width="75" height="50"/>
+                            <rect key="frame" x="505" y="0.0" width="75" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="75" id="9xg-mb-iO8"/>
                                 <constraint firstAttribute="height" constant="50" id="Rtf-vw-mcc"/>
@@ -80,6 +84,7 @@
             <connections>
                 <outlet property="collectionView" destination="NrE-bz-2DG" id="ck9-AT-lj1"/>
                 <outlet property="containerView" destination="hvm-95-46s" id="juD-oj-GqG"/>
+                <outlet property="editButton" destination="jf9-kR-6ot" id="1gw-6I-35L"/>
             </connections>
             <point key="canvasLocation" x="158" y="406"/>
         </view>

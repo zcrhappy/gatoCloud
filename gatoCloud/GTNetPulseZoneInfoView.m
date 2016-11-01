@@ -42,6 +42,11 @@
 
 - (void)setupWithModel:(GTDeviceZoneModel *)model
 {
+    if([model canEdit])
+        _editButton.hidden = NO;
+    else
+        _editButton.hidden = YES;
+    
     //根据工作模式来展示
     NSString *modeString = [model getNetPulseValue:GTNetPulseValueMode];
     GTZoneType curZoneType = [GTDeviceZoneModel zoneTypeOfStringType:modeString];
