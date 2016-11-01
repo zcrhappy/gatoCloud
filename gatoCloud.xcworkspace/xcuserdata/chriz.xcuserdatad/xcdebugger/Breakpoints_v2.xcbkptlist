@@ -251,5 +251,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gatoCloud/GTZoneNetPulseEditViewController.m"
+            timestampString = "499659153.193076"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "-clickDone"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GTZoneNetPulseEditViewController clickDone]"
+                  moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTZoneNetPulseEditViewController.m"
+                  timestampString = "499660097.35588"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "196"
+                  endingLineNumber = "196"
+                  offsetFromSymbolStart = "1456">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__45-[GTZoneNetPulseEditViewController clickDone]_block_invoke"
+                  moduleName = "&#x5e7f;&#x62d3;&#x4e91;&#x8b66;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chriz/Developer/gato/gatoCloud/gatoCloud/GTZoneNetPulseEditViewController.m"
+                  timestampString = "499660097.357358"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

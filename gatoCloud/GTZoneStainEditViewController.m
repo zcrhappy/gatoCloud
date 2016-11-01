@@ -118,7 +118,7 @@
         return;
     }
     
-    NSString *zoneStrainVpt = [NSString stringWithFormat:@"(%@,%@)",_looseValueStr,_tightValueStr];
+    NSString *zoneStrainVpt = [NSString stringWithFormat:@"%@,%@",_looseValueStr,_tightValueStr];
     
     [[GTHttpManager shareManager] GTEditZoneStrainWithZoneNo:_model.zoneNo zoneStrainVpt:zoneStrainVpt finishBlock:^(id response, NSError *error) {
         

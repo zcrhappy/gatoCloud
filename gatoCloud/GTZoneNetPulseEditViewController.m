@@ -187,6 +187,10 @@
     NSString *param1 = @([voltageArray indexOfObject:_voltageStr]).stringValue;
     NSString *param2 = @([sensitiveArray indexOfObject:_sensitiveStr]).stringValue;
     NSString *param3 = @([modeArray indexOfObject:_modeStr]).stringValue;
+    //fix - 脉冲模式，把灵敏度传0
+    if(_curZoneType == GTZoneTypePulse)
+        param2 = @"0";
+    //fix end
     NSString *param = [NSString stringWithFormat:@"%@,%@,%@",param1, param2, param3];
     
     [[GTHttpManager shareManager] GTEditZoneNetPulseWithZoneNo:_model.zoneNo zoneParam:param finishBlock:^(id response, NSError *error) {
