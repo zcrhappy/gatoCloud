@@ -27,6 +27,10 @@
 @property (nonatomic, strong) GTMainViewInfoModel *infoModel;
 @property (nonatomic, strong) GTCheckPwdManager *checkPwdManager;
 @property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *devicePanel;
+@property (weak, nonatomic) IBOutlet UIView *zonePanel;
+
 @end
 
 @implementation GTMainViewController
@@ -232,5 +236,14 @@
     GTWebViewController *webViewController = [[GTWebViewController alloc] initWithUrl:url];
     [self gt_presentViewController:webViewController animated:YES completion:nil];
 }
+
+- (IBAction)tapDevicePanel:(UITapGestureRecognizer *)sender {
+    [self clickDeviceCenter:self];
+}
+
+- (IBAction)tapZonePanel:(UITapGestureRecognizer *)sender {
+    [self clickDefenceList:self];
+}
+
 
 @end
