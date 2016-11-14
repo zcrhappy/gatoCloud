@@ -36,6 +36,7 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
 
 @property (nonatomic, strong) IBOutlet UITableView *listTable;
 @property (nonatomic, strong) NSArray *rowArray;
+@property (nonatomic, strong) UILabel *version;
 
 @end
 
@@ -68,10 +69,18 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
 //    [_listTable addGestureRecognizer:tap];
     
     //版本展示
-    UILabel *version = macroCreateLabel(CGRectMake(0 , SCREEN_HEIGHT - 64 - 30, SCREEN_WIDTH, 20), _listTable.backgroundColor, 14, [UIColor lightGrayColor]);
-    version.textAlignment = NSTextAlignmentCenter;
-    version.text = [NSString stringWithFormat:@"广拓云警 %@",[GTUserUtils version]];
-    [_listTable addSubview:version];
+    _version = macroCreateLabel(CGRectMake(0 , SCREEN_HEIGHT - 64 - 30, SCREEN_WIDTH, 20), _listTable.backgroundColor, 14, [UIColor lightGrayColor]);
+    _version.textAlignment = NSTextAlignmentCenter;
+    _version.text = [NSString stringWithFormat:@"广拓云警 %@",[GTUserUtils version]];
+    
+    if(_listTable.contentSize.height < SCREEN_HEIGHT - 64 - 30)
+        [_listTable addSubview:_version];
+    else {
+        UIView *footer = macroCreateView(CGRectMake(0, 0, SCREEN_WIDTH, 70), _listTable.backgroundColor);
+        _version.frame = CGRectMake(0, footer.height - 30, SCREEN_WIDTH, 20);
+        [footer addSubview:_version];
+        _listTable.tableFooterView = footer;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

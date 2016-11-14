@@ -30,6 +30,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *devicePanel;
 @property (weak, nonatomic) IBOutlet UIView *zonePanel;
+@property (nonatomic, assign) BOOL isFirstLoad;
 
 @end
 
@@ -43,15 +44,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangedDevice:) name:kDeviceChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangedHeadImg:) name:kHeadImgChangedNotification object:nil];
     [self.view layoutIfNeeded];
+    self.isFirstLoad = YES;
     [self configUI];
     [self checkVersion];
-    [self fetchMainViewInfo];
     [_checkPwdManager checkAllDevicePwd];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self fetchMainViewInfo];
 }
 
 - (void)dealloc
@@ -115,9 +117,12 @@
         if(error == nil) {
             _infoModel = [MTLJSONAdapter modelOfClass:GTMainViewInfoModel.class fromJSONDictionary:response error:nil];
             //headImg
-            [[GTUserUtils sharedInstance].userModel setAvatarUrlString:_infoModel.headImg completion:^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:kHeadImgChangedNotification object:nil];
-            }];
+            if(_isFirstLoad) {
+                _isFirstLoad = NO;
+                [[GTUserUtils sharedInstance].userModel setAvatarUrlString:_infoModel.headImg completion:^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kHeadImgChangedNotification object:nil];
+                }];
+            }
             //number
             _deviceCountLabel.text = _infoModel.deviceCount;
             _zoneCountLabel.text = _infoModel.zoneCount;
