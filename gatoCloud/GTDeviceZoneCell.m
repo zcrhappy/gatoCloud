@@ -79,6 +79,13 @@
         make.height.equalTo(@77.5);
     }];
     
+    UIImageView *cornerIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"GTZoneCellCornerIcon"]];
+    [upContainer addSubview:cornerIcon];
+    [cornerIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@12);
+        make.left.bottom.equalTo(@0);
+    }];
+    
     zoneNameLabel = macroCreateLabel(CGRectZero, [UIColor whiteColor], 18, [UIColor colorWithString:@"212121"]);
     [upContainer addSubview:zoneNameLabel];
     [zoneNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
