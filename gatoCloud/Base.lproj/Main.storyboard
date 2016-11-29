@@ -1415,6 +1415,7 @@
                                                 <constraint firstItem="iYf-fH-GPz" firstAttribute="trailing" secondItem="CJw-Na-HDe" secondAttribute="trailing" constant="-15" id="boG-va-yM5"/>
                                                 <constraint firstItem="iYf-fH-GPz" firstAttribute="centerY" secondItem="CJw-Na-HDe" secondAttribute="centerY" id="cNI-lb-WK5"/>
                                                 <constraint firstItem="SU5-0z-bdG" firstAttribute="centerY" secondItem="CJw-Na-HDe" secondAttribute="centerY" id="haj-mj-dt6"/>
+                                                <constraint firstItem="qQo-Oz-UDd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="znx-Le-3EN" secondAttribute="trailing" constant="10" id="ibq-Si-mTd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

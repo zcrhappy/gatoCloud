@@ -51,6 +51,7 @@
     [zoneLocationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(upContainer.mas_centerY);
         make.left.equalTo(@18);
+        make.width.lessThanOrEqualTo(@(SCREEN_WIDTH - 190));
     }];
     
     zoneNumberLabel = macroCreateLabel(CGRectZero, [UIColor whiteColor], 15, [UIColor colorWithString:@"212121"]);
