@@ -54,13 +54,14 @@
     _textField.returnKeyType = UIReturnKeyDone;
     _textField.placeholder = _placeholder;
     _textField.delegate = self;
+    _textField.clearButtonMode = UITextFieldViewModeAlways;
     [_textField becomeFirstResponder];
     [IQKeyboardManager sharedManager].toolbarDoneBarButtonItemText = @"搜索";
     [self addSubview:_textField];
     [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(icon.mas_right).offset(5);
         make.centerY.equalTo(icon);
-        make.right.equalTo(self);
+        make.right.equalTo(self).offset(-20);
     }];
 }
 
