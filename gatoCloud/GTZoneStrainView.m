@@ -33,7 +33,7 @@
 {
     self.backgroundColor = [UIColor colorWithString:kLightBackground];
     
-    _containerView.layer.borderColor = [UIColor colorWithString:kBorderColor].CGColor;
+    _containerView.layer.borderColor = [UIColor grayColor].CGColor;
     _containerView.layer.borderWidth = SINGLE_LINE_WIDTH;
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象

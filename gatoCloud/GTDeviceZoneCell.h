@@ -17,6 +17,8 @@ typedef NS_ENUM(NSInteger, kSwitchState) {
 
 - (void)clickEditWithModel:(id)model;
 
+- (void)clickUpContainerWithModel:(id)model;
+
 /*!
  *  @brief 点击防区切换
  *

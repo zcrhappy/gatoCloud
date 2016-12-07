@@ -20,6 +20,8 @@
 - (void)viewDidLoad
 {
     [self setup];
+    
+    [_nameTextField becomeFirstResponder];
 }
 
 

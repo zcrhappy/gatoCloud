@@ -78,6 +78,8 @@
         make.top.left.right.equalTo(@0);
         make.height.equalTo(@77.5);
     }];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickUpContainer)];
+    [upContainer addGestureRecognizer:tap];
     
     UIImageView *cornerIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"GTZoneCellCornerIcon"]];
     [upContainer addSubview:cornerIcon];
@@ -388,6 +390,13 @@
 {
     if(_delegate && [_delegate respondsToSelector:@selector(clickNetPulseEditWithModel:)]) {
         [_delegate performSelector:@selector(clickNetPulseEditWithModel:) withObject:_model];
+    }
+}
+
+- (void)clickUpContainer
+{
+    if(_delegate && [_delegate respondsToSelector:@selector(clickUpContainerWithModel:)]) {
+        [_delegate performSelector:@selector(clickUpContainerWithModel:) withObject:_model];
     }
 }
 

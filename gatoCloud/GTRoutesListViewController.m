@@ -244,20 +244,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(!tableView.isEditing) {
-        GTDeviceZoneCell *cell = (GTDeviceZoneCell *)[tableView cellForRowAtIndexPath:indexPath];
-        GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
-        
-        model.isExpand = !model.isExpand;
-        [cell updateWithModel:model];
-        [_routesTable reloadData];
-    }
-    else {
-        GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
-        if(!(model.canBatchDefendZone)){//model.canZoneDealWithOneKey
-            [MBProgressHUD showText:@"当前防区不可布防撤防" inView:self.view];
-        }
-    }
+//    if(!tableView.isEditing) {
+//        GTDeviceZoneCell *cell = (GTDeviceZoneCell *)[tableView cellForRowAtIndexPath:indexPath];
+//        GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
+//        
+//        model.isExpand = !model.isExpand;
+//        [cell updateWithModel:model];
+//        [_routesTable reloadData];
+//    }
+//    else {
+//        GTDeviceZoneModel *model = [self modelAtIndexPath:indexPath];
+//        if(!(model.canBatchDefendZone)){//model.canZoneDealWithOneKey
+//            [MBProgressHUD showText:@"当前防区不可布防撤防" inView:self.view];
+//        }
+//    }
 }
 
 #pragma mark - model / index
@@ -522,6 +522,19 @@
 }
 
 #pragma mark - Cell Delegate
+
+- (void)clickUpContainerWithModel:(GTDeviceZoneModel *)model
+{
+    if(!_routesTable.isEditing) {
+        model.isExpand = !model.isExpand;
+        [_routesTable reloadData];
+    }
+    else {
+        if(!(model.canBatchDefendZone)){//model.canZoneDealWithOneKey
+            [MBProgressHUD showText:@"当前防区不可布防撤防" inView:self.view];
+        }
+    }
+}
 
 - (void)switchButtonWithDic:(NSDictionary *)infoDic
 {
