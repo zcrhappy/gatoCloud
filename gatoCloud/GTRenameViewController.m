@@ -51,13 +51,14 @@
 
 - (void)clickEditDeviceNameDone:(id)sender
 {
+    NSString *name = [_nameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
-    if([_nameTextField.text isEmptyString]) {
+    if([name isEmptyString]) {
         [MBProgressHUD showText:@"设备名称不能为空" inView:self.view];
         return;
     }
     
-    [[GTHttpManager shareManager] GTDeviceEditDiviceName:_nameTextField.text  withDeviceNo:_deviceNo finishBlock:^(id response, NSError *error) {
+    [[GTHttpManager shareManager] GTDeviceEditDiviceName:name  withDeviceNo:_deviceNo finishBlock:^(id response, NSError *error) {
         if(error == nil) {
             [MBProgressHUD showText:@"修改设备名称成功" inView:[UIView gt_keyWindow]];
             [self performSegueWithIdentifier:@"BackToListSegue" sender:self];
@@ -67,15 +68,17 @@
 
 - (void)clickEditDisplayNameDone:(id)sender
 {
-    if([_nameTextField.text isEmptyString]) {
+    NSString *name = [_nameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if([name isEmptyString]) {
         [MBProgressHUD showText:@"用户昵称不能为空" inView:self.view];
         return;
     }
     
-    [[GTHttpManager shareManager] GTEditDisplayName:_nameTextField.text finishBlock:^(id response, NSError *error) {
+    [[GTHttpManager shareManager] GTEditDisplayName:name finishBlock:^(id response, NSError *error) {
         if(error == nil) {
             [MBProgressHUD showText:@"修改昵称成功" inView:[UIView gt_keyWindow]];
-            [GTUserUtils sharedInstance].userModel.displayName = _nameTextField.text;
+            [GTUserUtils sharedInstance].userModel.displayName = name;
             [[NSNotificationCenter defaultCenter] postNotificationName:kUserInfoDisplayNameDidChangedNotification object:nil];
             [self.navigationController popViewControllerAnimated:YES];
         }

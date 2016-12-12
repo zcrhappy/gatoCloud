@@ -205,12 +205,14 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
 
 - (void)clickDone
 {
-    if([_zoneName isEmptyString] || _zoneName == nil) {
+    NSString *zoneName = [_zoneName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if([zoneName isEmptyString] || zoneName == nil) {
         [MBProgressHUD showText:@"请输入防区名称" inView:self.view];
         return;
     }
     
-    _model.zoneName = _zoneName;
+    _model.zoneName = zoneName;
     _model.zonePhone = _zonePhone;
     _model.zoneContactor = _zoneContactor;
     _model.zoneLoc = _zoneLoc;
@@ -219,9 +221,9 @@ static NSString *kTwoRowIdentifier = @"kTwoRowIdentifier";
     if(_editSuccessBlock)
         _editSuccessBlock(_model);
     
-    [[GTHttpManager shareManager] GTDeviceZoneEditInfoWithZoneNo:_model.zoneNo zoneName:_zoneName zoneContactor:_zoneContactor zonePhone:_zonePhone zoneLoc:_zoneLoc zoneDesc:_zoneDesc finishBlock:^(id response, NSError *error) {
+    [[GTHttpManager shareManager] GTDeviceZoneEditInfoWithZoneNo:_model.zoneNo zoneName:zoneName zoneContactor:_zoneContactor zonePhone:_zonePhone zoneLoc:_zoneLoc zoneDesc:_zoneDesc finishBlock:^(id response, NSError *error) {
         if(!error) {
-            _model.zoneName = _zoneName;
+            _model.zoneName = zoneName;
             _model.zonePhone = _zonePhone;
             _model.zoneContactor = _zoneContactor;
             _model.zoneLoc = _zoneLoc;

@@ -1,6 +1,6 @@
 platform :ios, '7.0'
 
-target “gatoCloud”
+target 'gatoCloud' do
 	pod 'MBProgressHUD'
 	pod 'AFNetworking'
 	pod 'Masonry'
@@ -16,3 +16,4 @@ target “gatoCloud”
     pod 'LCActionSheet'
     pod 'Fabric'
     pod 'Crashlytics'
+end

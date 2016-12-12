@@ -94,6 +94,7 @@
         make.top.equalTo(@16);
         make.left.equalTo(@18);
         make.height.greaterThanOrEqualTo(@21);
+        make.width.lessThanOrEqualTo(@(SCREEN_WIDTH - 140));
     }];
     
     zoneTypeLabel = macroCreateLabel(CGRectZero, [UIColor whiteColor], 14, [UIColor colorWithString:@"b9bdc0"]);
