@@ -162,17 +162,19 @@
     return allDataArray;
 }
 
-- (NSString *)getNetPulseValue:(GTNetPulseValue)type;
+- (NSString *)getValueOfType:(GTNetPulseValue)type;
 {
+    NSInteger index = type;
     NSArray *valueArray = [self.zoneParam componentsSeparatedByString:@","];//后台返回的均从1开始，
-    if(type >= valueArray.count || valueArray == nil)
+    if(index >= valueArray.count || valueArray == nil)
         return kDefaultString;
-    NSString *value = valueArray[type];
+    
+    NSString *value = valueArray[index];
     if([value isEmptyString])
         return kDefaultString;
     NSArray *levelArray;
-    switch (type) {
-        case GTNetPulseValueVoltage:{
+    switch (index) {
+        case GTNetPulseVoltage:{
             levelArray = [GTDeviceZoneModel netPulseZoneVoltageArray];
             
             if(value.integerValue >= levelArray.count)
@@ -181,7 +183,7 @@
             NSString *level = levelArray[value.integerValue];
             return level;
         }
-        case GTNetPulseValueSensitive:
+        case GTNetPulseSensitive:
         {
             levelArray = [GTDeviceZoneModel netPulseZoneSensitiveArray];
             if(value.integerValue >= levelArray.count)
@@ -190,7 +192,7 @@
             NSString *level = levelArray[value.integerValue];
             return level;
         }
-        case GTNetPulseValueMode:
+        case GTNetPulseMode:
         {
             NSArray *modeArray = [GTDeviceZoneModel netPulseZoneModeArray];
             if(value.integerValue >= modeArray.count)

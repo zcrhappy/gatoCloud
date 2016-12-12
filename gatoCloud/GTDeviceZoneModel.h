@@ -27,9 +27,9 @@ typedef NS_ENUM(NSInteger, GTZoneType)
 
 typedef NS_ENUM(NSInteger, GTNetPulseValue)
 {
-    GTNetPulseValueVoltage = 0,//电压
-    GTNetPulseValueSensitive = 1,//灵敏度
-    GTNetPulseValueMode = 2,//工作模式
+    GTNetPulseVoltage = 0,//电压
+    GTNetPulseSensitive = 1,//灵敏度
+    GTNetPulseMode = 2,//工作模式
 };
 
 @interface GTDeviceZoneModel : MTLModel<MTLJSONSerializing>
@@ -78,7 +78,7 @@ typedef NS_ENUM(NSInteger, GTNetPulseValue)
 - (BOOL)canEdit;//管理员才可编辑
 - (BOOL)shouldSetLoadingState;//
 
-- (NSString *)getNetPulseValue:(GTNetPulseValue)type;
+- (NSString *)getValueOfType:(GTNetPulseValue)type;
 
 
 + (NSArray <GTDeviceZoneModel *>*)transformFromArray:(NSArray <GTDeviceZoneModel2 *>*)array;

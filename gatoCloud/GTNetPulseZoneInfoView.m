@@ -48,30 +48,37 @@
         _editButton.hidden = YES;
     
     //根据工作模式来展示
-    NSString *modeString = [model getNetPulseValue:GTNetPulseValueMode];
+    NSString *modeString = [model getValueOfType:GTNetPulseMode];
     GTZoneType curZoneType = [GTDeviceZoneModel zoneTypeOfStringType:modeString];
     
-    firstLabel.text = [NSString stringWithFormat:@"工作模式：%@", [model getNetPulseValue:GTNetPulseValueMode]];
+    firstLabel.text = [NSString stringWithFormat:@"工作模式：%@", modeString];
     
     if(curZoneType == GTZoneTypeNetPulse) {
-        secondLabel.text = [NSString stringWithFormat:@"电压：%@",[model getNetPulseValue:GTNetPulseValueVoltage]];
-        thirdLabel.text = [NSString stringWithFormat:@"灵敏度：%@",[model getNetPulseValue:GTNetPulseValueSensitive]];
+        secondLabel.text = [NSString stringWithFormat:@"电压：%@",[model getValueOfType:GTNetPulseVoltage]];
+        thirdLabel.text = [NSString stringWithFormat:@"灵敏度：%@",[model getValueOfType:GTNetPulseSensitive]];
         thirdLabel.hidden = NO;
         _twoLineConstaint.active = NO;
         _threeLineConstraint.active = YES;
         
     }
     else if (curZoneType == GTZoneTypeNet) {
-        thirdLabel.text = [NSString stringWithFormat:@"灵敏度：%@",[model getNetPulseValue:GTNetPulseValueSensitive]];
+        thirdLabel.text = [NSString stringWithFormat:@"灵敏度：%@",[model getValueOfType:GTNetPulseSensitive]];
         thirdLabel.hidden = YES;
         _twoLineConstaint.active = YES;
         _threeLineConstraint.active = NO;
     }
     else if (curZoneType == GTZoneTypePulse) {
-        secondLabel.text = [NSString stringWithFormat:@"电压：%@",[model getNetPulseValue:GTNetPulseValueVoltage]];
+        secondLabel.text = [NSString stringWithFormat:@"电压：%@",[model getValueOfType:GTNetPulseVoltage]];
         thirdLabel.hidden = YES;
         _twoLineConstaint.active = YES;
         _threeLineConstraint.active = NO;
+    }
+    else {
+        secondLabel.text = [NSString stringWithFormat:@"电压：%@",[model getValueOfType:GTNetPulseVoltage]];
+        thirdLabel.text = [NSString stringWithFormat:@"灵敏度：%@",[model getValueOfType:GTNetPulseSensitive]];
+        thirdLabel.hidden = NO;
+        _twoLineConstaint.active = NO;
+        _threeLineConstraint.active = YES;
     }
     
     firstLabel.preferredMaxLayoutWidth = (SCREEN_WIDTH - 20) - 16;

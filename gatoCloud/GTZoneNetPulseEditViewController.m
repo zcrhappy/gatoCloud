@@ -32,7 +32,7 @@
 {
     if(self = [super init]) {
         _model = model;
-        NSString *modeString = [model getNetPulseValue:GTNetPulseValueMode];
+        NSString *modeString = [model getValueOfType:GTNetPulseMode];
         _curZoneType = [GTDeviceZoneModel zoneTypeOfStringType:modeString];
         self.navigationItem.title = @"防区配置";
     }
@@ -43,9 +43,9 @@
     [super viewDidLoad];
     [self configUI];
     
-    _modeStr = [_model getNetPulseValue:GTNetPulseValueMode];
-    _voltageStr = [_model getNetPulseValue:GTNetPulseValueVoltage];
-    _sensitiveStr = [_model getNetPulseValue:GTNetPulseValueSensitive];
+    _modeStr = [_model getValueOfType:GTNetPulseMode];
+    _voltageStr = [_model getValueOfType:GTNetPulseVoltage];
+    _sensitiveStr = [_model getValueOfType:GTNetPulseSensitive];
     [self.editTable reloadData];
 }
 
