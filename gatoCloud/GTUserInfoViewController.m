@@ -138,9 +138,9 @@ typedef NS_ENUM(NSInteger, GTPickPhotoVia)
     
     
     if([title isEqualToString:kAvatar]) {
-        LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:nil buttonTitles:@[@"拍照",@"从手机相册选择"] redButtonIndex:-1 clicked:^(NSInteger buttonIndex) {
-            [self pickPhotoWithButtonAtIndex:buttonIndex];
-        }];
+        LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:nil cancelButtonTitle:@"取消" clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
+            [self pickPhotoWithButtonAtIndex:buttonIndex-1];
+        } otherButtonTitles:@"拍照",@"从手机相册选择", nil];
         [actionSheet show];
     }
     else if([title isEqualToString:kFeedback]) {
